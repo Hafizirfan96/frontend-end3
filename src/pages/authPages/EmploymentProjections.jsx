@@ -1,0 +1,726 @@
+import { useEffect, useState } from "react";
+import { Bar } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
+import Header from "./DashboardPages/Components/Header";
+import Footer from "./DashboardPages/Components/Footer";
+import { useNavigate } from "react-router-dom";
+import Heading from "@/components/templates/Heading/Heading";
+
+const EmploymentProjections = () => {
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    Title,
+    Tooltip,
+    Legend
+  );
+  const data = {
+    labels: ["GCT", "Vocational"], // Only GCT and Vocational streams
+    datasets: [
+      {
+        label: "Male", // Data for Male gender
+        data: [100, 50], // Data for Male count in each stream
+        backgroundColor: "rgba(54, 162, 235, 0.8)", // Color fill for Male bars
+        borderColor: "rgba(54, 162, 235, 1)", // Border color for Male bars
+        borderWidth: 1, // Border width for Male bars
+      },
+      {
+        label: "Female", // Data for Female gender
+        data: [120, 60], // Data for Female count in each stream
+        backgroundColor: "rgba(255, 99, 132, 0.8)", // Color fill for Female bars
+        borderColor: "rgba(255, 99, 132, 1)", // Border color for Female bars
+        borderWidth: 1, // Border width for Female bars
+      },
+      {
+        label: "Other", // Data for Other gender
+        data: [10, 5], // Data for Other gender count in each stream
+        backgroundColor: "rgba(75, 192, 192, 0.8)", // Color fill for Other bars
+        borderColor: "rgba(75, 192, 192, 1)", // Border color for Other bars
+        borderWidth: 1, // Border width for Other bars
+      },
+    ],
+  };
+
+  const options = {
+    responsive: true,
+    plugins: {
+      title: {
+        display: true,
+        text: "Enrollment Stream & Gender Wise Comparison (GCT and Vocational)",
+      },
+      tooltip: {
+        mode: "index",
+        intersect: false,
+      },
+    },
+    scales: {
+      x: {
+        stacked: false, // Stack the bars for each stream
+      },
+      y: {
+        stacked: false, // Stack the bars for each gender
+      },
+    },
+  };
+
+  const data1 = {
+    labels: ["Private", "Public"], // Institute Types (Private and Public)
+    datasets: [
+      {
+        label: "Male ", // Data for Male enrollment
+        data: [500, 400], // Updated Male count in Private and Public institutes
+        backgroundColor: "rgba(54, 162, 235, 0.8)", // Color fill for Male bars
+        borderColor: "rgba(54, 162, 235, 1)", // Border color for Male bars
+        borderWidth: 1, // Border width for Male bars
+      },
+      {
+        label: "Female", // Data for Female enrollment
+        data: [450, 350], // Updated Female count in Private and Public institutes
+        backgroundColor: "rgba(255, 99, 132, 0.8)", // Color fill for Female bars
+        borderColor: "rgba(255, 99, 132, 1)", // Border color for Female bars
+        borderWidth: 1, // Border width for Female bars
+      },
+    ],
+  };
+
+  const options1 = {
+    responsive: true,
+    plugins: {
+      title: {
+        display: true,
+        text: "Institute Type Wise Enrollment (Private vs Public)",
+      },
+      tooltip: {
+        mode: "index",
+        intersect: false,
+      },
+    },
+    scales: {
+      x: {
+        stacked: false, // Stack the bars for each institute type
+      },
+      y: {
+        stacked: false, // Stack the bars for each gender
+      },
+    },
+  };
+
+  const data3 = {
+    labels: ["Total"],
+    datasets: [
+      {
+        label: "Enrollments",
+        data: [1200],
+        backgroundColor: "#8884d8",
+        barThickness: 80,
+        barPercentage: 1.0, // 100% width of each bar within the category
+        categoryPercentage: 1.0, // Tight grouping, fills space
+      },
+      {
+        label: "Graduates",
+        data: [850],
+        backgroundColor: "#82ca9d",
+        barThickness: 80,
+        barPercentage: 1.0, // Same width for consistency
+        categoryPercentage: 1.0, // Tight grouping, fills space
+      },
+      {
+        label: "Trainees",
+        data: [600],
+        backgroundColor: "#ffc658",
+        barThickness: 80,
+        barPercentage: 1.0, // Same width for consistency
+        categoryPercentage: 1.0, // Tight grouping, fills space
+      },
+    ],
+  };
+
+  const options3 = {
+    indexAxis: "x",
+    responsive: true,
+    plugins: {
+      title: {
+        display: true,
+        text: "Enrollments vs Graduates vs Trainees",
+      },
+      legend: {
+        position: "top",
+      },
+    },
+    scales: {
+      x: {
+        stacked: false,
+        // Remove the `barPercentage` and `categoryPercentage` here
+      },
+      y: {
+        beginAtZero: true,
+        stacked: false,
+      },
+    },
+  };
+
+  const Distdata = {
+    labels: [
+      "Attock",
+      "Bahawalnagar",
+      "Bahawalpur",
+      "Bhakkar",
+      "Chakwal",
+      "Chiniot",
+      "Dera Ghazi Khan",
+      "Faisalabad",
+      "Gujranwala",
+      "Gujrat",
+      "Hafizabad",
+      "Jhang",
+    ],
+
+    datasets: [
+      {
+        label: "Male Enrollments",
+
+        data: [400, 300, 600, 420, 50, 500, 600, 700, 600, 450, 350, 500],
+
+        backgroundColor: "#4e73df",
+        barThickness: 15,
+        barPercentage: 1.0,
+        categoryPercentage: 0.5,
+      },
+
+      {
+        label: "Female Enrollments",
+
+        data: [332, 282, 492, 368, 263, 405, 550, 593, 507, 403, 341, 496],
+
+        backgroundColor: "#e74a3b",
+        barThickness: 15,
+        barPercentage: 1.0,
+        categoryPercentage: 0.5,
+      },
+    ],
+  };
+
+  const Distoptions = {
+    indexAxis: "y", // Horizontal bar chart
+
+    responsive: true,
+
+    plugins: {
+      datalabels: {
+        anchor: 'end',
+        align: 'end',
+        color: '#000',
+        font: {
+          weight: 'bold',
+        },
+        formatter: function (value) {
+          return value;
+        },
+      },
+      title: {
+        display: true,
+        text: "District Wise Enrollment",
+      },
+
+      legend: {
+        position: "top",
+      },
+    },
+
+    scales: {
+      x: {
+        stacked: false, // Do not stack the bars
+      },
+
+      y: {
+        beginAtZero: true, // Ensure the y-axis starts at 0
+        stacked: false, // Do not stack the bars on the y-axis
+      },
+    },
+  };
+
+  const TradesData = {
+    labels: [
+      "Machine Operator",
+      "Stitching Machine Operator",
+      "Mason",
+      "Electrician",
+      "Waiter",
+      "Welder",
+      "Nurse",
+      "Computer Operator",
+      "Plumber",
+      "Chef",
+      "Quality Assurance",
+      "Electrical Technician",
+      "Press Machine  Ope...",
+      "Polisher",
+      "Cook"
+    ],
+    datasets: [
+      {
+        label: "Total Demand",
+        data: [50501, 30203, 23313, 20047, 19243, 18624, 16338, 13908, 13425, 12300, 11681, 11006,10803,10642,10463],
+        backgroundColor: [
+          "#4e73df", "#1cc88a", "#36b9cc", "#f6c23e",
+          "#e74a3b", "#858796", "#20c9a6", "#fd7e14",
+          "#6f42c1", "#00bcd4", "#8bc34a", "#ff6384"
+        ],
+        barThickness: 30,
+        barPercentage: 1.0,
+        categoryPercentage: 0.5,
+      }
+    ],
+  };
+  
+  
+  const TradesOptions = {
+    indexAxis: "y",
+    responsive: false, // Set to false for fixed size
+    plugins: {
+      datalabels: {
+        anchor: 'end',
+        align: 'end',
+        color: '#000',
+        font: {
+          weight: 'bold',
+        },
+        formatter: function (value) {
+          return value;
+        },
+      },
+      title: {
+        display: false,
+        // text: "High Demand Trades",
+      },
+      legend: {
+        display: false, // Only one dataset
+      },
+    },
+    scales: {
+      x: {
+        beginAtZero: true,
+        stacked: false,
+      },
+      y: {
+        stacked: false,
+      },
+    },
+  };
+
+
+  const SubSectorWiseData = {
+    labels: [
+      "Manufacturing",
+      "Construction",
+      "Hospitality & Tourism",
+      "Allied Health",
+      "Textile & Garments",
+      "Services",
+      "Renewable energy",
+      "Agriculture",
+      "Automobile",
+      "Printing and Packagi...",
+      "Sports Good",
+      "Hospitality and Tour...",
+      "Mining Sector",
+      "Agriculture, forestry...",
+      "Surgical Tools"
+    ],
+    datasets: [
+      {
+        label: "Total Demand",
+        data: [260503, 122332, 95091, 80883, 65181, 51778, 46615, 42303, 17235, 15658,15218 , 10003,6302,5785,5040],
+        backgroundColor: [
+          "#4e73df", "#1cc88a", "#36b9cc", "#f6c23e",
+          "#e74a3b", "#858796", "#20c9a6", "#fd7e14",
+          "#6f42c1", "#00bcd4", "#8bc34a", "#ff6384"
+        ],
+        barThickness: 30,
+        barPercentage: 1.0,
+        categoryPercentage: 0.5,
+      }
+    ],
+  };
+  
+  
+  const SubSectorWiseOptions = {
+    indexAxis: "y",
+    responsive: false, // Set to false for fixed size
+    plugins: {
+      datalabels: {
+        anchor: 'end',
+        align: 'end',
+        color: '#000',
+        font: {
+          weight: 'bold',
+        },
+        formatter: function (value) {
+          return value;
+        },
+      },
+      title: {
+        display: false,
+        // text: "Total Demand",
+      },
+      legend: {
+        display: false, // Only one dataset
+      },
+    },
+    scales: {
+      x: {
+        beginAtZero: true,
+        stacked: false,
+      },
+      y: {
+        stacked: false,
+      },
+    },
+  };
+  
+  const Card = ({ title, description, bgColor, icon, navigateTo }) => {
+    const navigate = useNavigate();
+
+    return (
+      <div
+        onClick={() => navigate(navigateTo)}
+        className={`relative overflow-hidden ${bgColor} text-white flex items-center justify-center p-20 transform transition-transform hover:scale-105 cursor-pointer`}
+      >
+        <div className="absolute top-0 left-0 w-1/2 h-full bg-black opacity-10 transform -skew-x-12"></div>
+        <div className="absolute top-4 left-4 text-4xl opacity-30">{icon}</div>
+        <div className="relative text-center">
+          <h2 className="text-2xl font-bold mb-2">{title}</h2>
+          <p className="text-sm italic">{description}</p>
+        </div>
+      </div>
+    );
+  };
+
+  return (
+    <div>
+      <Header />
+      <div className="Browse bg-[#478e51] mb-8">
+        <div className="h-5" />
+        <div className="flex items-center pt-8">
+          <div className=" ml-16 ">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512"
+              fill="#e2e028ed"
+              width="32"
+              height="32"
+            >
+              <path d="M496 384H64V80c0-8.8-7.2-16-16-16H16C7.2 64 0 71.2 0 80v336c0 17.7 14.3 32 32 32h464c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16zM464 96H345.9c-21.4 0-32.1 25.9-17 41l32.4 32.4L288 242.8l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0l-68.7 68.7c-6.3 6.3-6.3 16.4 0 22.6l22.6 22.6c6.3 6.3 16.4 6.3 22.6 0L192 237.3l73.4 73.4c12.5 12.5 32.8 12.5 45.3 0l96-96 32.4 32.4c15.1 15.1 41 4.4 41-17V112c0-8.8-7.2-16-16-16z"></path>
+            </svg>
+          </div>
+
+          <h2 className="text-light text-[20px] text-bold ml-3 text-white ">
+            Employment Projections
+          </h2>
+          <div></div>
+        </div>
+        <div className="flex px-16 mt-4 py-8">
+          <div className="w-1/2 p-4">
+            <h3
+              className=" text-2xl text-white"
+              style={{
+                textAlign: "justify",
+                textJustify: "inter-word",
+              }}
+            >
+              Studying demand-trends is essential for forecasting areas of
+              high-employment potential for the regional and national demography
+              of potential TVET workers. Rational approaches to TVET policy
+              making and implementation are possible on the basis of crucial
+              data on demands of males and females in jobs, high-demand trades,
+              sub-sector wise job demands, etc. Data presented here also
+              provides useful information to guide inclusive interventions at
+              policy development and end-users levels, by indicating high demand
+              trades for males and females. It also helps narrow down key areas
+              of work for persons with disabilities to improve their chances of
+              inclusion in the economic
+            </h3>
+          </div>
+          <div className="w-1/2 p-4">
+            <h3
+              className="text-2xl text-white"
+              style={{
+                textAlign: "justify",
+                textJustify: "inter-word",
+              }}
+            >
+              development process and relevant policy measures by Government and
+              other employers’ ends. This page features key insights,
+              information and data drawn from employer skill surveys and
+              government repositories. TVET providers, policymakers, and
+              planners can use this forward-looking information to shape
+              curricula and training initiatives for ensuring that future
+              graduates possess needed skills required in both established
+              sectors and fast-growing industries. With data-driven guidance,
+              stakeholders can shape resilient training programmes more
+              responsive to economic and technological shifts.
+            </h3>
+          </div>
+        </div>
+      </div>
+
+      <div className="px-10">
+        <Heading title="Key facts - National" description="Source: Employer Skill Survey, Qualification Awarding Bodies -
+              2023/2024" />
+
+        <div className="flex w-full">
+          <div className=" mt-16 w-[100%]">
+            <div className=" py-10">
+              <div className="max-w-[120rem] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 px-4">
+                <div className="bg-green-50 shadow p-6 flex flex-col items-center text-center">
+                  <div className="w-36 h-36 mb-4 mt-14">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 192 512"
+                      className="w-full h-full"
+                    >
+                      <path
+                        fill="#23704b"
+                        d="M96 0c35.3 0 64 28.7 64 64s-28.7 64-64 64-64-28.7-64-64S60.7 0 96 0m48 144h-11.4c-22.7 10.4-49.6 10.9-73.3 0H48c-26.5 0-48 21.5-48 48v136c0 13.3 10.7 24 24 24h16v136c0 13.3 10.7 24 24 24h64c13.3 0 24-10.7 24-24V352h16c13.3 0 24-10.7 24-24V192c0-26.5-21.5-48-48-48z"
+                      ></path>
+                    </svg>
+                  </div>
+
+                  <h3 className="text-[18px] text-black  font-bold mb-2">
+                    Male Demand
+                  </h3>
+
+                  <div className="pt-52 mb-16">
+                    <p className="text-green-700 text-[36px] font-bold">
+                      708,470
+                    </p>
+                  </div>
+                </div>
+
+                <div className="bg-white shadow p-6 flex flex-col items-center text-center">
+                  <div className="w-36 h-36 mb-4 mt-14">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 193 512"
+                      className="w-full h-full"
+                    >
+                      <path
+                        fill="#23704b"
+                        d="M128 0c35.3 0 64 28.7 64 64s-28.7 64-64 64c-35.3 0-64-28.7-64-64S92.7 0 128 0m119.3 354.2l-48-192A24 24 0 0 0 176 144h-11.4c-22.7 10.4-49.6 10.9-73.3 0H80a24 24 0 0 0 -23.3 18.2l-48 192C4.9 369.3 16.4 384 32 384h56v104c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24V384h56c15.6 0 27.1-14.7 23.3-29.8z"
+                      ></path>
+                    </svg>
+                  </div>
+
+                  <h3 className="text-[18px] text-black  font-bold mb-2">
+                    Female Demand
+                  </h3>
+                  <div className="pt-52">
+                    <p className="text-green-700 text-[36px] font-bold">160,245</p>
+                  </div>
+                </div>
+               
+
+                <div className="bg-green-50 shadow p-6 flex flex-col items-center text-center">
+                  <div className="w-36 h-36 mb-4 mt-5">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 512 512"
+                      fill="#267d37de"
+                    >
+                      <path d="M320 336c0 8.8-7.2 16-16 16h-96c-8.8 0-16-7.2-16-16v-48H0v144c0 25.6 22.4 48 48 48h416c25.6 0 48-22.4 48-48V288H320v48zm144-208h-80V80c0-25.6-22.4-48-48-48H176c-25.6 0-48 22.4-48 48v48H48c-25.6 0-48 22.4-48 48v80h512v-80c0-25.6-22.4-48-48-48zm-144 0H192V96h128v32z"></path>
+                    </svg>
+                  </div>
+                  <h3 className="text-[18px] text-black  font-bold ">
+                    Total Demand
+                  </h3>
+                  <h3 className="text-[16px] text-black   mb-2">
+                  Projection for 2025-2026
+
+
+                  </h3>
+                  <div className="pt-52">
+                    <p className="text-green-700 text-[36px] font-bold">
+                   878,715
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              
+              <Heading title="High Demand Trades"  />
+        <div className="bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)] mr-4 mt-16">
+      <Bar data={TradesData} options={TradesOptions}  width={1024}
+  height={750}  />
+  </div>
+
+  <Heading title="Sub-sector Wise Total Demand"  />
+
+              <div className="bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)] mr-4 mt-16">
+              <Bar data={SubSectorWiseData} options={SubSectorWiseOptions}  width={1024}  height={750} />
+              </div>
+              {/* <blockquote className="border-l-4 pl-4 border-[#e2e028ed] mt-16">
+                <h2 className="text-[28px] text-[#267d37de] font-bold ">
+                  Institute Type Wise Enrollment
+                </h2>
+              </blockquote> */}
+
+              {/* <div className="bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)] mr-4 mt-16">
+                <Bar data={data1} options={options1} />
+              </div> */}
+
+              {/* <blockquote className="border-l-4 pl-4 border-[#e2e028ed] mt-16">
+                <h2 className="text-[28px] text-[#267d37de] font-bold ">
+                  District Wise Enrollment
+                </h2>
+              </blockquote> */}
+
+              {/* <div className=" bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)] mr-4 mt-16">
+                <Bar data={Distdata} options={Distoptions} width={1024}
+  height={750}
+   />
+              </div> */}
+            </div>
+          </div>
+
+          <div className=" grid-cols-1  p-8 mt-16 ">
+            {/* <div class=" bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)] mr-4 ">
+              <div class="text-3xl font-bold">Filters</div>
+
+              <div className="mt-6">
+                <label class="block text-2xl font-semibold text-gray-700 mb-1 ">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  placeholder="Search by name"
+                  class="form-control w-full h-[32px] p-2 border border-gray-300 rounded text-[14px] placeholder:text-[14px]"
+                />
+              </div>
+
+              <div>
+                <label class="block text-2xl font-semibold text-gray-700 mb-1 mt-8">
+                  Ownership
+                </label>
+                <select class=" bg-white focus:outline-none mt-2 focus:ring-2 focus:ring-blue-400 form-control w-full h-[32px] p-2 border border-gray-300 rounded text-[14px] placeholder:text-[14px]">
+                  <option>Select Ownership</option>
+                  <option>Private</option>
+                  <option>Public</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-2xl font-semibold text-gray-700 mb-1 mt-8">
+                  Institute Type
+                </label>
+                <select class=" bg-white focus:outline-none mt-2 focus:ring-2 focus:ring-blue-400 form-control w-full h-[32px] p-2 border border-gray-300 rounded text-[14px] placeholder:text-[14px]">
+                  <option>Select Institute Type</option>
+                  <option>University</option>
+                  <option>College</option>
+                  <option>School</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-2xl font-semibold text-gray-700 mb-1 mt-8">
+                  Provinces
+                </label>
+                <select class=" bg-white focus:outline-none mt-2 focus:ring-2 focus:ring-blue-400 form-control w-full h-[32px] p-2 border border-gray-300 rounded text-[14px] placeholder:text-[14px]">
+                  <option>Punjab</option>
+                  <option>Sindh</option>
+                  <option>LPK</option>
+                  <option>Balochistan</option>
+                </select>
+              </div>
+              <div className="form-group mt-10 justify-center align-middle flex">
+                <input
+                  className="  btn w-[80%] bg-[#478e51] text-white px-4 py-2 rounded hover:bg-[#36713f] transition text-[16px]"
+                  type="submit"
+                  value="Search"
+                />
+              </div>
+            </div> */}
+
+            <div className="mt-28">
+              {[
+                {
+                  title: "TVET Supply",
+                  description:
+                    "Explore insights on enrollments, gender, providers, and courses.",
+                  bgColor: "bg-teal-600",
+                  icon: "📈",
+                  navigateTo: "/tvet-supply",
+                },
+                {
+                  title: "Employment Projections",
+                  description:
+                    "Explore skilled workforce projections region, sector and district wise.",
+                  bgColor: "bg-purple-600",
+                  icon: "📊",
+                  navigateTo: "/employment-projections",
+                },
+                {
+                  title: "District Map",
+                  description:
+                    "Explore district level insights about TVET supply and demand indicators.",
+                  bgColor: "bg-indigo-700",
+                  icon: "🗺️",
+                  // navigateTo: "/district-map",
+                },
+                {
+                  title: "TVET Providers",
+                  description:
+                    "Explore information on TVET institutes, companies offering training and programmes.",
+                  bgColor: "bg-slate-800",
+                  icon: "🏫",
+                  navigateTo: "/institutes",
+                },
+                {
+                  title: "Growth Sector",
+                  description:
+                    "Explore insights on growth sectors for employment and skill development.",
+                  bgColor: "bg-blue-600",
+                  icon: "📚",
+                  // navigateTo: "/growth-sector",
+                },
+                {
+                  title: "Employment Trends",
+                  description:
+                    "Find trending employment opportunities in local and international job markets.",
+                  bgColor: "bg-gray-700",
+                  icon: "💼",
+                  // navigateTo: "/employment-trends",
+                },
+              ].map((card, index) => (
+                <Card
+                  key={index}
+                  title={card.title}
+                  description={card.description}
+                  bgColor={card.bgColor}
+                  icon={card.icon}
+                  navigateTo={card.navigateTo}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+      <Footer />
+    </div>
+  );
+};
+
+export default EmploymentProjections;

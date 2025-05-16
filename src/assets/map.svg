@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+  <g>
+    <path d="M100,100 L300,100 L300,300 L100,300 Z" fill="#ccc" stroke="#000" stroke-width="2" data-name="Region1"/>
+    <path d="M400,100 L600,100 L600,300 L400,300 Z" fill="#ccc" stroke="#000" stroke-width="2" data-name="Region2"/>
+    <path d="M250,400 L450,400 L450,600 L250,600 Z" fill="#ccc" stroke="#000" stroke-width="2" data-name="Region3"/>
+  </g>
+</svg>

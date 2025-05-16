@@ -1,0 +1,69 @@
+@tailwind base;
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--secondary) var(--primary);
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--primary);
+  border-radius: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--secondary);
+  border-radius: 14px;
+  /* border: 1px solid var(--primary); */
+}
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  @apply bg-white;
+}
+
+@layer components {
+  .h-text {
+    @apply !text-cs-gray dark:!text-cs-light-gray;
+  }
+  .n-text {
+    @apply !text-cs-black dark:!text-cs-white;
+  }
+  .l-text {
+    @apply !text-cs-light dark:!text-cs-light-gray;
+  }
+
+  .p-text {
+    @apply !text-cs-primary-text;
+  }
+  .p-text-p {
+    @apply !text-cs-primary;
+  }
+
+  .l-bg {
+    @apply !bg-gray-100 dark:!bg-cs-black !text-cs-black dark:!text-cs-white;
+  }
+  .f-bg {
+    @apply !bg-cs-white dark:!bg-cs-black !text-cs-black dark:!text-cs-white;
+  }
+  .f-bg-80 {
+    @apply !bg-cs-white/70 dark:!bg-cs-black/70 !text-cs-black dark:!text-cs-white;
+  }
+  .b-bg {
+    @apply !bg-cs-light-gray dark:!bg-cs-gray !text-cs-black dark:!text-cs-white;
+  }
+  .p-bg {
+    @apply bg-cs-primary text-cs-black;
+  }
+
+  .f-bg-inverce {
+    @apply dark:!bg-cs-white !bg-cs-black dark:!text-cs-black !text-cs-white;
+  }
+}
