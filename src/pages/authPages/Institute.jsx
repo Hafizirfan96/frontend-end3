@@ -17,9 +17,9 @@ import ChartDataLabels from "chartjs-plugin-datalabels";
 const Institutes = () => {
   const navigate = useNavigate();
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
+  // }, []);
 
   ChartJS.register(
     CategoryScale,
@@ -30,8 +30,7 @@ const Institutes = () => {
     Legend,
     ChartDataLabels
   );
-
-  const labels = [
+  const Enrollmentlabels = [
     "Enrollment",
     "Graduates",
     "Assessment",
@@ -40,6 +39,151 @@ const Institutes = () => {
     "Enrollment",
     "Graduates",
     "Assessment",
+    "Certified",
+  ];
+  const Enrollmentdata = {
+    Enrollmentlabels,
+    datasets: [
+      {
+        label: "Male",
+        data: [700, 600, 450, 300, null, 900, 650, 600, 550],
+        backgroundColor: "rgba(56, 142, 60, 0.85)",
+        stack: "stack1",
+        barThickness: 40,
+      },
+      {
+        label: "Female",
+        data: [700, 600, 550, 500, null, 800, 650, 600, 550],
+        backgroundColor: "rgba(230, 81, 0, 0.85)",
+        stack: "stack1",
+        barThickness: 40,
+      },
+    ],
+  };
+
+  const EnrollmenttotalLabelPlugin = {
+    id: "EnrollmenttotalLabelPlugin",
+    afterDatasetsDraw(chart) {
+      const {
+        ctx,
+        chartArea: { top },
+        scales: { x, y },
+      } = chart;
+
+      const labelIndices = chart.data.labels
+        .map((label, i) => i)
+        .filter((i) => chart.data.labels[i]);
+
+      labelIndices.forEach((i) => {
+        const male = chart.data.datasets[0].data[i];
+        const female = chart.data.datasets[1].data[i];
+
+        if (male == null && female == null) return; // skip if both null
+
+        const total = (male || 0) + (female || 0);
+        const xPosition = x.getPixelForValue(i);
+        const yPosition = y.getPixelForValue(total);
+
+        ctx.save();
+        ctx.font = "bold 12px sans-serif";
+        ctx.fillStyle = "#000";
+        ctx.textAlign = "center";
+        ctx.fillText(total, xPosition, yPosition - 10);
+        ctx.restore();
+      });
+    },
+  };
+
+  const Enrollmentoptions = {
+    responsive: true,
+    plugins: {
+      datalabels: {
+        anchor: "center",
+        align: "center",
+        color: "#fff",
+        font: {
+          weight: "bold",
+        },
+        display: function (context) {
+          return context.dataset.data[context.dataIndex] != null;
+        },
+        formatter: function (value) {
+          return value;
+        },
+      },
+
+      EnrollmenttotalLabelPlugin,
+      legend: {
+        position: "top",
+      },
+      title: {
+        display: false,
+      },
+      tooltip: {
+        mode: "index",
+        intersect: false,
+      },
+    },
+    scales: {
+      x: {
+        stacked: true,
+        ticks: {
+          callback: function (value, index) {
+            return labels[index];
+          },
+          maxRotation: 0,
+          minRotation: 0,
+          autoSkip: false,
+          padding: 10,
+        },
+      },
+      y: {
+        stacked: true,
+        beginAtZero: true,
+        ticks: {
+          precision: 0,
+        },
+      },
+    },
+    layout: {
+      padding: {
+        bottom: 30,
+      },
+    },
+  };
+
+  const EnrollmentgroupLabelPlugin = {
+    id: "groupLabelsOption",
+    afterDraw: (chart) => {
+      const {
+        ctx,
+        chartArea: { bottom },
+        scales: { x },
+      } = chart;
+
+      const yOffset = 65;
+      const midTechnical = (x.getPixelForValue(0) + x.getPixelForValue(3)) / 2;
+      const midVocational = (x.getPixelForValue(4) + x.getPixelForValue(7)) / 2;
+
+      ctx.save();
+      ctx.font = "bold 14px Arial";
+      ctx.fillStyle = "#000";
+      ctx.textAlign = "center";
+      ctx.fillText("Technical", midTechnical, bottom + yOffset);
+      ctx.fillText("Vocational", midVocational, bottom + yOffset);
+      ctx.restore();
+    },
+  };
+
+  const labels = [
+    "Enrolled",
+    "Graduated",
+    "Assessed",
+    "Certified",
+    "",
+    "Enrolled",
+    "Graduated",
+    "Assessed",
     "Certified",
   ];
   const dataGratudes = {
@@ -116,6 +260,10 @@ const Institutes = () => {
       totalLabelPlugin,
       legend: {
         position: "top",
+        weight: "bold",
+        font: {
+          weight: "bold",
+        },
       },
       title: {
         display: false,
@@ -127,7 +275,7 @@ const Institutes = () => {
     },
     scales: {
       x: {
-        stacked: true, 
+        stacked: true,
         ticks: {
           callback: function (value, index) {
             return labels[index];
@@ -139,7 +287,7 @@ const Institutes = () => {
         },
       },
       y: {
-        stacked: true, 
+        stacked: true,
         beginAtZero: true,
         ticks: {
           precision: 0,
@@ -235,30 +383,41 @@ const Institutes = () => {
     },
   };
 
-  const data1 = {
-    labels: ["Private", "Public"], // Institute Types (Private and Public)
-    datasets: [
-      {
-        label: "Male ",
-        data: [80551, 117598],
-        backgroundColor: "rgba(204, 70, 41, 0.85)", // Color fill for Male bars
-        borderColor: "rgba(204, 70, 41, 0.85)", // Border color for Male bars
-        borderWidth: 1,
-        barThickness: 60,
-      },
-      {
-        label: "Female",
-        data: [206389, 125133],
-        backgroundColor: "rgba(41, 128, 204, 0.85)", // Color fill for Female bars
-        borderColor: "rgba(41, 128, 204, 0.85)",
-        borderWidth: 1,
-        barThickness: 60,
-      },
-    ],
-  };
+ const data1 = {
+  labels: ["Lahore", "Multan", "Faisalabad", "Gujranwala", "Jung", "Khanewal"],
+
+  datasets: [
+    {
+      label: "Male",
+      data: [80551, 60000, 55000, 47000, 30000, 28000], // 6 values for 6 cities
+      backgroundColor: "rgba(204, 70, 41, 0.85)",
+      borderColor: "rgba(204, 70, 41, 0.85)",
+      borderWidth: 1,
+      barThickness: 30,
+    },
+    {
+      label: "Female",
+      data: [206389, 150000, 140000, 125000, 110000, 100000], // 6 values
+      backgroundColor: "rgba(41, 128, 204, 0.85)",
+      borderColor: "rgba(41, 128, 204, 0.85)",
+      borderWidth: 1,
+      barThickness: 30,
+    },
+    {
+      label: "Co-Edu",
+      data: [20389, 18000, 16000, 14000, 12000, 11000], // 6 values
+      backgroundColor: "rgba(30, 154, 78, 0.85)",
+      borderColor: "rgba(30, 154, 78, 0.85)",
+      borderWidth: 1,
+      barThickness: 30,
+    },
+  ],
+};
+
 
   const options1 = {
     responsive: true,
+      indexAxis: "y",
     plugins: {
       datalabels: {
         anchor: "end",
@@ -291,14 +450,15 @@ const Institutes = () => {
     labels: [
       "Punjab Board of Technical Education",
       "Punjab Trade Testing Board",
-      "National Vocational & Technical Training...",
+      "Punjab Skills Development Fund",
       "Punjab Vocational Training Council",
+      "Punjab Skills Development Authority"
     ],
 
     datasets: [
       {
         label: "",
-        data: [1221, 1093, 526, 429],
+        data: [1221, 1093, 526, 429,803],
         barThickness: 60,
 
         backgroundColor: [
@@ -306,12 +466,14 @@ const Institutes = () => {
           "rgba(30, 83, 154, 0.85)",
           "rgba(30, 154, 78, 0.85)",
           "rgba(154, 117, 30, 0.85)",
+          "rgba(154, 107, 40, 0.35)"
         ],
         borderColor: [
           "rgba(154, 30, 30, 1)",
           "rgba(30, 83, 154, 1)",
           "rgba(30, 154, 78, 1)",
           "rgba(154, 117, 30, 1)",
+          "rgba(154, 107, 40, 0.35"
         ],
         borderWidth: 1,
       },
@@ -431,7 +593,7 @@ const Institutes = () => {
         <blockquote className="border-l-4 pl-4 border-[#e2e028ed] mt-16">
           <div className=" flex">
             <h2 className="text-[28px] text-[#267d37de] font-bold ">
-              Key facts - National{" "}
+              Key facts -{" "}
             </h2>
             <h2 className="text-[25px] text-[#267d37de] ml-4">
               (Source: Employer Skill Survey, Qualification Awarding Bodies -
@@ -543,7 +705,7 @@ const Institutes = () => {
 
               <div className="overflow-x-auto mt-16 bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)] mr-4">
                 <div className="text-right mb-8">
-                  <h3 className="text-3xl font-semibold">Total Institutes</h3>
+                  <h3 className="text-3xl font-semibold">Total: 48394</h3>
                 </div>
 
                 <table className="min-w-full bg-white border border-gray-200">
@@ -692,7 +854,7 @@ const Institutes = () => {
                     </tr>
                   </tbody>
                 </table>
-                <div className="flex items-center justify-between mt-8">
+                {/* <div className="flex items-center justify-between mt-8">
                   <div className="text-gray-600 text-lg">
                     Showing 1 to 10 of 10 entries
                   </div>
@@ -707,20 +869,29 @@ const Institutes = () => {
                       Next
                     </button>
                   </div>
-                </div>
+                </div> */}
               </div>
-              <blockquote className="border-l-4 pl-4 border-[#e2e028ed] mt-16">
+              {/* <blockquote className="border-l-4 pl-4 border-[#e2e028ed] mt-16">
                 <h2 className="text-[28px] text-[#267d37de] font-bold ">
-                  Enrollments
+                  Enrollment and Assessment (Training wise)
                 </h2>
               </blockquote>
-
               <div className="bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)] mr-4 mt-16">
+                <Bar
+                  data={Enrollmentdata}
+                  options={Enrollmentoptions}
+                  plugins={[
+                    EnrollmentgroupLabelPlugin,
+                    EnrollmenttotalLabelPlugin,
+                  ]}
+                />
+              </div> */}
+              {/* <div className="bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)] mr-4 mt-16">
                 <Bar data={data} options={options} />
-              </div>
-              <blockquote className="border-l-4 pl-4 border-[#e2e028ed] mt-16">
+              </div> */}
+              {/* <blockquote className="border-l-4 pl-4 border-[#e2e028ed] mt-16">
                 <h2 className="text-[28px] text-[#267d37de] font-bold ">
-                  Graduates
+                  Enrollment and Assessment (Ownership Wise)
                 </h2>
               </blockquote>
 
@@ -730,8 +901,8 @@ const Institutes = () => {
                   options={optionsGratudes}
                   plugins={[groupLabelPlugin, totalLabelPlugin]}
                 />
-              </div>
-              <blockquote className="border-l-4 pl-4 border-[#e2e028ed] mt-16">
+              </div> */}
+              {/* <blockquote className="border-l-4 pl-4 border-[#e2e028ed] mt-16">
                 <h2 className="text-[28px] text-[#267d37de] font-bold ">
                   Institute City Wise Enrollment
                 </h2>
@@ -739,7 +910,16 @@ const Institutes = () => {
 
               <div className="bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)] mr-4 mt-16">
                 <Bar data={data1} options={options1} />
-              </div>
+              </div> */}
+              <blockquote className="border-l-4 pl-4 border-[#e2e028ed] mt-16">
+                <h2 className="text-[28px] text-[#267d37de] font-bold ">
+                  Institute City Wise
+                </h2>
+              </blockquote>
+
+              <div className="bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)] mr-4 mt-16">
+                <Bar data={data1} options={options1} width={1024} height={750} />
+              </div> 
               <blockquote className="border-l-4 pl-4 border-[#e2e028ed] mt-16">
                 <h2 className="text-[28px] text-[#267d37de] font-bold ">
                   Institute TVET Bodies
@@ -786,17 +966,6 @@ const Institutes = () => {
                   <option>Select Institute Type</option>
                   <option>Technical</option>
                   <option>Vocational </option>
-                </select>
-              </div>
-              <div>
-                <label class="block text-2xl font-semibold text-gray-700 mb-1 mt-8">
-                  Trade
-                </label>
-                <select class=" bg-white focus:outline-none mt-2 focus:ring-2 focus:ring-blue-400 form-control w-full h-[32px] p-2 border border-gray-300 rounded text-[14px] placeholder:text-[14px]">
-                  <option>Select Trade</option>
-                  <option>Nurse</option>
-                  <option>Plumber</option>
-                  <option>Electrion</option>
                 </select>
               </div>
 

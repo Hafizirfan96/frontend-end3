@@ -13,13 +13,14 @@ import Header from "./DashboardPages/Components/Header";
 import Footer from "./DashboardPages/Components/Footer";
 import { useNavigate } from "react-router-dom";
 import ChartDataLabels from "chartjs-plugin-datalabels";
-
 import Heading from "@/components/templates/Heading/Heading";
 
+
+
 const TVETSupply = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
+  // }, []);
 
   ChartJS.register(
     CategoryScale,
@@ -35,15 +36,13 @@ const TVETSupply = () => {
     datasets: [
       {
         label: "", // Data for Male gender
-        data: [205156,73912], // Data for Male count in each stream
+        data: [205156, 73912], // Data for Male count in each stream
         // backgroundColor: "rgba(54, 162, 235, 0.8)", // Color fill for Male bars
-        backgroundColor: ["#ffc658","#8884d8"], // Color fill for Male bars
-        borderColor:["#ffc658","#8884d8"], // Border color for Male bars
+        backgroundColor: ["#ffc658", "#8884d8"], // Color fill for Male bars
+        borderColor: ["#ffc658", "#8884d8"], // Border color for Male bars
         borderWidth: 1, // Border width for Male bars
         barThickness: 50,
       },
-     
-     
     ],
   };
 
@@ -51,11 +50,11 @@ const TVETSupply = () => {
     responsive: true,
     plugins: {
       datalabels: {
-        anchor: 'end',
-        align: 'end',
-        color: '#000',
+        anchor: "end",
+        align: "end",
+        color: "#000",
         font: {
-          weight: 'bold',
+          weight: "bold",
         },
         formatter: function (value) {
           return value;
@@ -158,11 +157,11 @@ const TVETSupply = () => {
     responsive: true,
     plugins: {
       datalabels: {
-        anchor: 'end',
-        align: 'end',
-        color: '#000',
+        anchor: "end",
+        align: "end",
+        color: "#000",
         font: {
-          weight: 'bold',
+          weight: "bold",
         },
         formatter: function (value) {
           return value;
@@ -252,6 +251,300 @@ const TVETSupply = () => {
       },
     },
   };
+  const labels = [
+    "Enrolled",
+    "Graduated",
+    "Assessed",
+    "Certified",
+    "",
+    "Enrolled",
+    "Graduated",
+    "Assessed",
+    "Certified",
+  ];
+const labelsOwner = [
+  "Enrolled",
+  "Graduated",
+  "Assessed",
+  "Certified",
+  "", // Spacer
+  "Enrolled",
+  "Graduated",
+  "Assessed",
+  "Certified",
+];
+  const dataGratudes = {
+    labels,
+    datasets: [
+      {
+        label: "Male",
+        data: [800, 600, 550, 500, null, 900, 650, 600, 550],
+        backgroundColor: "rgba(56, 142, 60, 0.85)",
+        stack: "stack1",
+        barThickness: 40,
+      },
+      {
+        label: "Female",
+        data: [700, 600, 550, 500, null, 800, 650, 600, 550],
+        backgroundColor: "rgba(230, 81, 0, 0.85)",
+        stack: "stack1",
+        barThickness: 40,
+      },
+    ],
+  };
+  const dataOwner = {
+  labels: labelsOwner,
+  datasets: [
+   {
+      label: "Male",
+      data: [750, 580, 520, 490, null, 880, 640, 590, 530],
+      backgroundColor: "#8884d8",
+      stack: "stack1",
+      barThickness: 40,
+    },
+    {
+      label: "Female",
+      data: [680, 620, 500, 470, null, 320, 670, 610, 540],
+      backgroundColor: "#82ca9d",
+      stack: "stack1",
+      barThickness: 40,
+    },
+  ],
+};
+
+  const totalLabelPlugin = {
+    id: "totalLabelPlugin",
+    afterDatasetsDraw(chart) {
+      const {
+        ctx,
+        chartArea: { top },
+        scales: { x, y },
+      } = chart;
+
+      const labelIndices = chart.data.labels
+        .map((label, i) => i)
+        .filter((i) => chart.data.labels[i]);
+
+      labelIndices.forEach((i) => {
+        const male = chart.data.datasets[0].data[i];
+        const female = chart.data.datasets[1].data[i];
+
+        if (male == null && female == null) return; // skip if both null
+
+        const total = (male || 0) + (female || 0);
+        const xPosition = x.getPixelForValue(i);
+        const yPosition = y.getPixelForValue(total);
+
+        ctx.save();
+        ctx.font = "bold 12px sans-serif";
+        ctx.fillStyle = "#000";
+        ctx.textAlign = "center";
+        ctx.fillText(total, xPosition, yPosition - 10);
+        ctx.restore();
+      });
+    },
+  };
+ const totalLabelPluginOwner = {
+  id: "totalLabelPluginOwner",
+  afterDatasetsDraw(chart) {
+    const {
+      ctx,
+      chartArea: { top },
+      scales: { x, y },
+    } = chart;
+
+    const labelIndices = chart.data.labels
+      .map((label, i) => i)
+      .filter((i) => chart.data.labels[i]); // Skip empty labels
+
+    labelIndices.forEach((i) => {
+      const male = chart.data.datasets[0].data[i];
+      const female = chart.data.datasets[1].data[i];
+
+      if (male == null && female == null) return;
+
+      const total = (male || 0) + (female || 0);
+      const xPosition = x.getPixelForValue(i);
+      const yPosition = y.getPixelForValue(total);
+
+      ctx.save();
+      ctx.font = "bold 12px sans-serif";
+      ctx.fillStyle = "#000";
+      ctx.textAlign = "center";
+      ctx.fillText(total, xPosition, yPosition - 10);
+      ctx.restore();
+    });
+  },
+};
+
+
+  const optionsGratudes = {
+    responsive: true,
+    plugins: {
+      datalabels: {
+        anchor: "center",
+        align: "center",
+        color: "#fff",
+        font: {
+          weight: "bold",
+        },
+        display: function (context) {
+          return context.dataset.data[context.dataIndex] != null;
+        },
+        formatter: function (value) {
+          return value;
+        },
+      },
+
+      totalLabelPlugin,
+      legend: {
+        position: "top",
+        weight: "bold",
+        font: {
+          weight: "bold",
+        },
+      },
+      title: {
+        display: false,
+      },
+      tooltip: {
+        mode: "index",
+        intersect: false,
+      },
+    },
+    scales: {
+      x: {
+        stacked: true,
+        ticks: {
+          callback: function (value, index) {
+            return labels[index];
+          },
+          maxRotation: 0,
+          minRotation: 0,
+          autoSkip: false,
+          padding: 10,
+        },
+      },
+      y: {
+        stacked: true,
+        beginAtZero: true,
+        ticks: {
+          precision: 0,
+        },
+      },
+    },
+    layout: {
+      padding: {
+        bottom: 30,
+      },
+    },
+  };
+
+  const optionsOwner = {
+    responsive: true,
+    plugins: {
+      datalabels: {
+        anchor: "center",
+        align: "center",
+        color: "#fff",
+        font: {
+          weight: "bold",
+        },
+        display: function (context) {
+          return context.dataset.data[context.dataIndex] != null;
+        },
+        formatter: function (value) {
+          return value;
+        },
+      },
+
+      totalLabelPluginOwner,
+      legend: {
+        position: "top",
+        weight: "bold",
+        font: {
+          weight: "bold",
+        },
+      },
+      title: {
+        display: false,
+      },
+      tooltip: {
+        mode: "index",
+        intersect: false,
+      },
+    },
+    scales: {
+      x: {
+        stacked: true,
+        ticks: {
+          callback: function (value, index) {
+            return labels[index];
+          },
+          maxRotation: 0,
+          minRotation: 0,
+          autoSkip: false,
+          padding: 10,
+        },
+      },
+      y: {
+        stacked: true,
+        beginAtZero: true,
+        ticks: {
+          precision: 0,
+        },
+      },
+    },
+    layout: {
+      padding: {
+        bottom: 30,
+      },
+    },
+  };
+  const groupLabelPlugin = {
+    id: "groupLabels",
+    afterDraw: (chart) => {
+      const {
+        ctx,
+        chartArea: { bottom },
+        scales: { x },
+      } = chart;
+
+      const yOffset = 65;
+      const midTechnical = (x.getPixelForValue(0) + x.getPixelForValue(3)) / 2;
+      const midVocational = (x.getPixelForValue(4) + x.getPixelForValue(7)) / 2;
+
+      ctx.save();
+      ctx.font = "bold 14px Arial";
+      ctx.fillStyle = "#000";
+      ctx.textAlign = "center";
+      ctx.fillText("Public", midTechnical, bottom + yOffset);
+      ctx.fillText("Private", midVocational, bottom + yOffset);
+      ctx.restore();
+    },
+  };
+const groupLabelPluginOwner = {
+  id: "groupLabelsOwner",
+  afterDraw: (chart) => {
+    const {
+      ctx,
+      chartArea: { bottom },
+      scales: { x },
+    } = chart;
+
+    const yOffset = 65;
+    const midPublic = (x.getPixelForValue(0) + x.getPixelForValue(3)) / 2;
+    const midPrivate = (x.getPixelForValue(5) + x.getPixelForValue(8)) / 2;
+
+    ctx.save();
+    ctx.font = "bold 14px Arial";
+    ctx.fillStyle = "#000";
+    ctx.textAlign = "center";
+    ctx.fillText("Technical", midPublic, bottom + yOffset);
+    ctx.fillText("Vocational", midPrivate, bottom + yOffset);
+    ctx.restore();
+  },
+};
 
   const Card = ({ title, description, bgColor, icon, navigateTo }) => {
     const navigate = useNavigate();
@@ -318,11 +611,11 @@ const TVETSupply = () => {
     responsive: false, // Set to false for fixed size
     plugins: {
       datalabels: {
-        anchor: 'end',
-        align: 'end',
-        color: '#000',
+        anchor: "end",
+        align: "end",
+        color: "#000",
         font: {
-          weight: 'bold',
+          weight: "bold",
         },
         formatter: function (value) {
           return value;
@@ -346,7 +639,99 @@ const TVETSupply = () => {
       },
     },
   };
+  const totelMale = (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 640 512"
+      className="w-full h-full"
+    >
+      <path
+        fill="#23704b"
+        d="M96 0c35.3 0 64 28.7 64 64s-28.7 64-64 64-64-28.7-64-64S60.7 0 96 0m48 144h-11.4c-22.7 10.4-49.6 10.9-73.3 0H48c-26.5 0-48 21.5-48 48v136c0 13.3 10.7 24 24 24h16v136c0 13.3 10.7 24 24 24h64c13.3 0 24-10.7 24-24V352h16c13.3 0 24-10.7 24-24V192c0-26.5-21.5-48-48-48z"
+      ></path>
+    </svg>
+  );
+  const totelFemale = (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 640 512"
+      className="w-full h-full"
+    >
+      <path
+        fill="#23704b"
+        d="M128 0c35.3 0 64 28.7 64 64s-28.7 64-64 64c-35.3 0-64-28.7-64-64S92.7 0 128 0m119.3 354.2l-48-192A24 24 0 0 0 176 144h-11.4c-22.7 10.4-49.6 10.9-73.3 0H80a24 24 0 0 0 -23.3 18.2l-48 192C4.9 369.3 16.4 384 32 384h56v104c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24V384h56c15.6 0 27.1-14.7 23.3-29.8z"
+      ></path>
+    </svg>
+  );
+  const totel = (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 512 512"
+      fill="#267d37de"
+    >
+      <path d="M320 336c0 8.8-7.2 16-16 16h-96c-8.8 0-16-7.2-16-16v-48H0v144c0 25.6 22.4 48 48 48h416c25.6 0 48-22.4 48-48V288H320v48zm144-208h-80V80c0-25.6-22.4-48-48-48H176c-25.6 0-48 22.4-48 48v48H48c-25.6 0-48 22.4-48 48v80h512v-80c0-25.6-22.4-48-48-48zm-144 0H192V96h128v32z"></path>
+    </svg>
+  );
+ const provancedata = {
+    labels: [
+      "Punjab Board of Technical Education",
+      "Punjab Trade Testing Board",
+      "Punjab Skills Development Fund",
+      "Punjab Vocational Training Council",
+      "Punjab Skills Development Authority"
+    ],
 
+    datasets: [
+      {
+        label: "",
+        data: [1221, 1093, 526, 429,803],
+        barThickness: 60,
+
+        backgroundColor: [
+          "rgba(154, 30, 30, 0.85)",
+          "rgba(30, 83, 154, 0.85)",
+          "rgba(30, 154, 78, 0.85)",
+          "rgba(154, 117, 30, 0.85)",
+          "rgba(154, 107, 40, 0.35)"
+        ],
+        borderColor: [
+          "rgba(154, 30, 30, 1)",
+          "rgba(30, 83, 154, 1)",
+          "rgba(30, 154, 78, 1)",
+          "rgba(154, 117, 30, 1)",
+          "rgba(154, 107, 40, 0.35"
+        ],
+        borderWidth: 1,
+      },
+    ],
+  };
+
+  const provanceoptions = {
+    responsive: true,
+    indexAxis: "y",
+    plugins: {
+      legend: {
+        display: false,
+      },
+      datalabels: {
+        anchor: "end",
+        align: "right",
+        color: "#000",
+        font: {
+          weight: "bold",
+        },
+        formatter: (value) => value.toLocaleString(), // Optional formatting
+      },
+    },
+    scales: {
+      x: {
+        beginAtZero: true,
+        ticks: {
+          callback: (value) => value.toLocaleString(),
+        },
+      },
+    },
+  };
   return (
     <div>
       <Header />
@@ -393,12 +778,12 @@ const TVETSupply = () => {
               TVET sector nationally and internationally. Key policy insights
               are to be had from stats on enrolment numbers, males and female
               enrolments, enrolment in districts and local stakeholders, as well
-              as the nature of institutes (Public, Private) included in
-              this page. Gaps between numbers of enrolments and graduates given
-              can be a crucial indicator for relevant policy making. These
-              insights help policymakers, researchers, and stakeholders
-              understand current training environments, identify where
-              improvements are needed, and develop strategies
+              as the nature of institutes (Public, Private) included in this
+              page. Gaps between numbers of enrolments and graduates given can
+              be a crucial indicator for relevant policy making. These insights
+              help policymakers, researchers, and stakeholders understand
+              current training environments, identify where improvements are
+              needed, and develop strategies
             </h3>
           </div>
           <div className="w-1/2 p-4">
@@ -427,7 +812,7 @@ const TVETSupply = () => {
         <blockquote className="border-l-4 pl-4 border-[#e2e028ed] mt-16">
           <div className=" flex">
             <h2 className="text-[28px] text-[#267d37de] font-bold ">
-              Key facts - National{" "}
+              Key facts -{" "}
             </h2>
             <h2 className="text-[25px] text-[#267d37de] ml-4">
               (Source: Employer Skill Survey, Qualification Awarding Bodies -
@@ -437,75 +822,86 @@ const TVETSupply = () => {
         </blockquote>
 
         <div className="flex w-full">
-          <div className=" mt-16 w-[75%]">
-            <div className=" py-10">
-            <div className="max-w-[120rem] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 px-4">
-            <div className="bg-green-50 shadow p-6 flex flex-col items-center text-center">
-                  <div className="w-36 h-36 mb-4 mt-14">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 192 512"
-                      className="w-full h-full"
-                    >
-                      <path
-                        fill="#23704b"
-                        d="M96 0c35.3 0 64 28.7 64 64s-28.7 64-64 64-64-28.7-64-64S60.7 0 96 0m48 144h-11.4c-22.7 10.4-49.6 10.9-73.3 0H48c-26.5 0-48 21.5-48 48v136c0 13.3 10.7 24 24 24h16v136c0 13.3 10.7 24 24 24h64c13.3 0 24-10.7 24-24V352h16c13.3 0 24-10.7 24-24V192c0-26.5-21.5-48-48-48z"
-                      ></path>
-                    </svg>
+          <div className=" mt-16 w-[80%]">
+            <div className="">
+              <div className="bg-white p-10 rounded-xl shadow w-full">
+                <div className="grid grid-cols-4 gap-6 text-center items-center">
+                  <div></div>
+
+                  <div className="flex flex-col items-center space-y-2">
+                    <div className="w-28 h-28 ml-16">{totelMale}</div>
+
+                    <h3 className="text-[23px] font-medium text-gray-700">
+                      Male
+                    </h3>
                   </div>
 
-                  <h3 className="text-[18px] text-black  font-bold mb-2">
-                    Male Enrollments
-                  </h3>
+                  <div className="flex flex-col items-center space-y-2">
+                    <div className="w-28 h-28 ml-16">{totelFemale}</div>
 
-                  <div className="pt-52 mb-16">
-                    <p className="text-green-700 text-[36px] font-bold">
-                      184,679
-                    </p>
-                  </div>
-                </div>
-
-                <div className="bg-white shadow p-6 flex flex-col items-center text-center">
-                  <div className="w-36 h-36 mb-4 mt-14">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 193 512"
-                      className="w-full h-full"
-                    >
-                      <path
-                        fill="#23704b"
-                        d="M128 0c35.3 0 64 28.7 64 64s-28.7 64-64 64c-35.3 0-64-28.7-64-64S92.7 0 128 0m119.3 354.2l-48-192A24 24 0 0 0 176 144h-11.4c-22.7 10.4-49.6 10.9-73.3 0H80a24 24 0 0 0 -23.3 18.2l-48 192C4.9 369.3 16.4 384 32 384h56v104c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24V384h56c15.6 0 27.1-14.7 23.3-29.8z"
-                      ></path>
-                    </svg>
+                    <h3 className="text-[23px] font-medium text-gray-700">
+                      Female
+                    </h3>
                   </div>
 
-                  <h3 className="text-[18px] text-black  font-bold mb-2">
-                    Female Enrollments
-                  </h3>
-                  <div className="pt-52">
-                    <p className="text-green-700 text-[36px] font-bold">132,452</p>
+                  <div className="flex flex-col items-center space-y-2">
+                    <div className="w-28 h-28 ">{totel}</div>
+                    <h3 className="text-[23px] font-medium text-gray-700">
+                      Total
+                    </h3>
                   </div>
-                </div>
-                
 
-                <div className="bg-green-50 shadow p-6 flex flex-col items-center text-center">
-                  <div className="w-36 h-36 mb-4 mt-14">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 512 512"
-                      fill="#267d37de"
-                    >
-                      <path d="M320 336c0 8.8-7.2 16-16 16h-96c-8.8 0-16-7.2-16-16v-48H0v144c0 25.6 22.4 48 48 48h416c25.6 0 48-22.4 48-48V288H320v48zm144-208h-80V80c0-25.6-22.4-48-48-48H176c-25.6 0-48 22.4-48 48v48H48c-25.6 0-48 22.4-48 48v80h512v-80c0-25.6-22.4-48-48-48zm-144 0H192V96h128v32z"></path>
-                    </svg>
+                  <div className="text-left text-3xl font-semibold text-gray-700 pt-4">
+                    Enrolled
                   </div>
-                  <h3 className="text-[18px] text-black  font-bold mb-2">
-                    Total Enrollments
-                  </h3>
-                  <div className="pt-52">
-                    <p className="text-green-700 text-[36px] font-bold">
-                      317,131
-                    </p>
+                  <p className="font-bold text-blue-700 text-[25px] pt-4">
+                    123
+                  </p>
+                  <p className="font-bold text-pink-600 text-[25px] pt-4">
+                    100
+                  </p>
+                  <p className="font-bold text-green-600 text-[25px] pt-4">
+                    223
+                  </p>
+
+                  <div className="text-left text-3xl font-semibold text-gray-700 pt-4">
+                    Graduated
                   </div>
+                  <p className="font-bold text-blue-700 text-[25px] pt-4">
+                    456
+                  </p>
+                  <p className="font-bold text-pink-600 text-[25px] pt-4">
+                    200
+                  </p>
+                  <p className="font-bold text-green-600 text-[25px] pt-4">
+                    656
+                  </p>
+
+                  <div className="text-left text-3xl font-semibold text-gray-700 pt-4">
+                    Assessed
+                  </div>
+                  <p className="font-bold text-blue-700 text-[25px] pt-4">
+                    789
+                  </p>
+                  <p className="font-bold text-pink-600 text-[25px] pt-4">
+                    300
+                  </p>
+                  <p className="font-bold text-green-600 text-[25px] pt-4">
+                    1089
+                  </p>
+
+                  <div className="text-left text-3xl font-semibold text-gray-700 pt-4">
+                    Certified
+                  </div>
+                  <p className="font-bold text-blue-700 text-[25px] pt-4">
+                    321
+                  </p>
+                  <p className="font-bold text-pink-600 text-[25px] pt-4">
+                    400
+                  </p>
+                  <p className="font-bold text-green-600 text-[25px] pt-4">
+                    721
+                  </p>
                 </div>
               </div>
 
@@ -680,21 +1076,66 @@ const TVETSupply = () => {
               </div> */}
               <blockquote className="border-l-4 pl-4 border-[#e2e028ed] mt-16">
                 <h2 className="text-[28px] text-[#267d37de] font-bold ">
-                Comparison between Enrollments & Graduates
+                  Enrollment and Assessment (Ownership Wise)
                 </h2>
               </blockquote>
 
               <div className="bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)] mr-4 mt-16">
+                <Bar
+                  data={dataGratudes}
+                  options={optionsGratudes}
+                  plugins={[groupLabelPlugin, totalLabelPlugin]}
+                />
+              </div>
+              <blockquote className="border-l-4 pl-4 border-[#e2e028ed] mt-16">
+                <h2 className="text-[28px] text-[#267d37de] font-bold ">
+                  Enrollment and Assessment (Trainering Wise)
+                </h2>
+              </blockquote>
+              <div className="bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)] mr-4 mt-16">
+                <Bar
+                  data={dataOwner}
+                  options={optionsOwner}
+                  plugins={[groupLabelPluginOwner, totalLabelPluginOwner]}
+                />
+              </div>
+              <blockquote className="border-l-4 pl-4 border-[#e2e028ed] mt-16">
+                <h2 className="text-[28px] text-[#267d37de] font-bold ">
+                  Comparison between Enrollments & Graduates
+                </h2>
+              </blockquote>
+
+              <div className="bg-white p-8 rounded  mr-4 mt-16">
                 <Bar data={data3} options={options3} />
               </div>
               <blockquote className="border-l-4 pl-4 border-[#e2e028ed] mt-16">
                 <h2 className="text-[28px] text-[#267d37de] font-bold ">
-                Total Enrollments by Ownership
+                  Total Enrollments by Ownership
                 </h2>
               </blockquote>
 
               <div className="bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)] mr-4 mt-16">
                 <Bar data={data} options={options} />
+              </div>
+               <blockquote className="border-l-4 pl-4 border-[#e2e028ed] mt-16">
+                <h2 className="text-[28px] text-[#267d37de] font-bold ">
+                 Enrollments by Qualification Awarding Bodies
+                </h2>
+              </blockquote>
+
+              <div className="bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)] mr-4 mt-16">
+                <Bar data={provancedata} options={provanceoptions} />
+              </div>
+              <div className="bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)] mr-4 mt-16">
+                <Heading title="Enrollments by Qualification Awarding Bodies" />
+                <div className="bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)] mr-4 mt-16">
+                <Bar
+                  data={QualificationData}
+                  options={QualificationOptions}
+                  width={1024}
+                  height={750}
+                />
+              </div>
               </div>
 
               {/*
@@ -736,52 +1177,18 @@ const TVETSupply = () => {
           </div>
 
           <div className=" grid-cols-1  p-8 mt-16 ">
-            {/* <div class=" bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)]  ">
+            <div class=" bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)]  ">
               <div class="text-3xl font-bold">Filters</div>
 
-              <div className="mt-6">
-                <label class="block text-2xl font-semibold text-gray-700 mb-1 ">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  placeholder="Search by name"
-                  class="form-control w-full h-[32px] p-2 border border-gray-300 rounded text-[14px] placeholder:text-[14px]"
-                />
-              </div>
-
               <div>
                 <label class="block text-2xl font-semibold text-gray-700 mb-1 mt-8">
-                  Ownership
+                  Select Year
                 </label>
                 <select class=" bg-white focus:outline-none mt-2 focus:ring-2 focus:ring-blue-400 form-control w-full h-[32px] p-2 border border-gray-300 rounded text-[14px] placeholder:text-[14px]">
-                  <option>Select Ownership</option>
-                  <option>Private</option>
-                  <option>Public</option>
-                </select>
-              </div>
-
-              <div>
-                <label class="block text-2xl font-semibold text-gray-700 mb-1 mt-8">
-                  Institute Type
-                </label>
-                <select class=" bg-white focus:outline-none mt-2 focus:ring-2 focus:ring-blue-400 form-control w-full h-[32px] p-2 border border-gray-300 rounded text-[14px] placeholder:text-[14px]">
-                  <option>Select Institute Type</option>
-                  <option>University</option>
-                  <option>College</option>
-                  <option>School</option>
-                </select>
-              </div>
-
-              <div>
-                <label class="block text-2xl font-semibold text-gray-700 mb-1 mt-8">
-                  Provinces
-                </label>
-                <select class=" bg-white focus:outline-none mt-2 focus:ring-2 focus:ring-blue-400 form-control w-full h-[32px] p-2 border border-gray-300 rounded text-[14px] placeholder:text-[14px]">
-                  <option>Punjab</option>
-                  <option>Sindh</option>
-                  <option>LPK</option>
-                  <option>Balochistan</option>
+                  <option>Select Year</option>
+                  <option>2023</option>
+                  <option>2024</option>
+                  <option>2025</option>
                 </select>
               </div>
               <div className="form-group mt-10 justify-center align-middle flex">
@@ -791,7 +1198,7 @@ const TVETSupply = () => {
                   value="Search"
                 />
               </div>
-            </div> */}
+            </div>
 
             <div className="mt-28">
               {[
