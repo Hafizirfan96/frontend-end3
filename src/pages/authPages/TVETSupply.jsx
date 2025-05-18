@@ -15,8 +15,6 @@ import { useNavigate } from "react-router-dom";
 import ChartDataLabels from "chartjs-plugin-datalabels";
 import Heading from "@/components/templates/Heading/Heading";
 
-
-
 const TVETSupply = () => {
   // useEffect(() => {
   //   window.scrollTo(0, 0);
@@ -262,17 +260,17 @@ const TVETSupply = () => {
     "Assessed",
     "Certified",
   ];
-const labelsOwner = [
-  "Enrolled",
-  "Graduated",
-  "Assessed",
-  "Certified",
-  "", // Spacer
-  "Enrolled",
-  "Graduated",
-  "Assessed",
-  "Certified",
-];
+  const labelsOwner = [
+    "Enrolled",
+    "Graduated",
+    "Assessed",
+    "Certified",
+    "", // Spacer
+    "Enrolled",
+    "Graduated",
+    "Assessed",
+    "Certified",
+  ];
   const dataGratudes = {
     labels,
     datasets: [
@@ -293,24 +291,24 @@ const labelsOwner = [
     ],
   };
   const dataOwner = {
-  labels: labelsOwner,
-  datasets: [
-   {
-      label: "Male",
-      data: [750, 580, 520, 490, null, 880, 640, 590, 530],
-      backgroundColor: "#8884d8",
-      stack: "stack1",
-      barThickness: 40,
-    },
-    {
-      label: "Female",
-      data: [680, 620, 500, 470, null, 320, 670, 610, 540],
-      backgroundColor: "#82ca9d",
-      stack: "stack1",
-      barThickness: 40,
-    },
-  ],
-};
+    labels: labelsOwner,
+    datasets: [
+      {
+        label: "Male",
+        data: [750, 580, 520, 490, null, 880, 640, 590, 530],
+        backgroundColor: "#8884d8",
+        stack: "stack1",
+        barThickness: 40,
+      },
+      {
+        label: "Female",
+        data: [680, 620, 500, 470, null, 320, 670, 610, 540],
+        backgroundColor: "#82ca9d",
+        stack: "stack1",
+        barThickness: 40,
+      },
+    ],
+  };
 
   const totalLabelPlugin = {
     id: "totalLabelPlugin",
@@ -344,39 +342,38 @@ const labelsOwner = [
       });
     },
   };
- const totalLabelPluginOwner = {
-  id: "totalLabelPluginOwner",
-  afterDatasetsDraw(chart) {
-    const {
-      ctx,
-      chartArea: { top },
-      scales: { x, y },
-    } = chart;
+  const totalLabelPluginOwner = {
+    id: "totalLabelPluginOwner",
+    afterDatasetsDraw(chart) {
+      const {
+        ctx,
+        chartArea: { top },
+        scales: { x, y },
+      } = chart;
 
-    const labelIndices = chart.data.labels
-      .map((label, i) => i)
-      .filter((i) => chart.data.labels[i]); // Skip empty labels
+      const labelIndices = chart.data.labels
+        .map((label, i) => i)
+        .filter((i) => chart.data.labels[i]); // Skip empty labels
 
-    labelIndices.forEach((i) => {
-      const male = chart.data.datasets[0].data[i];
-      const female = chart.data.datasets[1].data[i];
+      labelIndices.forEach((i) => {
+        const male = chart.data.datasets[0].data[i];
+        const female = chart.data.datasets[1].data[i];
 
-      if (male == null && female == null) return;
+        if (male == null && female == null) return;
 
-      const total = (male || 0) + (female || 0);
-      const xPosition = x.getPixelForValue(i);
-      const yPosition = y.getPixelForValue(total);
+        const total = (male || 0) + (female || 0);
+        const xPosition = x.getPixelForValue(i);
+        const yPosition = y.getPixelForValue(total);
 
-      ctx.save();
-      ctx.font = "bold 12px sans-serif";
-      ctx.fillStyle = "#000";
-      ctx.textAlign = "center";
-      ctx.fillText(total, xPosition, yPosition - 10);
-      ctx.restore();
-    });
-  },
-};
-
+        ctx.save();
+        ctx.font = "bold 12px sans-serif";
+        ctx.fillStyle = "#000";
+        ctx.textAlign = "center";
+        ctx.fillText(total, xPosition, yPosition - 10);
+        ctx.restore();
+      });
+    },
+  };
 
   const optionsGratudes = {
     responsive: true,
@@ -523,28 +520,28 @@ const labelsOwner = [
       ctx.restore();
     },
   };
-const groupLabelPluginOwner = {
-  id: "groupLabelsOwner",
-  afterDraw: (chart) => {
-    const {
-      ctx,
-      chartArea: { bottom },
-      scales: { x },
-    } = chart;
+  const groupLabelPluginOwner = {
+    id: "groupLabelsOwner",
+    afterDraw: (chart) => {
+      const {
+        ctx,
+        chartArea: { bottom },
+        scales: { x },
+      } = chart;
 
-    const yOffset = 65;
-    const midPublic = (x.getPixelForValue(0) + x.getPixelForValue(3)) / 2;
-    const midPrivate = (x.getPixelForValue(5) + x.getPixelForValue(8)) / 2;
+      const yOffset = 65;
+      const midPublic = (x.getPixelForValue(0) + x.getPixelForValue(3)) / 2;
+      const midPrivate = (x.getPixelForValue(5) + x.getPixelForValue(8)) / 2;
 
-    ctx.save();
-    ctx.font = "bold 14px Arial";
-    ctx.fillStyle = "#000";
-    ctx.textAlign = "center";
-    ctx.fillText("Technical", midPublic, bottom + yOffset);
-    ctx.fillText("Vocational", midPrivate, bottom + yOffset);
-    ctx.restore();
-  },
-};
+      ctx.save();
+      ctx.font = "bold 14px Arial";
+      ctx.fillStyle = "#000";
+      ctx.textAlign = "center";
+      ctx.fillText("Technical", midPublic, bottom + yOffset);
+      ctx.fillText("Vocational", midPrivate, bottom + yOffset);
+      ctx.restore();
+    },
+  };
 
   const Card = ({ title, description, bgColor, icon, navigateTo }) => {
     const navigate = useNavigate();
@@ -581,25 +578,18 @@ const groupLabelPluginOwner = {
     ],
     datasets: [
       {
-        label: "Number of Enrollments",
-        data: [
-          1000, 520, 600, 780, 830, 910, 1070, 2050, 3000, 4060, 330, 4050,
-        ],
-        backgroundColor: [
-          "#4e73df",
-          "#1cc88a",
-          "#36b9cc",
-          "#f6c23e",
-          "#e74a3b",
-          "#858796",
-          "#20c9a6",
-          "#fd7e14",
-          "#6f42c1",
-          "#00bcd4",
-          "#8bc34a",
-          "#ff6384",
-        ],
-        barThickness: 30,
+        label: "Male",
+        data: [700, 200, 500, 500, 700, 800, 950, 1800, 500, 2500, 300, 2000],
+        backgroundColor: "rgba(30, 154, 78, 0.85)",
+        barThickness: 20,
+        barPercentage: 1.0,
+        categoryPercentage: 0.5,
+      },
+      {
+        label: "Female",
+        data: [300, 320, 100, 280, 130, 110, 120, 250, 2500, 1560, 30, 2050],
+        backgroundColor: "#ff6384",
+        barThickness: 20,
         barPercentage: 1.0,
         categoryPercentage: 0.5,
       },
@@ -608,7 +598,7 @@ const groupLabelPluginOwner = {
 
   const QualificationOptions = {
     indexAxis: "y",
-    responsive: false, // Set to false for fixed size
+    responsive: false,
     plugins: {
       datalabels: {
         anchor: "end",
@@ -621,12 +611,12 @@ const groupLabelPluginOwner = {
           return value;
         },
       },
-      // title: {
-      //   display: true,
-      //   text: "High Demand Trades",
-      // },
+      title: {
+        display: false,
+      },
       legend: {
-        display: false, // Only one dataset
+        display: true,
+        position: "bottom",
       },
     },
     scales: {
@@ -639,6 +629,146 @@ const groupLabelPluginOwner = {
       },
     },
   };
+
+  //   const TradesByLevelData = {
+  //   labels: [
+  //     "Machine Operator",
+  //     "Stitching Machine Operator",
+  //     "Plumber",
+  //     "Chef",
+  //     "Electrician",
+  //     "Carpenter",
+  //     "Welder",
+  //     "Auto Mechanic",
+  //     "Beautician",
+  //     "Computer Operator",
+  //     "AC Technician",
+  //     "Tailor",
+  //   ],
+  //   datasets: [
+  //     {
+  //       label: "Male",
+  //       data: [700, 200, 500, 500, 700, 800, 950, 1800, 500, 2500, 300, 2000],
+  //       backgroundColor: "rgba(30, 154, 78, 0.85)",
+  //       barThickness: 20,
+  //       barPercentage: 1.0,
+  //       categoryPercentage: 0.5,
+  //     },
+  //     {
+  //       label: "Female",
+  //       data: [300, 320, 100, 280, 130, 110, 120, 250, 2500, 1560, 30, 2050],
+  //       backgroundColor: "#ff6384",
+  //       barThickness: 20,
+  //       barPercentage: 1.0,
+  //       categoryPercentage: 0.5,
+  //     },
+  //   ],
+  // };
+
+  //   const TradesByLevelOptions = {
+  //   indexAxis: "y",
+  //   responsive: false,
+  //   plugins: {
+  //     datalabels: {
+  //       anchor: "end",
+  //       align: "end",
+  //       color: "#000",
+  //       font: {
+  //         weight: "bold",
+  //       },
+  //       formatter: function (value) {
+  //         return value;
+  //       },
+  //     },
+  //     title: {
+  //       display: false,
+  //     },
+  //     legend: {
+  //       display: true,
+  //       position: "bottom",
+  //     },
+  //   },
+  //   scales: {
+  //     x: {
+  //       beginAtZero: true,
+  //       stacked: false,
+  //     },
+  //     y: {
+  //       stacked: false,
+  //     },
+  //   },
+  // };
+
+  const cityWiseData = {
+    labels: [
+      "Lahore",
+      "Faisalabad",
+      "Rawalpindi",
+      "Gujranwala",
+      "Multan",
+      "Sialkot",
+      "Bahawalpur",
+      "Sargodha",
+      "Sheikhupura",
+      "Rahim Yar Khan",
+      "Gujrat",
+      "Jhelum",
+    ],
+
+    datasets: [
+      {
+        label: "Male",
+        data: [700, 200, 500, 500, 700, 800, 950, 1800, 500, 2500, 300, 2000],
+        backgroundColor: "#4e73df",
+        barThickness: 20,
+        barPercentage: 1.0,
+        categoryPercentage: 0.5,
+      },
+      {
+        label: "Female",
+        data: [300, 320, 100, 280, 130, 110, 120, 250, 2500, 1560, 30, 2050],
+        backgroundColor: "#ff6384",
+        barThickness: 20,
+        barPercentage: 1.0,
+        categoryPercentage: 0.5,
+      },
+    ],
+  };
+
+  const cityWiseOptions = {
+    indexAxis: "y",
+    responsive: false,
+    plugins: {
+      datalabels: {
+        anchor: "end",
+        align: "end",
+        color: "#000",
+        font: {
+          weight: "bold",
+        },
+        formatter: function (value) {
+          return value;
+        },
+      },
+      title: {
+        display: false,
+      },
+      legend: {
+        display: true,
+        position: "bottom",
+      },
+    },
+    scales: {
+      x: {
+        beginAtZero: true,
+        stacked: false,
+      },
+      y: {
+        stacked: false,
+      },
+    },
+  };
+
   const totelMale = (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -672,19 +802,19 @@ const groupLabelPluginOwner = {
       <path d="M320 336c0 8.8-7.2 16-16 16h-96c-8.8 0-16-7.2-16-16v-48H0v144c0 25.6 22.4 48 48 48h416c25.6 0 48-22.4 48-48V288H320v48zm144-208h-80V80c0-25.6-22.4-48-48-48H176c-25.6 0-48 22.4-48 48v48H48c-25.6 0-48 22.4-48 48v80h512v-80c0-25.6-22.4-48-48-48zm-144 0H192V96h128v32z"></path>
     </svg>
   );
- const provancedata = {
+  const provancedata = {
     labels: [
       "Punjab Board of Technical Education",
       "Punjab Trade Testing Board",
       "Punjab Skills Development Fund",
       "Punjab Vocational Training Council",
-      "Punjab Skills Development Authority"
+      "Punjab Skills Development Authority",
     ],
 
     datasets: [
       {
         label: "",
-        data: [1221, 1093, 526, 429,803],
+        data: [1221, 1093, 526, 429, 803],
         barThickness: 60,
 
         backgroundColor: [
@@ -692,14 +822,14 @@ const groupLabelPluginOwner = {
           "rgba(30, 83, 154, 0.85)",
           "rgba(30, 154, 78, 0.85)",
           "rgba(154, 117, 30, 0.85)",
-          "rgba(154, 107, 40, 0.35)"
+          "rgba(154, 107, 40, 0.35)",
         ],
         borderColor: [
           "rgba(154, 30, 30, 1)",
           "rgba(30, 83, 154, 1)",
           "rgba(30, 154, 78, 1)",
           "rgba(154, 117, 30, 1)",
-          "rgba(154, 107, 40, 0.35"
+          "rgba(154, 107, 40, 0.35",
         ],
         borderWidth: 1,
       },
@@ -732,6 +862,62 @@ const groupLabelPluginOwner = {
       },
     },
   };
+
+  const TradesByLevelData = {
+    labels: ["Level 1", "Level 2", "Level 3", "Level 4", "Level 5"],
+
+    datasets: [
+      {
+        label: "",
+        data: [1221, 1093, 526, 429, 803],
+        barThickness: 60,
+
+        backgroundColor: [
+          "rgba(154, 30, 30, 0.85)",
+          "rgba(30, 83, 154, 0.85)",
+          "rgba(30, 154, 78, 0.85)",
+          "rgba(154, 117, 30, 0.85)",
+          "rgba(154, 107, 40, 0.35)",
+        ],
+        borderColor: [
+          "rgba(154, 30, 30, 1)",
+          "rgba(30, 83, 154, 1)",
+          "rgba(30, 154, 78, 1)",
+          "rgba(154, 117, 30, 1)",
+          "rgba(154, 107, 40, 0.35",
+        ],
+        borderWidth: 1,
+      },
+    ],
+  };
+
+  const TradesByLevelOptions = {
+    responsive: true,
+    indexAxis: "y",
+    plugins: {
+      legend: {
+        display: false,
+      },
+      datalabels: {
+        anchor: "end",
+        align: "right",
+        color: "#000",
+        font: {
+          weight: "bold",
+        },
+        formatter: (value) => value.toLocaleString(), // Optional formatting
+      },
+    },
+    scales: {
+      x: {
+        beginAtZero: true,
+        ticks: {
+          callback: (value) => value.toLocaleString(),
+        },
+      },
+    },
+  };
+
   return (
     <div>
       <Header />
@@ -1099,7 +1285,7 @@ const groupLabelPluginOwner = {
                   plugins={[groupLabelPluginOwner, totalLabelPluginOwner]}
                 />
               </div>
-              <blockquote className="border-l-4 pl-4 border-[#e2e028ed] mt-16">
+              {/* <blockquote className="border-l-4 pl-4 border-[#e2e028ed] mt-16">
                 <h2 className="text-[28px] text-[#267d37de] font-bold ">
                   Comparison between Enrollments & Graduates
                 </h2>
@@ -1107,7 +1293,7 @@ const groupLabelPluginOwner = {
 
               <div className="bg-white p-8 rounded  mr-4 mt-16">
                 <Bar data={data3} options={options3} />
-              </div>
+              </div> */}
               <blockquote className="border-l-4 pl-4 border-[#e2e028ed] mt-16">
                 <h2 className="text-[28px] text-[#267d37de] font-bold ">
                   Total Enrollments by Ownership
@@ -1117,18 +1303,27 @@ const groupLabelPluginOwner = {
               <div className="bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)] mr-4 mt-16">
                 <Bar data={data} options={options} />
               </div>
-               <blockquote className="border-l-4 pl-4 border-[#e2e028ed] mt-16">
+
+              <Heading title="City Wise Enrollment" />
+              <div className="bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)] mr-4 mt-16">
+                <Bar
+                  data={cityWiseData}
+                  options={cityWiseOptions}
+                  width={1024}
+                  height={850}
+                />
+              </div>
+              <blockquote className="border-l-4 pl-4 border-[#e2e028ed] mt-16">
                 <h2 className="text-[28px] text-[#267d37de] font-bold ">
-                 Enrollments by Qualification Awarding Bodies
+                  Enrollments by Qualification Awarding Bodies
                 </h2>
               </blockquote>
 
               <div className="bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)] mr-4 mt-16">
                 <Bar data={provancedata} options={provanceoptions} />
               </div>
+              <Heading title="Enrollments by Trades - Gender Wise" />
               <div className="bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)] mr-4 mt-16">
-                <Heading title="Enrollments by Qualification Awarding Bodies" />
-                <div className="bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)] mr-4 mt-16">
                 <Bar
                   data={QualificationData}
                   options={QualificationOptions}
@@ -1136,6 +1331,107 @@ const groupLabelPluginOwner = {
                   height={750}
                 />
               </div>
+              <Heading title="Trades by Levels" />
+              <div className="bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)] mr-4 mt-16">
+                <Bar
+                  data={TradesByLevelData}
+                  options={TradesByLevelOptions}
+                  width={1024}
+                  height={750}
+                />
+              </div>
+              <Heading title="Enrollments by Levels" />
+              <div className="bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)] mr-4 mt-16 mb-16">
+                <table class="min-w-full border border-gray-300">
+                  <thead class="bg-green-600">
+                    <tr>
+                      <th class="px-4 py-6 text-left text-2xl font-semibold text-white border border-gray-300">
+                        NVQF Level
+                      </th>
+                      <th class="px-4 py-6 text-left text-2xl font-semibold text-white border border-gray-300">
+                        Male Enrollment
+                      </th>
+                      <th class="px-4 py-6 text-left text-2xl font-semibold text-white border border-gray-300">
+                        Female Enrollment
+                      </th>
+                      <th class="px-4 py-6 text-left text-2xl font-semibold text-white border border-gray-300">
+                        Total Enrollment
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody class="bg-white">
+                    <tr>
+                      <td class="px-4 py-6 text-2xl font-semibold border border-gray-300">
+                        Level 1
+                      </td>
+                      <td class="px-4 py-6 text-2xl border border-gray-300">
+                        120
+                      </td>
+                      <td class="px-4 py-6 text-2xl border border-gray-300">
+                        95
+                      </td>
+                      <td class="px-4 py-6 text-2xl border border-gray-300">
+                        215
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-6 text-2xl font-semibold border border-gray-300">
+                        Level 2
+                      </td>
+                      <td class="px-4 py-6 text-2xl border border-gray-300">
+                        98
+                      </td>
+                      <td class="px-4 py-6 text-2xl border border-gray-300">
+                        105
+                      </td>
+                      <td class="px-4 py-6 text-2xl border border-gray-300">
+                        203
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-6 text-2xl font-semibold border border-gray-300">
+                        Level 3
+                      </td>
+                      <td class="px-4 py-6 text-2xl border border-gray-300">
+                        143
+                      </td>
+                      <td class="px-4 py-6 text-2xl border border-gray-300">
+                        110
+                      </td>
+                      <td class="px-4 py-6 text-2xl border border-gray-300">
+                        253
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-6 text-2xl font-semibold border border-gray-300">
+                        Level 4
+                      </td>
+                      <td class="px-4 py-6 text-2xl border border-gray-300">
+                        87
+                      </td>
+                      <td class="px-4 py-6 text-2xl border border-gray-300">
+                        75
+                      </td>
+                      <td class="px-4 py-6 text-2xl border border-gray-300">
+                        162
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-6 text-2xl font-semibold border border-gray-300">
+                        Level 5
+                      </td>
+                      <td class="px-4 py-6 text-2xl border border-gray-300">
+                        112
+                      </td>
+                      <td class="px-4 py-6 text-2xl border border-gray-300">
+                        130
+                      </td>
+                      <td class="px-4 py-6 text-2xl border border-gray-300">
+                        242
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
 
               {/*
