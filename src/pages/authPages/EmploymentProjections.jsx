@@ -15,10 +15,9 @@ import { useNavigate } from "react-router-dom";
 import Heading from "@/components/templates/Heading/Heading";
 
 const EmploymentProjections = () => {
-  
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
+  // }, []);
 
   ChartJS.register(
     CategoryScale,
@@ -28,230 +27,6 @@ const EmploymentProjections = () => {
     Tooltip,
     Legend
   );
-  const data = {
-    labels: ["GCT", "Vocational"], // Only GCT and Vocational streams
-    datasets: [
-      {
-        label: "Male", // Data for Male gender
-        data: [100, 50], // Data for Male count in each stream
-        backgroundColor: "rgba(54, 162, 235, 0.8)", // Color fill for Male bars
-        borderColor: "rgba(54, 162, 235, 1)", // Border color for Male bars
-        borderWidth: 1, // Border width for Male bars
-      },
-      {
-        label: "Female", // Data for Female gender
-        data: [120, 60], // Data for Female count in each stream
-        backgroundColor: "rgba(255, 99, 132, 0.8)", // Color fill for Female bars
-        borderColor: "rgba(255, 99, 132, 1)", // Border color for Female bars
-        borderWidth: 1, // Border width for Female bars
-      },
-      {
-        label: "Other", // Data for Other gender
-        data: [10, 5], // Data for Other gender count in each stream
-        backgroundColor: "rgba(75, 192, 192, 0.8)", // Color fill for Other bars
-        borderColor: "rgba(75, 192, 192, 1)", // Border color for Other bars
-        borderWidth: 1, // Border width for Other bars
-      },
-    ],
-  };
-
-  const options = {
-    responsive: true,
-    plugins: {
-      title: {
-        display: true,
-        text: "Enrollment Stream & Gender Wise Comparison (GCT and Vocational)",
-      },
-      tooltip: {
-        mode: "index",
-        intersect: false,
-      },
-    },
-    scales: {
-      x: {
-        stacked: false, // Stack the bars for each stream
-      },
-      y: {
-        stacked: false, // Stack the bars for each gender
-      },
-    },
-  };
-
-  const data1 = {
-    labels: ["Private", "Public"], // Institute Types (Private and Public)
-    datasets: [
-      {
-        label: "Male ", // Data for Male enrollment
-        data: [500, 400], // Updated Male count in Private and Public institutes
-        backgroundColor: "rgba(54, 162, 235, 0.8)", // Color fill for Male bars
-        borderColor: "rgba(54, 162, 235, 1)", // Border color for Male bars
-        borderWidth: 1, // Border width for Male bars
-      },
-      {
-        label: "Female", // Data for Female enrollment
-        data: [450, 350], // Updated Female count in Private and Public institutes
-        backgroundColor: "rgba(255, 99, 132, 0.8)", // Color fill for Female bars
-        borderColor: "rgba(255, 99, 132, 1)", // Border color for Female bars
-        borderWidth: 1, // Border width for Female bars
-      },
-    ],
-  };
-
-  const options1 = {
-    responsive: true,
-    plugins: {
-      title: {
-        display: true,
-        text: "Institute Type Wise Enrollment (Private vs Public)",
-      },
-      tooltip: {
-        mode: "index",
-        intersect: false,
-      },
-    },
-    scales: {
-      x: {
-        stacked: false, // Stack the bars for each institute type
-      },
-      y: {
-        stacked: false, // Stack the bars for each gender
-      },
-    },
-  };
-
-  const data3 = {
-    labels: ["Total"],
-    datasets: [
-      {
-        label: "Enrollments",
-        data: [1200],
-        backgroundColor: "#8884d8",
-        barThickness: 80,
-        barPercentage: 1.0, // 100% width of each bar within the category
-        categoryPercentage: 1.0, // Tight grouping, fills space
-      },
-      {
-        label: "Graduates",
-        data: [850],
-        backgroundColor: "#82ca9d",
-        barThickness: 80,
-        barPercentage: 1.0, // Same width for consistency
-        categoryPercentage: 1.0, // Tight grouping, fills space
-      },
-      {
-        label: "Trainees",
-        data: [600],
-        backgroundColor: "#ffc658",
-        barThickness: 80,
-        barPercentage: 1.0, // Same width for consistency
-        categoryPercentage: 1.0, // Tight grouping, fills space
-      },
-    ],
-  };
-
-  const options3 = {
-    indexAxis: "x",
-    responsive: true,
-    plugins: {
-      title: {
-        display: true,
-        text: "Enrollments vs Graduates vs Trainees",
-      },
-      legend: {
-        position: "top",
-      },
-    },
-    scales: {
-      x: {
-        stacked: false,
-        // Remove the `barPercentage` and `categoryPercentage` here
-      },
-      y: {
-        beginAtZero: true,
-        stacked: false,
-      },
-    },
-  };
-
-  const Distdata = {
-    labels: [
-      "Attock",
-      "Bahawalnagar",
-      "Bahawalpur",
-      "Bhakkar",
-      "Chakwal",
-      "Chiniot",
-      "Dera Ghazi Khan",
-      "Faisalabad",
-      "Gujranwala",
-      "Gujrat",
-      "Hafizabad",
-      "Jhang",
-    ],
-
-    datasets: [
-      {
-        label: "Male Enrollments",
-
-        data: [400, 300, 600, 420, 50, 500, 600, 700, 600, 450, 350, 500],
-
-        backgroundColor: "#4e73df",
-        barThickness: 15,
-        barPercentage: 1.0,
-        categoryPercentage: 0.5,
-      },
-
-      {
-        label: "Female Enrollments",
-
-        data: [332, 282, 492, 368, 263, 405, 550, 593, 507, 403, 341, 496],
-
-        backgroundColor: "#e74a3b",
-        barThickness: 15,
-        barPercentage: 1.0,
-        categoryPercentage: 0.5,
-      },
-    ],
-  };
-
-  const Distoptions = {
-    indexAxis: "y", // Horizontal bar chart
-
-    responsive: true,
-
-    plugins: {
-      datalabels: {
-        anchor: 'end',
-        align: 'end',
-        color: '#000',
-        font: {
-          weight: 'bold',
-        },
-        formatter: function (value) {
-          return value;
-        },
-      },
-      title: {
-        display: true,
-        text: "District Wise Enrollment",
-      },
-
-      legend: {
-        position: "top",
-      },
-    },
-
-    scales: {
-      x: {
-        stacked: false, // Do not stack the bars
-      },
-
-      y: {
-        beginAtZero: true, // Ensure the y-axis starts at 0
-        stacked: false, // Do not stack the bars on the y-axis
-      },
-    },
-  };
 
   const TradesData = {
     labels: [
@@ -269,35 +44,119 @@ const EmploymentProjections = () => {
       "Electrical Technician",
       "Press Machine  Ope...",
       "Polisher",
-      "Cook"
+      "Cook",
     ],
     datasets: [
       {
         label: "Total Demand",
-        data: [50501, 30203, 23313, 20047, 19243, 18624, 16338, 13908, 13425, 12300, 11681, 11006,10803,10642,10463],
+        data: [
+          50501, 30203, 23313, 20047, 19243, 18624, 16338, 13908, 13425, 12300,
+          11681, 11006, 10803, 10642, 10463,
+        ],
         backgroundColor: [
-          "#4e73df", "#1cc88a", "#36b9cc", "#f6c23e",
-          "#e74a3b", "#858796", "#20c9a6", "#fd7e14",
-          "#6f42c1", "#00bcd4", "#8bc34a", "#ff6384"
+          "#4e73df",
+          "#1cc88a",
+          "#36b9cc",
+          "#f6c23e",
+          "#e74a3b",
+          "#858796",
+          "#20c9a6",
+          "#fd7e14",
+          "#6f42c1",
+          "#00bcd4",
+          "#8bc34a",
+          "#ff6384",
         ],
         barThickness: 30,
         barPercentage: 1.0,
         categoryPercentage: 0.5,
-      }
+      },
     ],
   };
-  
-  
+
   const TradesOptions = {
     indexAxis: "y",
     responsive: false, // Set to false for fixed size
     plugins: {
       datalabels: {
-        anchor: 'end',
-        align: 'end',
-        color: '#000',
+        anchor: "end",
+        align: "end",
+        color: "#000",
         font: {
-          weight: 'bold',
+          weight: "bold",
+        },
+        formatter: function (value) {
+          return value;
+        },
+      },
+      title: {
+        display: false,
+        // text: "High Demand Trades",
+      },
+      legend: {
+        display: false, // Only one dataset
+      },
+    },
+    scales: {
+      x: {
+        beginAtZero: true,
+        stacked: false,
+      },
+      y: {
+        stacked: false,
+      },
+    },
+  };
+  const disablejobData = {
+    labels: [
+      "Packing",
+      "Stretching",
+      "Machine Operator",
+      "Accountant",
+      "Electric Technician",
+      "Supervisor",
+      "Helper",
+      "Sales Officer",
+      "Receptionist",
+      "Packing Material Pac...",
+    ],
+    datasets: [
+      {
+        label: "Total Demand",
+        data: [
+          50501, 30203, 23313, 20047, 19243, 18624, 16338, 13908, 13425, 12300,
+        ],
+        backgroundColor: [
+          "#4e73df",
+          "#1cc88a",
+          "#36b9cc",
+          "#f6c23e",
+          "#e74a3b",
+          "#858796",
+          "#20c9a6",
+          "#fd7e14",
+          "#6f42c1",
+          "#00bcd4",
+          "#8bc34a",
+          "#ff6384",
+        ],
+        barThickness: 30,
+        barPercentage: 1.0,
+        categoryPercentage: 0.5,
+      },
+    ],
+  };
+
+  const disablejobOptions = {
+    indexAxis: "y",
+    responsive: false, // Set to false for fixed size
+    plugins: {
+      datalabels: {
+        anchor: "end",
+        align: "end",
+        color: "#000",
+        font: {
+          weight: "bold",
         },
         formatter: function (value) {
           return value;
@@ -322,7 +181,6 @@ const EmploymentProjections = () => {
     },
   };
 
-
   const SubSectorWiseData = {
     labels: [
       "Manufacturing",
@@ -339,35 +197,46 @@ const EmploymentProjections = () => {
       "Hospitality and Tour...",
       "Mining Sector",
       "Agriculture, forestry...",
-      "Surgical Tools"
+      "Surgical Tools",
     ],
     datasets: [
       {
         label: "Total Demand",
-        data: [260503, 122332, 95091, 80883, 65181, 51778, 46615, 42303, 17235, 15658,15218 , 10003,6302,5785,5040],
+        data: [
+          260503, 122332, 95091, 80883, 65181, 51778, 46615, 42303, 17235,
+          15658, 15218, 10003, 6302, 5785, 5040,
+        ],
         backgroundColor: [
-          "#4e73df", "#1cc88a", "#36b9cc", "#f6c23e",
-          "#e74a3b", "#858796", "#20c9a6", "#fd7e14",
-          "#6f42c1", "#00bcd4", "#8bc34a", "#ff6384"
+          "#4e73df",
+          "#1cc88a",
+          "#36b9cc",
+          "#f6c23e",
+          "#e74a3b",
+          "#858796",
+          "#20c9a6",
+          "#fd7e14",
+          "#6f42c1",
+          "#00bcd4",
+          "#8bc34a",
+          "#ff6384",
         ],
         barThickness: 30,
         barPercentage: 1.0,
         categoryPercentage: 0.5,
-      }
+      },
     ],
   };
-  
-  
+
   const SubSectorWiseOptions = {
     indexAxis: "y",
     responsive: false, // Set to false for fixed size
     plugins: {
       datalabels: {
-        anchor: 'end',
-        align: 'end',
-        color: '#000',
+        anchor: "end",
+        align: "end",
+        color: "#000",
         font: {
-          weight: 'bold',
+          weight: "bold",
         },
         formatter: function (value) {
           return value;
@@ -391,7 +260,84 @@ const EmploymentProjections = () => {
       },
     },
   };
-  
+  const highDemanData = {
+    labels: [
+      "Machine Operator",
+      "Stitching Machine Operator",
+      "Mason",
+      "Electrician",
+      "Waiter",
+      "Welder",
+      "Nurse",
+      "Computer Operator",
+      "Plumber",
+      "Chef",
+      "Quality Assurance",
+      "Electrical Technician",
+      "Press Machine  Ope...",
+      "Polisher",
+      "Cook",
+    ],
+
+    datasets: [
+      {
+        label: "Male",
+        data: [
+          700, 200, 500, 500, 700, 800, 950, 1800, 500, 1900, 300, 2000, 400,
+          2000, 400,
+        ],
+        backgroundColor: "#4e73df",
+        barThickness: 20,
+        barPercentage: 1.0,
+        categoryPercentage: 0.5,
+      },
+      {
+        label: "Female",
+        data: [
+          300, 320, 100, 280, 130, 110, 120, 250, 1700, 1560, 30, 2050, 800,
+          950, 1800, 500,
+        ],
+        backgroundColor: "#ff6384",
+        barThickness: 20,
+        barPercentage: 1.0,
+        categoryPercentage: 0.5,
+      },
+    ],
+  };
+
+  const highDemanOptions = {
+    indexAxis: "y",
+    responsive: false,
+    plugins: {
+      datalabels: {
+        anchor: "end",
+        align: "end",
+        color: "#000",
+        font: {
+          weight: "bold",
+        },
+        formatter: function (value) {
+          return value;
+        },
+      },
+      title: {
+        display: false,
+      },
+      legend: {
+        display: true,
+        position: "bottom",
+      },
+    },
+    scales: {
+      x: {
+        beginAtZero: true,
+        stacked: false,
+      },
+      y: {
+        stacked: false,
+      },
+    },
+  };
   const Card = ({ title, description, bgColor, icon, navigateTo }) => {
     const navigate = useNavigate();
 
@@ -479,8 +425,11 @@ const EmploymentProjections = () => {
       </div>
 
       <div className="px-10">
-        <Heading title="Key facts - National" description="Source: Employer Skill Survey, Qualification Awarding Bodies -
-              2023/2024" />
+        <Heading
+          title="Key facts - National"
+          description="Source: Employer Skill Survey, Qualification Awarding Bodies -
+              2023/2024"
+        />
 
         <div className="flex w-full">
           <div className=" mt-16 w-[100%]">
@@ -529,10 +478,11 @@ const EmploymentProjections = () => {
                     Female Demand
                   </h3>
                   <div className="pt-52">
-                    <p className="text-green-700 text-[36px] font-bold">160,245</p>
+                    <p className="text-green-700 text-[36px] font-bold">
+                      160,245
+                    </p>
                   </div>
                 </div>
-               
 
                 <div className="bg-green-50 shadow p-6 flex flex-col items-center text-center">
                   <div className="w-36 h-36 mb-4 mt-5">
@@ -548,101 +498,208 @@ const EmploymentProjections = () => {
                     Total Demand
                   </h3>
                   <h3 className="text-[16px] text-black   mb-2">
-                  Projection for 2025-2026
-
-
+                    Projection for 2025-2026
                   </h3>
                   <div className="pt-52">
                     <p className="text-green-700 text-[36px] font-bold">
-                   878,715
+                      878,715
                     </p>
                   </div>
                 </div>
               </div>
 
-              
-              <Heading title="High Demand Trades"  />
-        <div className="bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)] mr-4 mt-16">
-      <Bar data={TradesData} options={TradesOptions}  width={1024}
-  height={750}  />
-  </div>
+              <Heading title="High Demand Trades" />
+              <div className="bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)] mr-4 mt-16">
+                <Bar
+                  data={TradesData}
+                  options={TradesOptions}
+                  width={1024}
+                  height={750}
+                />
+              </div>
 
-  <Heading title="Sub-sector Wise Total Demand"  />
+              <Heading title="Sub-sector Wise Total Demand" />
 
               <div className="bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)] mr-4 mt-16">
-              <Bar data={SubSectorWiseData} options={SubSectorWiseOptions}  width={1024}  height={750} />
+                <Bar
+                  data={SubSectorWiseData}
+                  options={SubSectorWiseOptions}
+                  width={1024}
+                  height={750}
+                />
               </div>
-              {/* <blockquote className="border-l-4 pl-4 border-[#e2e028ed] mt-16">
-                <h2 className="text-[28px] text-[#267d37de] font-bold ">
-                  Institute Type Wise Enrollment
-                </h2>
-              </blockquote> */}
+              <Heading title="High Demand Trades - Gender Wise" />
 
-              {/* <div className="bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)] mr-4 mt-16">
-                <Bar data={data1} options={options1} />
-              </div> */}
+              <div className="bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)] mr-4 mt-16">
+                <Bar
+                  data={highDemanData}
+                  options={highDemanOptions}
+                  width={1024}
+                  height={850}
+                />
+              </div>
+              <Heading title="Top 10 Jobs For Person With Disab" />
 
-              {/* <blockquote className="border-l-4 pl-4 border-[#e2e028ed] mt-16">
-                <h2 className="text-[28px] text-[#267d37de] font-bold ">
-                  District Wise Enrollment
-                </h2>
-              </blockquote> */}
+              <div className="bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)] mr-4 mt-16">
+                <Bar
+                  data={disablejobData}
+                  options={disablejobOptions}
+                  width={1024}
+                  height={850}
+                />
+                 <Heading title="Demand by Level - Gender Wise" />
 
-              {/* <div className=" bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)] mr-4 mt-16">
-                <Bar data={Distdata} options={Distoptions} width={1024}
-  height={750}
-   />
-              </div> */}
+               <div className="bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)] mr-4 mt-16 mb-16">
+                <table class="min-w-full border border-gray-300">
+                  <thead class="bg-green-600">
+                    <tr>
+                      <th class="px-4 py-6 text-left text-2xl font-semibold text-white border border-gray-300">
+                        NVQF Level
+                      </th>
+                      <th class="px-4 py-6 text-left text-2xl font-semibold text-white border border-gray-300">
+                        Male Demand
+                      </th>
+                      <th class="px-4 py-6 text-left text-2xl font-semibold text-white border border-gray-300">
+                        Female Demand
+                      </th>
+                      <th class="px-4 py-6 text-left text-2xl font-semibold text-white border border-gray-300">
+                        Total Demand
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody class="bg-white">
+                    <tr>
+                      <td class="px-4 py-6 text-2xl font-semibold border border-gray-300">
+                        Level 1
+                      </td>
+                      <td class="px-4 py-6 text-2xl border border-gray-300">
+                        63,328
+                      </td>
+                      <td class="px-4 py-6 text-2xl border border-gray-300">
+                        14,070
+                      </td>
+                      <td class="px-4 py-6 text-2xl border border-gray-300">
+                        77,398
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-6 text-2xl font-semibold border border-gray-300">
+                        Level 2
+                      </td>
+                      <td class="px-4 py-6 text-2xl border border-gray-300">
+                        163,436
+                      </td>
+                      <td class="px-4 py-6 text-2xl border border-gray-300">
+                        40,021
+                      </td>
+                      <td class="px-4 py-6 text-2xl border border-gray-300">
+                        203,457
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-6 text-2xl font-semibold border border-gray-300">
+                        Level 3
+                      </td>
+                      <td class="px-4 py-6 text-2xl border border-gray-300">
+                        181,492
+                      </td>
+                      <td class="px-4 py-6 text-2xl border border-gray-300">
+                        42,552
+                      </td>
+                      <td class="px-4 py-6 text-2xl border border-gray-300">
+                        224,044
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-6 text-2xl font-semibold border border-gray-300">
+                        Level 4
+                      </td>
+                      <td class="px-4 py-6 text-2xl border border-gray-300">
+                        129,311	
+                      </td>
+                      <td class="px-4 py-6 text-2xl border border-gray-300">
+                        36,863
+                      </td>
+                      <td class="px-4 py-6 text-2xl border border-gray-300">
+                        166,174
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-6 text-2xl font-semibold border border-gray-300">
+                        Level 5
+                      </td>
+                      <td class="px-4 py-6 text-2xl border border-gray-300">
+                        70,038
+                      </td>
+                      <td class="px-4 py-6 text-2xl border border-gray-300">
+                        16,445
+                      </td>
+                      <td class="px-4 py-6 text-2xl border border-gray-300">
+                        86,483
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-6 text-2xl font-semibold border border-gray-300">
+                        Level 6
+                      </td>
+                      <td class="px-4 py-6 text-2xl border border-gray-300">
+                        5,214
+                      </td>
+                      <td class="px-4 py-6 text-2xl border border-gray-300">
+                        1,985
+                      </td>
+                      <td class="px-4 py-6 text-2xl border border-gray-300">
+                        7,199
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-6 text-2xl font-semibold border border-gray-300">
+                        Level 7
+                      </td>
+                      <td class="px-4 py-6 text-2xl border border-gray-300">
+                        2700
+                      </td>
+                      <td class="px-4 py-6 text-2xl border border-gray-300">
+                        1255
+                      </td>
+                      <td class="px-4 py-6 text-2xl border border-gray-300">
+                        3956
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-6 text-2xl font-semibold border border-gray-300">
+                        Level 8
+                      </td>
+                      <td class="px-4 py-6 text-2xl border border-gray-300">
+                        649
+                      </td>
+                      <td class="px-4 py-6 text-2xl border border-gray-300">
+                        598
+                      </td>
+                      <td class="px-4 py-6 text-2xl border border-gray-300">
+                        1247
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              </div>
             </div>
           </div>
 
           <div className=" grid-cols-1  p-8 mt-16 ">
-            {/* <div class=" bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)] mr-4 ">
+            <div class=" bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)] mr-4 ">
               <div class="text-3xl font-bold">Filters</div>
 
-              <div className="mt-6">
-                <label class="block text-2xl font-semibold text-gray-700 mb-1 ">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  placeholder="Search by name"
-                  class="form-control w-full h-[32px] p-2 border border-gray-300 rounded text-[14px] placeholder:text-[14px]"
-                />
-              </div>
-
               <div>
                 <label class="block text-2xl font-semibold text-gray-700 mb-1 mt-8">
-                  Ownership
+                  Select Year
                 </label>
                 <select class=" bg-white focus:outline-none mt-2 focus:ring-2 focus:ring-blue-400 form-control w-full h-[32px] p-2 border border-gray-300 rounded text-[14px] placeholder:text-[14px]">
-                  <option>Select Ownership</option>
-                  <option>Private</option>
-                  <option>Public</option>
-                </select>
-              </div>
-
-              <div>
-                <label class="block text-2xl font-semibold text-gray-700 mb-1 mt-8">
-                  Institute Type
-                </label>
-                <select class=" bg-white focus:outline-none mt-2 focus:ring-2 focus:ring-blue-400 form-control w-full h-[32px] p-2 border border-gray-300 rounded text-[14px] placeholder:text-[14px]">
-                  <option>Select Institute Type</option>
-                  <option>University</option>
-                  <option>College</option>
-                  <option>School</option>
-                </select>
-              </div>
-
-              <div>
-                <label class="block text-2xl font-semibold text-gray-700 mb-1 mt-8">
-                  Provinces
-                </label>
-                <select class=" bg-white focus:outline-none mt-2 focus:ring-2 focus:ring-blue-400 form-control w-full h-[32px] p-2 border border-gray-300 rounded text-[14px] placeholder:text-[14px]">
-                  <option>Punjab</option>
-                  <option>Sindh</option>
-                  <option>LPK</option>
-                  <option>Balochistan</option>
+                  <option>Select Year</option>
+                  <option>2023</option>
+                  <option>2024</option>
+                  <option>2025</option>
                 </select>
               </div>
               <div className="form-group mt-10 justify-center align-middle flex">
@@ -652,7 +709,7 @@ const EmploymentProjections = () => {
                   value="Search"
                 />
               </div>
-            </div> */}
+            </div>
 
             <div className="mt-28">
               {[

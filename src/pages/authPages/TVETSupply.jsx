@@ -16,9 +16,9 @@ import ChartDataLabels from "chartjs-plugin-datalabels";
 import Heading from "@/components/templates/Heading/Heading";
 
 const TVETSupply = () => {
-  // useEffect(() => {
-  //   window.scrollTo(0, 0);
-  // }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   ChartJS.register(
     CategoryScale,
@@ -1294,7 +1294,7 @@ const TVETSupply = () => {
               <div className="bg-white p-8 rounded  mr-4 mt-16">
                 <Bar data={data3} options={options3} />
               </div> */}
-              <blockquote className="border-l-4 pl-4 border-[#e2e028ed] mt-16">
+              {/* <blockquote className="border-l-4 pl-4 border-[#e2e028ed] mt-16">
                 <h2 className="text-[28px] text-[#267d37de] font-bold ">
                   Total Enrollments by Ownership
                 </h2>
@@ -1302,7 +1302,7 @@ const TVETSupply = () => {
 
               <div className="bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)] mr-4 mt-16">
                 <Bar data={data} options={options} />
-              </div>
+              </div> */}
 
               <Heading title="City Wise Enrollment" />
               <div className="bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)] mr-4 mt-16">
