@@ -43,7 +43,7 @@ const HomePage = () => {
     },
 
     {
-      id: "/tevet-detail",
+      id: "/tevta-page",
       image: tevta1,
       title: "Technical Education and Vocational Training Authority (TEVTA)",
       description:

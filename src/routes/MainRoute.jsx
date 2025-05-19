@@ -15,6 +15,7 @@ import TVETSupply from "@/pages/authPages/TVETSupply";
 import EmploymentProjections from "@/pages/authPages/EmploymentProjections";
 import DistMap from "@/pages/authPages/DistMap";
 import TevetExplaination from "@/pages/authPages/TevetExplaination";
+import TevtaPage from "@/pages/authPages/TevtaPage";
 
 const MainRoute = () => {
   return (
@@ -118,6 +119,16 @@ const MainRoute = () => {
             <PageTransition>
               <Suspense fallback={<PageLoading />}>
                 <TevetExplaination  />
+              </Suspense>
+            </PageTransition>
+          }
+        />
+         <Route
+          path="/tevta-page"
+          element={
+            <PageTransition>
+              <Suspense fallback={<PageLoading />}>
+                <TevtaPage  />
               </Suspense>
             </PageTransition>
           }
