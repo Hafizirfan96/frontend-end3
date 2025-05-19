@@ -331,8 +331,8 @@ const Institutes = () => {
       ctx.font = "bold 14px Arial";
       ctx.fillStyle = "#000";
       ctx.textAlign = "center";
-      ctx.fillText("GCT", midTechnical, bottom + yOffset);
-      ctx.fillText("Vocational", midVocational, bottom + yOffset);
+      ctx.fillText("Private", midTechnical, bottom + yOffset);
+      ctx.fillText("Public", midVocational, bottom + yOffset);
       ctx.restore();
     },
   };
