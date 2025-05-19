@@ -24,25 +24,17 @@ const Jobs = () => {
     Legend,
     ChartDataLabels
   );
-  const [hoveredIndex, setHoveredIndex] = useState(null);
-  const bgColors = [
-    "bg-red-100",
-    "bg-green-100",
-    "bg-blue-100",
-    "bg-yellow-100",
-    "bg-purple-100",
-    "bg-pink-100",
-  ];
+ 
 
   const provancedata = {
     labels: [
-      "Data Entry Operator",
       "Construction Worker",
       "Security Guard",
       "Driver",
       "Private Driver",
       "Class-IV",
       "Bike rider",
+      "Data Entry Operator",
       "MOTORCYCLE DRIVER",
       "Steel Fixer",
       "Labour",
@@ -201,6 +193,92 @@ const Jobs = () => {
       // },
     },
   };
+    const regionalJobdata = {
+    labels: [
+      "Dubai",
+      "Abu Dhabi",
+      "Tokyo",
+      "Berlin",
+      "Sharja",
+    ],
+
+    datasets: [
+      {
+        // label: "Number of Posts",
+        data: [73936, 5053, 1343, 674, 189, ],
+        backgroundColor: [
+        
+          "rgba(154, 30, 30, 0.85)",
+          "rgba(30, 83, 154, 0.85)",
+          "rgba(30, 154, 78, 0.85)",
+          "rgba(154, 117, 30, 0.85)",
+          "rgba(102, 51, 153, 0.85)",
+          "rgba(255, 99, 132, 0.85)",
+          "rgba(255, 159, 64, 0.85)",
+          "rgba(75, 192, 192, 0.85)",
+          "rgba(54, 162, 235, 0.85)",
+          "rgba(153, 102, 255, 0.85)",
+        ],
+        borderColor: [
+       
+          "rgba(154, 30, 30, 1)",
+          "rgba(30, 83, 154, 1)",
+          "rgba(30, 154, 78, 1)",
+          "rgba(154, 117, 30, 1)",
+          "rgba(102, 51, 153, 1)",
+          "rgba(255, 99, 132, 1)",
+          "rgba(255, 159, 64, 1)",
+          "rgba(75, 192, 192, 1)",
+          "rgba(54, 162, 235, 1)",
+          "rgba(153, 102, 255, 1)",
+        ],
+        borderWidth: 1,
+      },
+    ],
+  };
+
+  const regionalJoboptions = {
+  responsive: true,
+  indexAxis: "x", 
+  plugins: {
+    datalabels: {
+      anchor: 'end',
+      align: 'end',
+      color: '#000',
+      font: {
+        weight: 'bold',
+      },
+      formatter: function (value) {
+        return value;
+      },
+    },
+    legend: {
+      display: false,
+    },
+    title: {
+      display: true,
+      text: "Number of Posts",
+      position: "bottom",
+    },
+  },
+  scales: {
+    x: {
+      ticks: {
+        maxRotation: 45,
+        minRotation: 0,
+        autoSkip: false, // keep all city names visible
+      },
+    },
+    y: {
+      beginAtZero: true,
+      ticks: {
+        callback: (value) => value.toLocaleString(), // add commas to big numbers
+      },
+    },
+  },
+};
+
+
   return (
     <div>
       <Header />
@@ -584,6 +662,19 @@ const Jobs = () => {
                 <Bar
                   data={provanceJobdata}
                   options={provanceJoboptions}
+                  width={1024}
+                  height={750}
+                />
+              </div>
+               <blockquote className="border-l-4 pl-4 border-[#e2e028ed] mt-16">
+                <h2 className="text-[28px] text-[#267d37de] font-bold ">
+               Regional Job Stats
+                </h2>
+              </blockquote>
+              <div className="bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)] mr-4 mt-16">
+                <Bar
+                  data={regionalJobdata}
+                  options={regionalJoboptions}
                   width={1024}
                   height={750}
                 />
