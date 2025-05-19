@@ -538,7 +538,7 @@ const EmploymentProjections = () => {
                   height={850}
                 />
               </div>
-              <Heading title="Top 10 Jobs For Person With Disab" />
+              <Heading title="Top 10 Jobs For Person With Disabilities" />
 
               <div className="bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)] mr-4 mt-16">
                 <Bar
@@ -693,13 +693,17 @@ const EmploymentProjections = () => {
 
               <div>
                 <label class="block text-2xl font-semibold text-gray-700 mb-1 mt-8">
-                  Select Year
+                 Select Province
                 </label>
                 <select class=" bg-white focus:outline-none mt-2 focus:ring-2 focus:ring-blue-400 form-control w-full h-[32px] p-2 border border-gray-300 rounded text-[14px] placeholder:text-[14px]">
-                  <option>Select Year</option>
-                  <option>2023</option>
-                  <option>2024</option>
-                  <option>2025</option>
+                  <option>National</option>
+                  <option>Punjab</option>
+                  <option>Sindh</option>
+                  <option>KPK</option>
+                  <option>Balochistan</option>
+                  <option>AJK</option>
+                  <option>GB</option>
+                  <option>Islamabad</option>
                 </select>
               </div>
               <div className="form-group mt-10 justify-center align-middle flex">

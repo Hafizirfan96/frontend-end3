@@ -250,33 +250,33 @@ const TVETSupply = () => {
     },
   };
   const labels = [
-    "Enrolled",
-    "Graduated",
-    "Assessed",
-    "Certified",
+    "Enrollments",
+    "Graduates",
+    "Dropouts",
+    "Unsuccessful",
     "",
-    "Enrolled",
-    "Graduated",
-    "Assessed",
-    "Certified",
+    "Enrollments",
+    "Graduates",
+    "Dropouts",
+    "Unsuccessful",
   ];
   const labelsOwner = [
-    "Enrolled",
-    "Graduated",
-    "Assessed",
-    "Certified",
-    "", // Spacer
-    "Enrolled",
-    "Graduated",
-    "Assessed",
-    "Certified",
+    "Enrollments",
+    "Graduates",
+    "Dropouts",
+    "Unsuccessful",
+    "", 
+    "Enrollments",
+    "Graduates",
+    "Dropouts",
+    "Unsuccessful",
   ];
   const dataGratudes = {
     labels,
     datasets: [
       {
         label: "Male",
-        data: [800, 600, 550, 500, null, 900, 650, 600, 550],
+        data: [800, 600,  500,300, null, 900, 650, 600, 550],
         backgroundColor: "rgba(56, 142, 60, 0.85)",
         stack: "stack1",
         barThickness: 40,
@@ -508,8 +508,10 @@ const TVETSupply = () => {
       } = chart;
 
       const yOffset = 65;
-      const midTechnical = (x.getPixelForValue(0) + x.getPixelForValue(3)) / 2;
-      const midVocational = (x.getPixelForValue(4) + x.getPixelForValue(7)) / 2;
+
+          const midTechnical = (x.getPixelForValue(-0.2) + x.getPixelForValue(3.2)) / 2;
+    const midVocational = (x.getPixelForValue(4.8) + x.getPixelForValue(8.2)) / 2;
+
 
       ctx.save();
       ctx.font = "bold 14px Arial";
@@ -530,14 +532,14 @@ const TVETSupply = () => {
       } = chart;
 
       const yOffset = 65;
-      const midPublic = (x.getPixelForValue(0) + x.getPixelForValue(3)) / 2;
-      const midPrivate = (x.getPixelForValue(5) + x.getPixelForValue(8)) / 2;
+    const midPublic = (x.getPixelForValue(-0.2) + x.getPixelForValue(3.2)) / 2;
+    const midPrivate = (x.getPixelForValue(4.8) + x.getPixelForValue(8.2)) / 2;
 
       ctx.save();
       ctx.font = "bold 14px Arial";
       ctx.fillStyle = "#000";
       ctx.textAlign = "center";
-      ctx.fillText("Technical", midPublic, bottom + yOffset);
+      ctx.fillText("GCT", midPublic, bottom + yOffset);
       ctx.fillText("Vocational", midPrivate, bottom + yOffset);
       ctx.restore();
     },
@@ -1038,7 +1040,7 @@ const TVETSupply = () => {
                   </div>
 
                   <div className="text-left text-3xl font-semibold text-gray-700 pt-4">
-                    Enrolled
+                    Enrollments
                   </div>
                   <p className="font-bold text-blue-700 text-[25px] pt-4">
                     123
@@ -1051,7 +1053,7 @@ const TVETSupply = () => {
                   </p>
 
                   <div className="text-left text-3xl font-semibold text-gray-700 pt-4">
-                    Graduated
+                    Graduates
                   </div>
                   <p className="font-bold text-blue-700 text-[25px] pt-4">
                     456
@@ -1062,9 +1064,10 @@ const TVETSupply = () => {
                   <p className="font-bold text-green-600 text-[25px] pt-4">
                     656
                   </p>
+                 
 
                   <div className="text-left text-3xl font-semibold text-gray-700 pt-4">
-                    Assessed
+                    Dropouts
                   </div>
                   <p className="font-bold text-blue-700 text-[25px] pt-4">
                     789
@@ -1077,7 +1080,7 @@ const TVETSupply = () => {
                   </p>
 
                   <div className="text-left text-3xl font-semibold text-gray-700 pt-4">
-                    Certified
+                    Unsuccessful
                   </div>
                   <p className="font-bold text-blue-700 text-[25px] pt-4">
                     321
@@ -1262,7 +1265,7 @@ const TVETSupply = () => {
               </div> */}
               <blockquote className="border-l-4 pl-4 border-[#e2e028ed] mt-16">
                 <h2 className="text-[28px] text-[#267d37de] font-bold ">
-                  Enrollment and Assessment (Ownership Wise)
+                  Enrollments and Graduates (Ownership Wise)
                 </h2>
               </blockquote>
 
@@ -1275,7 +1278,7 @@ const TVETSupply = () => {
               </div>
               <blockquote className="border-l-4 pl-4 border-[#e2e028ed] mt-16">
                 <h2 className="text-[28px] text-[#267d37de] font-bold ">
-                  Enrollment and Assessment (Trainering Wise)
+                  Enrollments and Graduates (GCT VS Vocational)
                 </h2>
               </blockquote>
               <div className="bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)] mr-4 mt-16">

@@ -152,53 +152,34 @@ const Institutes = () => {
     },
   };
 
-  const EnrollmentgroupLabelPlugin = {
-    id: "groupLabelsOption",
-    afterDraw: (chart) => {
-      const {
-        ctx,
-        chartArea: { bottom },
-        scales: { x },
-      } = chart;
-
-      const yOffset = 65;
-      const midTechnical = (x.getPixelForValue(0) + x.getPixelForValue(3)) / 2;
-      const midVocational = (x.getPixelForValue(4) + x.getPixelForValue(7)) / 2;
-
-      ctx.save();
-      ctx.font = "bold 14px Arial";
-      ctx.fillStyle = "#000";
-      ctx.textAlign = "center";
-      ctx.fillText("Technical", midTechnical, bottom + yOffset);
-      ctx.fillText("Vocational", midVocational, bottom + yOffset);
-      ctx.restore();
-    },
-  };
+ 
 
   const labels = [
-    "Enrolled",
-    "Graduated",
-    "Assessed",
-    "Certified",
-    "",
-    "Enrolled",
-    "Graduated",
-    "Assessed",
-    "Certified",
+    "Enrollments",
+    "Graduates",
+    "UnderTraining",
+    "Dropouts",
+    "Unsuccessful",
+    "", 
+    "Enrollments",
+    "Graduates",
+    "UnderTraining",
+    "Dropouts",
+    "Unsuccessful",
   ];
   const dataGratudes = {
     labels,
     datasets: [
       {
         label: "Male",
-        data: [800, 600, 550, 500, null, 900, 650, 600, 550],
+        data: [800, 600,200, 550, 500, null, 900, 650,150, 600, 550],
         backgroundColor: "rgba(56, 142, 60, 0.85)",
         stack: "stack1",
         barThickness: 40,
       },
       {
         label: "Female",
-        data: [700, 600, 550, 500, null, 800, 650, 600, 550],
+        data: [700, 600,300, 550, 500, null, 800, 650,250, 600, 550],
         backgroundColor: "rgba(230, 81, 0, 0.85)",
         stack: "stack1",
         barThickness: 40,
@@ -301,35 +282,7 @@ const Institutes = () => {
     },
   };
 
-  const data = {
-    labels: ["Technical", "Vocational"],
-    datasets: [
-      {
-        label: "Male Count", // Data for Male gender
-        data: [30735, 256205], // Data for Male count in each stream
-        backgroundColor: "rgba(56, 142, 60, 0.85)", // Color fill for Male bars
-        // borderColor: "rgba(54, 162, 235, 1)", // Border color for Male bars
-        borderWidth: 1, // Border width for Male bars
-        barThickness: 60,
-      },
-      {
-        label: "Female Count", // Data for Female gender
-        data: [1750, 240981], // Data for Female count in each stream
-        backgroundColor: "rgba(23, 105, 170, 0.85)", // Color fill for Female bars
-        borderColor: "#4ca0ea", // Border color for Female bars
-        borderWidth: 1, // Border width for Female bars
-        barThickness: 60,
-      },
-      {
-        label: "Total Count", // Data for Other gender
-        data: [32485, 497186], // Data for Other gender count in each stream
-        backgroundColor: "rgba(230, 81, 0, 0.85)", // Color fill for Other bars
-        borderColor: "#ff8a43", // Border color for Other bars
-        // borderWidth: 1, // Border width for Other bars
-        barThickness: 60,
-      },
-    ],
-  };
+
 
   const options = {
     responsive: true,
@@ -370,14 +323,15 @@ const Institutes = () => {
       } = chart;
 
       const yOffset = 65;
-      const midTechnical = (x.getPixelForValue(0) + x.getPixelForValue(3)) / 2;
-      const midVocational = (x.getPixelForValue(4) + x.getPixelForValue(7)) / 2;
+        const midTechnical = (x.getPixelForValue(-0.2) + x.getPixelForValue(3.2)) / 2;
+    const midVocational = (x.getPixelForValue(4.8) + x.getPixelForValue(11.2)) / 2;
+   
 
       ctx.save();
       ctx.font = "bold 14px Arial";
       ctx.fillStyle = "#000";
       ctx.textAlign = "center";
-      ctx.fillText("Technical", midTechnical, bottom + yOffset);
+      ctx.fillText("GCT", midTechnical, bottom + yOffset);
       ctx.fillText("Vocational", midVocational, bottom + yOffset);
       ctx.restore();
     },
@@ -445,7 +399,19 @@ const Institutes = () => {
       },
     },
   };
-
+  const labelsOwner = [
+    "Enrollments",
+    "Graduates",
+    "UnderTraining",
+    "Dropouts",
+    "Unsuccessful",
+    "", 
+    "Enrollments",
+    "Graduates",
+    "UnderTraining",
+    "Dropouts",
+    "Unsuccessful",
+  ];
   const provancedata = {
     labels: [
       "Punjab Board of Technical Education",
@@ -479,7 +445,38 @@ const Institutes = () => {
       },
     ],
   };
+  const totalLabelPluginOwner = {
+    id: "totalLabelPluginOwner",
+    afterDatasetsDraw(chart) {
+      const {
+        ctx,
+        chartArea: { top },
+        scales: { x, y },
+      } = chart;
 
+      const labelIndices = chart.data.labels
+        .map((label, i) => i)
+        .filter((i) => chart.data.labels[i]); // Skip empty labels
+
+      labelIndices.forEach((i) => {
+        const male = chart.data.datasets[0].data[i];
+        const female = chart.data.datasets[1].data[i];
+
+        if (male == null && female == null) return;
+
+        const total = (male || 0) + (female || 0);
+        const xPosition = x.getPixelForValue(i);
+        const yPosition = y.getPixelForValue(total);
+
+        ctx.save();
+        ctx.font = "bold 12px sans-serif";
+        ctx.fillStyle = "#000";
+        ctx.textAlign = "center";
+        ctx.fillText(total, xPosition, yPosition - 10);
+        ctx.restore();
+      });
+    },
+  };
   const provanceoptions = {
     responsive: true,
     indexAxis: "y",
@@ -506,7 +503,110 @@ const Institutes = () => {
       },
     },
   };
+    const dataOwner = {
+    labels: labelsOwner,
+    datasets: [
+      {
+        label: "Male",
+        data: [750, 580,150, 520, 490, null, 880, 640,150, 590, 530],
+        backgroundColor: "#8884d8",
+        stack: "stack1",
+        barThickness: 40,
+      },
+      {
+        label: "Female",
+        data: [680, 620,200, 500, 470, null, 320, 670,200, 610, 540],
+        backgroundColor: "#82ca9d",
+        stack: "stack1",
+        barThickness: 40,
+      },
+    ],
+  };
+  
+   const optionsOwner = {
+    responsive: true,
+    plugins: {
+      datalabels: {
+        anchor: "center",
+        align: "center",
+        color: "#fff",
+        font: {
+          weight: "bold",
+        },
+        display: function (context) {
+          return context.dataset.data[context.dataIndex] != null;
+        },
+        formatter: function (value) {
+          return value;
+        },
+      },
 
+      totalLabelPluginOwner,
+      legend: {
+        position: "top",
+        weight: "bold",
+        font: {
+          weight: "bold",
+        },
+      },
+      title: {
+        display: false,
+      },
+      tooltip: {
+        mode: "index",
+        intersect: false,
+      },
+    },
+    scales: {
+      x: {
+        stacked: true,
+        ticks: {
+          callback: function (value, index) {
+            return labels[index];
+          },
+          maxRotation: 0,
+          minRotation: 0,
+          autoSkip: false,
+          padding: 10,
+        },
+      },
+      y: {
+        stacked: true,
+        beginAtZero: true,
+        ticks: {
+          precision: 0,
+        },
+      },
+    },
+    layout: {
+      padding: {
+        bottom: 30,
+      },
+    },
+  };
+  const groupLabelPluginOwner = {
+    id: "groupLabelsOwner",
+    afterDraw: (chart) => {
+      const {
+        ctx,
+        chartArea: { bottom },
+        scales: { x },
+      } = chart;
+
+      const yOffset = 65;
+    const midPublic = (x.getPixelForValue(-0.2) + x.getPixelForValue(3.2)) / 2;
+    const midPrivate = (x.getPixelForValue(4.8) + x.getPixelForValue(11.2)) / 2;
+
+      ctx.save();
+      ctx.font = "bold 14px Arial";
+      ctx.fillStyle = "#000";
+      ctx.textAlign = "center";
+      ctx.fillText("GCT", midPublic, bottom + yOffset);
+      ctx.fillText("Vocational", midPrivate, bottom + yOffset);
+      ctx.restore();
+    },
+  };
+  
   const Card = ({ title, description, bgColor, icon, navigateTo }) => {
     const navigate = useNavigate();
 
@@ -524,6 +624,7 @@ const Institutes = () => {
       </div>
     );
   };
+
 
   return (
     <div>
@@ -911,6 +1012,31 @@ const Institutes = () => {
               <div className="bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)] mr-4 mt-16">
                 <Bar data={data1} options={options1} />
               </div> */}
+               <blockquote className="border-l-4 pl-4 border-[#e2e028ed] mt-16">
+                <h2 className="text-[28px] text-[#267d37de] font-bold ">
+                  Enrollments and Graduates (Ownership Wise)
+                </h2>
+              </blockquote>
+
+              <div className="bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)] mr-4 mt-16">
+                <Bar
+                  data={dataGratudes}
+                  options={optionsGratudes}
+                  plugins={[groupLabelPlugin, totalLabelPlugin]}
+                />
+                </div>
+                 <blockquote className="border-l-4 pl-4 border-[#e2e028ed] mt-16">
+                <h2 className="text-[28px] text-[#267d37de] font-bold ">
+                  Enrollments and Graduates (GCT VS Vocational)
+                </h2>
+              </blockquote>
+              <div className="bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)] mr-4 mt-16">
+                <Bar
+                  data={dataOwner}
+                  options={optionsOwner}
+                  plugins={[groupLabelPluginOwner, totalLabelPluginOwner]}
+                />
+              </div>
               <blockquote className="border-l-4 pl-4 border-[#e2e028ed] mt-16">
                 <h2 className="text-[28px] text-[#267d37de] font-bold ">
                   Institute City Wise
