@@ -255,7 +255,7 @@ const HomePage = () => {
   return (
     <div>
       <div className="flex">
-        <div className="w-[70%] relative flex justify-evenly ">
+        <div className="w-[70%] relative flex justify-evenly mt-4 ">
           <Swiper
             spaceBetween={20}
             slidesPerView={1}
@@ -276,15 +276,15 @@ const HomePage = () => {
                 key={index}
                 className="bg-white shadow-md rounded-xl"
               >
-                <div className="flex flex-col md:flex-row px-10 py-20 bg-[#049b63]">
+                <div className="flex flex-col md:flex-row px-10 py-20 bg-[#049b63] h-[500px]">
                   <div className="w-full md:w-1/3 mb-6 md:mb-0">
                     <img
-                      className="w-full h-[300px] object-contain ml-8"
+                      className="w-full h-full max-h-[300px] object-contain ml-8"
                       src={item.image}
                       alt={`Slide ${index + 1}`}
                     />
                   </div>
-                  <div className="w-full md:w-[55%] mt-5 md:mt-0 md:pl-20 ml-8">
+                  <div className="w-full md:w-[55%] mt-5 md:mt-0 md:pl-20 ml-8 overflow-y-auto">
                     <h3 className="text-white text-[21px] font-semibold">
                       {item.title}
                     </h3>
@@ -334,195 +334,108 @@ const HomePage = () => {
             </button>
           </div>
         </div>
-        {/* <div className="w-[30%] m-0 p-0 leading-none">
-          <svg
-            viewBox="0 0 520 400"
-            preserveAspectRatio="xMidYMid meet"
-            className="w-full h-auto block align-top"
-          >
-            {boxes.map(({ id, x, y, img }) => (
-              <g key={id}>
-                <rect
-                  x={x}
-                  y={y}
-                  width={boxWidth}
-                  height={boxHeight}
-                  fill={id === emitterBox.id ? "#4a90e2" : "#7ed6df"}
-                  rx="5"
-                  ry="5"
+        <div className="w-[30%]">
+          <div className="relative w-full ">
+            <div className="grid grid-cols-3 gap-4 ml-8">
+              <TVETBodies
+                image={psdalogo}
+                title="PSDA"
+                bgColor="bg-green-600"
+                id="box1"
+              />
+              <TVETBodies
+                image={psdalogo}
+                title="SDED"
+                bgColor="bg-orange-500"
+                id="box2"
+              />
+              <TVETBodies
+                image={pbtelogo}
+                title="PBTE"
+                bgColor="bg-indigo-600"
+                id="box3"
+              />
+              <TVETBodies
+                image={pbtelogo}
+                title="TEVTA"
+                bgColor="bg-green-600"
+                id="box4"
+              />
+              <TVETBodies
+                image={psdflogo}
+                title="PSDF"
+                bgColor="bg-orange-500"
+                id="box5"
+              />
+              <TVETBodies
+                image={pvtclogo}
+                title="PVTC"
+                bgColor="bg-slate-700"
+                id="box6"
+              />
+            </div>
+
+            {showArrow && (
+              <>
+                <Xarrow
+                  start="box2"
+                  end="box1"
+                  startAnchor="left"
+                  endAnchor="right"
+                  path="grid"
+                  headSize={6}
+                  color="black"
+                  strokeWidth={2}
+              
                 />
-               
-                <image
-                  href={img}
-                  x={x + 10}
-                  y={y + 5}
-                  width={80}
-                  height={40}
-                  preserveAspectRatio="xMidYMid meet"
-                  clipPath="inset(0% round 5px)"
+
+                <Xarrow
+                  start="box2"
+                  end="box3"
+                  startAnchor="right"
+                  endAnchor="left"
+                  path="grid"
+                  headSize={6}
+                  color="black"
+                   strokeWidth={2}
                 />
-               <h3>{id}</h3>
-              </g>
-            ))}
 
-            <line
-              x1={emitterBox.x}
-              y1={emitterBox.y + boxHeight / 2}
-              x2={boxes[0].x + boxWidth}
-              y2={boxes[0].y + boxHeight / 2}
-              stroke="#222"
-              strokeWidth="2"
-              markerEnd="url(#arrowhead)"
-            />
-            <line
-              x1={emitterBox.x + boxWidth}
-              y1={emitterBox.y + boxHeight / 2}
-              x2={boxes[4].x}
-              y2={boxes[4].y + boxHeight / 2}
-              stroke="#222"
-              strokeWidth="2"
-              markerEnd="url(#arrowhead)"
-            />
-
-            {[boxes[1], boxes[3], boxes[5]].map((box) => {
-              const startX = emitterBox.x + boxWidth / 2;
-              const startY = emitterBox.y + boxHeight;
-              const endX = box.x + boxWidth / 2;
-              const endY = box.y;
-
-              return (
-                <line
-                  key={`arrow-${box.id}`}
-                  x1={startX}
-                  y1={startY}
-                  x2={endX}
-                  y2={endY}
-                  stroke="#222"
-                  strokeWidth="2"
-                  markerEnd="url(#arrowhead)"
+                <Xarrow
+                  start="box2"
+                  end="box4"
+                  startAnchor="bottom"
+                  endAnchor="top"
+                  path="grid"
+                  headSize={6}
+                  color="black"
+                   strokeWidth={2}
                 />
-              );
-            })}
 
-         
-            <defs>
-              <marker
-                id="arrowhead"
-                markerWidth="10"
-                markerHeight="7"
-                refX="10"
-                refY="3.5"
-                orient="auto"
-                fill="#222"
-              >
-                <polygon points="0 0, 10 3.5, 0 7" />
-              </marker>
-            </defs>
-          </svg>
-        </div> */}
-    <div className="relative w-full h-screen">
-  <div className="grid grid-cols-3 gap-4 ml-8">
-    <TVETBodies
-      image={psdalogo}
-      title="PSDA"
-      bgColor="bg-green-600"
-      id="box1"
-    />
-    <TVETBodies
-      image={psdalogo}
-      title="SDED"
-      bgColor="bg-orange-500"
-      id="box2"
-    />
-    <TVETBodies
-      image={pbtelogo}
-      title="PBTE"
-      bgColor="bg-indigo-600"
-      id="box3"
-    />
-    <TVETBodies
-      image={pbtelogo}
-      title="TEVTA"
-      bgColor="bg-green-600"
-      id="box4"
-    />
-    <TVETBodies
-      image={psdflogo}
-      title="PSDF"
-      bgColor="bg-orange-500"
-      id="box5"
-    />
-    <TVETBodies
-      image={pvtclogo}
-      title="PVTC"
-      bgColor="bg-slate-700"
-      id="box6"
-    />
-  </div>
+                <Xarrow
+                  start="box2"
+                  end="box5"
+                  startAnchor="bottom"
+                  endAnchor="top"
+                  path="grid"
+                  headSize={6}
+                  color="black"
+                   strokeWidth={2}
+                />
 
-  {showArrow && (
-    <>
-      {/* SDED -> PSDA */}
-      <Xarrow
-        start="box2"
-        end="box1"
-        startAnchor="left"
-        endAnchor="right"
-        path="grid"
-        headSize={6}
-        color="black"
-      />
-
-      {/* SDED -> PBTE */}
-      <Xarrow
-        start="box2"
-        end="box3"
-        startAnchor="right"
-        endAnchor="left"
-        path="grid"
-        headSize={6}
-        color="black"
-      />
-
-      {/* SDED -> TEVTA (direct and clean) */}
-      <Xarrow
-        start="box2"
-        end="box4"
-        startAnchor="bottom"
-        endAnchor="top"
-        path="grid"
-        headSize={6}
-        color="black"
-      />
-
-      {/* SDED -> PSDF */}
-      <Xarrow
-        start="box2"
-        end="box5"
-        startAnchor="bottom"
-        endAnchor="top"
-        path="grid"
-        headSize={6}
-        color="black"
-      />
-
-      {/* SDED -> PVTC (direct and clean) */}
-      <Xarrow
-        start="box2"
-        end="box6"
-        startAnchor="bottom"
-        endAnchor="top"
-        path="grid"
-        headSize={6}
-        color="black"
-      />
-    </>
-  )}
-</div>
-
-
-
-
+                <Xarrow
+                  start="box2"
+                  end="box6"
+                  startAnchor="bottom"
+                  endAnchor="top"
+                  path="grid"
+                  headSize={6}
+                  color="black"
+                   strokeWidth={2}
+                />
+              </>
+            )}
+          </div>
+        </div>
 
         {/* <div className="bg-red-300 grid grid-cols-3 gap-4">
   <TVETBodies image={psdalogo} title="SDED" bgColor="bg-orange-500" />
