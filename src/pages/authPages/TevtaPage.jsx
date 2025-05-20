@@ -17,6 +17,8 @@ import Heading from "@/components/templates/Heading/Heading";
 
 const TevtaPage = () => {
   const navigate = useNavigate();
+    const [year, setYear] = useState("");
+
 
   // useEffect(() => {
   //   window.scrollTo(0, 0);
@@ -507,66 +509,9 @@ const TevtaPage = () => {
       },
     },
   };
-  const provancedata = {
-    labels: [
-      "Punjab Board of Technical Education",
-      "Punjab Trade Testing Board",
-      "Punjab Skills Development Fund",
-      "Punjab Vocational Training Council",
-      "Punjab Skills Development Authority",
-    ],
 
-    datasets: [
-      {
-        label: "",
-        data: [1221, 1093, 526, 429, 803],
-        barThickness: 60,
 
-        backgroundColor: [
-          "rgba(154, 30, 30, 0.85)",
-          "rgba(30, 83, 154, 0.85)",
-          "rgba(30, 154, 78, 0.85)",
-          "rgba(154, 117, 30, 0.85)",
-          "rgba(154, 107, 40, 0.35)",
-        ],
-        borderColor: [
-          "rgba(154, 30, 30, 1)",
-          "rgba(30, 83, 154, 1)",
-          "rgba(30, 154, 78, 1)",
-          "rgba(154, 117, 30, 1)",
-          "rgba(154, 107, 40, 0.35",
-        ],
-        borderWidth: 1,
-      },
-    ],
-  };
-
-  const provanceoptions = {
-    responsive: true,
-    indexAxis: "y",
-    plugins: {
-      legend: {
-        display: false,
-      },
-      datalabels: {
-        anchor: "end",
-        align: "right",
-        color: "#000",
-        font: {
-          weight: "bold",
-        },
-        formatter: (value) => value.toLocaleString(), // Optional formatting
-      },
-    },
-    scales: {
-      x: {
-        beginAtZero: true,
-        ticks: {
-          callback: (value) => value.toLocaleString(),
-        },
-      },
-    },
-  };
+ 
 
   const QualificationData = {
     labels: [
@@ -733,26 +678,23 @@ const TevtaPage = () => {
           <div></div>
         </div>
         <div className="flex px-16  py-8">
-          <div className="w-1/2 p-4">
+          <div className=" p-4">
             <h3
               className=" text-2xl text-white"
               style={{
-                textAlign: "justify",
-                textJustify: "inter-word",
+                // textAlign: "justify",
+                // textJustify: "inter-word",
               }}
             >
-              A comprehensive view of TVET providers with information on key
-              stats and variables is necessary for both the individuals seeking
-              technical and vocational education, as well as decision makers
-              seeking to enhance the country’s relevant capacity based on local,
-              regional, and national needs. Listing of accredited institutions
-              alongside their locations helps the learners, advisors, parents,
-              and mentors with ready information helping to ensure alignment of
-              skill development and career opportunities with local and global
-              market demands.
+              TEVTA is a leading partner in the development of the Punjab by
+              empowering youth through technical education and vocational
+              training. It endeavors to enhance equal opportunities of
+              employability for youth at home and abroad. It strives well to
+              open new horizons of professional skills to equip the youth to
+              meet challenges of globalization.,
             </h3>
           </div>
-          <div className="w-1/2 p-4">
+          {/* <div className="w-1/2 p-4">
             <h3
               className="text-2xl text-white"
               style={{
@@ -769,7 +711,7 @@ const TevtaPage = () => {
               education, while taking into account the teachers stats and gender
               trends in each area.
             </h3>
-          </div>
+          </div> */}
         </div>
       </div>
 
@@ -777,7 +719,7 @@ const TevtaPage = () => {
         <div className="flex w-full">
           <div className=" mt-16 w-[80%]">
             <div className=" py-10">
-              <div className="max-w-[120rem] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 px-4">
+              <div className="max-w-[120rem] mx-auto grid grid-cols-1 sm:grid-cols-4 lg:grid-cols-4 px-4">
                 <div className="bg-green-50 shadow p-6 flex flex-col items-center text-center">
                   <div className="w-36 h-36 mb-4 mt-14">
                     <svg
@@ -1026,22 +968,7 @@ const TevtaPage = () => {
                     </tr>
                   </tbody>
                 </table>
-                {/* <div className="flex items-center justify-between mt-8">
-                  <div className="text-gray-600 text-lg">
-                    Showing 1 to 10 of 10 entries
-                  </div>
-                  <div className="flex space-x-2">
-                    <button className="px-4 py-2 text-lg bg-gray-200 text-gray-700 rounded hover:bg-gray-300">
-                      Previous
-                    </button>
-                    <button class="px-4 py-2 text-lg bg-[#267d37de] text-white rounded hover:bg-[#267d37de]">
-                      1
-                    </button>
-                    <button className="px-4 py-2 text-lg bg-gray-200 text-gray-700 rounded hover:bg-gray-300">
-                      Next
-                    </button>
-                  </div>
-                </div> */}
+               
               </div>
 
               <blockquote className="border-l-4 pl-4 border-[#e2e028ed] mt-16">
@@ -1085,7 +1012,7 @@ const TevtaPage = () => {
               </div>
 
               <div className="flex w-full">
-                <div className=" mt-16 w-[100%">
+                <div className=" mt-16 w-full">
                   <div className="">
                     <div className="bg-white p-10 rounded-xl shadow w-full">
                       <div className="grid grid-cols-4 gap-6 text-center items-center">
@@ -1177,15 +1104,9 @@ const TevtaPage = () => {
                         height={850}
                       />
                     </div>
-                    <blockquote className="border-l-4 pl-4 border-[#e2e028ed] mt-16">
-                      <h2 className="text-[28px] text-[#267d37de] font-bold ">
-                        Enrollments by Qualification Awarding Bodies
-                      </h2>
-                    </blockquote>
+                   
 
-                    <div className="bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)] mr-4 mt-16">
-                      <Bar data={provancedata} options={provanceoptions} />
-                    </div>
+                    
                     <Heading title="Enrollments by Trades - Gender Wise" />
                     <div className="bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)] mr-4 mt-16">
                       <Bar
@@ -1299,96 +1220,40 @@ const TevtaPage = () => {
                     </div>
                   </div>
                 </div>
-<div className="flex justify-center">
 
-                <div className=" grid-cols-1 w-96 mt-16">
-                  <div class=" bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)]  ">
-                    <div class="text-3xl font-bold">Filters</div>
 
-                    <div>
-                      <label class="block text-2xl font-semibold text-gray-700 mb-1 mt-8">
-                        Select Year
-                      </label>
-                      <select class=" bg-white focus:outline-none mt-2 focus:ring-2 focus:ring-blue-400 form-control w-full h-[32px] p-2 border border-gray-300 rounded text-[14px] placeholder:text-[14px]">
-                        <option>Select Year</option>
-                        <option>2023</option>
-                        <option>2024</option>
-                        <option>2025</option>
-                      </select>
+                {/* <div className="flex justify-center">
+                  <div className=" grid-cols-1  ml-10 mt-16">
+                    <div className=" bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)]  ">
+                      <div className="text-3xl font-bold">Filters</div>
+
+                      <div>
+                        <label className="block text-2xl font-semibold text-gray-700 mb-1 mt-8">
+                          Select Year
+                        </label>
+                        <select  onChange={(e) => setYear(e.target.value)} className=" bg-white focus:outline-none mt-2 focus:ring-2 focus:ring-blue-400 form-control w-full h-[32px] p-2 border border-gray-300 rounded text-[14px] placeholder:text-[14px]">
+                          <option>Select Year</option>
+                          <option>2023</option>
+                          <option>2024</option>
+                          <option>2025</option>
+                        </select>
+                      </div>
+                      <div className="form-group mt-10 justify-center align-middle flex">
+                        <input
+                          className="  btn w-[80%] bg-[#478e51] text-white px-4 py-2 rounded hover:bg-[#36713f] transition text-[16px]"
+                          type="submit"
+                          value="Search"
+                        />
+                      </div>
                     </div>
-                    <div className="form-group mt-10 justify-center align-middle flex">
-                      <input
-                        className="  btn w-[80%] bg-[#478e51] text-white px-4 py-2 rounded hover:bg-[#36713f] transition text-[16px]"
-                        type="submit"
-                        value="Search"
-                      />
-                    </div>
-                  </div>
 
-                  <div className="mt-28">
-                    {[
-                      {
-                        title: "TVET Supply",
-                        description:
-                          "Explore insights on enrollments, gender, providers, and courses.",
-                        bgColor: "bg-teal-600",
-                        icon: "📈",
-                        navigateTo: "/tvet-supply",
-                      },
-                      {
-                        title: "Employment Projections",
-                        description:
-                          "Explore skilled workforce projections region, sector and district wise.",
-                        bgColor: "bg-purple-600",
-                        icon: "📊",
-                        navigateTo: "/employment-projections",
-                      },
-                      {
-                        title: "District Map",
-                        description:
-                          "Explore district level insights about TVET supply and demand indicators.",
-                        bgColor: "bg-indigo-700",
-                        icon: "🗺️",
-                        navigateTo: "/district-map",
-                      },
-                      {
-                        title: "TVET Providers",
-                        description:
-                          "Explore information on TVET institutes, companies offering training and programmes.",
-                        bgColor: "bg-slate-800",
-                        icon: "🏫",
-                        navigateTo: "/institutes",
-                      },
-                      {
-                        title: "Growth Sector",
-                        description:
-                          "Explore insights on growth sectors for employment and skill development.",
-                        bgColor: "bg-blue-600",
-                        icon: "📚",
-                        navigateTo: "/growth-sector",
-                      },
-                      {
-                        title: "Employment Trends",
-                        description:
-                          "Find trending employment opportunities in local and international job markets.",
-                        bgColor: "bg-gray-700",
-                        icon: "💼",
-                        navigateTo: "/employment-trends",
-                      },
-                    ].map((card, index) => (
-                      <Card
-                        key={index}
-                        title={card.title}
-                        description={card.description}
-                        bgColor={card.bgColor}
-                        icon={card.icon}
-                        navigateTo={card.navigateTo}
-                      />
-                    ))}
+                    
                   </div>
-                </div>
-                </div>
+                </div> */}
+
+
               </div>
+              
             </div>
           </div>
 
@@ -1512,6 +1377,28 @@ const TevtaPage = () => {
                 />
               ))}
             </div>
+             <div className=" bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)] mt-[645%] ">
+                      <div className="text-3xl font-bold">Filters</div>
+
+                      <div>
+                        <label className="block text-2xl font-semibold text-gray-700 mb-1 mt-8">
+                          Select Year
+                        </label>
+                        <select  onChange={(e) => setYear(e.target.value)} className=" bg-white focus:outline-none mt-2 focus:ring-2 focus:ring-blue-400 form-control w-full h-[32px] p-2 border border-gray-300 rounded text-[14px] placeholder:text-[14px]">
+                          <option>Select Year</option>
+                          <option>2023</option>
+                          <option>2024</option>
+                          <option>2025</option>
+                        </select>
+                      </div>
+                      <div className="form-group mt-10 justify-center align-middle flex">
+                        <input
+                          className="  btn w-[80%] bg-[#478e51] text-white px-4 py-2 rounded hover:bg-[#36713f] transition text-[16px]"
+                          type="submit"
+                          value="Search"
+                        />
+                      </div>
+                    </div>
           </div>
         </div>
       </div>
