@@ -255,7 +255,7 @@ const HomePage = () => {
   return (
     <div>
       <div className="flex">
-        <div className="w-[70%] relative flex justify-evenly mt-4 ">
+        <div className="w-[70%] relative flex justify-evenly mt-10">
           <Swiper
             spaceBetween={20}
             slidesPerView={1}
