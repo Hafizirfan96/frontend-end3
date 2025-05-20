@@ -276,7 +276,8 @@ const HomePage = () => {
                 key={index}
                 className="bg-white shadow-md rounded-xl"
               >
-                <div className="flex flex-col md:flex-row px-10 py-20 bg-[#049b63] h-[500px]">
+               <div className="flex flex-col md:flex-row px-10 py-10 bg-[#049b63] h-[400px]">
+
                   <div className="w-full md:w-1/3 mb-6 md:mb-0">
                     <img
                       className="w-full h-full max-h-[300px] object-contain ml-8"
@@ -334,6 +335,7 @@ const HomePage = () => {
             </button>
           </div>
         </div>
+
         <div className="w-[30%]">
           <div className="relative w-full ">
             <div className="grid grid-cols-3 gap-4 ml-8">
@@ -386,7 +388,6 @@ const HomePage = () => {
                   headSize={6}
                   color="black"
                   strokeWidth={2}
-              
                 />
 
                 <Xarrow
@@ -397,7 +398,7 @@ const HomePage = () => {
                   path="grid"
                   headSize={6}
                   color="black"
-                   strokeWidth={2}
+                  strokeWidth={2}
                 />
 
                 <Xarrow
@@ -408,7 +409,7 @@ const HomePage = () => {
                   path="grid"
                   headSize={6}
                   color="black"
-                   strokeWidth={2}
+                  strokeWidth={2}
                 />
 
                 <Xarrow
@@ -419,7 +420,7 @@ const HomePage = () => {
                   path="grid"
                   headSize={6}
                   color="black"
-                   strokeWidth={2}
+                  strokeWidth={2}
                 />
 
                 <Xarrow
@@ -430,10 +431,62 @@ const HomePage = () => {
                   path="grid"
                   headSize={6}
                   color="black"
-                   strokeWidth={2}
+                  strokeWidth={2}
                 />
               </>
             )}
+          </div>
+          <div className="relative flex justify-evenly mt-10">
+            <Swiper
+              // spaceBetween={20}
+              // slidesPerView={1}
+              // modules={[Autoplay, Navigation, Pagination]}
+              // autoplay={{
+              //   delay: 5000,
+              //   disableOnInteraction: false,
+              // }}
+              // navigation={{
+              //   nextEl: ".custom-next",
+              //   prevEl: ".custom-prev",
+              // }}
+              pagination={{ clickable: true }}
+              className="w-full"
+            >
+              {[1, 2, 3].map((item, index) => (
+                <SwiperSlide
+                  key={index}
+                  className="bg-white shadow-md rounded-xl"
+                >
+                 <div className="flex ml-8 gap-4 items-start">
+ <img
+  src={Maryam_Nawaz_CM}
+  className="w-40 h-48 rounded-full object-cover"
+  alt="Profile picture"
+/>
+
+  <div className="ml-6">
+    <h4 className="text-2xl font-semibold">Maryam Nawaz Sharif</h4>
+    <p className=" text-[#104591] text-xl mt-2">CM Punjab</p>
+    <button className="mt-10 px-4 py-1 border text-xl  rounded hover:bg-blue-700">
+      Read More
+    </button>
+  </div>
+</div>
+
+                </SwiperSlide>
+              ))}
+            </Swiper>
+
+            {/* <div className="custom-prev absolute  left-2 top-1/2 transform -translate-y-1/2 z-10">
+            <button className="w-16 h-16 text-3xl text-yellow-500 bg-black/50 hover:bg-black/70 rounded-full transition flex items-center justify-center">
+              &#10094;
+            </button>
+          </div>
+          <div className="custom-next absolute right-2 top-1/2 transform -translate-y-1/2 z-10">
+            <button className="w-16 h-16 text-3xl text-yellow-500  bg-black/50 hover:bg-black/70 rounded-full transition flex items-center justify-center">
+              &#10095;
+            </button>
+          </div> */}
           </div>
         </div>
 
