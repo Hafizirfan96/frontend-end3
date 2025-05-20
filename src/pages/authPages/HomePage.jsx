@@ -15,14 +15,19 @@ import psdflogo from "@/assets/psdflogo.png";
 import pvtclogo from "@/assets/pvtcalogo.jpeg";
 import tevcalogo from "@/assets/tevcalogo.png";
 import pbtelogo from "@/assets/pbtelogo.jpeg";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import TopAchievers from "@/assets/Top-Achievers.png";
 import NationalSkills from "@/assets/NationalSkills.png";
 import employementTrends from "@/assets/employementTrends.png";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import tvtproviders from "@/assets/tvtproviders.png";
+import Maryam_Nawaz_CM from "@/assets/Maryam_Nawaz.png";
 import SummeryCard from "@/components/templates/Home/SummeryCard";
+import sectory from "@/assets/sectory.jpeg";
+import TVETBodies from "@/components/templates/Home/TVETBodies";
+import Xarrow from "react-xarrows";
+import { useEffect, useRef, useState } from "react";
 
 const HomePage = () => {
   const showTvetSupply = false;
@@ -30,6 +35,37 @@ const HomePage = () => {
   const navigatetoPages = (pages) => {
     navigate(pages);
   };
+  const boxWidth = 100;
+  const boxHeight = 120;
+  const verticalGap = 20;
+  const horizontalGap = 60;
+  const boxes = [
+    { id: "PSDA", x: 50, y: 50, img: psdalogo },
+    { id: "TEVTA", x: 50, y: 50 + boxHeight + verticalGap, img: tevcalogo },
+
+    { id: "SDED", x: 50 + boxWidth + horizontalGap, y: 50, img: psdflogo },
+    {
+      id: "PVTC",
+      x: 50 + boxWidth + horizontalGap,
+      y: 50 + boxHeight + verticalGap,
+      img: pvtclogo,
+    },
+
+    {
+      id: "PBTE",
+      x: 50 + 2 * (boxWidth + horizontalGap),
+      y: 50,
+      img: pbtelogo,
+    },
+    {
+      id: "PSDF",
+      x: 50 + 2 * (boxWidth + horizontalGap),
+      y: 50 + boxHeight + verticalGap,
+      img: psdflogo,
+    },
+  ];
+
+  const emitterBox = boxes[2];
 
   const slidesData = [
     {
@@ -179,17 +215,7 @@ const HomePage = () => {
       <path d="M256 0C114.6 0 0 114.6 0 256c0 61.9 22.1 118.6 58.7 162.4l-10.2 66.4c-2.2 14.5 13.1 25.2 25.4 17.7l56.2-35.1c38.1 19.1 81.2 29.6 125.9 29.6 141.4 0 256-114.6 256-256S397.4 0 256 0zm0 464c-39.3 0-76.3-10.3-108.6-28.4l-60.2 37.6 10.6-69.1C67 360.6 48 310.8 48 256c0-114.9 93.1-208 208-208s208 93.1 208 208-93.1 208-208 208zm96-248h-64v-64h-64v64h-64v64h64v64h64v-64h64v-64z" />
     </svg>
   );
-   const totelCertified = (
-   <svg
-  xmlns="http://www.w3.org/2000/svg"
-  viewBox="0 0 512 512"
-  fill="#267d37de"
->
-  <path d="M256 8C119 8 8 119 8 256c0 53.9 17.5 103.7 47 144.1V504c0 4.4 3.6 8 8 8h40.1c2.1 0 4.2-.8 5.7-2.3l68.7-68.7c24.1 9.3 50.3 14.4 77.5 14.4s53.4-5.1 77.5-14.4l68.7 68.7c1.5 1.5 3.6 2.3 5.7 2.3H449c4.4 0 8-3.6 8-8v-103.9c29.5-40.4 47-90.2 47-144.1C504 119 393 8 256 8zm0 368c-66.3 0-120-53.7-120-120S189.7 136 256 136s120 53.7 120 120-53.7 120-120 120z"/>
-</svg>
 
-  );
-  
   const totelPlacement = (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -218,127 +244,435 @@ const HomePage = () => {
       <path d="M496 384H64V80c0-8.8-7.2-16-16-16H16C7.2 64 0 71.2 0 80v336c0 17.7 14.3 32 32 32h464c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16zM464 96H345.9c-21.4 0-32.1 25.9-17 41l32.4 32.4L288 242.8l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0l-68.7 68.7c-6.3 6.3-6.3 16.4 0 22.6l22.6 22.6c6.3 6.3 16.4 6.3 22.6 0L192 237.3l73.4 73.4c12.5 12.5 32.8 12.5 45.3 0l96-96 32.4 32.4c15.1 15.1 41 4.4 41-17V112c0-8.8-7.2-16-16-16z"></path>
     </svg>
   );
+  // const boxStyle = {border: "grey solid 2px", borderRadius: "10px", padding: "5px"};
+  //     const box1Ref = useRef(null);
+  const [showArrow, setShowArrow] = useState(false);
+
+  useEffect(() => {
+    // Wait for DOM to mount
+    setShowArrow(true);
+  }, []);
   return (
     <div>
-      <div className="w-full relative flex justify-center items-center">
-        <Swiper
-          spaceBetween={20}
-          slidesPerView={1}
-          modules={[Autoplay, Navigation, Pagination]}
-          autoplay={{
-            delay: 5000,
-            disableOnInteraction: false,
-          }}
-          navigation={{
-            nextEl: ".custom-next",
-            prevEl: ".custom-prev",
-          }}
-          pagination={{ clickable: true }}
-          className="w-full"
-        >
-          {slidesData.map((item, index) => (
-            <SwiperSlide key={index} className="bg-white shadow-md rounded-xl">
-              <div className="flex flex-col md:flex-row px-10 py-20 bg-[#049b63]">
-                <div className="w-full md:w-1/3 mb-6 md:mb-0">
-                  <img
-                    className="w-full h-[300px] object-contain ml-8"
-                    src={item.image}
-                    alt={`Slide ${index + 1}`}
-                  />
-                </div>
-                <div className="w-full md:w-[55%] mt-5 md:mt-0 md:pl-20 ml-8">
-                  <h3 className="text-white text-[21px] font-semibold">
-                    {item.title}
-                  </h3>
-                  <div className="py-5">
-                    <p
-                      className="text-white text-2xl leading-relaxed"
-                      style={{
-                        textAlign: "justify",
-                        textJustify: "inter-word",
-                      }}
-                    >
-                      {item.description}
-                    </p>
+      <div className="flex">
+        <div className="w-[70%] relative flex justify-evenly ">
+          <Swiper
+            spaceBetween={20}
+            slidesPerView={1}
+            modules={[Autoplay, Navigation, Pagination]}
+            autoplay={{
+              delay: 5000,
+              disableOnInteraction: false,
+            }}
+            navigation={{
+              nextEl: ".custom-next",
+              prevEl: ".custom-prev",
+            }}
+            pagination={{ clickable: true }}
+            className="w-full"
+          >
+            {slidesData.map((item, index) => (
+              <SwiperSlide
+                key={index}
+                className="bg-white shadow-md rounded-xl"
+              >
+                <div className="flex flex-col md:flex-row px-10 py-20 bg-[#049b63]">
+                  <div className="w-full md:w-1/3 mb-6 md:mb-0">
+                    <img
+                      className="w-full h-[300px] object-contain ml-8"
+                      src={item.image}
+                      alt={`Slide ${index + 1}`}
+                    />
                   </div>
-                  <a
-                    onClick={() => navigatetoPages(item.id)}
-                    className="cursor-pointer inline-block bg-yellow-500 hover:bg-yellow-600 text-black text-2xl font-medium px-5 py-4 rounded mt-4 transition"
-                  >
-                    {item.buttonLabel}
-                  </a>
+                  <div className="w-full md:w-[55%] mt-5 md:mt-0 md:pl-20 ml-8">
+                    <h3 className="text-white text-[21px] font-semibold">
+                      {item.title}
+                    </h3>
+                    <div className="py-5">
+                      <p
+                        className="text-white text-2xl leading-relaxed"
+                        style={{
+                          textAlign: "justify",
+                          textJustify: "inter-word",
+                        }}
+                      >
+                        {item.description}
+                      </p>
+                    </div>
+                    <a
+                      onClick={() => navigatetoPages(item.id)}
+                      className="cursor-pointer inline-block bg-yellow-500 hover:bg-yellow-600 text-black text-2xl font-medium px-5 py-4 rounded mt-4 transition"
+                    >
+                      {item.buttonLabel}
+                    </a>
+                  </div>
                 </div>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-        <style jsx>{`
-          .swiper-pagination-bullet {
-            width: 12px;
-            height: 12px;
-            background-color: #fff;
-          }
+              </SwiperSlide>
+            ))}
+          </Swiper>
+          <style jsx>{`
+            .swiper-pagination-bullet {
+              width: 12px;
+              height: 12px;
+              background-color: #fff;
+            }
 
-          .swiper-pagination-bullet-active {
-            background-color: #ffcc00; /* Customize active color */
-            transform: scale(1.5); /* Increase size of active bullet */
-          }
-        `}</style>
+            .swiper-pagination-bullet-active {
+              background-color: #ffcc00; /* Customize active color */
+              transform: scale(1.5); /* Increase size of active bullet */
+            }
+          `}</style>
 
-        <div className="custom-prev absolute  left-2 top-1/2 transform -translate-y-1/2 z-10">
-          <button className="w-16 h-16 text-3xl text-yellow-500 bg-black/50 hover:bg-black/70 rounded-full transition flex items-center justify-center">
-            &#10094;
-          </button>
+          <div className="custom-prev absolute  left-2 top-1/2 transform -translate-y-1/2 z-10">
+            <button className="w-16 h-16 text-3xl text-yellow-500 bg-black/50 hover:bg-black/70 rounded-full transition flex items-center justify-center">
+              &#10094;
+            </button>
+          </div>
+          <div className="custom-next absolute right-2 top-1/2 transform -translate-y-1/2 z-10">
+            <button className="w-16 h-16 text-3xl text-yellow-500  bg-black/50 hover:bg-black/70 rounded-full transition flex items-center justify-center">
+              &#10095;
+            </button>
+          </div>
         </div>
-        <div className="custom-next absolute right-2 top-1/2 transform -translate-y-1/2 z-10">
-          <button className="w-16 h-16 text-3xl text-yellow-500  bg-black/50 hover:bg-black/70 rounded-full transition flex items-center justify-center">
-            &#10095;
-          </button>
+        {/* <div className="w-[30%] m-0 p-0 leading-none">
+          <svg
+            viewBox="0 0 520 400"
+            preserveAspectRatio="xMidYMid meet"
+            className="w-full h-auto block align-top"
+          >
+            {boxes.map(({ id, x, y, img }) => (
+              <g key={id}>
+                <rect
+                  x={x}
+                  y={y}
+                  width={boxWidth}
+                  height={boxHeight}
+                  fill={id === emitterBox.id ? "#4a90e2" : "#7ed6df"}
+                  rx="5"
+                  ry="5"
+                />
+               
+                <image
+                  href={img}
+                  x={x + 10}
+                  y={y + 5}
+                  width={80}
+                  height={40}
+                  preserveAspectRatio="xMidYMid meet"
+                  clipPath="inset(0% round 5px)"
+                />
+               <h3>{id}</h3>
+              </g>
+            ))}
+
+            <line
+              x1={emitterBox.x}
+              y1={emitterBox.y + boxHeight / 2}
+              x2={boxes[0].x + boxWidth}
+              y2={boxes[0].y + boxHeight / 2}
+              stroke="#222"
+              strokeWidth="2"
+              markerEnd="url(#arrowhead)"
+            />
+            <line
+              x1={emitterBox.x + boxWidth}
+              y1={emitterBox.y + boxHeight / 2}
+              x2={boxes[4].x}
+              y2={boxes[4].y + boxHeight / 2}
+              stroke="#222"
+              strokeWidth="2"
+              markerEnd="url(#arrowhead)"
+            />
+
+            {[boxes[1], boxes[3], boxes[5]].map((box) => {
+              const startX = emitterBox.x + boxWidth / 2;
+              const startY = emitterBox.y + boxHeight;
+              const endX = box.x + boxWidth / 2;
+              const endY = box.y;
+
+              return (
+                <line
+                  key={`arrow-${box.id}`}
+                  x1={startX}
+                  y1={startY}
+                  x2={endX}
+                  y2={endY}
+                  stroke="#222"
+                  strokeWidth="2"
+                  markerEnd="url(#arrowhead)"
+                />
+              );
+            })}
+
+         
+            <defs>
+              <marker
+                id="arrowhead"
+                markerWidth="10"
+                markerHeight="7"
+                refX="10"
+                refY="3.5"
+                orient="auto"
+                fill="#222"
+              >
+                <polygon points="0 0, 10 3.5, 0 7" />
+              </marker>
+            </defs>
+          </svg>
+        </div> */}
+    <div className="relative w-full h-screen">
+  <div className="grid grid-cols-3 gap-4 ml-8">
+    <TVETBodies
+      image={psdalogo}
+      title="PSDA"
+      bgColor="bg-green-600"
+      id="box1"
+    />
+    <TVETBodies
+      image={psdalogo}
+      title="SDED"
+      bgColor="bg-orange-500"
+      id="box2"
+    />
+    <TVETBodies
+      image={pbtelogo}
+      title="PBTE"
+      bgColor="bg-indigo-600"
+      id="box3"
+    />
+    <TVETBodies
+      image={pbtelogo}
+      title="TEVTA"
+      bgColor="bg-green-600"
+      id="box4"
+    />
+    <TVETBodies
+      image={psdflogo}
+      title="PSDF"
+      bgColor="bg-orange-500"
+      id="box5"
+    />
+    <TVETBodies
+      image={pvtclogo}
+      title="PVTC"
+      bgColor="bg-slate-700"
+      id="box6"
+    />
+  </div>
+
+  {showArrow && (
+    <>
+      {/* SDED -> PSDA */}
+      <Xarrow
+        start="box2"
+        end="box1"
+        startAnchor="left"
+        endAnchor="right"
+        path="grid"
+        headSize={6}
+        color="black"
+      />
+
+      {/* SDED -> PBTE */}
+      <Xarrow
+        start="box2"
+        end="box3"
+        startAnchor="right"
+        endAnchor="left"
+        path="grid"
+        headSize={6}
+        color="black"
+      />
+
+      {/* SDED -> TEVTA (direct and clean) */}
+      <Xarrow
+        start="box2"
+        end="box4"
+        startAnchor="bottom"
+        endAnchor="top"
+        path="grid"
+        headSize={6}
+        color="black"
+      />
+
+      {/* SDED -> PSDF */}
+      <Xarrow
+        start="box2"
+        end="box5"
+        startAnchor="bottom"
+        endAnchor="top"
+        path="grid"
+        headSize={6}
+        color="black"
+      />
+
+      {/* SDED -> PVTC (direct and clean) */}
+      <Xarrow
+        start="box2"
+        end="box6"
+        startAnchor="bottom"
+        endAnchor="top"
+        path="grid"
+        headSize={6}
+        color="black"
+      />
+    </>
+  )}
+</div>
+
+
+
+
+
+        {/* <div className="bg-red-300 grid grid-cols-3 gap-4">
+  <TVETBodies image={psdalogo} title="SDED" bgColor="bg-orange-500" />
+  <TVETBodies image={psdalogo} title="PSDA" bgColor="bg-green-600" />
+  <TVETBodies image={pbtelogo} title="TEVTA" bgColor="bg-green-600" />
+  <TVETBodies image={pbtelogo} title="PBTE" bgColor="bg-indigo-600" />
+  <TVETBodies image={psdflogo} title="PSDF" bgColor="bg-orange-500" />
+  <TVETBodies image={pvtclogo} title="PVTC" bgColor="bg-slate-700" />
+</div> */}
+      </div>
+
+      <div className="w-full text-center my-20 px-6 md:px-20 lg:px-60 xl:px-70">
+        <h2 className="text-[30px] md:text-[30px] font-bold mb-4">
+          Quick Look at SDED
+        </h2>
+
+        <div
+          className="w-40 h-2 mx-auto my-3 rounded-full"
+          style={{
+            background: "linear-gradient(90deg, #66cc66, #4caf50, #66cc66)",
+            clipPath: "ellipse(50% 25% at 50% 50%)",
+          }}
+        ></div>
+
+        <h3 className="text-3xl md:text-xl text-gray-700 leading-relaxed">
+          In the Government of Punjab, Pakistan,{" "}
+          <strong className="text-green-700">SDED</strong> likely refers to the{" "}
+          <strong>School Education Department</strong> (SED). This department is
+          responsible for the administration and oversight of schools, including
+          public institutions. Additionally, specialized branches like the{" "}
+          <strong>Special Education Department</strong> (also abbreviated SED)
+          focus on children with disabilities.
+          <br />
+          <br />
+          With the establishment of <strong>PSIS</strong>, the Government of
+          Punjab is better equipped to assess its capacity to generate and
+          utilize skill data for evidence-based decision-making. This system
+          supports the development of informed policies, aligning the supply and
+          demand of skills in the <strong>TVET</strong> sector to more
+          effectively tackle unemployment challenges at both national and
+          provincial levels.
+        </h3>
+      </div>
+
+      <div className="flex justify-center gap-16 p-6 px-52 mt-16 mb-16">
+        <div className="w-full sm:w-1/4 bg-white rounded-2xl shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+          <div className="w-full h-[300px] flex items-center justify-center">
+            <img
+              src={Maryam_Nawaz_CM}
+              alt="Maryam Nawaz Sharif"
+              className="w-full h-full object-center"
+            />
+          </div>
+          <div className="p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+            <h3 className="text-3xl font-bold mb-4 text-green-800 transition-colors duration-300 hover:text-green-600">
+              Maryam Nawaz Sharif, CM Punjab
+            </h3>
+            <p className="text-lg md:text-xl text-slate-700 leading-relaxed">
+              <strong className="text-green-700">Maryam Nawaz Sharif</strong> is
+              a prominent Pakistani politician and the daughter of former Prime
+              Minister <strong>Nawaz Sharif</strong>. As a senior member of the{" "}
+              <strong>Pakistan Muslim League (N)</strong>, she has played an
+              influential role in national politics—advocating for{" "}
+              <em>democratic values</em>,
+              <br />
+            </p>
+
+            <Link
+              to="/maryam-video"
+              title=""
+              className="mt-4 text-2xl inline-block text-blue-600 underline hover:text-blue-800 transition-colors duration-200"
+            >
+              Video Preview
+            </Link>
+          </div>
+        </div>
+
+        <div className="w-full sm:w-1/4 bg-white rounded-2xl shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+          <div className="w-full h-[300px] flex items-center justify-center">
+            <img
+              src={sectory}
+              alt="Nadir Chattha, Secretary SDED"
+              className="w-full h-full object-center"
+            />
+          </div>
+          <div className="p-6">
+            <h3 className="text-3xl font-semibold mb-4 text-purple-800 transition-colors duration-300 hover:text-purple-600">
+              Nadir Chattha, Secretary SDED
+            </h3>
+            <p className="text-slate-700 text-2xl leading-relaxed line-clamp-4">
+              This is a short description for image. Lorem Ipsum is simply dummy
+              text of the printing and typesetting industry...
+            </p>
+          </div>
+        </div>
+
+        <div className="w-full sm:w-1/4 bg-white rounded-2xl shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+          <div className="w-full h-[300px] flex items-center justify-center">
+            <img
+              src={Maryam_Nawaz_CM}
+              alt="Maryam Nawaz Sharif"
+              className="w-full h-full object-center"
+            />
+          </div>
+          <div className="p-6">
+            <h3 className="text-3xl font-semibold mb-4 text-blue-800 transition-colors duration-300 hover:text-blue-600">
+              Title 3
+            </h3>
+            <p className="text-slate-700 text-2xl leading-relaxed line-clamp-4">
+              This is a short description for image. Lorem Ipsum is simply dummy
+              text of the printing and typesetting industry...
+            </p>
+          </div>
         </div>
       </div>
 
       <div className=" py-10 mt-16 px-20">
- 
-
         <div className="gap-y-10 mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 px-20">
           <SummeryCard
             icon={totelSites}
-            title="Training Sites"
+            title="Institutes"
             number="4,659"
-            subtitle="Total Institutes"
+            // subtitle="Total Institutes"
           />
           <SummeryCard
             icon={enrolledIcon}
-            title="Enrolled"
+            title="Enrollments"
             number="303,659"
-            subtitle="Total Enrolled"
+            // subtitle="Total Enrolled"
             bgColor="bg-white"
           />
           <SummeryCard
             icon={totelGratudes}
-            title="Graduate"
+            title="Graduates"
             number="203,659"
-            subtitle="Total Graduate"
+            // subtitle="Total Graduate"
           />
           <SummeryCard
             icon={totelAccessed}
             title="Assessed"
             number="457,654"
-            subtitle="Total Assessed"
+            // subtitle="Total Assessed"
             bgColor="bg-white"
           />
-          <SummeryCard
-            icon={totelCertified}
-            title="Certified"
-            number="457,654"
-            subtitle="Total Certified"
-            bgColor="bg-white"
-          />
+
           <SummeryCard
             icon={totelPlacement}
-            title="Placement"
+            title="Placements"
             number="147,934"
-            subtitle="Total Placement"
+            // subtitle="Total Placement"
           />
           <SummeryCard
             icon={totelEmploymentTrends}
@@ -353,65 +687,17 @@ const HomePage = () => {
             number="868,715"
             subtitle="Demand"
           />
-
-          {/* <div className="bg-green-50 shadow p-6 flex flex-col items-center text-center">
-            <div className="w-28 h-28 mb-4 mt-14">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 512 512"
-                fill="#267d37de"
-              >
-                <path d="M496 384H64V80c0-8.8-7.2-16-16-16H16C7.2 64 0 71.2 0 80v336c0 17.7 14.3 32 32 32h464c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16zM464 96H345.9c-21.4 0-32.1 25.9-17 41l32.4 32.4L288 242.8l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0l-68.7 68.7c-6.3 6.3-6.3 16.4 0 22.6l22.6 22.6c6.3 6.3 16.4 6.3 22.6 0L192 237.3l73.4 73.4c12.5 12.5 32.8 12.5 45.3 0l96-96 32.4 32.4c15.1 15.1 41 4.4 41-17V112c0-8.8-7.2-16-16-16z"></path>
-              </svg>
-            </div>
-            <h3 className="text-[18px] text-[#4e545a] font-medium">
-              Employment Projections
-            </h3>
-            <div className="pt-44">
-              <p className="text-green-700 text-[36px] font-bold">868,715</p>
-              <p className="text-[18px] text-[#4e545a] font-medium">Demand</p>
-            </div>
-          </div> */}
-        </div>
-
-        <div className="mt-2 text-center text-[#4e545a] text-lg px-4">
-          (Source: Employer Skill Survey, Qualification Awarding Bodies -
-          2023/2024)
         </div>
       </div>
 
       <div className="grid grid-cols-3 mt-8  ">
         {[
-          // {
-          //   id: "/tvet-supply",
-          //   title: "TVET Supply",
-          //   description:
-          //     "Explore insights on enrollments, gender, providers, and courses.",
-          //   bgColor: "bg-teal-600",
-          //   icon: "📈",
-          // },
           {
             id: "/tvet-supply",
-            title: "Trades",
+            title: "Assessed",
             description:
               "Explore insights on enrollments, gender, providers, and courses.",
             bgColor: "bg-teal-600",
-            icon: "📈",
-          },
-          {
-            id: "/tvet-supply",
-            title: "Workforce",
-            description:
-              "Explore insights on enrollments, gender, providers, and courses.",
-            bgColor: "bg-purple-600",
-            icon: "📈",
-          },
-          {
-            id: "/tvet-supply",
-            title: "Assessed and Certified",
-            description:
-              "Explore insights on enrollments, gender, providers, and courses.",
-            bgColor: "bg-blue-600",
             icon: "📈",
           },
           {
@@ -430,14 +716,14 @@ const HomePage = () => {
             bgColor: "bg-green-600",
             icon: "📊",
           },
-          {
-            // id: "/district-map",
-            title: "District Map",
-            description:
-              "Explore district level insights about TVET supply and demand indicators.",
-            bgColor: "bg-indigo-700",
-            icon: "🗺️",
-          },
+          // {
+          //   id: "/district-map",
+          //   title: "District Map",
+          //   description:
+          //     "Explore district level insights about TVET supply and demand indicators.",
+          //   bgColor: "bg-indigo-700",
+          //   icon: "🗺️",
+          // },
           {
             id: "/institutes",
             title: "TVET Providers",
@@ -451,7 +737,7 @@ const HomePage = () => {
             title: "Growth Sector",
             description:
               "Explore insights on growth sectors for employment and skill development.",
-            bgColor: "bg-blue-600",
+            bgColor: "bg-indigo-700",
             icon: "📚",
           },
           {

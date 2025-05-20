@@ -17,8 +17,7 @@ import Heading from "@/components/templates/Heading/Heading";
 
 const TevtaPage = () => {
   const navigate = useNavigate();
-    const [year, setYear] = useState("");
-
+  const [year, setYear] = useState("");
 
   // useEffect(() => {
   //   window.scrollTo(0, 0);
@@ -510,9 +509,6 @@ const TevtaPage = () => {
     },
   };
 
-
- 
-
   const QualificationData = {
     labels: [
       "Machine Operator",
@@ -681,10 +677,12 @@ const TevtaPage = () => {
           <div className=" p-4">
             <h3
               className=" text-2xl text-white"
-              style={{
-                // textAlign: "justify",
-                // textJustify: "inter-word",
-              }}
+              style={
+                {
+                  // textAlign: "justify",
+                  // textJustify: "inter-word",
+                }
+              }
             >
               TEVTA is a leading partner in the development of the Punjab by
               empowering youth through technical education and vocational
@@ -968,7 +966,6 @@ const TevtaPage = () => {
                     </tr>
                   </tbody>
                 </table>
-               
               </div>
 
               <blockquote className="border-l-4 pl-4 border-[#e2e028ed] mt-16">
@@ -1104,9 +1101,7 @@ const TevtaPage = () => {
                         height={850}
                       />
                     </div>
-                   
 
-                    
                     <Heading title="Enrollments by Trades - Gender Wise" />
                     <div className="bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)] mr-4 mt-16">
                       <Bar
@@ -1221,7 +1216,6 @@ const TevtaPage = () => {
                   </div>
                 </div>
 
-
                 {/* <div className="flex justify-center">
                   <div className=" grid-cols-1  ml-10 mt-16">
                     <div className=" bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)]  ">
@@ -1250,10 +1244,7 @@ const TevtaPage = () => {
                     
                   </div>
                 </div> */}
-
-
               </div>
-              
             </div>
           </div>
 
@@ -1377,28 +1368,31 @@ const TevtaPage = () => {
                 />
               ))}
             </div>
-             <div className=" bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)] mt-[645%] ">
-                      <div className="text-3xl font-bold">Filters</div>
+            <div className=" bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)] mt-[645%] ">
+              <div className="text-3xl font-bold">Filters</div>
 
-                      <div>
-                        <label className="block text-2xl font-semibold text-gray-700 mb-1 mt-8">
-                          Select Year
-                        </label>
-                        <select  onChange={(e) => setYear(e.target.value)} className=" bg-white focus:outline-none mt-2 focus:ring-2 focus:ring-blue-400 form-control w-full h-[32px] p-2 border border-gray-300 rounded text-[14px] placeholder:text-[14px]">
-                          <option>Select Year</option>
-                          <option>2023</option>
-                          <option>2024</option>
-                          <option>2025</option>
-                        </select>
-                      </div>
-                      <div className="form-group mt-10 justify-center align-middle flex">
-                        <input
-                          className="  btn w-[80%] bg-[#478e51] text-white px-4 py-2 rounded hover:bg-[#36713f] transition text-[16px]"
-                          type="submit"
-                          value="Search"
-                        />
-                      </div>
-                    </div>
+              <div>
+                <label className="block text-2xl font-semibold text-gray-700 mb-1 mt-8">
+                  Select Year
+                </label>
+                <select
+                  onChange={(e) => setYear(e.target.value)}
+                  className=" bg-white focus:outline-none mt-2 focus:ring-2 focus:ring-blue-400 form-control w-full h-[32px] p-2 border border-gray-300 rounded text-[14px] placeholder:text-[14px]"
+                >
+                  <option>Select Year</option>
+                  <option>2023</option>
+                  <option>2024</option>
+                  <option>2025</option>
+                </select>
+              </div>
+              <div className="form-group mt-10 justify-center align-middle flex">
+                <input
+                  className="  btn w-[80%] bg-[#478e51] text-white px-4 py-2 rounded hover:bg-[#36713f] transition text-[16px]"
+                  type="submit"
+                  value="Search"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
