@@ -11,6 +11,8 @@ import tevta1 from "@/assets/tevta1.png";
 import navtac from "@/assets/navtac.png";
 import bureau from "@/assets/bureau.jpeg";
 import psdalogo from "@/assets/psdalogo.png";
+import SDED from "@/assets/logo.png";
+import shahbaz from "@/assets/shahbaz.jpeg";
 import psdflogo from "@/assets/psdflogo.png";
 import pvtclogo from "@/assets/pvtcalogo.jpeg";
 import tevcalogo from "@/assets/tevcalogo.png";
@@ -25,6 +27,7 @@ import tvtproviders from "@/assets/tvtproviders.png";
 import Maryam_Nawaz_CM from "@/assets/Maryam_Nawaz.png";
 import SummeryCard from "@/components/templates/Home/SummeryCard";
 import sectory from "@/assets/sectory.jpeg";
+import zahid from "@/assets/zahid.jpeg";
 import TVETBodies from "@/components/templates/Home/TVETBodies";
 import Xarrow from "react-xarrows";
 import { useEffect, useRef, useState } from "react";
@@ -146,6 +149,30 @@ const HomePage = () => {
       buttonLabel: "See Jobs",
       tab: "opportunities",
     },
+  ];
+    const slidessmall = [
+ 
+
+    {
+      id: "/tevta-page",
+      image: shahbaz,
+      title: "Mian Muhammad Shehbaz Sharif",
+      description:
+        "Prime Minister of Pakistan",
+      buttonLabel: "Discover More",
+      tab: "opportunities",
+    },
+       {
+      // id: "/tvet-supply",
+      image: Maryam_Nawaz_CM,
+      title: "Maryam Nawaz Sharif",
+      description: "CM Punjab",   
+      buttonLabel: "Explore More",
+      tab: "opportunities",
+    },
+
+   
+ 
   ];
   const totelSites = (
     <svg
@@ -328,9 +355,9 @@ const HomePage = () => {
                 onClick={() => navigateToTivetBody("PSDA")}
               />
               <TVETBodies
-                image={psdalogo}
+                image={SDED}
                 title="SDED"
-                bgColor="bg-orange-500"
+                bgColor="bg-[#004614]"
                 id="box2"
                 onClick={() => navigateToTivetBody("SDED")}
               />
@@ -342,9 +369,9 @@ const HomePage = () => {
                 onClick={() => navigateToTivetBody("PBTE")}
               />
               <TVETBodies
-                image={pbtelogo}
+                image={tevcalogo}
                 title="TEVTA"
-                bgColor="bg-green-600"
+                bgColor="bg-[#1e293c]"
                 id="box4"
                 onClick={() => navigateToTivetBody("TEVTA")}
               />
@@ -427,35 +454,33 @@ const HomePage = () => {
             <Swiper
               // spaceBetween={20}
               // slidesPerView={1}
-              // modules={[Autoplay, Navigation, Pagination]}
-              // autoplay={{
-              //   delay: 5000,
-              //   disableOnInteraction: false,
-              // }}
-              // navigation={{
-              //   nextEl: ".custom-next",
-              //   prevEl: ".custom-prev",
-              // }}
-              pagination={{ clickable: true }}
+              modules={[Autoplay, Navigation, ]}
+              autoplay={{
+                delay: 3000,
+                disableOnInteraction: false,
+              }}
+            
+            navigation
+    pagination={{ clickable: true }}
               className="w-full"
             >
-              {[1].map((item, index) => (
+              {slidessmall.map((item, index) => (
                 <SwiperSlide
                   key={index}
                   className="bg-white shadow-md rounded-xl"
                 >
                   <div className="flex ml-8 gap-4 items-start mt-4">
                     <img
-                      src={Maryam_Nawaz_CM}
+                      src={item.image}
                       className="w-36 h-44 rounded-full object-cover"
                       alt="Profile picture"
                     />
 
                     <div className="ml-6">
                       <h4 className="text-2xl font-semibold">
-                        Maryam Nawaz Sharif
+                       {item.title}
                       </h4>
-                      <p className=" text-[#104591] text-xl mt-2">CM Punjab</p>
+                      <p className=" text-[#104591] text-xl mt-2">{item.description}</p>
                       <button className="mt-10 px-4 py-1 border text-xl  rounded ">
                         Read More
                       </button>
@@ -466,7 +491,19 @@ const HomePage = () => {
             </Swiper>
           </div>
         </div>
+ <style jsx>{`
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: #004614;
+      top: 40%;
+    }
 
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+      font-size: 20px;
+      font-weight: bold;
+    }
+  `}</style>
         {/* <div className="bg-red-300 grid grid-cols-3 gap-4">
   <TVETBodies image={psdalogo} title="SDED" bgColor="bg-orange-500" />
   <TVETBodies image={psdalogo} title="PSDA" bgColor="bg-green-600" />
@@ -476,8 +513,9 @@ const HomePage = () => {
   <TVETBodies image={pvtclogo} title="PVTC" bgColor="bg-slate-700" />
 </div> */}
       </div>
-      <div className="flex  px-20 mt-24">
-        <div className="w-1/2 text-center ">
+      <div className="flex px-20 mt-24 gap-6">
+        {/* Column 1 */}
+        <div className="flex-1 text-center">
           <h2 className="text-[30px] font-bold">Quick Look at SDED</h2>
           <div
             className="max-w-[200px] h-[10px] mx-auto my-2 rounded-full"
@@ -495,7 +533,7 @@ const HomePage = () => {
             career guidance and placement services for TVET graduates and
             potential employers through smooth flow of information on skills
             demand.
-             <Link
+            <Link
               // to="/maryam-video"
               title=""
               className="mt-4 text-2xl inline-block text-blue-600 underline hover:text-blue-800 transition-colors duration-200"
@@ -505,29 +543,43 @@ const HomePage = () => {
           </h3>
         </div>
 
-        <div className="flex ml-20 w-[50%]">
-          <div className="  items-center justify-center mt-7">
-            <img
-              src={sectory}
-              className="w-[800px] h-56 rounded-md object-cover"
-              alt="Profile picture"
-            />
-          </div>
-          <div className="p-6">
-            <h3 className="text-3xl font-semibold mb-4  transition-colors duration-300 hover:text-[#049b63]">
-              Nadir Chattha, Secretary SDED
+       <div className="flex-1 flex  mt-7">
+          <img
+            src={zahid}
+            className="w-full h-56 rounded-md object-cover"
+            alt="Profile picture"
+          />
+          <div className="px-6">
+            <h3 className="text-3xl font-semibold hover:text-[#049b63] transition-colors duration-300">
+             Zahid Akhtar Zaman Chief Secretary Punjab
             </h3>
-            <p className="text-slate-700 text-2xl leading-relaxed ">
+            <p className="text-slate-700 text-2xl leading-relaxed">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book. It has
-              survived not only five centuries, but also the leap into
-              electronic typesetting, remaining essentially unchanged
+              ever since the 1500s.
             </p>
-            
           </div>
         </div>
+        <div className="flex-1 flex  mt-7">
+          <img
+            src={sectory}
+            className="w-full h-56 rounded-md object-cover"
+            alt="Profile picture"
+          />
+          <div className="px-6">
+            <h3 className="text-3xl font-semibold hover:text-[#049b63] transition-colors duration-300">
+              Nadir Chattha, Secretary SDED
+            </h3>
+            <p className="text-slate-700 text-2xl leading-relaxed">
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1500s.
+            </p>
+          </div>
+        </div>
+
+    
+       
       </div>
 
       {/* <div className="flex justify-center gap-16 p-6 px-52 mt-16 mb-16">
@@ -812,7 +864,7 @@ const HomePage = () => {
         ></div>
 
         <div className="overflow-x-auto whitespace-nowrap flex gap-6 justify-around items-center mt-8">
-          <img src={navtac} className="h-28 inline-block" alt="Logo 4" />
+          {/* <img src={navtac} className="h-28 inline-block" alt="Logo 4" /> */}
           <img src={bureau} className="h-28 inline-block" alt="Logo 5" />
           <img src={giz} className="h-28 inline-block" alt="Logo 6" />
           <img src={psdalogo} className="h-28 inline-block" alt="Logo 6" />
