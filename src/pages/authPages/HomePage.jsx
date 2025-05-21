@@ -35,10 +35,6 @@ const HomePage = () => {
   const navigatetoPages = (pages) => {
     navigate(pages);
   };
- 
-
-
-
 
   const slidesData = [
     {
@@ -225,19 +221,19 @@ const HomePage = () => {
     setShowArrow(true);
   }, []);
 
- const pageMap = {
-  TEVTA: '/tevta-page',
-  // PSDA: '/psda-page',
-  // SDED: '/sded-page',
-  // PBTE: '/pbte-page',
-  // PSDF: '/psdf-page',
-  // PVTC: '/pvtc-page'
-};
+  const pageMap = {
+    TEVTA: "/tevta-page",
+    // PSDA: '/psda-page',
+    // SDED: '/sded-page',
+    // PBTE: '/pbte-page',
+    // PSDF: '/psdf-page',
+    // PVTC: '/pvtc-page'
+  };
 
-const navigateToTivetBody = (text) => {
-  const path = pageMap[text];
-  if (path) navigate(path);
-};
+  const navigateToTivetBody = (text) => {
+    const path = pageMap[text];
+    if (path) navigate(path);
+  };
 
   return (
     <div>
@@ -325,49 +321,48 @@ const navigateToTivetBody = (text) => {
         <div className="w-[30%] bg-[#f0f0f0] mt-10">
           <div className="relative w-full ">
             <div className="grid grid-cols-3 gap-4 ml-8">
-             <TVETBodies
-  image={psdalogo}
-  title="PSDA"
-  bgColor="bg-green-600"
-  id="box1"
-  onClick={() => navigateToTivetBody('PSDA')}
-/>
-<TVETBodies
-  image={psdalogo}
-  title="SDED"
-  bgColor="bg-orange-500"
-  id="box2"
-  onClick={() => navigateToTivetBody('SDED')}
-/>
-<TVETBodies
-  image={pbtelogo}
-  title="PBTE"
-  bgColor="bg-indigo-600"
-  id="box3"
-  onClick={() => navigateToTivetBody('PBTE')}
-/>
-<TVETBodies
-  image={pbtelogo}
-  title="TEVTA"
-  bgColor="bg-green-600"
-  id="box4"
-  onClick={() => navigateToTivetBody('TEVTA')}
-/>
-<TVETBodies
-  image={psdflogo}
-  title="PSDF"
-  bgColor="bg-orange-500"
-  id="box5"
-  onClick={() => navigateToTivetBody('PSDF')}
-/>
-<TVETBodies
-  image={pvtclogo}
-  title="PVTC"
-  bgColor="bg-slate-700"
-  id="box6"
-  onClick={() => navigateToTivetBody('PVTC')}
-/>
-
+              <TVETBodies
+                image={psdalogo}
+                title="PSDA"
+                bgColor="bg-green-600"
+                id="box1"
+                onClick={() => navigateToTivetBody("PSDA")}
+              />
+              <TVETBodies
+                image={psdalogo}
+                title="SDED"
+                bgColor="bg-orange-500"
+                id="box2"
+                onClick={() => navigateToTivetBody("SDED")}
+              />
+              <TVETBodies
+                image={pbtelogo}
+                title="PBTE"
+                bgColor="bg-indigo-600"
+                id="box3"
+                onClick={() => navigateToTivetBody("PBTE")}
+              />
+              <TVETBodies
+                image={pbtelogo}
+                title="TEVTA"
+                bgColor="bg-green-600"
+                id="box4"
+                onClick={() => navigateToTivetBody("TEVTA")}
+              />
+              <TVETBodies
+                image={psdflogo}
+                title="PSDF"
+                bgColor="bg-orange-500"
+                id="box5"
+                onClick={() => navigateToTivetBody("PSDF")}
+              />
+              <TVETBodies
+                image={pvtclogo}
+                title="PVTC"
+                bgColor="bg-slate-700"
+                id="box6"
+                onClick={() => navigateToTivetBody("PVTC")}
+              />
             </div>
 
             {showArrow && (
@@ -445,7 +440,7 @@ const navigateToTivetBody = (text) => {
               pagination={{ clickable: true }}
               className="w-full"
             >
-              {[1,].map((item, index) => (
+              {[1].map((item, index) => (
                 <SwiperSlide
                   key={index}
                   className="bg-white shadow-md rounded-xl"
@@ -495,56 +490,50 @@ const navigateToTivetBody = (text) => {
       </div>
       <div className="flex  px-20 mt-24">
         <div className="w-1/2 text-center ">
-          <h2 className="text-[30px] font-bold">
-            Quick Look at SDED
-          </h2>
+          <h2 className="text-[30px] font-bold">Quick Look at SDED</h2>
           <div
-    className="max-w-[200px] h-[10px] mx-auto my-2 rounded-full"
-    style={{
-      background: "linear-gradient(90deg, #66cc66, #4caf50, #66cc66)",
-      clipPath: "ellipse(50% 25% at 50% 50%)",
-    }}
-  ></div>
+            className="max-w-[200px] h-[10px] mx-auto my-2 rounded-full"
+            style={{
+              background: "linear-gradient(90deg, #66cc66, #4caf50, #66cc66)",
+              clipPath: "ellipse(50% 25% at 50% 50%)",
+            }}
+          ></div>
           <h3 className="text-left text-3xl md:text-2xl text-gray-700 leading-relaxed mt-6">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. It was popularised in the 1960s
-            with the release of Letraset sheets containing Lorem Ipsum passages,
-            and more recently with desktop publishing software like Aldus
-            PageMaker including versions of Lorem Ipsum.
+            Develop a reliable Skills Information System for a demand driven
+            workforce development in line with market and demand analyses;
+            Provide information to TVET stakeholders for demand and supply
+            analysis; facilitating networking, information dissemination and
+            deliberations/exchanges on TVET Plans. Establish and facilitate
+            career guidance and placement services for TVET graduates and
+            potential employers through smooth flow of information on skills
+            demand.
           </h3>
         </div>
 
         {/* Image Section */}
-        
-          <div className="flex ml-20 w-[50%]">
-            <div className="  items-center justify-center mt-7">
-              <img
-                src={sectory}
-                className="w-[800px] h-56 rounded-md object-cover"
-                      alt="Profile picture"
-              />
-              
 
-            </div>
-            <div className="p-6">
-              <h3 className="text-3xl font-semibold mb-4  transition-colors duration-300 hover:text-purple-600">
-                Nadir Chattha, Secretary SDED
-              </h3>
-              <p className="text-slate-700 text-2xl leading-relaxed ">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged
-              </p>
-            </div>
+        <div className="flex ml-20 w-[50%]">
+          <div className="  items-center justify-center mt-7">
+            <img
+              src={sectory}
+              className="w-[800px] h-56 rounded-md object-cover"
+              alt="Profile picture"
+            />
           </div>
-     
+          <div className="p-6">
+            <h3 className="text-3xl font-semibold mb-4  transition-colors duration-300 hover:text-[#049b63]">
+              Nadir Chattha, Secretary SDED
+            </h3>
+            <p className="text-slate-700 text-2xl leading-relaxed ">
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1500s, when an unknown printer took a galley of
+              type and scrambled it to make a type specimen book. It has
+              survived not only five centuries, but also the leap into
+              electronic typesetting, remaining essentially unchanged
+            </p>
+          </div>
+        </div>
       </div>
 
       {/* <div className="flex justify-center gap-16 p-6 px-52 mt-16 mb-16">
