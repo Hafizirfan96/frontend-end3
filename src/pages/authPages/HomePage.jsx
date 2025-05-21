@@ -35,37 +35,10 @@ const HomePage = () => {
   const navigatetoPages = (pages) => {
     navigate(pages);
   };
-  const boxWidth = 100;
-  const boxHeight = 120;
-  const verticalGap = 20;
-  const horizontalGap = 60;
-  const boxes = [
-    { id: "PSDA", x: 50, y: 50, img: psdalogo },
-    { id: "TEVTA", x: 50, y: 50 + boxHeight + verticalGap, img: tevcalogo },
+ 
 
-    { id: "SDED", x: 50 + boxWidth + horizontalGap, y: 50, img: psdflogo },
-    {
-      id: "PVTC",
-      x: 50 + boxWidth + horizontalGap,
-      y: 50 + boxHeight + verticalGap,
-      img: pvtclogo,
-    },
 
-    {
-      id: "PBTE",
-      x: 50 + 2 * (boxWidth + horizontalGap),
-      y: 50,
-      img: pbtelogo,
-    },
-    {
-      id: "PSDF",
-      x: 50 + 2 * (boxWidth + horizontalGap),
-      y: 50 + boxHeight + verticalGap,
-      img: psdflogo,
-    },
-  ];
 
-  const emitterBox = boxes[2];
 
   const slidesData = [
     {
@@ -244,14 +217,28 @@ const HomePage = () => {
       <path d="M496 384H64V80c0-8.8-7.2-16-16-16H16C7.2 64 0 71.2 0 80v336c0 17.7 14.3 32 32 32h464c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16zM464 96H345.9c-21.4 0-32.1 25.9-17 41l32.4 32.4L288 242.8l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0l-68.7 68.7c-6.3 6.3-6.3 16.4 0 22.6l22.6 22.6c6.3 6.3 16.4 6.3 22.6 0L192 237.3l73.4 73.4c12.5 12.5 32.8 12.5 45.3 0l96-96 32.4 32.4c15.1 15.1 41 4.4 41-17V112c0-8.8-7.2-16-16-16z"></path>
     </svg>
   );
-  // const boxStyle = {border: "grey solid 2px", borderRadius: "10px", padding: "5px"};
-  //     const box1Ref = useRef(null);
+
   const [showArrow, setShowArrow] = useState(false);
 
   useEffect(() => {
     // Wait for DOM to mount
     setShowArrow(true);
   }, []);
+
+ const pageMap = {
+  TEVTA: '/tevta-page',
+  // PSDA: '/psda-page',
+  // SDED: '/sded-page',
+  // PBTE: '/pbte-page',
+  // PSDF: '/psdf-page',
+  // PVTC: '/pvtc-page'
+};
+
+const navigateToTivetBody = (text) => {
+  const path = pageMap[text];
+  if (path) navigate(path);
+};
+
   return (
     <div>
       <div className="flex">
@@ -276,8 +263,7 @@ const HomePage = () => {
                 key={index}
                 className="bg-white shadow-md rounded-xl"
               >
-               <div className="flex flex-col md:flex-row px-10 py-10 bg-[#049b63] h-[400px]">
-
+                <div className="flex flex-col md:flex-row px-10 py-10 bg-[#049b63] h-[400px]">
                   <div className="w-full md:w-1/3 mb-6 md:mb-0">
                     <img
                       className="w-full h-full max-h-[300px] object-contain ml-8"
@@ -336,45 +322,52 @@ const HomePage = () => {
           </div>
         </div>
 
-        <div className="w-[30%]">
+        <div className="w-[30%] bg-[#f0f0f0] mt-10">
           <div className="relative w-full ">
             <div className="grid grid-cols-3 gap-4 ml-8">
-              <TVETBodies
-                image={psdalogo}
-                title="PSDA"
-                bgColor="bg-green-600"
-                id="box1"
-              />
-              <TVETBodies
-                image={psdalogo}
-                title="SDED"
-                bgColor="bg-orange-500"
-                id="box2"
-              />
-              <TVETBodies
-                image={pbtelogo}
-                title="PBTE"
-                bgColor="bg-indigo-600"
-                id="box3"
-              />
-              <TVETBodies
-                image={pbtelogo}
-                title="TEVTA"
-                bgColor="bg-green-600"
-                id="box4"
-              />
-              <TVETBodies
-                image={psdflogo}
-                title="PSDF"
-                bgColor="bg-orange-500"
-                id="box5"
-              />
-              <TVETBodies
-                image={pvtclogo}
-                title="PVTC"
-                bgColor="bg-slate-700"
-                id="box6"
-              />
+             <TVETBodies
+  image={psdalogo}
+  title="PSDA"
+  bgColor="bg-green-600"
+  id="box1"
+  onClick={() => navigateToTivetBody('PSDA')}
+/>
+<TVETBodies
+  image={psdalogo}
+  title="SDED"
+  bgColor="bg-orange-500"
+  id="box2"
+  onClick={() => navigateToTivetBody('SDED')}
+/>
+<TVETBodies
+  image={pbtelogo}
+  title="PBTE"
+  bgColor="bg-indigo-600"
+  id="box3"
+  onClick={() => navigateToTivetBody('PBTE')}
+/>
+<TVETBodies
+  image={pbtelogo}
+  title="TEVTA"
+  bgColor="bg-green-600"
+  id="box4"
+  onClick={() => navigateToTivetBody('TEVTA')}
+/>
+<TVETBodies
+  image={psdflogo}
+  title="PSDF"
+  bgColor="bg-orange-500"
+  id="box5"
+  onClick={() => navigateToTivetBody('PSDF')}
+/>
+<TVETBodies
+  image={pvtclogo}
+  title="PVTC"
+  bgColor="bg-slate-700"
+  id="box6"
+  onClick={() => navigateToTivetBody('PVTC')}
+/>
+
             </div>
 
             {showArrow && (
@@ -452,27 +445,28 @@ const HomePage = () => {
               pagination={{ clickable: true }}
               className="w-full"
             >
-              {[1, 2, 3].map((item, index) => (
+              {[1,].map((item, index) => (
                 <SwiperSlide
                   key={index}
                   className="bg-white shadow-md rounded-xl"
                 >
-                 <div className="flex ml-8 gap-4 items-start">
- <img
-  src={Maryam_Nawaz_CM}
-  className="w-40 h-48 rounded-full object-cover"
-  alt="Profile picture"
-/>
+                  <div className="flex ml-8 gap-4 items-start mt-4">
+                    <img
+                      src={Maryam_Nawaz_CM}
+                      className="w-36 h-44 rounded-full object-cover"
+                      alt="Profile picture"
+                    />
 
-  <div className="ml-6">
-    <h4 className="text-2xl font-semibold">Maryam Nawaz Sharif</h4>
-    <p className=" text-[#104591] text-xl mt-2">CM Punjab</p>
-    <button className="mt-10 px-4 py-1 border text-xl  rounded hover:bg-blue-700">
-      Read More
-    </button>
-  </div>
-</div>
-
+                    <div className="ml-6">
+                      <h4 className="text-2xl font-semibold">
+                        Maryam Nawaz Sharif
+                      </h4>
+                      <p className=" text-[#104591] text-xl mt-2">CM Punjab</p>
+                      <button className="mt-10 px-4 py-1 border text-xl  rounded ">
+                        Read More
+                      </button>
+                    </div>
+                  </div>
                 </SwiperSlide>
               ))}
             </Swiper>
@@ -499,41 +493,61 @@ const HomePage = () => {
   <TVETBodies image={pvtclogo} title="PVTC" bgColor="bg-slate-700" />
 </div> */}
       </div>
+      <div className="flex  px-20 mt-24">
+        <div className="w-1/2 text-center ">
+          <h2 className="text-[30px] font-bold">
+            Quick Look at SDED
+          </h2>
+          <div
+    className="max-w-[200px] h-[10px] mx-auto my-2 rounded-full"
+    style={{
+      background: "linear-gradient(90deg, #66cc66, #4caf50, #66cc66)",
+      clipPath: "ellipse(50% 25% at 50% 50%)",
+    }}
+  ></div>
+          <h3 className="text-left text-3xl md:text-2xl text-gray-700 leading-relaxed mt-6">
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book. It has survived not
+            only five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged. It was popularised in the 1960s
+            with the release of Letraset sheets containing Lorem Ipsum passages,
+            and more recently with desktop publishing software like Aldus
+            PageMaker including versions of Lorem Ipsum.
+          </h3>
+        </div>
 
-      <div className="w-full text-center my-20 px-6 md:px-20 lg:px-60 xl:px-70">
-        <h2 className="text-[30px] md:text-[30px] font-bold mb-4">
-          Quick Look at SDED
-        </h2>
+        {/* Image Section */}
+        
+          <div className="flex ml-20 w-[50%]">
+            <div className="  items-center justify-center mt-7">
+              <img
+                src={sectory}
+                className="w-[800px] h-56 rounded-md object-cover"
+                      alt="Profile picture"
+              />
+              
 
-        <div
-          className="w-40 h-2 mx-auto my-3 rounded-full"
-          style={{
-            background: "linear-gradient(90deg, #66cc66, #4caf50, #66cc66)",
-            clipPath: "ellipse(50% 25% at 50% 50%)",
-          }}
-        ></div>
-
-        <h3 className="text-3xl md:text-xl text-gray-700 leading-relaxed">
-          In the Government of Punjab, Pakistan,{" "}
-          <strong className="text-green-700">SDED</strong> likely refers to the{" "}
-          <strong>School Education Department</strong> (SED). This department is
-          responsible for the administration and oversight of schools, including
-          public institutions. Additionally, specialized branches like the{" "}
-          <strong>Special Education Department</strong> (also abbreviated SED)
-          focus on children with disabilities.
-          <br />
-          <br />
-          With the establishment of <strong>PSIS</strong>, the Government of
-          Punjab is better equipped to assess its capacity to generate and
-          utilize skill data for evidence-based decision-making. This system
-          supports the development of informed policies, aligning the supply and
-          demand of skills in the <strong>TVET</strong> sector to more
-          effectively tackle unemployment challenges at both national and
-          provincial levels.
-        </h3>
+            </div>
+            <div className="p-6">
+              <h3 className="text-3xl font-semibold mb-4  transition-colors duration-300 hover:text-purple-600">
+                Nadir Chattha, Secretary SDED
+              </h3>
+              <p className="text-slate-700 text-2xl leading-relaxed ">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book. It has survived not
+            only five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged
+              </p>
+            </div>
+          </div>
+     
       </div>
 
-      <div className="flex justify-center gap-16 p-6 px-52 mt-16 mb-16">
+      {/* <div className="flex justify-center gap-16 p-6 px-52 mt-16 mb-16">
         <div className="w-full sm:w-1/4 bg-white rounded-2xl shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
           <div className="w-full h-[300px] flex items-center justify-center">
             <img
@@ -603,9 +617,9 @@ const HomePage = () => {
             </p>
           </div>
         </div>
-      </div>
+      </div> */}
 
-      <div className=" py-10 mt-16 px-20">
+      <div className=" py-10 mt-16 ">
         <div className="gap-y-10 mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 px-20">
           <SummeryCard
             icon={totelSites}

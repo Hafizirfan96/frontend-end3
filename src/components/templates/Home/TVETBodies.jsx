@@ -1,11 +1,18 @@
-const TVETBodies = ({ title, bgColor, image, id }) => {
+const TVETBodies = ({ title, bgColor, image, id ,onClick}) => {
+
+ const handleClick = () => {
+    if (onClick) {
+      onClick();
+    }
+  };
+
   return (
-    <div
+    <div onClick={handleClick}
       id={id}
-      className={`w-44 h-44 rounded-md flex flex-col items-center justify-center mt-10 ${bgColor}`}
+      className={` cursor-pointer w-36 h-36 rounded-md flex flex-col items-center justify-center mt-10 ${bgColor}`}
     >
-      <img src={image} className="h-16 m-0 p-0" alt={title} />
-      <h3 className="text-white text-3xl font-semibold m-0 p-0 leading-none">
+      <img src={image} className="h-16 " alt={title} />
+      <h3 className="text-white text-3xl font-semibold mt-5  leading-none">
         {title}
       </h3>
     </div>

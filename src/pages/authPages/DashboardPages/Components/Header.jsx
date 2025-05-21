@@ -251,7 +251,7 @@ const Header = () => {
 
             <div className="relative group w-40 h-32">
             <NavLink
-              to="/about-us"
+              // to="/about-us"
               className="w-full h-full flex flex-col items-center justify-center p-3 rounded-xl cursor-pointer transition hover:bg-gray-100"
             >
               <svg
@@ -278,13 +278,13 @@ const Header = () => {
             {/* Submenu */}
             <div className="absolute left-0 top-full w-40 bg-white border rounded shadow-md opacity-0 invisible group-hover:visible group-hover:opacity-100 transition-all z-10">
               <NavLink
-                to="/about-us/formation"
+                // to="/about-us/formation"
                 className="block px-4 py-2 text-xl text-gray-700 hover:bg-gray-100"
               >
                 For Employers
               </NavLink>
               <NavLink
-                to="/about-us/psid"
+                // to="/about-us/psid"
                 className="block px-4 py-2 text-xl text-gray-700 hover:bg-gray-100"
               >
                 For Graduates
