@@ -159,7 +159,7 @@ const HomePage = () => {
       title: "Mian Muhammad Shehbaz Sharif",
       description:
         "Prime Minister of Pakistan",
-      buttonLabel: "Discover More",
+      link: "Read More",
       tab: "opportunities",
     },
        {
@@ -167,7 +167,7 @@ const HomePage = () => {
       image: Maryam_Nawaz_CM,
       title: "Maryam Nawaz Sharif",
       description: "CM Punjab",   
-      buttonLabel: "Explore More",
+     link: "Read More",
       tab: "opportunities",
     },
 
@@ -462,7 +462,7 @@ const HomePage = () => {
             
             navigation
     pagination={{ clickable: true }}
-              className="w-full"
+              className="w-full relative"
             >
               {slidessmall.map((item, index) => (
                 <SwiperSlide
@@ -482,7 +482,7 @@ const HomePage = () => {
                       </h4>
                       <p className=" text-[#104591] text-xl mt-2">{item.description}</p>
                       <button className="mt-10 px-4 py-1 border text-xl  rounded ">
-                        Read More
+                       {item.link}
                       </button>
                     </div>
                   </div>
@@ -491,19 +491,30 @@ const HomePage = () => {
             </Swiper>
           </div>
         </div>
- <style jsx>{`
-    .swiper-button-next,
-    .swiper-button-prev {
-      color: #004614;
-      top: 40%;
-    }
+<style jsx>{`
+  .swiper-button-next,
+  .swiper-button-prev {
+    top: 70% !important;
+    transform: translateY(-50%) !important;
+    width: 25px;
+    height: 25px;
+    background-color: #004614;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    z-index: 10;
+  }
 
-    .swiper-button-next::after,
-    .swiper-button-prev::after {
-      font-size: 20px;
-      font-weight: bold;
-    }
-  `}</style>
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    font-size: 16px;
+    font-weight: bold;
+  }
+`}</style>
+
+
         {/* <div className="bg-red-300 grid grid-cols-3 gap-4">
   <TVETBodies image={psdalogo} title="SDED" bgColor="bg-orange-500" />
   <TVETBodies image={psdalogo} title="PSDA" bgColor="bg-green-600" />
