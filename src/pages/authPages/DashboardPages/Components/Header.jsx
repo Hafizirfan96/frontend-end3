@@ -104,13 +104,13 @@ const Header = () => {
             {/* Submenu */}
             <div className="absolute left-0 top-full w-40 bg-white border rounded shadow-md opacity-0 invisible group-hover:visible group-hover:opacity-100 transition-all z-10">
               <NavLink
-                to="/about-us/formation"
+                // to="/about-us/formation"
                 className="block px-4 py-2 text-xl text-gray-700 hover:bg-gray-100"
               >
-                Formation
+                PSIS
               </NavLink>
               <NavLink
-                to="/about-us/psid"
+                // to="/about-us/psid"
                 className="block px-4 py-2 text-xl text-gray-700 hover:bg-gray-100"
               >
                 PSID
@@ -145,31 +145,31 @@ const Header = () => {
             {/* Submenu */}
             <div className="absolute left-0 top-full w-40 bg-white border rounded shadow-md opacity-0 invisible group-hover:visible group-hover:opacity-100 transition-all z-10">
               <NavLink
-                to="/tevta-page"
+                // to="/tevta-page"
                 className="block px-4 py-2 text-xl text-gray-700 hover:bg-gray-100"
               >
                 TEVTA
               </NavLink>
               <NavLink
-                to="/TVET-bodies/PVTC"
+                // to="/TVET-bodies/PVTC"
                 className="block px-4 py-2 text-xl text-gray-700 hover:bg-gray-100"
               >
                 PVTC
               </NavLink>
               <NavLink
-                to="/TVET-bodies/PSDA"
+                // to="/TVET-bodies/PSDA"
                 className="block px-4 py-2 text-xl text-gray-700 hover:bg-gray-100"
               >
                 PSDA
               </NavLink>
               <NavLink
-                to="/TVET-bodies/PSDF"
+                // to="/TVET-bodies/PSDF"
                 className="block px-4 py-2 text-xl text-gray-700 hover:bg-gray-100"
               >
                 PSDF
               </NavLink>
               <NavLink
-                to="/TVET-bodies/PBTE"
+                // to="/TVET-bodies/PBTE"
                 className="block px-4 py-2 text-xl text-gray-700 hover:bg-gray-100"
               >
                 PBTE

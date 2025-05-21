@@ -247,19 +247,22 @@ const HomePage = () => {
     setShowArrow(true);
   }, []);
 
-  const pageMap = {
-    TEVTA: "/tevta-page",
-    // PSDA: '/psda-page',
-    // SDED: '/sded-page',
-    // PBTE: '/pbte-page',
-    // PSDF: '/psdf-page',
-    // PVTC: '/pvtc-page'
-  };
+const pageMap = {
+  PSDA: 'https://psda.punjab.gov.pk',
+  // SDED: 'https://example.com/sded',  
+  PBTE: 'https://www.pbte.edu.pk',
+  PSDF: 'https://www.psdf.org.pk',
+  PVTC: 'http://pvtc.gop.pk',
+  TEVTA: 'https://tevta.gop.pk',
 
-  const navigateToTivetBody = (text) => {
-    const path = pageMap[text];
-    if (path) navigate(path);
-  };
+};
+
+const navigateToTivetBody = (text) => {
+  const url = pageMap[text];
+  if (url) {
+    window.open(url, '_blank'); 
+  }
+};
 
   return (
     <div>
