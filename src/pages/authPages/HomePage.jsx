@@ -217,7 +217,6 @@ const HomePage = () => {
   const [showArrow, setShowArrow] = useState(false);
 
   useEffect(() => {
-    // Wait for DOM to mount
     setShowArrow(true);
   }, []);
 
@@ -465,17 +464,6 @@ const HomePage = () => {
                 </SwiperSlide>
               ))}
             </Swiper>
-
-            {/* <div className="custom-prev absolute  left-2 top-1/2 transform -translate-y-1/2 z-10">
-            <button className="w-16 h-16 text-3xl text-yellow-500 bg-black/50 hover:bg-black/70 rounded-full transition flex items-center justify-center">
-              &#10094;
-            </button>
-          </div>
-          <div className="custom-next absolute right-2 top-1/2 transform -translate-y-1/2 z-10">
-            <button className="w-16 h-16 text-3xl text-yellow-500  bg-black/50 hover:bg-black/70 rounded-full transition flex items-center justify-center">
-              &#10095;
-            </button>
-          </div> */}
           </div>
         </div>
 
@@ -507,10 +495,15 @@ const HomePage = () => {
             career guidance and placement services for TVET graduates and
             potential employers through smooth flow of information on skills
             demand.
+             <Link
+              // to="/maryam-video"
+              title=""
+              className="mt-4 text-2xl inline-block text-blue-600 underline hover:text-blue-800 transition-colors duration-200"
+            >
+              Video Preview
+            </Link>
           </h3>
         </div>
-
-        {/* Image Section */}
 
         <div className="flex ml-20 w-[50%]">
           <div className="  items-center justify-center mt-7">
@@ -532,6 +525,7 @@ const HomePage = () => {
               survived not only five centuries, but also the leap into
               electronic typesetting, remaining essentially unchanged
             </p>
+            
           </div>
         </div>
       </div>
@@ -667,7 +661,16 @@ const HomePage = () => {
             description:
               "Explore insights on enrollments, gender, providers, and courses.",
             bgColor: "bg-teal-600",
-            icon: "📈",
+            icon: (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512"
+                className="w-16 h-16 text-[#9dd8d0] opacity-90"
+                fill="currentColor"
+              >
+                <path d="M332.8 320h38.4c6.4 0 12.8-6.4 12.8-12.8V172.8c0-6.4-6.4-12.8-12.8-12.8h-38.4c-6.4 0-12.8 6.4-12.8 12.8v134.4c0 6.4 6.4 12.8 12.8 12.8zm96 0h38.4c6.4 0 12.8-6.4 12.8-12.8V76.8c0-6.4-6.4-12.8-12.8-12.8h-38.4c-6.4 0-12.8 6.4-12.8 12.8v230.4c0 6.4 6.4 12.8 12.8 12.8zm-288 0h38.4c6.4 0 12.8-6.4 12.8-12.8v-70.4c0-6.4-6.4-12.8-12.8-12.8h-38.4c-6.4 0-12.8 6.4-12.8 12.8v70.4c0 6.4 6.4 12.8 12.8 12.8zm96 0h38.4c6.4 0 12.8-6.4 12.8-12.8V108.8c0-6.4-6.4-12.8-12.8-12.8h-38.4c-6.4 0-12.8 6.4-12.8 12.8v198.4c0 6.4 6.4 12.8 12.8 12.8zM496 384H64V80c0-8.8-7.2-16-16-16H16C7.2 64 0 71.2 0 80v336c0 17.7 14.3 32 32 32h464c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16z"></path>
+              </svg>
+            ),
           },
           {
             id: "/tvet-supply",
@@ -675,7 +678,16 @@ const HomePage = () => {
             description:
               "Explore insights on enrollments, gender, providers, and courses.",
             bgColor: "bg-blue-600",
-            icon: "📈",
+            icon: (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512"
+                className="w-16 h-16 text-[#9dd8d0] opacity-90"
+                fill="currentColor"
+              >
+                <path d="M320 336c0 8.8-7.2 16-16 16h-96c-8.8 0-16-7.2-16-16v-48H0v144c0 25.6 22.4 48 48 48h416c25.6 0 48-22.4 48-48V288H320v48zm144-208h-80V80c0-25.6-22.4-48-48-48H176c-25.6 0-48 22.4-48 48v48H48c-25.6 0-48 22.4-48 48v80h512v-80c0-25.6-22.4-48-48-48zm-144 0H192V96h128v32z"></path>
+              </svg>
+            ),
           },
           {
             id: "/employment-projections",
@@ -683,7 +695,16 @@ const HomePage = () => {
             description:
               "Explore skilled workforce projections region, sector and district wise.",
             bgColor: "bg-green-600",
-            icon: "📊",
+            icon: (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512"
+                className="w-16 h-16 text-[#9dd8d0] opacity-90"
+                fill="currentColor"
+              >
+                <path d="M496 384H64V80c0-8.8-7.2-16-16-16H16C7.2 64 0 71.2 0 80v336c0 17.7 14.3 32 32 32h464c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16zM464 96H345.9c-21.4 0-32.1 25.9-17 41l32.4 32.4L288 242.8l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0l-68.7 68.7c-6.3 6.3-6.3 16.4 0 22.6l22.6 22.6c6.3 6.3 16.4 6.3 22.6 0L192 237.3l73.4 73.4c12.5 12.5 32.8 12.5 45.3 0l96-96 32.4 32.4c15.1 15.1 41 4.4 41-17V112c0-8.8-7.2-16-16-16z"></path>
+              </svg>
+            ),
           },
           // {
           //   id: "/district-map",
@@ -699,15 +720,33 @@ const HomePage = () => {
             description:
               "Explore information on TVET institutes, companies offering training and programmes.",
             bgColor: "bg-slate-800",
-            icon: "🏫",
+            icon: (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 640 512"
+                className="w-16 h-16 text-[#9dd8d0] opacity-90"
+                fill="currentColor"
+              >
+                <path d="M0 224v272c0 8.8 7.2 16 16 16h80V192H32c-17.7 0-32 14.3-32 32zm360-48h-24v-40c0-4.4-3.6-8-8-8h-16c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-16c0-4.4-3.6-8-8-8zm137.8-64l-160-106.7a32 32 0 0 0 -35.5 0l-160 106.7A32 32 0 0 0 128 138.7V512h128V368c0-8.8 7.2-16 16-16h96c8.8 0 16 7.2 16 16v144h128V138.7c0-10.7-5.4-20.7-14.3-26.6zM320 256c-44.2 0-80-35.8-80-80s35.8-80 80-80 80 35.8 80 80-35.8 80-80 80zm288-64h-64v320h80c8.8 0 16-7.2 16-16V224c0-17.7-14.3-32-32-32z"></path>
+              </svg>
+            ),
           },
           {
-            // id: "/tvet-supply",
+            id: "/growth-sector",
             title: "Growth Sector",
             description:
               "Explore insights on growth sectors for employment and skill development.",
             bgColor: "bg-indigo-700",
-            icon: "📚",
+            icon: (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512"
+                className="w-16 h-16 text-[#9dd8d0] opacity-90"
+                fill="currentColor"
+              >
+                <path d="M160 96a96 96 0 1 1 192 0A96 96 0 1 1 160 96zm80 152l0 264-48.4-24.2c-20.9-10.4-43.5-17-66.8-19.3l-96-9.6C12.5 457.2 0 443.5 0 427L0 224c0-17.7 14.3-32 32-32l30.3 0c63.6 0 125.6 19.6 177.7 56zm32 264l0-264c52.1-36.4 114.1-56 177.7-56l30.3 0c17.7 0 32 14.3 32 32l0 203c0 16.4-12.5 30.2-28.8 31.8l-96 9.6c-23.2 2.3-45.9 8.9-66.8 19.3L272 512z"></path>
+              </svg>
+            ),
           },
           {
             id: "/jobs",
@@ -715,7 +754,16 @@ const HomePage = () => {
             description:
               "Find trending employment opportunities in local and international job markets.",
             bgColor: "bg-gray-700",
-            icon: "💼",
+            icon: (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512"
+                className="w-16 h-16 text-[#9dd8d0] opacity-90"
+                fill="currentColor"
+              >
+                <path d="M320 336c0 8.8-7.2 16-16 16h-96c-8.8 0-16-7.2-16-16v-48H0v144c0 25.6 22.4 48 48 48h416c25.6 0 48-22.4 48-48V288H320v48zm144-208h-80V80c0-25.6-22.4-48-48-48H176c-25.6 0-48 22.4-48 48v48H48c-25.6 0-48 22.4-48 48v80h512v-80c0-25.6-22.4-48-48-48zm-144 0H192V96h128v32z"></path>
+              </svg>
+            ),
           },
           ...(showTvetSupply
             ? [
@@ -737,14 +785,16 @@ const HomePage = () => {
           <div
             onClick={() => navigatetoPages(card.id)}
             key={index}
-            className={`relative overflow-hidden  ${card.bgColor} text-white h-96 flex items-center justify-center p-6 transform transition-transform hover:scale-105`}
+            className={`relative overflow-hidden cursor-pointer ${card.bgColor} text-white h-96 flex items-center justify-center p-6 transform transition-transform hover:scale-105`}
           >
-            <div className="absolute top-0 left-0 w-1/2 h-full bg-black opacity-10 transform -skew-x-12"></div>
-            <div className="absolute top-4 left-4 text-6xl opacity-30">
+            <div className="absolute top-0 left-0 w-0 h-0 border-t-[120px] border-r-[120px] border-t-black border-r-transparent opacity-15 pointer-events-none" />
+
+            <div className="absolute top-4 left-4 opacity-90 w-16 h-16">
               {card.icon}
             </div>
-            <div className="relative text-center">
-              <h2 className="text-[30px] font-bold mb-2">{card.title}</h2>
+
+            <div className="relative text-right ml-auto">
+              <h2 className="text-[25px] font-bold mb-2">{card.title}</h2>
               <p className="text-2xl italic">{card.description}</p>
             </div>
           </div>

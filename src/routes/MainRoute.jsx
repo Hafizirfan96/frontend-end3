@@ -16,6 +16,8 @@ import EmploymentProjections from "@/pages/authPages/EmploymentProjections";
 import DistMap from "@/pages/authPages/DistMap";
 import TevetExplaination from "@/pages/authPages/TevetExplaination";
 import TevtaPage from "@/pages/authPages/TevtaPage";
+import GrowthSector from "@/pages/authPages/GrowthSector";
+import GrowthSectorDetalis from "@/pages/authPages/GrowthSectorDetalis";
 
 const MainRoute = () => {
   return (
@@ -133,7 +135,26 @@ const MainRoute = () => {
             </PageTransition>
           }
         />
-        
+         <Route
+          path="/growth-sector"
+          element={
+            <PageTransition>
+              <Suspense fallback={<PageLoading />}>
+                <GrowthSector  />
+              </Suspense>
+            </PageTransition>
+          }
+        />
+         <Route
+          path="/growth-sectordetalis"
+          element={
+            <PageTransition>
+              <Suspense fallback={<PageLoading />}>
+                <GrowthSectorDetalis  />
+              </Suspense>
+            </PageTransition>
+          }
+        />
         </Route>
         
       </Routes>
