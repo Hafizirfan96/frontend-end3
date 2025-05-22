@@ -21,6 +21,7 @@ import GrowthSectorDetalis from "@/pages/authPages/GrowthSectorDetalis";
 import PVTCPage from "@/pages/authPages/PVTCPage";
 import PSDAPage from "@/pages/authPages/PSDAPage";
 import PSDFPage from "@/pages/authPages/PSDFPage";
+import ProfileDetail from "@/pages/authPages/ProfileDetail";
 
 const MainRoute = () => {
   return (
@@ -188,7 +189,16 @@ const MainRoute = () => {
             </PageTransition>
           }
         />
-        
+         <Route
+          path="/profile-detail"
+          element={
+            <PageTransition>
+              <Suspense fallback={<PageLoading />}>
+                <ProfileDetail  />
+              </Suspense>
+            </PageTransition>
+          }
+        />
         </Route>
         
       </Routes>

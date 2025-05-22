@@ -4,6 +4,9 @@ import Header from "./DashboardPages/Components/Header";
 import Footer from "./DashboardPages/Components/Footer";
 import ChartDataLabels from "chartjs-plugin-datalabels";
 import Card from "@/components/templates/GrowthSector/Card";
+import Heading from "@/components/templates/Heading/Heading";
+import GrowthSectorTitle from "@/components/templates/GrowthSector/GrowthSectorTitle";
+import GrowthSectorOverview from "@/components/templates/GrowthSector/GrowthSectorOverview";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -13,8 +16,6 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
-import GrowthSectorTitle from "@/components/templates/GrowthSector/GrowthSectorTitle";
-import Heading from "@/components/templates/Heading/Heading";
 
 const GrowthSectorDetalis = () => {
   useEffect(() => {
@@ -99,8 +100,21 @@ const GrowthSectorDetalis = () => {
       <Header />
       <div className="Browse bg-[#478e51] mb-8">
         <div className="h-5" />
-        <GrowthSectorTitle icon={agricultureIcon} title="Agriculture" />
-        <div className="flex px-16  py-8">
+        <GrowthSectorTitle icon={agricultureIcon} title="Agriculture" description1="The agriculture sector is the backbone of Pakistan’s economy,
+              contributing significantly to GDP, employment, and food security.
+              With around 60% of the population dependent on agriculture for
+              their livelihood, the sector plays a crucial role in rural
+              development. Modern technologies such as precision farming,
+              biotechnology, and AI-driven analytics are gradually being adopted
+              to improve productivity. Sustainable practices like water
+              conservation, soil management, and" description2="climate-resilient crops are becoming essential to tackle
+              environmental challenges. Government initiatives, including
+              subsidies, support programs, and investment in irrigation and
+              storage infrastructure, further drive growth. As global and
+              domestic demand for food and agricultural products increases,
+              innovation and efficiency in the sector will be key to ensuring
+              long-term sustainability and economic stability in Pakistan." />
+        {/* <div className="flex px-16  py-8">
           <div className="w-1/2 p-4">
             <h3
               className=" text-2xl text-white"
@@ -136,7 +150,7 @@ const GrowthSectorDetalis = () => {
               long-term sustainability and economic stability in Pakistan.
             </h3>
           </div>
-        </div>
+        </div> */}
       </div>
 
       <div className="px-10  ">
@@ -273,7 +287,7 @@ const GrowthSectorDetalis = () => {
                   M006-Govt.Technical Training Center AMTS
                 </li>
               </div>
-            
+
               <Heading title="Demand Comparison Yearly" />
 
               <div className="bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)] mr-4 mt-16">
@@ -283,121 +297,9 @@ const GrowthSectorDetalis = () => {
           </div>
 
           <div className=" grid-cols-1  p-8  ">
-            <div className=" bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)] mr-4 ">
-              <div className="text-3xl font-bold text-[#478e51]">
-                Sector Overview
-              </div>
+            <GrowthSectorOverview />
 
-              <div className="mt-6">
-                <label className="block text-2xl font-semibold text-gray-700 mb-1 ">
-                  Annual Growth (%)
-                </label>
-
-                <label className="block text-2xl font-semibold text-gray-700 mb-1 ">
-                  6.25 %
-                </label>
-              </div>
-              <div className=" border mt-4" />
-              <div>
-                <div className="mt-6">
-                  <label className="block text-2xl font-semibold text-gray-700 mb-1 ">
-                    Workforce Employed
-                  </label>
-
-                  <label className="block text-2xl font-semibold text-gray-700 mb-1 ">
-                    27.6m (38.5% of the total labor force(71.8m))
-                  </label>
-                </div>
-                <div className=" border mt-4" />
-              </div>
-
-              <div>
-                <div className="mt-6">
-                  <label className="block text-2xl font-semibold text-gray-700 mb-1 ">
-                    Workforce Supply
-                  </label>
-
-                  <label className="block text-2xl font-semibold text-gray-700 mb-1 ">
-                    25,795,000
-                  </label>
-                </div>
-                <div className=" border mt-4" />
-              </div>
-
-              <div>
-                <div className="mt-6">
-                  <label className="block text-2xl font-semibold text-gray-700 mb-1 ">
-                    Workforce Demand
-                  </label>
-
-                  <label className="block text-2xl font-semibold text-gray-700 mb-1 ">
-                    1.09m(6.25% - 2.27%)
-                  </label>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-28">
-              {[
-                {
-                  title: "TVET Supply",
-                  description:
-                    "Explore insights on enrollments, gender, providers, and courses.",
-                  bgColor: "bg-teal-600",
-                  icon: "📈",
-                  navigateTo: "/tvet-supply",
-                },
-                {
-                  title: "Employment Projections",
-                  description:
-                    "Explore skilled workforce projections region, sector and district wise.",
-                  bgColor: "bg-purple-600",
-                  icon: "📊",
-                  navigateTo: "/employment-projections",
-                },
-                {
-                  title: "District Map",
-                  description:
-                    "Explore district level insights about TVET supply and demand indicators.",
-                  bgColor: "bg-indigo-700",
-                  icon: "🗺️",
-                  // navigateTo: "/district-map",
-                },
-                {
-                  title: "TVET Providers",
-                  description:
-                    "Explore information on TVET institutes, companies offering training and programmes.",
-                  bgColor: "bg-slate-800",
-                  icon: "🏫",
-                  navigateTo: "/institutes",
-                },
-                {
-                  title: "Growth Sector",
-                  description:
-                    "Explore insights on growth sectors for employment and skill development.",
-                  bgColor: "bg-blue-600",
-                  icon: "📚",
-                  // navigateTo: "/growth-sector",
-                },
-                {
-                  title: "Employment Trends",
-                  description:
-                    "Find trending employment opportunities in local and international job markets.",
-                  bgColor: "bg-gray-700",
-                  icon: "💼",
-                  // navigateTo: "/employment-trends",
-                },
-              ].map((card, index) => (
-                <Card
-                  key={index}
-                  title={card.title}
-                  description={card.description}
-                  bgColor={card.bgColor}
-                  icon={card.icon}
-                  navigateTo={card.navigateTo}
-                />
-              ))}
-            </div>
+            <Card />
           </div>
         </div>
       </div>

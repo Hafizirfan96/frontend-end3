@@ -25,13 +25,16 @@ import employementTrends from "@/assets/employementTrends.png";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import tvtproviders from "@/assets/tvtproviders.png";
 import Maryam_Nawaz_CM from "@/assets/Maryam_Nawaz.png";
+import videoPreview from "@/assets/videopreview.mp4";
 import SummeryCard from "@/components/templates/Home/SummeryCard";
 import sectory from "@/assets/sectory.jpeg";
 import zahid from "@/assets/zahid.jpeg";
 import TVETBodies from "@/components/templates/Home/TVETBodies";
 import Xarrow from "react-xarrows";
 import { useEffect, useRef, useState } from "react";
-
+import Modal from "react-modal";
+import React from "react";
+Modal.setAppElement('#root');
 const HomePage = () => {
   const showTvetSupply = false;
   const navigate = useNavigate();
@@ -153,16 +156,16 @@ const HomePage = () => {
     },
   ];
   const slidessmall = [
+    // {
+    //   id: "/tevta-page",
+    //   image: shahbaz,
+    //   title: "Mian Muhammad Shehbaz Sharif",
+    //   description: "Prime Minister of Pakistan",
+    //   link: "Read More",
+    //   tab: "opportunities",
+    // },
     {
-      id: "/tevta-page",
-      image: shahbaz,
-      title: "Mian Muhammad Shehbaz Sharif",
-      description: "Prime Minister of Pakistan",
-      link: "Read More",
-      tab: "opportunities",
-    },
-    {
-      // id: "/tvet-supply",
+      id: "/profile-detail",
       image: Maryam_Nawaz_CM,
       title: "Maryam Nawaz Sharif",
       description: "CM Punjab",
@@ -258,6 +261,23 @@ const HomePage = () => {
       window.open(url, "_blank");
     }
   };
+  const navigateToDetail = () => {
+    navigate("/profile-detail");
+  };
+  const customStyles = {
+    content: {
+      // top: "50%",
+      // left: "50%",
+      // right: "auto",
+      // bottom: "auto",
+      // marginRight: "-50%",
+      // transform: "translate(-50%, -50%)",
+    },
+  };
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const closeModal = () => setModalIsOpen(false);
+  const openModal = () => setModalIsOpen(true);
 
   return (
     <div>
@@ -478,11 +498,20 @@ const HomePage = () => {
                     />
 
                     <div className="ml-6">
-                      <h4 className="text-2xl font-semibold">{item.title}</h4>
-                      <p className=" text-[#104591] text-xl mt-2">
-                        {item.description}
+                      <h4 className="text-2xl font-semibold">
+                        {item.title}, {item.description}{" "}
+                      </h4>
+                      {/* <p className=" text-[#104591] text-xl mt-2">
+                        {item.description} 
+                      </p> */}
+                      <p className="text-xl mt-2">
+                        Chief Minister Punjab Maryam Nawaz Sharif envisions
+                        transforming the province into...
                       </p>
-                      <button className="mt-10 px-4 py-1 border text-xl  rounded ">
+                      <button
+                        onClick={navigateToDetail}
+                        className="mt-10 px-4 py-1 border text-xl  rounded "
+                      >
                         {item.link}
                       </button>
                     </div>
@@ -492,7 +521,7 @@ const HomePage = () => {
             </Swiper>
           </div>
         </div>
-        <style jsx>{`
+        {/* <style jsx>{`
           .swiper-button-next,
           .swiper-button-prev {
             top: 70% !important;
@@ -513,7 +542,7 @@ const HomePage = () => {
             font-size: 16px;
             font-weight: bold;
           }
-        `}</style>
+        `}</style> */}
 
         {/* <div className="bg-red-300 grid grid-cols-3 gap-4">
   <TVETBodies image={psdalogo} title="SDED" bgColor="bg-orange-500" />
@@ -535,22 +564,38 @@ const HomePage = () => {
               clipPath: "ellipse(50% 25% at 50% 50%)",
             }}
           ></div>
-          <h3 className="text-left text-3xl md:text-2xl text-gray-700 leading-relaxed mt-6">
-            Develop a reliable Skills Information System for a demand driven
-            workforce development in line with market and demand analyses;
-            Provide information to TVET stakeholders for demand and supply
-            analysis; facilitating networking, information dissemination and
-            deliberations/exchanges on TVET Plans. Establish and facilitate
-            career guidance and placement services for TVET graduates and
-            potential employers through smooth flow of information on skills
-            demand.
-            <Link
+          <h3
+            className="text-left text-3xl md:text-2xl text-gray-700 leading-relaxed mt-6"
+            style={{
+              textAlign: "justify",
+              textJustify: "inter-word",
+            }}
+          >
+            The launch of the Skills Development & Entrepreneurship (SD&E)
+            Department marks a historic milestone for Punjab, ushering in a new
+            era of skill enhancement and economic empowerment. For the first
+            time in the province’s history, a comprehensive initiative of this
+            scale is being introduced—encompassing international labor
+            placement, transgender training, rural women’s empowerment, and
+            numerous other programs. This groundbreaking effort aims to bridge
+            skill gaps, foster entrepreneurship, and drive inclusive growth,
+            making Punjab a model of progress and self-reliance. A
+            transformative leap towards a brighter, more empowered future!
+            <button
+              onClick={openModal}
               // to="/maryam-video"
               title=""
               className="mt-4 text-2xl inline-block text-blue-600 underline hover:text-blue-800 transition-colors duration-200"
             >
-              Video Preview
-            </Link>
+              Video Preview,
+            </button>
+            <button
+              // to="/maryam-video"
+              title=""
+              className="mt-4 ml-4 text-2xl inline-block text-blue-600 underline hover:text-blue-800 transition-colors duration-200"
+            >
+              TVET Compain
+            </button>
           </h3>
         </div>
 
@@ -565,9 +610,18 @@ const HomePage = () => {
               Zahid Akhtar Zaman Chief Secretary Punjab
             </h3>
             <p className="text-slate-700 text-2xl leading-relaxed">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s.
+              The launch of the Skills Development & Entrepreneurship (SD&E)
+              Department marks a transformative step in Punjab’s development
+              agenda. By unifying key areas of technical and vocational
+              education, workforce mobility, and inclusive empowerment under one
+              platform, this initiative reflects the province’s commitment to a
+              future-ready, equitable, and self-reliant society. This department
+              is not just a structural addition—it is a catalyst for economic
+              resilience, social inclusion, and human capital growth. I commend
+              the team behind this visionary initiative and urge all partners to
+              join hands in translating this bold vision into measurable
+              outcomes for the people of Punjab. [Zahid Akhtar Zaman Chief
+              Secretary Punjab] Chief Secretary Government of Punjab
             </p>
           </div>
         </div>
@@ -582,9 +636,24 @@ const HomePage = () => {
               Nadir Chattha, Secretary SDED
             </h3>
             <p className="text-slate-700 text-2xl leading-relaxed">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s.
+              The establishment of the Skills Development & Entrepreneurship
+              (SD&E) Department represents a strategic advancement in Punjab’s
+              human capital development agenda. This pioneering initiative
+              brings a comprehensive, sector-wide focus to technical and
+              vocational education and training (TVET), aimed at enhancing
+              workforce readiness, promoting inclusive participation, and
+              catalyzing entrepreneurial ecosystems. By integrating diverse
+              programs—including international labor mobility, skills training
+              for rural women and transgender individuals, and enterprise
+              development—we are addressing critical skills gaps and creating
+              pathways to sustainable livelihoods. Our department is committed
+              to aligning skills provision with labor market demands, both
+              domestically and globally, while fostering innovation and
+              self-employment. As we move forward, we envision a TVET landscape
+              that is responsive, inclusive, and future-focused. I invite all
+              stakeholders—industry partners, training providers, development
+              agencies, and communities—to collaborate with us in shaping a
+              skilled and empowered Punjab.
             </p>
           </div>
         </div>
@@ -894,6 +963,28 @@ const HomePage = () => {
           <img src={pbtelogo} className="h-28 inline-block" alt="Logo 6" />
         </div>
       </div>
+
+      <Modal
+      isOpen={modalIsOpen}
+      onRequestClose={closeModal}
+      style={customStyles}
+      contentLabel="Example Modal"
+    >
+      <div className="relative">
+        <button
+          onClick={closeModal}
+          className="absolute cursor-pointer top-2 right-2 text-[40px] text-white hover:text-red-500"
+        >
+          &times;
+        </button>
+        <div className="my-6">
+          <video width="100%" height="auto" controls autoPlay>
+            <source src={videoPreview} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </Modal>
     </div>
   );
 };
