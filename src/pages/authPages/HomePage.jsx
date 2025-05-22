@@ -396,7 +396,7 @@ const customStyles = {
 
         <div className="w-[30%] bg-[#f0f0f0] mt-10">
           <div className="text-[20px] text-center  text-blue-900 font-bold py-3">
-            <h3>Administrative Governance Structure </h3>
+            <h3>Administrative Structure of SDED </h3>
           </div>
           <div className="relative w-full ">
             <div className="grid grid-cols-3 gap-y-20 ml-8">
@@ -769,7 +769,7 @@ const customStyles = {
             onClick={toggleText1}
             className="mt-2 text-blue-600 underline hover:text-blue-800 transition-colors duration-200"
           >
-            {showFull ? "Read less" : <>
+            {showFulls ? "Read less" : <>
           Read more... 
           
           </>}
