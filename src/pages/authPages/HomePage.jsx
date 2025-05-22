@@ -70,19 +70,19 @@ const HomePage = () => {
       tab: "opportunities",
     },
     {
-      id: "/psda-page",
+      // id: "/psda-page",
       image: slide2,
       title: "Punjab Skills Development Authority (PSDA)",
       description:
         "The Punjab Skills Development Authority (PSDA) is a regulatory body established in Punjab, Pakistan, to oversee the skills sector. Its primary objective is to ensure quality training and a skilled workforce by regulating and managing Technical and Vocational Education and Training (TVET) institutions, implementing national policies, and connecting supply with demand in the skills market.",
-     
-         //comment at the end  To promote and regulate technical education and vocational training sector in all over Punjab.
-     
-        buttonLabel: "Discover More",
+
+      //comment at the end  To promote and regulate technical education and vocational training sector in all over Punjab.
+
+      buttonLabel: "Discover More",
       tab: "opportunities",
     },
     {
-      id: "/employment-projections",
+      id: "/psdf-page",
       image: psdf,
       title: "Punjab Skills Development Fund (PSDF)",
       description:
@@ -91,7 +91,7 @@ const HomePage = () => {
       tab: "opportunities",
     },
     {
-      id: "/employment-projections",
+      // id: "/employment-projections",
       image: pbte,
       title: "Punjab Board of Technical Education (PBTE)",
       description:
@@ -133,15 +133,15 @@ const HomePage = () => {
       buttonLabel: "See Providers",
       tab: "institutes",
     },
-    {
-      id: "/institutes",
-      image: TopAchievers,
-      title: "Skills Opportunities",
-      description:
-        "Explore a wide horizon of training opportunities and certifications across industries both at local and global level. With ever changing world, the process of leraning, de-leraning and re-learning has become much more important to stay relevant in the TVET world. Skills Punjab takes the aspirants to the training avenues that are not only the most relevant but also the most meanningful. New and varied opportinities as per proclivities of the students is just round the corner with us. ",
-      buttonLabel: "Explore Now",
-      tab: "opportunities",
-    },
+    // {
+    //   id: "/institutes",
+    //   image: TopAchievers,
+    //   title: "Skills Opportunities",
+    //   description:
+    //     "Explore a wide horizon of training opportunities and certifications across industries both at local and global level. With ever changing world, the process of leraning, de-leraning and re-learning has become much more important to stay relevant in the TVET world. Skills Punjab takes the aspirants to the training avenues that are not only the most relevant but also the most meanningful. New and varied opportinities as per proclivities of the students is just round the corner with us. ",
+    //   buttonLabel: "Explore Now",
+    //   tab: "opportunities",
+    // },
     {
       id: "/jobs",
       image: employementTrends,
@@ -152,29 +152,23 @@ const HomePage = () => {
       tab: "opportunities",
     },
   ];
-    const slidessmall = [
- 
-
+  const slidessmall = [
     {
       id: "/tevta-page",
       image: shahbaz,
       title: "Mian Muhammad Shehbaz Sharif",
-      description:
-        "Prime Minister of Pakistan",
+      description: "Prime Minister of Pakistan",
       link: "Read More",
       tab: "opportunities",
     },
-       {
+    {
       // id: "/tvet-supply",
       image: Maryam_Nawaz_CM,
       title: "Maryam Nawaz Sharif",
-      description: "CM Punjab",   
-     link: "Read More",
+      description: "CM Punjab",
+      link: "Read More",
       tab: "opportunities",
     },
-
-   
- 
   ];
   const totelSites = (
     <svg
@@ -249,22 +243,21 @@ const HomePage = () => {
     setShowArrow(true);
   }, []);
 
-const pageMap = {
-  PSDA: 'https://psda.punjab.gov.pk',
-  // SDED: 'https://example.com/sded',  
-  PBTE: 'https://www.pbte.edu.pk',
-  PSDF: 'https://www.psdf.org.pk',
-  PVTC: 'http://pvtc.gop.pk',
-  TEVTA: 'https://tevta.gop.pk',
+  const pageMap = {
+    PSDA: "https://psda.punjab.gov.pk",
+    // SDED: 'https://example.com/sded',
+    PBTE: "https://www.pbte.edu.pk",
+    PSDF: "https://www.psdf.org.pk",
+    PVTC: "http://pvtc.gop.pk",
+    TEVTA: "https://tevta.gop.pk",
+  };
 
-};
-
-const navigateToTivetBody = (text) => {
-  const url = pageMap[text];
-  if (url) {
-    window.open(url, '_blank'); 
-  }
-};
+  const navigateToTivetBody = (text) => {
+    const url = pageMap[text];
+    if (url) {
+      window.open(url, "_blank");
+    }
+  };
 
   return (
     <div>
@@ -351,14 +344,11 @@ const navigateToTivetBody = (text) => {
 
         <div className="w-[30%] bg-[#f0f0f0] mt-10">
           <div className="text-[20px] text-center  text-blue-900 font-bold py-3">
-
             <h3>Administrative Governance Structure </h3>
           </div>
           <div className="relative w-full ">
             <div className="grid grid-cols-3 gap-y-20 ml-8">
-            
-           
-               <TVETBodies
+              <TVETBodies
                 image={tevcalogo}
                 title="TEVTA"
                 bgColor="bg-[#1e293c]"
@@ -372,7 +362,7 @@ const navigateToTivetBody = (text) => {
                 id="box2"
                 onClick={() => navigateToTivetBody("SDED")}
               />
-             
+
               <TVETBodies
                 image={psdalogo}
                 title="PSDA"
@@ -380,7 +370,7 @@ const navigateToTivetBody = (text) => {
                 id="box3"
                 onClick={() => navigateToTivetBody("PSDA")}
               />
-            
+
               <TVETBodies
                 image={pbtelogo}
                 title="PBTE"
@@ -388,15 +378,15 @@ const navigateToTivetBody = (text) => {
                 id="box4"
                 onClick={() => navigateToTivetBody("PBTE")}
               />
-            
-               <TVETBodies
+
+              <TVETBodies
                 image={pvtclogo}
                 title="PVTC"
                 bgColor="bg-slate-700"
                 id="box5"
                 onClick={() => navigateToTivetBody("PVTC")}
               />
-           
+
               <TVETBodies
                 image={psdflogo}
                 title="PSDF"
@@ -469,21 +459,17 @@ const navigateToTivetBody = (text) => {
             <Swiper
               // spaceBetween={20}
               // slidesPerView={1}
-              modules={[Autoplay, Navigation, ]}
+              modules={[Autoplay, Navigation]}
               autoplay={{
                 delay: 3000,
                 disableOnInteraction: false,
               }}
-            
-            navigation
-    pagination={{ clickable: true }}
+              navigation
+              pagination={{ clickable: true }}
               className="w-full relative"
             >
               {slidessmall.map((item, index) => (
-                <SwiperSlide
-                  key={index}
-                  className="bg-white shadow-md "
-                >
+                <SwiperSlide key={index} className="bg-white shadow-md ">
                   <div className="flex ml-8 gap-4 items-start mt-4">
                     <img
                       src={item.image}
@@ -492,12 +478,12 @@ const navigateToTivetBody = (text) => {
                     />
 
                     <div className="ml-6">
-                      <h4 className="text-2xl font-semibold">
-                       {item.title}
-                      </h4>
-                      <p className=" text-[#104591] text-xl mt-2">{item.description}</p>
+                      <h4 className="text-2xl font-semibold">{item.title}</h4>
+                      <p className=" text-[#104591] text-xl mt-2">
+                        {item.description}
+                      </p>
                       <button className="mt-10 px-4 py-1 border text-xl  rounded ">
-                       {item.link}
+                        {item.link}
                       </button>
                     </div>
                   </div>
@@ -506,29 +492,28 @@ const navigateToTivetBody = (text) => {
             </Swiper>
           </div>
         </div>
-<style jsx>{`
-  .swiper-button-next,
-  .swiper-button-prev {
-    top: 70% !important;
-    transform: translateY(-50%) !important;
-    width: 25px;
-    height: 25px;
-    background-color: #004614;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    z-index: 10;
-  }
+        <style jsx>{`
+          .swiper-button-next,
+          .swiper-button-prev {
+            top: 70% !important;
+            transform: translateY(-50%) !important;
+            width: 25px;
+            height: 25px;
+            background-color: #004614;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            z-index: 10;
+          }
 
-  .swiper-button-next::after,
-  .swiper-button-prev::after {
-    font-size: 16px;
-    font-weight: bold;
-  }
-`}</style>
-
+          .swiper-button-next::after,
+          .swiper-button-prev::after {
+            font-size: 16px;
+            font-weight: bold;
+          }
+        `}</style>
 
         {/* <div className="bg-red-300 grid grid-cols-3 gap-4">
   <TVETBodies image={psdalogo} title="SDED" bgColor="bg-orange-500" />
@@ -569,7 +554,7 @@ const navigateToTivetBody = (text) => {
           </h3>
         </div>
 
-       <div className="flex-1 flex  mt-7">
+        <div className="flex-1 flex  mt-7">
           <img
             src={zahid}
             className="w-full h-56 rounded-md object-cover"
@@ -577,7 +562,7 @@ const navigateToTivetBody = (text) => {
           />
           <div className="px-6">
             <h3 className="text-3xl font-semibold hover:text-[#049b63] transition-colors duration-300">
-             Zahid Akhtar Zaman Chief Secretary Punjab
+              Zahid Akhtar Zaman Chief Secretary Punjab
             </h3>
             <p className="text-slate-700 text-2xl leading-relaxed">
               Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -603,9 +588,6 @@ const navigateToTivetBody = (text) => {
             </p>
           </div>
         </div>
-
-    
-       
       </div>
 
       {/* <div className="flex justify-center gap-16 p-6 px-52 mt-16 mb-16">
@@ -730,7 +712,6 @@ const navigateToTivetBody = (text) => {
             number="868,715"
             subtitle="Demand"
             bgColor="bg-white"
-
           />
         </div>
       </div>
@@ -789,13 +770,21 @@ const navigateToTivetBody = (text) => {
             ),
           },
           {
-            id: "/district-map",
+            // id: "/district-map",
             title: "District Map",
             description:
               "Explore district level insights about TVET supply and demand indicators.",
             bgColor: "bg-indigo-700",
-            icon: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"   className="w-16 h-16 text-[#9dd8d0] opacity-90"
-                fill="currentColor"><path d="M408 120c0 54.6-73.1 151.9-105.2 192c-7.7 9.6-22 9.6-29.6 0C241.1 271.9 168 174.6 168 120C168 53.7 221.7 0 288 0s120 53.7 120 120zm8 80.4c3.5-6.9 6.7-13.8 9.6-20.6c.5-1.2 1-2.5 1.5-3.7l116-46.4C558.9 123.4 576 135 576 152l0 270.8c0 9.8-6 18.6-15.1 22.3L416 503l0-302.6zM137.6 138.3c2.4 14.1 7.2 28.3 12.8 41.5c2.9 6.8 6.1 13.7 9.6 20.6l0 251.4L32.9 502.7C17.1 509 0 497.4 0 480.4L0 209.6c0-9.8 6-18.6 15.1-22.3l122.6-49zM327.8 332c13.9-17.4 35.7-45.7 56.2-77l0 249.3L192 449.4 192 255c20.5 31.3 42.3 59.6 56.2 77c20.5 25.6 59.1 25.6 79.6 0zM288 152a40 40 0 1 0 0-80 40 40 0 1 0 0 80z"></path></svg>,
+            icon: (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 576 512"
+                className="w-16 h-16 text-[#9dd8d0] opacity-90"
+                fill="currentColor"
+              >
+                <path d="M408 120c0 54.6-73.1 151.9-105.2 192c-7.7 9.6-22 9.6-29.6 0C241.1 271.9 168 174.6 168 120C168 53.7 221.7 0 288 0s120 53.7 120 120zm8 80.4c3.5-6.9 6.7-13.8 9.6-20.6c.5-1.2 1-2.5 1.5-3.7l116-46.4C558.9 123.4 576 135 576 152l0 270.8c0 9.8-6 18.6-15.1 22.3L416 503l0-302.6zM137.6 138.3c2.4 14.1 7.2 28.3 12.8 41.5c2.9 6.8 6.1 13.7 9.6 20.6l0 251.4L32.9 502.7C17.1 509 0 497.4 0 480.4L0 209.6c0-9.8 6-18.6 15.1-22.3l122.6-49zM327.8 332c13.9-17.4 35.7-45.7 56.2-77l0 249.3L192 449.4 192 255c20.5 31.3 42.3 59.6 56.2 77c20.5 25.6 59.1 25.6 79.6 0zM288 152a40 40 0 1 0 0-80 40 40 0 1 0 0 80z"></path>
+              </svg>
+            ),
           },
           {
             id: "/institutes",

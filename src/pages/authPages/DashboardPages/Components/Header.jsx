@@ -152,7 +152,7 @@ const Header = () => {
                 TEVTA
               </NavLink>
               <NavLink
-                // to="/TVET-bodies/PVTC"
+                to="/pvtc-page"
                 className="block px-4 py-2 text-xl text-gray-700 hover:bg-gray-100"
               >
                 PVTC
@@ -164,7 +164,7 @@ const Header = () => {
                 PSDA
               </NavLink>
               <NavLink
-                // to="/TVET-bodies/PSDF"
+                to="/psdf-page"
                 className="block px-4 py-2 text-xl text-gray-700 hover:bg-gray-100"
               >
                 PSDF

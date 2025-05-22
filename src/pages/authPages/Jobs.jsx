@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect } from "react";
+import { Bar } from "react-chartjs-2";
 import Header from "./DashboardPages/Components/Header";
 import Footer from "./DashboardPages/Components/Footer";
-import { Bar } from "react-chartjs-2";
+import ChartDataLabels from "chartjs-plugin-datalabels";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -11,8 +12,6 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
-import ChartDataLabels from "chartjs-plugin-datalabels";
-
 
 const Jobs = () => {
   ChartJS.register(
@@ -24,7 +23,10 @@ const Jobs = () => {
     Legend,
     ChartDataLabels
   );
- 
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const provancedata = {
     labels: [
@@ -78,23 +80,23 @@ const Jobs = () => {
     indexAxis: "y",
     plugins: {
       datalabels: {
-        anchor: 'end',
-        align: 'end',
-        color: '#000',
+        anchor: "end",
+        align: "end",
+        color: "#000",
         font: {
-          weight: 'bold',
+          weight: "bold",
         },
         formatter: function (value) {
           return value;
         },
       },
       legend: {
-        display: false, 
+        display: false,
       },
       title: {
         display: true,
-        text: "Number of Posts", 
-        position:"bottom"
+        text: "Number of Posts",
+        position: "bottom",
       },
     },
     scales: {
@@ -106,7 +108,6 @@ const Jobs = () => {
       },
     },
   };
-  
 
   const provanceJobdata = {
     labels: [
@@ -119,15 +120,13 @@ const Jobs = () => {
       "Azad Jammu Kashmir",
       "Islamabad",
       "Gilgit Baltistan",
-     
     ],
 
     datasets: [
       {
         label: "Number of Posts",
-        data: [73936, 25835, 11827, 7737, 7236, 5053, 1343, 674, 189, ],
+        data: [73936, 25835, 11827, 7737, 7236, 5053, 1343, 674, 189],
         backgroundColor: [
-        
           "rgba(154, 30, 30, 0.85)",
           "rgba(30, 83, 154, 0.85)",
           "rgba(30, 154, 78, 0.85)",
@@ -140,7 +139,6 @@ const Jobs = () => {
           "rgba(153, 102, 255, 0.85)",
         ],
         borderColor: [
-       
           "rgba(154, 30, 30, 1)",
           "rgba(30, 83, 154, 1)",
           "rgba(30, 154, 78, 1)",
@@ -162,23 +160,23 @@ const Jobs = () => {
     indexAxis: "y", // Keep the bars horizontal
     plugins: {
       datalabels: {
-        anchor: 'end',
-        align: 'end',
-        color: '#000',
+        anchor: "end",
+        align: "end",
+        color: "#000",
         font: {
-          weight: 'bold',
+          weight: "bold",
         },
         formatter: function (value) {
           return value;
         },
       },
       legend: {
-        display: false, 
+        display: false,
       },
       title: {
         display: true,
-        text: "Number of Posts", 
-        position:"bottom"
+        text: "Number of Posts",
+        position: "bottom",
       },
     },
     scales: {
@@ -193,21 +191,14 @@ const Jobs = () => {
       // },
     },
   };
-    const regionalJobdata = {
-    labels: [
-      "Dubai",
-      "Abu Dhabi",
-      "Tokyo",
-      "Berlin",
-      "Sharja",
-    ],
+  const regionalJobdata = {
+    labels: ["Dubai", "Abu Dhabi", "Tokyo", "Berlin", "Sharja"],
 
     datasets: [
       {
         // label: "Number of Posts",
-        data: [73936, 5053, 1343, 674, 189, ],
+        data: [73936, 5053, 1343, 674, 189],
         backgroundColor: [
-        
           "rgba(154, 30, 30, 0.85)",
           "rgba(30, 83, 154, 0.85)",
           "rgba(30, 154, 78, 0.85)",
@@ -220,7 +211,6 @@ const Jobs = () => {
           "rgba(153, 102, 255, 0.85)",
         ],
         borderColor: [
-       
           "rgba(154, 30, 30, 1)",
           "rgba(30, 83, 154, 1)",
           "rgba(30, 154, 78, 1)",
@@ -238,46 +228,45 @@ const Jobs = () => {
   };
 
   const regionalJoboptions = {
-  responsive: true,
-  indexAxis: "x", 
-  plugins: {
-    datalabels: {
-      anchor: 'end',
-      align: 'end',
-      color: '#000',
-      font: {
-        weight: 'bold',
+    responsive: true,
+    indexAxis: "x",
+    plugins: {
+      datalabels: {
+        anchor: "end",
+        align: "end",
+        color: "#000",
+        font: {
+          weight: "bold",
+        },
+        formatter: function (value) {
+          return value;
+        },
       },
-      formatter: function (value) {
-        return value;
+      legend: {
+        display: false,
       },
-    },
-    legend: {
-      display: false,
-    },
-    title: {
-      display: true,
-      text: "Number of Posts",
-      position: "bottom",
-    },
-  },
-  scales: {
-    x: {
-      ticks: {
-        maxRotation: 45,
-        minRotation: 0,
-        autoSkip: false, // keep all city names visible
+      title: {
+        display: true,
+        text: "Number of Posts",
+        position: "bottom",
       },
     },
-    y: {
-      beginAtZero: true,
-      ticks: {
-        callback: (value) => value.toLocaleString(), // add commas to big numbers
+    scales: {
+      x: {
+        ticks: {
+          maxRotation: 45,
+          minRotation: 0,
+          autoSkip: false, // keep all city names visible
+        },
+      },
+      y: {
+        beginAtZero: true,
+        ticks: {
+          callback: (value) => value.toLocaleString(), // add commas to big numbers
+        },
       },
     },
-  },
-};
-
+  };
 
   return (
     <div>
@@ -655,7 +644,7 @@ const Jobs = () => {
               </div>
               <blockquote className="border-l-4 pl-4 border-[#e2e028ed] mt-16">
                 <h2 className="text-[28px] text-[#267d37de] font-bold ">
-                Provincial Jobs Stats
+                  Provincial Jobs Stats
                 </h2>
               </blockquote>
               <div className="bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)] mr-4 mt-16">
@@ -666,9 +655,9 @@ const Jobs = () => {
                   height={750}
                 />
               </div>
-               <blockquote className="border-l-4 pl-4 border-[#e2e028ed] mt-16">
+              <blockquote className="border-l-4 pl-4 border-[#e2e028ed] mt-16">
                 <h2 className="text-[28px] text-[#267d37de] font-bold ">
-               Regional Job Stats
+                  Regional Job Stats
                 </h2>
               </blockquote>
               <div className="bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)] mr-4 mt-16">
@@ -742,8 +731,8 @@ const Jobs = () => {
               </div>
             ))}
           </div> */}
-           <div className=" grid-cols-1  p-8 mt-16 ">
-           <div class=" bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)] mr-4 ">
+          <div className=" grid-cols-1  p-8 mt-16 ">
+            <div class=" bg-white p-8 rounded shadow-[2px_4px_10px_rgba(0,0,0,0.15)] mr-4 ">
               <div class="text-3xl font-bold">Filters</div>
 
               <div className="mt-6">

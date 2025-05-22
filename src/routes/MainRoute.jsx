@@ -20,6 +20,7 @@ import GrowthSector from "@/pages/authPages/GrowthSector";
 import GrowthSectorDetalis from "@/pages/authPages/GrowthSectorDetalis";
 import PVTCPage from "@/pages/authPages/PVTCPage";
 import PSDAPage from "@/pages/authPages/PSDAPage";
+import PSDFPage from "@/pages/authPages/PSDFPage";
 
 const MainRoute = () => {
   return (
@@ -167,7 +168,7 @@ const MainRoute = () => {
             </PageTransition>
           }
         />
-         <Route
+         {/* <Route
           path="/psda-page"
           element={
             <PageTransition>
@@ -176,7 +177,18 @@ const MainRoute = () => {
               </Suspense>
             </PageTransition>
           }
+        /> */}
+        <Route
+          path="/psdf-page"
+          element={
+            <PageTransition>
+              <Suspense fallback={<PageLoading />}>
+                <PSDFPage  />
+              </Suspense>
+            </PageTransition>
+          }
         />
+        
         </Route>
         
       </Routes>
