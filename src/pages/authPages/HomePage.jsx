@@ -42,8 +42,8 @@ const HomePage = () => {
     navigate(pages);
   };
   const [showFull, setShowFull] = useState(false);
+  const [showFulls, setShowFulls] = useState(false);
 
-  // const toggleText = () => setShowFull(!showFull);
   const slidesData = [
     {
       // id: "/tvet-supply",
@@ -307,6 +307,9 @@ const customStyles = {
 
   const toggleText = () => {
     setShowFull((prev) => !prev);
+  };
+    const toggleText1 = () => {
+    setShowFulls((prev) => !prev);
   };
   return (
     <div>
@@ -609,7 +612,7 @@ const customStyles = {
             of all Skills development efforts across the country, removal of
             disconnect between demand and supply of skilled manpower both at
             local and international levels, building the vocational and
-            technical training framework, skills up-gradation, building of new
+            technical training framework, skills up gradation, building of new
             skills and innovative thinking not only for existing jobs but also
             jobs that are to be created. The new department aims to impart
             skills on a large scale with speed and high standards in order to
@@ -622,8 +625,8 @@ const customStyles = {
             institutions, international organizations, industry and NGOs have
             been initiated for multi-level engagement and more impactful
             implementation of Skill Development efforts.
-            <strong>SDED Vision Statement</strong>
             <br />
+          SDED Vision Statement
             Unlock human capital to trigger a productivity dividend and bring
             aspirational employment and entrepreneurship pathways to all. For
             this, an ecosystem-enabling lens to transition Punjab to a
@@ -640,22 +643,33 @@ const customStyles = {
             onClick={toggleText}
             className="mt-2 text-blue-600 underline hover:text-blue-800 transition-colors duration-200"
           >
-            {showFull ? "Read less" : "Read more..."}
-          </button>
-
-          {showFull && (
-            <div className="flex justify-center mt-4 space-x-4">
+            {showFull ? <> <div className="flex justify-center mt-4 space-x-4">
               <button
                 onClick={openModal}
                 className="text-2xl text-blue-600 underline hover:text-blue-800 transition-colors duration-200"
               >
-                Video Preview
+                Video Preview,
+              </button>
+              <button className="text-2xl text-blue-600 underline hover:text-blue-800 transition-colors duration-200">
+                TVET Campaign
+              </button>
+            </div> Read less</> : <>
+          Read more... 
+          <div className="flex justify-center mt-4 space-x-4">
+              <button
+                onClick={openModal}
+                className="text-2xl text-blue-600 underline hover:text-blue-800 transition-colors duration-200"
+              >
+                Video Preview,
               </button>
               <button className="text-2xl text-blue-600 underline hover:text-blue-800 transition-colors duration-200">
                 TVET Campaign
               </button>
             </div>
-          )}
+          </>}
+          </button>
+
+         
         </div>
 
         <div className="flex-1 mt-7 items-start">
@@ -686,7 +700,7 @@ const customStyles = {
               style={{ wordSpacing: "normal" }}
             >
               For the first time in the province’s history, a comprehensive
-              initiative of this scale is being introduced—encompassing
+              initiative of this scale is being introduced, encompassing
               international labor placement, transgender training, rural women’s
               empowerment, and numerous other programs. This groundbreaking
               effort aims to bridge skill gaps, foster entrepreneurship, and
@@ -721,64 +735,49 @@ const customStyles = {
 
           <div className="mt-4">
             <p
-              className="text-2xl text-slate-700 mt-4 leading-relaxed tracking-tight text-justify m-0"
-              style={{ wordSpacing: "normal" }}
+               className={`text-2xl text-slate-700 mt-4 leading-relaxed tracking-tight text-justify m-0`}
+            style={{
+              wordSpacing: "normal",
+              display: showFulls ? "block" : "-webkit-box",
+              WebkitLineClamp: showFulls ? "unset" : 8,
+              WebkitBoxOrient: "vertical",
+              overflow: "hidden",
+            }}
             >
               This pioneering initiative brings a comprehensive, sector-wide
               focus to technical and vocational education and training (TVET),
               aimed at enhancing workforce readiness, promoting inclusive
               participation, and catalyzing entrepreneurial ecosystems. By
-              integrating diverse programs—including international labor
+              integrating diverse programs, including international labor
               mobility, skills training for rural women and transgender
-              individuals, and enterprise development—we are addressing critical
+              individuals, and enterprise development, we are addressing critical
               skills gaps and creating pathways to sustainable livelihoods. Our
               department is committed to aligning skills provision with labor
-              {/* market demands, 
+              market demands, 
               both domestically and globally, while fostering
-              innovation and self-employment.
+              innovation and self employment.
               <br />
               <br />
               As we move forward, we envision a TVET landscape that is
-              responsive, inclusive, and future-focused. I invite all
-              stakeholders—industry partners, training providers, development
-              agencies, and communities—to collaborate with us in shaping a
-              skilled and empowered Punjab. */}
+              responsive, inclusive, and future focused. I invite all
+              stakeholders industry partners, training providers, development
+              agencies, and communities to collaborate with us in shaping a
+              skilled and empowered Punjab.
+
             </p>
+             <button
+            onClick={toggleText1}
+            className="mt-2 text-blue-600 underline hover:text-blue-800 transition-colors duration-200"
+          >
+            {showFull ? "Read less" : <>
+          Read more... 
+          
+          </>}
+          </button>
           </div>
         </div>
 
-        {/* <div className="flex-1 flex  mt-7">
-          <img
-            src={sectory}
-            className="w-full h-56 rounded-md object-cover"
-            alt="Profile picture"
-          />
-          <div className="px-6">
-            <h3 className="text-3xl font-semibold hover:text-[#049b63] transition-colors duration-300">
-              Nadir Chattha, Secretary SDED
-            </h3>
-            <p className="text-slate-700 text-2xl leading-relaxed">
-              The establishment of the Skills Development & Entrepreneurship
-              (SD&E) Department represents a strategic advancement in Punjab’s
-              human capital development agenda. This pioneering initiative
-              brings a comprehensive, sector-wide focus to technical and
-              vocational education and training (TVET), aimed at enhancing
-              workforce readiness, promoting inclusive participation, and
-              catalyzing entrepreneurial ecosystems. By integrating diverse
-              programs—including international labor mobility, skills training
-              for rural women and transgender individuals, and enterprise
-              development—we are addressing critical skills gaps and creating
-              pathways to sustainable livelihoods. Our department is committed
-              to aligning skills provision with labor market demands, both
-              domestically and globally, while fostering innovation and
-              self-employment. As we move forward, we envision a TVET landscape
-              that is responsive, inclusive, and future-focused. I invite all
-              stakeholders—industry partners, training providers, development
-              agencies, and communities—to collaborate with us in shaping a
-              skilled and empowered Punjab.
-            </p>
-          </div>
-        </div> */}
+       
       </div>
 
       <div className=" py-10 mt-16 ">
