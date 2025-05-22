@@ -15,9 +15,9 @@ import { useNavigate } from "react-router-dom";
 import Heading from "@/components/templates/Heading/Heading";
 
 const EmploymentProjections = () => {
-  // useEffect(() => {
-  //   window.scrollTo(0, 0);
-  // }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   ChartJS.register(
     CategoryScale,

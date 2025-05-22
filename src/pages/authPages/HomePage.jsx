@@ -61,21 +61,24 @@ const HomePage = () => {
     },
 
     {
-      id: "/employment-projections",
+      id: "/pvtc-page",
       image: pvtc,
       title: "Punjab Vocational Training Council (PVTC)",
       description:
-        "Punjab Vocational Training Council (PVTC) is largest vocational training provider in Pakistan and have presence in all Sub-Districts (Tehsils) of Punjab - Pakistan.",
+        "Punjab Vocational Training Council (PVTC) is largest vocational training provider in Pakistan and have presence in all Sub-Districts (Tehsils) of Punjab - Pakistan. PVTC's primary goal is to provide professional vocational training to needy youth in Punjab, exceeding student expectations, and empowering them with skills to earn a reasonable living.",
       buttonLabel: "Explore More",
       tab: "opportunities",
     },
     {
-      id: "/employment-projections",
+      id: "/psda-page",
       image: slide2,
       title: "Punjab Skills Development Authority (PSDA)",
       description:
-        "The Punjab Skills Development Authority (PSDA) is a regulatory body established in Punjab, Pakistan, to oversee the skills sector. Its primary objective is to ensure quality training and a skilled workforce by regulating and managing Technical and Vocational Education and Training (TVET) institutions, implementing national policies, and connecting supply with demand in the skills market. To promote and regulate technical education and vocational training sector in all over Punjab.",
-      buttonLabel: "Discover More",
+        "The Punjab Skills Development Authority (PSDA) is a regulatory body established in Punjab, Pakistan, to oversee the skills sector. Its primary objective is to ensure quality training and a skilled workforce by regulating and managing Technical and Vocational Education and Training (TVET) institutions, implementing national policies, and connecting supply with demand in the skills market.",
+     
+         //comment at the end  To promote and regulate technical education and vocational training sector in all over Punjab.
+     
+        buttonLabel: "Discover More",
       tab: "opportunities",
     },
     {
@@ -83,14 +86,14 @@ const HomePage = () => {
       image: psdf,
       title: "Punjab Skills Development Fund (PSDF)",
       description:
-        "PSDF was set up in 2010 as Pakistan’s largest skills development fund. It funds training for over 80,000 youth every year in 250+ demand-driven trades through an ecosystem of 500+ private sector training partners. Through PSDF, thousands of young men and women now have the skills they need to pursue their careers of choice. Explore from hundreds of training options in your city to find one that interests you.",
+        "PSDF was set up in 2010 as Pakistan’s largest skills development fund. It funds training for over 80,000 youth every year in 250+ demand-driven trades through an ecosystem of 500+ private sector training partners. Through PSDF, thousands of young men and women now have the skills they need to pursue their careers of choice.",
       buttonLabel: "Discover More",
       tab: "opportunities",
     },
     {
       id: "/employment-projections",
       image: pbte,
-      title: "Punjab Board of Technical Education",
+      title: "Punjab Board of Technical Education (PBTE)",
       description:
         "PBTE is a corporate body responsible to conduct the examinations of technical, commerce & vocational streams as well as the Short Courses below degree level in the territorial limits of the Province of Punjab under the provision of PBTE ACT, 1977. PBTE is striving to adapt the curricula based on competencies to meet the requirements of National Vocational Qualification Framework (NVQF).",
       buttonLabel: "Discover More",
@@ -101,7 +104,7 @@ const HomePage = () => {
       image: slide2,
       title: "Employment Projections",
       description:
-        "Evolving local and global employment trends that help understand shifting workforce dynamics have been drawn from a range of local reputable sources, as well as from the database of Bureau of Emigration and Overseas Employment for overseas employment opportunities. Information on gender-wise jobs, job listings in various technical fields, top occupations, regional stats, etc. provide a TVET jobs landscape. These insights will help the policy makers, TVET providers and learners in decision making by aligning TVET interventions with employment strategies. ",
+        "Evolving local and global employment trends that help understand shifting workforce dynamics have been drawn from a range of local reputable sources, as well as from the database of Bureau of Emigration and Overseas Employment for overseas employment opportunities. Information on gender-wise jobs, job listings in various technical fields, top occupations, regional stats, etc. provide a TVET jobs landscape. These insights will help the policy makers. ",
       buttonLabel: "Discover More",
       tab: "opportunities",
     },
@@ -126,8 +129,7 @@ const HomePage = () => {
                       and public sectors according to their distribution across
                       districts. The bird’s eye view, inter alia,
                       helps provide a basis to address pertinent regional needs
-                      for TVET institution building, according to local
-                      demographic and skills needs.`,
+                      for TVET institution.`,
       buttonLabel: "See Providers",
       tab: "institutes",
     },
@@ -348,14 +350,20 @@ const navigateToTivetBody = (text) => {
         </div>
 
         <div className="w-[30%] bg-[#f0f0f0] mt-10">
+          <div className="text-[20px] text-center  text-blue-900 font-bold py-3">
+
+            <h3>Administrative Governance Structure </h3>
+          </div>
           <div className="relative w-full ">
-            <div className="grid grid-cols-3 gap-4 ml-8">
-              <TVETBodies
-                image={psdalogo}
-                title="PSDA"
-                bgColor="bg-green-600"
+            <div className="grid grid-cols-3 gap-y-20 ml-8">
+            
+           
+               <TVETBodies
+                image={tevcalogo}
+                title="TEVTA"
+                bgColor="bg-[#1e293c]"
                 id="box1"
-                onClick={() => navigateToTivetBody("PSDA")}
+                onClick={() => navigateToTivetBody("TEVTA")}
               />
               <TVETBodies
                 image={SDED}
@@ -364,33 +372,37 @@ const navigateToTivetBody = (text) => {
                 id="box2"
                 onClick={() => navigateToTivetBody("SDED")}
               />
+             
+              <TVETBodies
+                image={psdalogo}
+                title="PSDA"
+                bgColor="bg-green-600"
+                id="box3"
+                onClick={() => navigateToTivetBody("PSDA")}
+              />
+            
               <TVETBodies
                 image={pbtelogo}
                 title="PBTE"
                 bgColor="bg-indigo-600"
-                id="box3"
+                id="box4"
                 onClick={() => navigateToTivetBody("PBTE")}
               />
-              <TVETBodies
-                image={tevcalogo}
-                title="TEVTA"
-                bgColor="bg-[#1e293c]"
-                id="box4"
-                onClick={() => navigateToTivetBody("TEVTA")}
+            
+               <TVETBodies
+                image={pvtclogo}
+                title="PVTC"
+                bgColor="bg-slate-700"
+                id="box5"
+                onClick={() => navigateToTivetBody("PVTC")}
               />
+           
               <TVETBodies
                 image={psdflogo}
                 title="PSDF"
                 bgColor="bg-orange-500"
-                id="box5"
-                onClick={() => navigateToTivetBody("PSDF")}
-              />
-              <TVETBodies
-                image={pvtclogo}
-                title="PVTC"
-                bgColor="bg-slate-700"
                 id="box6"
-                onClick={() => navigateToTivetBody("PVTC")}
+                onClick={() => navigateToTivetBody("PSDF")}
               />
             </div>
 
@@ -453,7 +465,7 @@ const navigateToTivetBody = (text) => {
               </>
             )}
           </div>
-          <div className="relative flex justify-evenly mt-10">
+          <div className="relative flex justify-evenly mt-4">
             <Swiper
               // spaceBetween={20}
               // slidesPerView={1}
@@ -470,7 +482,7 @@ const navigateToTivetBody = (text) => {
               {slidessmall.map((item, index) => (
                 <SwiperSlide
                   key={index}
-                  className="bg-white shadow-md rounded-xl"
+                  className="bg-white shadow-md "
                 >
                   <div className="flex ml-8 gap-4 items-start mt-4">
                     <img
@@ -669,7 +681,7 @@ const navigateToTivetBody = (text) => {
       </div> */}
 
       <div className=" py-10 mt-16 ">
-        <div className="gap-y-10 mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 px-20">
+        <div className="gap-y-10 mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 px-20">
           <SummeryCard
             icon={totelSites}
             title="Institutes"
@@ -689,18 +701,20 @@ const navigateToTivetBody = (text) => {
             number="203,659"
             // subtitle="Total Graduate"
           />
-          <SummeryCard
+          {/* <SummeryCard
             icon={totelAccessed}
             title="Assessed"
             number="457,654"
-            // subtitle="Total Assessed"
+            subtitle="Total Assessed"
             bgColor="bg-white"
-          />
+          /> */}
 
           <SummeryCard
             icon={totelPlacement}
             title="Placements"
             number="147,934"
+            bgColor="bg-white"
+
             // subtitle="Total Placement"
           />
           <SummeryCard
@@ -708,13 +722,15 @@ const navigateToTivetBody = (text) => {
             title="Employment Trends"
             number="147,934"
             subtitle="Jobs"
-            bgColor="bg-white"
+            // bgColor="bg-white"
           />
           <SummeryCard
             icon={emloymentProjection}
             title="Employment Projections"
             number="868,715"
             subtitle="Demand"
+            bgColor="bg-white"
+
           />
         </div>
       </div>
@@ -723,7 +739,7 @@ const navigateToTivetBody = (text) => {
         {[
           {
             id: "/tvet-supply",
-            title: "Assessed",
+            title: "TVET Supply",
             description:
               "Explore insights on enrollments, gender, providers, and courses.",
             bgColor: "bg-teal-600",
@@ -738,23 +754,23 @@ const navigateToTivetBody = (text) => {
               </svg>
             ),
           },
-          {
-            id: "/tvet-supply",
-            title: "Placement",
-            description:
-              "Explore insights on enrollments, gender, providers, and courses.",
-            bgColor: "bg-blue-600",
-            icon: (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 512 512"
-                className="w-16 h-16 text-[#9dd8d0] opacity-90"
-                fill="currentColor"
-              >
-                <path d="M320 336c0 8.8-7.2 16-16 16h-96c-8.8 0-16-7.2-16-16v-48H0v144c0 25.6 22.4 48 48 48h416c25.6 0 48-22.4 48-48V288H320v48zm144-208h-80V80c0-25.6-22.4-48-48-48H176c-25.6 0-48 22.4-48 48v48H48c-25.6 0-48 22.4-48 48v80h512v-80c0-25.6-22.4-48-48-48zm-144 0H192V96h128v32z"></path>
-              </svg>
-            ),
-          },
+          // {
+          //   id: "/tvet-supply",
+          //   title: "Placement",
+          //   description:
+          //     "Explore insights on enrollments, gender, providers, and courses.",
+          //   bgColor: "bg-blue-600",
+          //   icon: (
+          //     <svg
+          //       xmlns="http://www.w3.org/2000/svg"
+          //       viewBox="0 0 512 512"
+          //       className="w-16 h-16 text-[#9dd8d0] opacity-90"
+          //       fill="currentColor"
+          //     >
+          //       <path d="M320 336c0 8.8-7.2 16-16 16h-96c-8.8 0-16-7.2-16-16v-48H0v144c0 25.6 22.4 48 48 48h416c25.6 0 48-22.4 48-48V288H320v48zm144-208h-80V80c0-25.6-22.4-48-48-48H176c-25.6 0-48 22.4-48 48v48H48c-25.6 0-48 22.4-48 48v80h512v-80c0-25.6-22.4-48-48-48zm-144 0H192V96h128v32z"></path>
+          //     </svg>
+          //   ),
+          // },
           {
             id: "/employment-projections",
             title: "Employment Projections",
@@ -772,14 +788,15 @@ const navigateToTivetBody = (text) => {
               </svg>
             ),
           },
-          // {
-          //   id: "/district-map",
-          //   title: "District Map",
-          //   description:
-          //     "Explore district level insights about TVET supply and demand indicators.",
-          //   bgColor: "bg-indigo-700",
-          //   icon: "🗺️",
-          // },
+          {
+            id: "/district-map",
+            title: "District Map",
+            description:
+              "Explore district level insights about TVET supply and demand indicators.",
+            bgColor: "bg-indigo-700",
+            icon: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"   className="w-16 h-16 text-[#9dd8d0] opacity-90"
+                fill="currentColor"><path d="M408 120c0 54.6-73.1 151.9-105.2 192c-7.7 9.6-22 9.6-29.6 0C241.1 271.9 168 174.6 168 120C168 53.7 221.7 0 288 0s120 53.7 120 120zm8 80.4c3.5-6.9 6.7-13.8 9.6-20.6c.5-1.2 1-2.5 1.5-3.7l116-46.4C558.9 123.4 576 135 576 152l0 270.8c0 9.8-6 18.6-15.1 22.3L416 503l0-302.6zM137.6 138.3c2.4 14.1 7.2 28.3 12.8 41.5c2.9 6.8 6.1 13.7 9.6 20.6l0 251.4L32.9 502.7C17.1 509 0 497.4 0 480.4L0 209.6c0-9.8 6-18.6 15.1-22.3l122.6-49zM327.8 332c13.9-17.4 35.7-45.7 56.2-77l0 249.3L192 449.4 192 255c20.5 31.3 42.3 59.6 56.2 77c20.5 25.6 59.1 25.6 79.6 0zM288 152a40 40 0 1 0 0-80 40 40 0 1 0 0 80z"></path></svg>,
+          },
           {
             id: "/institutes",
             title: "TVET Providers",

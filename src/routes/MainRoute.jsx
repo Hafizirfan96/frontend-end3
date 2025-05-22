@@ -18,6 +18,8 @@ import TevetExplaination from "@/pages/authPages/TevetExplaination";
 import TevtaPage from "@/pages/authPages/TevtaPage";
 import GrowthSector from "@/pages/authPages/GrowthSector";
 import GrowthSectorDetalis from "@/pages/authPages/GrowthSectorDetalis";
+import PVTCPage from "@/pages/authPages/PVTCPage";
+import PSDAPage from "@/pages/authPages/PSDAPage";
 
 const MainRoute = () => {
   return (
@@ -151,6 +153,26 @@ const MainRoute = () => {
             <PageTransition>
               <Suspense fallback={<PageLoading />}>
                 <GrowthSectorDetalis  />
+              </Suspense>
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/pvtc-page"
+          element={
+            <PageTransition>
+              <Suspense fallback={<PageLoading />}>
+                <PVTCPage  />
+              </Suspense>
+            </PageTransition>
+          }
+        />
+         <Route
+          path="/psda-page"
+          element={
+            <PageTransition>
+              <Suspense fallback={<PageLoading />}>
+                <PSDAPage  />
               </Suspense>
             </PageTransition>
           }
