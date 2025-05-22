@@ -34,14 +34,16 @@ import Xarrow from "react-xarrows";
 import { useEffect, useRef, useState } from "react";
 import Modal from "react-modal";
 import React from "react";
-Modal.setAppElement('#root');
+Modal.setAppElement("#root");
 const HomePage = () => {
   const showTvetSupply = false;
   const navigate = useNavigate();
   const navigatetoPages = (pages) => {
     navigate(pages);
   };
+  const [showFull, setShowFull] = useState(false);
 
+  // const toggleText = () => setShowFull(!showFull);
   const slidesData = [
     {
       // id: "/tvet-supply",
@@ -264,21 +266,48 @@ const HomePage = () => {
   const navigateToDetail = () => {
     navigate("/profile-detail");
   };
-  const customStyles = {
-    content: {
-      // top: "50%",
-      // left: "50%",
-      // right: "auto",
-      // bottom: "auto",
-      // marginRight: "-50%",
-      // transform: "translate(-50%, -50%)",
-    },
-  };
+
+const customStyles = {
+  overlay: { backgroundColor: "rgba(0, 0, 0, 0.75)" },
+  content: {
+    inset: "10% auto auto 10%",
+    width: "80%",
+    maxWidth: "800px",
+    height: "auto",
+    padding: 0,
+    border: "none",
+    background: "transparent",
+    overflow: "visible",
+  },
+};
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const videoRef = useRef(null);
 
-  const closeModal = () => setModalIsOpen(false);
   const openModal = () => setModalIsOpen(true);
+  const closeModal = () => setModalIsOpen(false);
 
+  useEffect(() => {
+    if (modalIsOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [modalIsOpen]);
+
+  useEffect(() => {
+    if (!modalIsOpen && videoRef.current) {
+      videoRef.current.pause();
+    }
+  }, [modalIsOpen]);
+
+  const toggleText = () => {
+    setShowFull((prev) => !prev);
+  };
   return (
     <div>
       <div className="flex">
@@ -554,9 +583,9 @@ const HomePage = () => {
 </div> */}
       </div>
       <div className="flex px-20 mt-24 gap-6">
-        {/* Column 1 */}
         <div className="flex-1 text-center">
           <h2 className="text-[30px] font-bold">Quick Look at SDED</h2>
+
           <div
             className="max-w-[200px] h-[10px] mx-auto my-2 rounded-full"
             style={{
@@ -564,68 +593,161 @@ const HomePage = () => {
               clipPath: "ellipse(50% 25% at 50% 50%)",
             }}
           ></div>
+
           <h3
-            className="text-left text-3xl md:text-2xl text-gray-700 leading-relaxed mt-6"
+            className={`text-2xl text-slate-700 mt-4 leading-relaxed tracking-tight text-justify m-0`}
             style={{
-              textAlign: "justify",
-              textJustify: "inter-word",
+              wordSpacing: "normal",
+              display: showFull ? "block" : "-webkit-box",
+              WebkitLineClamp: showFull ? "unset" : 15,
+              WebkitBoxOrient: "vertical",
+              overflow: "hidden",
             }}
           >
-            The launch of the Skills Development & Entrepreneurship (SD&E)
-            Department marks a historic milestone for Punjab, ushering in a new
-            era of skill enhancement and economic empowerment. For the first
-            time in the province’s history, a comprehensive initiative of this
-            scale is being introduced—encompassing international labor
-            placement, transgender training, rural women’s empowerment, and
-            numerous other programs. This groundbreaking effort aims to bridge
-            skill gaps, foster entrepreneurship, and drive inclusive growth,
-            making Punjab a model of progress and self-reliance. A
-            transformative leap towards a brighter, more empowered future!
-            <button
-              onClick={openModal}
-              // to="/maryam-video"
-              title=""
-              className="mt-4 text-2xl inline-block text-blue-600 underline hover:text-blue-800 transition-colors duration-200"
-            >
-              Video Preview,
-            </button>
-            <button
-              // to="/maryam-video"
-              title=""
-              className="mt-4 ml-4 text-2xl inline-block text-blue-600 underline hover:text-blue-800 transition-colors duration-200"
-            >
-              TVET Compain
-            </button>
+            The Skills Development and Entrepreneurship Department created by
+            the Punjab Government on 13.01.2025 is responsible for co-ordination
+            of all Skills development efforts across the country, removal of
+            disconnect between demand and supply of skilled manpower both at
+            local and international levels, building the vocational and
+            technical training framework, skills up-gradation, building of new
+            skills and innovative thinking not only for existing jobs but also
+            jobs that are to be created. The new department aims to impart
+            skills on a large scale with speed and high standards in order to
+            achieve its vision of a 'Skilled Punjab'. The CM initiatives by its
+            functional arms i.e. Tevta, PSDF and PVTC will go a long way in
+            achieving the goals for which this department was established. The
+            Department also intends to work with the existing network of Skills
+            Development centres, universities, industry and other alliances in
+            the field. Further, collaborations with relevant governmental
+            institutions, international organizations, industry and NGOs have
+            been initiated for multi-level engagement and more impactful
+            implementation of Skill Development efforts.
+            <strong>SDED Vision Statement</strong>
+            <br />
+            Unlock human capital to trigger a productivity dividend and bring
+            aspirational employment and entrepreneurship pathways to all. For
+            this, an ecosystem-enabling lens to transition Punjab to a
+            high-skills equilibrium and help create positive outcomes for
+            individuals, enterprises and the economy. The three outcomes to be
+            achieved through: Enable individual economic gains and social
+            mobility; Create a skills market that is learner-centric and
+            demand-driven; and Facilitate aspirational employment and
+            entrepreneurship generation, improve overall productivity for
+            enterprises and catalyse economic growth.
           </h3>
+
+          <button
+            onClick={toggleText}
+            className="mt-2 text-blue-600 underline hover:text-blue-800 transition-colors duration-200"
+          >
+            {showFull ? "Read less" : "Read more..."}
+          </button>
+
+          {showFull && (
+            <div className="flex justify-center mt-4 space-x-4">
+              <button
+                onClick={openModal}
+                className="text-2xl text-blue-600 underline hover:text-blue-800 transition-colors duration-200"
+              >
+                Video Preview
+              </button>
+              <button className="text-2xl text-blue-600 underline hover:text-blue-800 transition-colors duration-200">
+                TVET Campaign
+              </button>
+            </div>
+          )}
         </div>
 
-        <div className="flex-1 flex  mt-7">
-          <img
-            src={zahid}
-            className="w-full h-56 rounded-md object-cover"
-            alt="Profile picture"
-          />
-          <div className="px-6">
-            <h3 className="text-3xl font-semibold hover:text-[#049b63] transition-colors duration-300">
-              Zahid Akhtar Zaman Chief Secretary Punjab
-            </h3>
-            <p className="text-slate-700 text-2xl leading-relaxed">
-              The launch of the Skills Development & Entrepreneurship (SD&E)
-              Department marks a transformative step in Punjab’s development
-              agenda. By unifying key areas of technical and vocational
-              education, workforce mobility, and inclusive empowerment under one
-              platform, this initiative reflects the province’s commitment to a
-              future-ready, equitable, and self-reliant society. This department
-              is not just a structural addition—it is a catalyst for economic
-              resilience, social inclusion, and human capital growth. I commend
-              the team behind this visionary initiative and urge all partners to
-              join hands in translating this bold vision into measurable
-              outcomes for the people of Punjab. [Zahid Akhtar Zaman Chief
-              Secretary Punjab] Chief Secretary Government of Punjab
+        <div className="flex-1 mt-7 items-start">
+          <div className="flex">
+            <img
+              src={zahid}
+              className="w-[200px] min-w-[150px] h-[150px] rounded-md object-cover"
+              alt="Profile picture"
+            />
+            <div className="ml-4">
+              <h3 className="text-4xl font-semibold hover:text-[#049b63] transition-colors duration-300 m-0">
+                Zahid Akhtar Zaman, Chief Secretary Punjab
+              </h3>
+              <p
+                className="text-2xl text-slate-700 mt-4 leading-relaxed tracking-tight text-justify m-0"
+                style={{ wordSpacing: "normal" }}
+              >
+                The launch of the Skills Development & Entrepreneurship (SD&E)
+                Department marks a historic milestone for Punjab, ushering in a
+                new era of skill enhancement and economic empowerment.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-4">
+            <p
+              className="text-2xl text-slate-700 leading-relaxed tracking-tight text-justify m-0"
+              style={{ wordSpacing: "normal" }}
+            >
+              For the first time in the province’s history, a comprehensive
+              initiative of this scale is being introduced—encompassing
+              international labor placement, transgender training, rural women’s
+              empowerment, and numerous other programs. This groundbreaking
+              effort aims to bridge skill gaps, foster entrepreneurship, and
+              drive inclusive growth, making Punjab a model of progress and
+              self-reliance. A transformative leap towards a brighter, more
+              empowered future!
             </p>
           </div>
         </div>
-        <div className="flex-1 flex  mt-7">
+
+        <div className="flex-1 mt-7 items-start">
+          <div className="flex">
+            <img
+              src={sectory}
+              className="w-[200px] min-w-[150px] h-[150px] rounded-md object-cover"
+              alt="Profile picture"
+            />
+            <div className="ml-4">
+              <h3 className="text-3xl font-semibold hover:text-[#049b63] transition-colors duration-300 m-0">
+                Nadir Chattha, Secretary SDED
+              </h3>
+              <p
+                className="text-2xl text-slate-700 mt-4 leading-relaxed tracking-tight text-justify m-0"
+                style={{ wordSpacing: "normal" }}
+              >
+                The establishment of the Skills Development & Entrepreneurship
+                (SD&E) Department represents a strategic advancement in Punjab’s
+                human capital development agenda.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-4">
+            <p
+              className="text-2xl text-slate-700 mt-4 leading-relaxed tracking-tight text-justify m-0"
+              style={{ wordSpacing: "normal" }}
+            >
+              This pioneering initiative brings a comprehensive, sector-wide
+              focus to technical and vocational education and training (TVET),
+              aimed at enhancing workforce readiness, promoting inclusive
+              participation, and catalyzing entrepreneurial ecosystems. By
+              integrating diverse programs—including international labor
+              mobility, skills training for rural women and transgender
+              individuals, and enterprise development—we are addressing critical
+              skills gaps and creating pathways to sustainable livelihoods. Our
+              department is committed to aligning skills provision with labor
+              {/* market demands, 
+              both domestically and globally, while fostering
+              innovation and self-employment.
+              <br />
+              <br />
+              As we move forward, we envision a TVET landscape that is
+              responsive, inclusive, and future-focused. I invite all
+              stakeholders—industry partners, training providers, development
+              agencies, and communities—to collaborate with us in shaping a
+              skilled and empowered Punjab. */}
+            </p>
+          </div>
+        </div>
+
+        {/* <div className="flex-1 flex  mt-7">
           <img
             src={sectory}
             className="w-full h-56 rounded-md object-cover"
@@ -656,80 +778,8 @@ const HomePage = () => {
               skilled and empowered Punjab.
             </p>
           </div>
-        </div>
+        </div> */}
       </div>
-
-      {/* <div className="flex justify-center gap-16 p-6 px-52 mt-16 mb-16">
-        <div className="w-full sm:w-1/4 bg-white rounded-2xl shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
-          <div className="w-full h-[300px] flex items-center justify-center">
-            <img
-              src={Maryam_Nawaz_CM}
-              alt="Maryam Nawaz Sharif"
-              className="w-full h-full object-center"
-            />
-          </div>
-          <div className="p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
-            <h3 className="text-3xl font-bold mb-4 text-green-800 transition-colors duration-300 hover:text-green-600">
-              Maryam Nawaz Sharif, CM Punjab
-            </h3>
-            <p className="text-lg md:text-xl text-slate-700 leading-relaxed">
-              <strong className="text-green-700">Maryam Nawaz Sharif</strong> is
-              a prominent Pakistani politician and the daughter of former Prime
-              Minister <strong>Nawaz Sharif</strong>. As a senior member of the{" "}
-              <strong>Pakistan Muslim League (N)</strong>, she has played an
-              influential role in national politics—advocating for{" "}
-              <em>democratic values</em>,
-              <br />
-            </p>
-
-            <Link
-              to="/maryam-video"
-              title=""
-              className="mt-4 text-2xl inline-block text-blue-600 underline hover:text-blue-800 transition-colors duration-200"
-            >
-              Video Preview
-            </Link>
-          </div>
-        </div>
-
-        <div className="w-full sm:w-1/4 bg-white rounded-2xl shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
-          <div className="w-full h-[300px] flex items-center justify-center">
-            <img
-              src={sectory}
-              alt="Nadir Chattha, Secretary SDED"
-              className="w-full h-full object-center"
-            />
-          </div>
-          <div className="p-6">
-            <h3 className="text-3xl font-semibold mb-4 text-purple-800 transition-colors duration-300 hover:text-purple-600">
-              Nadir Chattha, Secretary SDED
-            </h3>
-            <p className="text-slate-700 text-2xl leading-relaxed line-clamp-4">
-              This is a short description for image. Lorem Ipsum is simply dummy
-              text of the printing and typesetting industry...
-            </p>
-          </div>
-        </div>
-
-        <div className="w-full sm:w-1/4 bg-white rounded-2xl shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
-          <div className="w-full h-[300px] flex items-center justify-center">
-            <img
-              src={Maryam_Nawaz_CM}
-              alt="Maryam Nawaz Sharif"
-              className="w-full h-full object-center"
-            />
-          </div>
-          <div className="p-6">
-            <h3 className="text-3xl font-semibold mb-4 text-blue-800 transition-colors duration-300 hover:text-blue-600">
-              Title 3
-            </h3>
-            <p className="text-slate-700 text-2xl leading-relaxed line-clamp-4">
-              This is a short description for image. Lorem Ipsum is simply dummy
-              text of the printing and typesetting industry...
-            </p>
-          </div>
-        </div>
-      </div> */}
 
       <div className=" py-10 mt-16 ">
         <div className="gap-y-10 mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 px-20">
@@ -964,27 +1014,35 @@ const HomePage = () => {
         </div>
       </div>
 
-      <Modal
-      isOpen={modalIsOpen}
-      onRequestClose={closeModal}
-      style={customStyles}
-      contentLabel="Example Modal"
-    >
-      <div className="relative">
-        <button
-          onClick={closeModal}
-          className="absolute cursor-pointer top-2 right-2 text-[40px] text-white hover:text-red-500"
-        >
-          &times;
-        </button>
-        <div className="my-6">
-          <video width="100%" height="auto" controls autoPlay>
-            <source src={videoPreview} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
+       <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel="Video Modal"
+        ariaHideApp={false}
+      >
+        <div className="relative bg-black rounded-lg shadow-lg overflow-hidden">
+          <button
+            onClick={closeModal}
+            className="absolute top-2 right-2 text-white text-3xl hover:text-red-500 z-10"
+            aria-label="Close video"
+          >
+            &times;
+          </button>
+
+          <div className="w-full h-full">
+            <video
+              ref={videoRef}
+              className="w-full h-auto rounded-b-lg"
+              controls
+              autoPlay
+            >
+              <source src={videoPreview} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
         </div>
-      </div>
-    </Modal>
+      </Modal>
     </div>
   );
 };
