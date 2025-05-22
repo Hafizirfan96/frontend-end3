@@ -602,7 +602,7 @@ const customStyles = {
             style={{
               wordSpacing: "normal",
               display: showFull ? "block" : "-webkit-box",
-              WebkitLineClamp: showFull ? "unset" : 15,
+              WebkitLineClamp: showFull ? "unset" : 13,
               WebkitBoxOrient: "vertical",
               overflow: "hidden",
             }}
