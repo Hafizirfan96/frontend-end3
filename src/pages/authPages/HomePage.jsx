@@ -26,6 +26,7 @@ import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import tvtproviders from "@/assets/tvtproviders.png";
 import Maryam_Nawaz_CM from "@/assets/Maryam_Nawaz.png";
 import videoPreview from "@/assets/videopreview.mp4";
+import snaptik from "@/assets/snaptik.mp4";
 import SummeryCard from "@/components/templates/Home/SummeryCard";
 import sectory from "@/assets/sectory.jpeg";
 import zahid from "@/assets/zahid.jpeg";
@@ -34,6 +35,7 @@ import Xarrow from "react-xarrows";
 import { useEffect, useRef, useState } from "react";
 import Modal from "react-modal";
 import React from "react";
+import CustomModal from "@/components/templates/modals/CustomModal";
 Modal.setAppElement("#root");
 const HomePage = () => {
   const showTvetSupply = false;
@@ -43,6 +45,8 @@ const HomePage = () => {
   };
   const [showFull, setShowFull] = useState(false);
   const [showFulls, setShowFulls] = useState(false);
+  const [snapVideo, setSnapVideo] = useState(false);
+  
 
   const slidesData = [
     {
@@ -311,6 +315,8 @@ const customStyles = {
     const toggleText1 = () => {
     setShowFulls((prev) => !prev);
   };
+      const [isModalOpen, setModalOpen] = useState(false);
+
   return (
     <div>
       <div className="flex">
@@ -650,7 +656,7 @@ const customStyles = {
               >
                 Video Preview,
               </button>
-              <button className="text-2xl text-blue-600 underline hover:text-blue-800 transition-colors duration-200">
+              <button onClick={() => setModalOpen(true)} className="text-2xl text-blue-600 underline hover:text-blue-800 transition-colors duration-200">
                 TVET Campaign
               </button>
             </div> Read less</> : <>
@@ -662,7 +668,7 @@ const customStyles = {
               >
                 Video Preview,
               </button>
-              <button className="text-2xl text-blue-600 underline hover:text-blue-800 transition-colors duration-200">
+              <button onClick={() => setModalOpen(true)} className="text-2xl text-blue-600 underline hover:text-blue-800 transition-colors duration-200">
                 TVET Campaign
               </button>
             </div>
@@ -1042,6 +1048,17 @@ const customStyles = {
           </div>
         </div>
       </Modal>
+
+      <CustomModal isOpen={isModalOpen} onClose={() => setModalOpen(false)}>
+                <video
+                    controls
+                    autoPlay
+                    className="w-full h-auto rounded-lg"
+                >
+                    <source src={snaptik} type="video/mp4" />
+                    Your browser does not support the video tag.
+                </video>
+            </CustomModal>
     </div>
   );
 };
