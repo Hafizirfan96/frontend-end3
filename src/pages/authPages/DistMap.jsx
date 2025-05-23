@@ -1,149 +1,169 @@
-import { useEffect, useState } from "react";
+import React, { useLayoutEffect, useRef } from "react";
+import * as am5 from "@amcharts/amcharts5";
+import * as am5map from "@amcharts/amcharts5/map";
+import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
+import am5geodata_pakistanLow from "@amcharts/amcharts5-geodata/pakistanLow"; // Ensure this path is correct
 
+// Assuming these paths are correct for your project structure
 import Header from "./DashboardPages/Components/Header";
 import Footer from "./DashboardPages/Components/Footer";
-import MapComponent from "@/components/templates/MapComponent/MapComponent";
+
+// --- Data for Major City Districts to Highlight ---
+// Each object maps a city name to its corresponding DISTRICT ISO CODE from am5geodata_pakistanLow.js
+// CRITICAL: Ensure 'districtId' is the correct ID from your GeoJSON for the city's main administrative area.
+const cityDistrictMapping = [
+  { name: "Lahore", districtId: "PK-PB-133", color: am5.color(0xFF6F00) }, // Bright Orange
+  { name: "Multan", districtId: "PK-PB-138", color: am5.color(0xAD1457) }, // Deep Pink/Magenta
+  { name: "Faisalabad", districtId: "PK-PB-128", color: am5.color(0x0277BD) }, // Strong Blue
+  { name: "Rawalpindi", districtId: "PK-PB-101", color: am5.color(0x2E7D32) }, // Dark Green (Ensure PK-PB-101 is Rawalpindi Dist.)
+  { name: "Gujranwala", districtId: "PK-PB-117", color: am5.color(0x512DA8) }, // Deep Purple (Ensure PK-PB-117 is Gujranwala Dist.)
+  { name: "Sargodha", districtId: "PK-PB-126", color: am5.color(0xC62828) }, // Example ID, replace with actual. Dark Red
+  { name: "Bahawalpur", districtId: "PK-PB-141", color: am5.color(0x4527A0) }, // Example ID, replace with actual. Indigo
+  { name: "Sialkot", districtId: "PK-PB-137", color: am5.color(0x00695C) }, // Teal
+  // Add more cities here. The 'districtId' MUST exist in am5geodata_pakistanLow.
+];
 
 
 const DistMap = () => {
-  // useEffect(() => {
-  //   window.scrollTo(0, 0);
-  // }, []);
+  const rootRef = useRef(null);
 
+  useLayoutEffect(() => {
+    let root = am5.Root.new("punjab-city-areas-map");
+    rootRef.current = root;
 
+    root.setThemes([am5themes_Animated.new(root)]);
 
-  const MapEmbed = ({ src, width, height, customStyles }) => {
-    return (
-      <div className={`w-full max-w-screen-xl mx-auto p-4 ${customStyles}`}>
-        <div className="relative pb-[68.26%] h-0 overflow-hidden rounded-lg shadow-lg">
-          <iframe
-            src={src}
-            className="absolute top-0 left-0 w-full h-full border-0"
-            width={width}
-            height={height}
-            allowFullScreen
-            loading="lazy"
-          ></iframe>
-        </div>
-      </div>
+    let chart = root.container.children.push(
+      am5map.MapChart.new(root, {
+        panX: "rotateX",
+        panY: "translateY",
+        projection: am5map.geoMercator(),
+        homeGeoPoint: { longitude: 72.25, latitude: 31.17 }, // Approx. center of Punjab
+        homeZoomLevel: 2.5, // Adjust to fit Punjab well
+      })
     );
-  };
 
-  const [mapConfig, setMapConfig] = useState({
-    src: 'https://skillingpakistan.gov.pk/dmap/',
-    width: 1024,
-    height: 699,
-    customStyles: 'bg-white border-gray-200', // Customize with additional styles
-  });
+    // --- 1. Base Series for Punjab Province (as a background) ---
+    let punjabProvinceSeries = chart.series.push(
+      am5map.MapPolygonSeries.new(root, {
+        geoJSON: am5geodata_pakistanLow,
+        include: ["PK-PB"], // Only Punjab province polygon
+        name: "punjabProvince"
+      })
+    );
+    punjabProvinceSeries.mapPolygons.template.setAll({
+      tooltipText: "{name}", // Shows "Punjab"
+      interactive: false,
+      fill: am5.color(0xF5F5F5), // Very light grey for province background
+      stroke: am5.color(0xBDBDBD),
+      strokeWidth: 0.8,
+    });
 
- 
+    // --- 2. Series for ALL Punjab Districts (dimmed background layer) ---
+    // THIS SERIES IS NOW REMOVED/COMMENTED OUT TO EMPHASIZE CITY DISTRICTS
+    /*
+    const allPunjabDistrictCodes = [ // You would need this list if you re-enable this series
+        "PK-PB-101", "PK-PB-102", ..., "PK-PB-141"
+    ];
+    if (allPunjabDistrictCodes.length > 0) {
+      let allDistrictsSeries = chart.series.push(
+        am5map.MapPolygonSeries.new(root, {
+          geoJSON: am5geodata_pakistanLow,
+          include: allPunjabDistrictCodes,
+          name: "allPunjabDistricts"
+        })
+      );
+      allDistrictsSeries.mapPolygons.template.setAll({
+        tooltipText: "{name}",
+        interactive: true,
+        fill: am5.color(0xECEFF1), // Extremely light, almost invisible
+        stroke: am5.color(0xCFD8DC), // Very light stroke
+        strokeWidth: 0.3,
+        cursorOverStyle: "pointer",
+      });
+      allDistrictsSeries.mapPolygons.template.states.create("hover", {
+        fill: am5.color(0xE0E0E0),
+      });
+      allDistrictsSeries.mapPolygons.template.events.on("click", (ev) => {
+        const districtName = ev.target.dataItem.dataContext.name;
+        alert(`District: ${districtName}`);
+      });
+    }
+    */
 
- 
+    // --- 3. Series for Highlighting Specific City Districts ---
+    // These will be the primary colored areas within Punjab.
+    let highlightedCityDistrictsSeries = chart.series.push(
+        am5map.MapPolygonSeries.new(root, {
+            geoJSON: am5geodata_pakistanLow, // Source of all polygons
+            name: "highlightedCityDistricts"
+        })
+    );
+
+    // Populate this series with data for the city districts we want to show
+    cityDistrictMapping.forEach(cityInfo => {
+        highlightedCityDistrictsSeries.data.push({
+            id: cityInfo.districtId, // This ID must match a polygon ID in am5geodata_pakistanLow
+            name: cityInfo.name,     // Tooltip name, e.g., "Lahore"
+            fill: cityInfo.color     // Specific color for this city's district area
+        });
+    });
+
+    // Template for the polygons in the highlighted series
+    highlightedCityDistrictsSeries.mapPolygons.template.setAll({
+        // The 'fill' is set dynamically by the adapter below based on data
+        tooltipText: "{name}", // Shows "Lahore", "Multan", etc.
+        interactive: true,
+        stroke: am5.color(0xFFFFFF), // White border for highlighted city districts
+        strokeWidth: 1.5, // Thicker border to make them stand out
+        cursorOverStyle: "pointer",
+    });
+
+    // Adapter to apply the specific 'fill' color from our data to each polygon
+    highlightedCityDistrictsSeries.mapPolygons.template.adapters.add("fill", function(fill, target) {
+      if (target.dataItem && target.dataItem.dataContext && target.dataItem.dataContext.fill) {
+        return target.dataItem.dataContext.fill; // Use color from cityDistrictMapping
+      }
+      return am5.color(0xCCCCCC); // Fallback color if none specified (shouldn't happen here)
+    });
+
+    // Hover state for highlighted city districts
+    highlightedCityDistrictsSeries.mapPolygons.template.states.create("hover", {
+        // Example: Slightly brighten or change stroke on hover
+        // fillOpacity: 0.8, // Or use an adapter for hover fill too
+        strokeWidth: 2.5,
+        stroke: am5.color(0x333333)
+    });
+
+    // Click event for highlighted city districts
+    highlightedCityDistrictsSeries.mapPolygons.template.events.on("click", (ev) => {
+        const cityName = ev.target.dataItem.dataContext.name; // Name from our mapping
+        const districtId = ev.target.dataItem.dataContext.id;
+        alert(`${cityName} (District ID: ${districtId})`);
+        // You could zoom in further here, or show a modal with city-specific info
+        // chart.zoomToDataItem(ev.target.dataItem);
+    });
 
 
-
+    return () => {
+      if (rootRef.current) {
+        rootRef.current.dispose();
+        rootRef.current = null;
+      }
+    };
+  }, []);
 
   return (
     <div>
       <Header />
-      <div className="Browse bg-[#478e51] mb-8">
-        <div className="h-5" />
-        <div className="flex items-center pt-8">
-          <div className=" ml-16 ">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 512 512"
-              fill="#e2e028ed"
-              width="32"
-              height="32"
-            >
-              <path d="M496 384H64V80c0-8.8-7.2-16-16-16H16C7.2 64 0 71.2 0 80v336c0 17.7 14.3 32 32 32h464c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16zM464 96H345.9c-21.4 0-32.1 25.9-17 41l32.4 32.4L288 242.8l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0l-68.7 68.7c-6.3 6.3-6.3 16.4 0 22.6l22.6 22.6c6.3 6.3 16.4 6.3 22.6 0L192 237.3l73.4 73.4c12.5 12.5 32.8 12.5 45.3 0l96-96 32.4 32.4c15.1 15.1 41 4.4 41-17V112c0-8.8-7.2-16-16-16z"></path>
-            </svg>
-          </div>
-
-          <h2 className="text-light text-[22px] text-bold ml-3 text-white ">
-            District Map
-          </h2>
-          <div></div>
-        </div>
-        <div className="flex px-16 mt-4 py-8">
-          <div className="w-1/2 p-4">
-            <h3
-              className=" text-2xl text-white"
-              style={{
-                textAlign: "justify",
-                textJustify: "inter-word",
-              }}
-            >
-              This Map offers a holistic visual representation of TVET-related
-              data across districts of Pakistan, enabling the viewer to
-              understand the distribution and capacity of educational institutes
-              at a granular level. It provides a consolidated geographical view
-              of a number of critical indicators, highlighting regional
-              disparities, areas of high demand, and helps identify areas and
-              resources needing strengthening. Through this map, stakeholders
-              can work towards a better alignment of TVET infrastructure with
-              local labor market needs. The level of details in this map
-              supports informed planning, resource allocation, and policy
-              development, fostering a more equitable and effective vocational
-            </h3>
-          </div>
-          <div className="w-1/2 p-4">
-            <h3
-              className="text-2xl text-white"
-              style={{
-                textAlign: "justify",
-                textJustify: "inter-word",
-              }}
-            >
-              education landscape across Pakistan. Decision-making is,
-              therefore, guided by accurate, localized insights with information
-              on key variables, such as the industry, TVET institutions,
-              enrolments and drop-outs, and training capacities. The
-              district-level breakdown gives nuanced understanding for targeted
-              analysis of supply and demand trends within specific regions. TVET
-              providers, researchers, and employers can identify districts
-              needing enhanced facilities, review of courses offered, and
-              strategic investments to improve access and outcomes.
-            </h3>
-          </div>
-        </div>
+      <div className="Browse bg-[#478e51] mb-8 p-4">
+        <h2 className="text-white text-2xl text-center">Map of Punjab: Major Cities</h2>
+        <p className="text-white text-center mt-2">Hover over or click on a city area.</p>
       </div>
 
-
-
-
-      <MapComponent />
-
-     {/* <div>
-     <div className="p-6">
-      <h1 className="text-2xl font-semibold mb-4">Dynamic Map Embed</h1>
-      <MapEmbed 
-        src={mapConfig.src} 
-        width={mapConfig.width} 
-        height={mapConfig.height} 
-        customStyles={mapConfig.customStyles} 
-      />
-      <div className="mt-4">
-        <button
-          className="px-4 py-2 bg-blue-500 text-white rounded-md"
-          onClick={() => setMapConfig({
-            ...mapConfig,
-            src: 'https://new-map-source.com', // New source URL
-            width: 1200,
-            height: 800,
-            customStyles: 'bg-gray-100 border-blue-500', // Custom styles
-          })}
-        >
-          Change Map Configuration
-        </button>
+      <div className="px-4">
+        <div id="punjab-city-areas-map" style={{ width: "100%", height: "600px", border: "1px solid #ccc" }}></div>
       </div>
-    </div>
-
-     </div> */}
-
-
-
 
       <Footer />
     </div>

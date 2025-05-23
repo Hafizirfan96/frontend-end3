@@ -894,7 +894,7 @@ const customStyles = {
             ),
           },
           {
-            // id: "/district-map",
+            id: "/district-map",
             title: "District Map",
             description:
               "Explore district level insights about TVET supply and demand indicators.",
