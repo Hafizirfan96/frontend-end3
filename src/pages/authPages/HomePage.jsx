@@ -47,6 +47,7 @@ const HomePage = () => {
   const [showFulls, setShowFulls] = useState(false);
   const [snapVideo, setSnapVideo] = useState(false);
   const truncateLength = 600;
+  const truncateLength1 = 830;
 
   // truncate text if not expanded
   const textContent = `The establishment of the Skills Development & Entrepreneurship
@@ -69,9 +70,46 @@ responsive, inclusive, and future focused. I invite all
 stakeholders industry partners, training providers, development
 agencies, and communities to collaborate with us in shaping a
 skilled and empowered Punjab.`;
+
   const displayedText = showFulls
     ? textContent
     : textContent.slice(0, truncateLength) + "...";
+    const textContent1 = ` The Skills Development and Entrepreneurship Department created by
+              the Punjab Government on 13.01.2025 is responsible for
+              co-ordination of all Skills development efforts across the
+              country, removal of disconnect between demand and supply of
+              skilled manpower both at local and international levels, building
+              the vocational and technical training framework, skills up
+              gradation, building of new skills and innovative thinking not only
+              for existing jobs but also jobs that are to be created. The new
+              department aims to impart skills on a large scale with speed and
+              high standards in order to achieve its vision of a 'Skilled
+              Punjab'. The CM initiatives by its functional arms i.e. Tevta,
+              PSDF and PVTC will go a long way in achieving the goals for which
+              this department was established. The Department also intends to
+              work with the existing network of Skills Development centres,
+              universities, industry and other alliances in the field. Further,
+              collaborations with relevant governmental institutions,
+              international organizations, industry and NGOs have been initiated
+              for multi-level engagement and more impactful implementation of
+              Skill Development efforts.
+              <br />
+              SDED Vision Statement Unlock human capital to trigger a
+              productivity dividend and bring aspirational employment and
+              entrepreneurship pathways to all. For this, an ecosystem-enabling
+              lens to transition Punjab to a high-skills equilibrium and help
+              create positive outcomes for individuals, enterprises and the
+              economy. The three outcomes to be achieved through: Enable
+              individual economic gains and social mobility; Create a skills
+              market that is learner-centric and demand-driven; and Facilitate
+              aspirational employment and entrepreneurship generation, improve
+              overall productivity for enterprises and catalyse economic growth.`;
+
+  const displayedText1 = showFull
+    ? textContent1
+    : textContent1.slice(0, truncateLength1) + "...";
+    
+    
 
   const slidesData = [
     {
@@ -586,15 +624,15 @@ skilled and empowered Punjab.`;
         </div>
       </div>
       <div className=" mx-auto flex px-20 mt-24 gap-6 bg-[#f0f0f0] py-8">
-        <div className="flex-1  p-4">
+        {/* <div className="flex-1  p-4">
           <div className="flex-1 justify-center text-center">
             <h2 className="text-[30px] font-bold">Quick Look at SDED</h2>
-           <button
-  onClick={openModal}
-  className="text-2xl justify-center text-blue-600 underline hover:text-blue-800 transition-colors duration-200"
->
-  Video Preview,
-</button>
+            <button
+              onClick={openModal}
+              className="text-2xl justify-center text-blue-600 underline hover:text-blue-800 transition-colors duration-200"
+            >
+              Video Preview,
+            </button>
 
             <div
               className="max-w-[200px] h-[10px] mx-auto my-2 rounded-full"
@@ -605,7 +643,7 @@ skilled and empowered Punjab.`;
             ></div>
 
             <h3
-              className={`text-3xl text-slate-700 mt-4 leading-relaxed tracking-tight text-justify m-0`}
+              className={`text-3xl text-slate-700 mt-4 leading-relaxed tracking-tight text-justify m-0 `}
               style={{
                 wordSpacing: "normal",
                 display: showFull ? "block" : "-webkit-box",
@@ -657,7 +695,49 @@ skilled and empowered Punjab.`;
               )}
             </button>
           </div>
-        </div>
+        </div> */}
+        <div className="flex-1 p-4">
+  <div className="mx-auto max-w-3xl text-center">
+    <h2 className="text-[30px] font-bold">Quick Look at SDED</h2>
+    <button
+      onClick={openModal}
+      className="text-2xl text-blue-600 underline hover:text-blue-800 transition-colors duration-200"
+    >
+      Video Preview
+    </button>
+
+    <div
+      className="max-w-[200px] h-[10px] mx-auto my-2 rounded-full"
+      style={{
+        background: "linear-gradient(90deg, #66cc66, #4caf50, #66cc66)",
+        clipPath: "ellipse(50% 25% at 50% 50%)",
+      }}
+    ></div>
+
+    <h3
+      className={`text-justify text-3xl text-slate-700 mt-4 leading-relaxed tracking-tight`}
+      // style={{
+      //   wordSpacing: "normal",
+      //   display: showFull ? "block" : "-webkit-box",
+      //   WebkitLineClamp: showFull ? "unset" : 14,
+      //   WebkitBoxOrient: "vertical",
+      //   overflow: "hidden",
+      // }}
+    >
+   {displayedText1}
+          
+
+    </h3>
+
+    <button
+      onClick={toggleText}
+      className="mt-2 text-blue-600 underline hover:text-blue-800 transition-colors duration-200"
+    >
+      <h3 className="text-2xl">{showFull ? "Read less" : "Read more..."}</h3>
+    </button>
+  </div>
+</div>
+
 
         <div className="flex-1 p-4">
           <div className="flex-1 ">
@@ -691,7 +771,7 @@ skilled and empowered Punjab.`;
         </div>
 
         <div className="flex-1  p-4">
-          <div className="text-base text-center sm:text-lg md:text-xl lg:text-2xl leading-relaxed">
+          <div className="text-base  sm:text-lg md:text-xl lg:text-2xl leading-relaxed">
             <img
               src={sectory}
               alt="Top Left"
@@ -716,137 +796,6 @@ skilled and empowered Punjab.`;
           </div>
         </div>
       </div>
-
-      {/* <div className="flex px-20 mt-24 gap-6 bg-[#f0f0f0] py-8">
-
-        <div className="flex-1 bg-red-200  ">
-          <h2 className="text-[30px] font-bold">Quick Look at SDED</h2>
-          <button
-            onClick={openModal}
-            className="text-2xl text-blue-600 underline hover:text-blue-800 transition-colors duration-200"
-          >
-            Video Preview,
-          </button>
-          <div
-            className="max-w-[200px] h-[10px] mx-auto my-2 rounded-full"
-            style={{
-              background: "linear-gradient(90deg, #66cc66, #4caf50, #66cc66)",
-              clipPath: "ellipse(50% 25% at 50% 50%)",
-            }}
-          ></div>
-
-          <h3
-            className={`text-3xl text-slate-700 mt-4 leading-relaxed tracking-tight text-justify m-0`}
-            style={{
-              wordSpacing: "normal",
-              display: showFull ? "block" : "-webkit-box",
-              WebkitLineClamp: showFull ? "unset" : 13,
-              WebkitBoxOrient: "vertical",
-              overflow: "hidden",
-            }}
-          >
-            The Skills Development and Entrepreneurship Department created by
-            the Punjab Government on 13.01.2025 is responsible for co-ordination
-            of all Skills development efforts across the country, removal of
-            disconnect between demand and supply of skilled manpower both at
-            local and international levels, building the vocational and
-            technical training framework, skills up gradation, building of new
-            skills and innovative thinking not only for existing jobs but also
-            jobs that are to be created. The new department aims to impart
-            skills on a large scale with speed and high standards in order to
-            achieve its vision of a 'Skilled Punjab'. The CM initiatives by its
-            functional arms i.e. Tevta, PSDF and PVTC will go a long way in
-            achieving the goals for which this department was established. The
-            Department also intends to work with the existing network of Skills
-            Development centres, universities, industry and other alliances in
-            the field. Further, collaborations with relevant governmental
-            institutions, international organizations, industry and NGOs have
-            been initiated for multi-level engagement and more impactful
-            implementation of Skill Development efforts.
-            <br />
-            SDED Vision Statement Unlock human capital to trigger a productivity
-            dividend and bring aspirational employment and entrepreneurship
-            pathways to all. For this, an ecosystem-enabling lens to transition
-            Punjab to a high-skills equilibrium and help create positive
-            outcomes for individuals, enterprises and the economy. The three
-            outcomes to be achieved through: Enable individual economic gains
-            and social mobility; Create a skills market that is learner-centric
-            and demand-driven; and Facilitate aspirational employment and
-            entrepreneurship generation, improve overall productivity for
-            enterprises and catalyse economic growth.
-          </h3>
-
-          <button
-            onClick={toggleText}
-            className="mt-2 text-blue-600 underline hover:text-blue-800 transition-colors duration-200"
-          >
-            {showFull ? (
-              <h3 className="text-2xl">Read less</h3>
-            ) : (
-              <h3 className="text-2xl">Read more...</h3>
-            )}
-          </button>
-        </div>
-
-        <div className="p-4 mx-auto">
-          <div className="flex-1 bg-green-300 ">
-            <div className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed">
-              <img
-                src={zahid}
-                alt="Top Left"
-                className=" tracking-tight text-justify m-0 text-2xl float-left w-[200px] min-w-[150px] h-[150px]  mr-4 mb-2 rounded shadow-md"
-              />
-              <h3 className="text-4xl font-semibold hover:text-[#049b63] transition-colors duration-300 m-0">
-                Zahid Akhtar Zaman, Chief Secretary Punjab
-              </h3>
-              <p
-                style={{ wordSpacing: "normal" }}
-                className="text-3xl text-slate-700 leading-relaxed tracking-tight text-justify m-0 mt-4"
-              >
-                The launch of the Skills Development & Entrepreneurship (SD&E)
-                Department marks a historic milestone for Punjab, ushering in a
-                new era of skill enhancement and economic empowerment. For the
-                first time in the province’s history, a comprehensive initiative
-                of this scale is being introduced, encompassing international
-                labor placement, transgender training, rural women’s
-                empowerment, and numerous other programs. This groundbreaking
-                effort aims to bridge skill gaps, foster entrepreneurship, and
-                drive inclusive growth, making Punjab a model of progress and
-                self-reliance. A transformative leap towards a brighter, more
-                empowered future!
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div className="p-4 mx-auto">
-          <div className="flex-1 bg-pink-500 ">
-            <div className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed">
-              <img
-                src={sectory}
-                alt="Top Left"
-                className="tracking-tight text-justify m-0 text-2xl float-left w-[200px] min-w-[150px] h-[150px] mr-4 mb-2 rounded shadow-md"
-              />
-              <h3 className="text-4xl font-semibold hover:text-[#049b63] transition-colors duration-300 m-0">
-                Nadir Chattha, Secretary SDED
-              </h3>
-              <p className="text-3xl text-slate-700 leading-relaxed tracking-tight text-justify m-0 mt-4 ">
-                {displayedText}
-              </p>
-              <button
-                onClick={() => setShowFulls((prev) => !prev)}
-                className="mt-2 text-blue-600 underline hover:text-blue-800 transition-colors duration-200"
-              >
-                {showFulls ? (
-                  <h3 className="text-2xl">Read less</h3>
-                ) : (
-                  <h3 className="text-2xl">Read more...</h3>
-                )}
-              </button>
-            </div>
-          </div>
-        </div>
-      </div> */}
 
       <div className=" py-10 mt-16 ">
         <div className="gap-y-10 mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 px-20">
@@ -1110,6 +1059,7 @@ skilled and empowered Punjab.`;
           </div>
         </div>
       </Modal>
+     
 
       <CustomModal isOpen={isModalOpen} onClose={() => setModalOpen(false)}>
         <video controls autoPlay className="w-full h-auto rounded-lg">
