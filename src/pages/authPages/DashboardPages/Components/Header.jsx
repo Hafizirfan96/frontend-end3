@@ -296,7 +296,7 @@ const Header = () => {
       {/* Nested Submenu: only visible when hovering For Learners */}
       <div className="absolute left-full top-0 w-48 bg-white border rounded shadow-md opacity-0 invisible group-hover:visible group-hover:opacity-100 transition-all z-20">
         <NavLink
-          to="/for-learners/skill-programs"
+          to="/video-player"
           className="block px-4 py-2 text-xl text-gray-700 hover:bg-gray-100"
         >
           See Video

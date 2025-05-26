@@ -24,6 +24,7 @@ import PSDFPage from "@/pages/authPages/PSDFPage";
 import ProfileDetail from "@/pages/authPages/ProfileDetail";
 import ForEmployer from "@/pages/authPages/ForEmployer";
 import ForGraduate from "@/pages/authPages/ForGraduate";
+import VideoPlayer from "@/pages/authPages/VideoPlayer";
 
 const MainRoute = () => {
   return (
@@ -217,6 +218,16 @@ const MainRoute = () => {
             <PageTransition>
               <Suspense fallback={<PageLoading />}>
                 <ForGraduate  />
+              </Suspense>
+            </PageTransition>
+          }
+        />
+         <Route
+          path="/video-player"
+          element={
+            <PageTransition>
+              <Suspense fallback={<PageLoading />}>
+                <VideoPlayer  />
               </Suspense>
             </PageTransition>
           }

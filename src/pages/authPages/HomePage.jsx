@@ -74,7 +74,7 @@ skilled and empowered Punjab.`;
   const displayedText = showFulls
     ? textContent
     : textContent.slice(0, truncateLength) + "...";
-    const textContent1 = ` The Skills Development and Entrepreneurship Department created by
+  const textContent1 = ` The Skills Development and Entrepreneurship Department created by
               the Punjab Government on 13.01.2025 is responsible for
               co-ordination of all Skills development efforts across the
               country, removal of disconnect between demand and supply of
@@ -108,8 +108,6 @@ skilled and empowered Punjab.`;
   const displayedText1 = showFull
     ? textContent1
     : textContent1.slice(0, truncateLength1) + "...";
-    
-    
 
   const slidesData = [
     {
@@ -697,47 +695,46 @@ skilled and empowered Punjab.`;
           </div>
         </div> */}
         <div className="flex-1 p-4">
-  <div className="mx-auto max-w-3xl text-center">
-    <h2 className="text-[30px] font-bold">Quick Look at SDED</h2>
-    <button
-      onClick={openModal}
-      className="text-2xl text-blue-600 underline hover:text-blue-800 transition-colors duration-200"
-    >
-      Video Preview
-    </button>
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="text-[30px] font-bold">Quick Look at SDED</h2>
+            <button
+              onClick={openModal}
+              className="text-2xl text-blue-600 underline hover:text-blue-800 transition-colors duration-200"
+            >
+              Video Preview
+            </button>
 
-    <div
-      className="max-w-[200px] h-[10px] mx-auto my-2 rounded-full"
-      style={{
-        background: "linear-gradient(90deg, #66cc66, #4caf50, #66cc66)",
-        clipPath: "ellipse(50% 25% at 50% 50%)",
-      }}
-    ></div>
+            <div
+              className="max-w-[200px] h-[10px] mx-auto my-2 rounded-full"
+              style={{
+                background: "linear-gradient(90deg, #66cc66, #4caf50, #66cc66)",
+                clipPath: "ellipse(50% 25% at 50% 50%)",
+              }}
+            ></div>
 
-    <h3
-      className={`text-justify text-3xl text-slate-700 mt-4 leading-relaxed tracking-tight`}
-      // style={{
-      //   wordSpacing: "normal",
-      //   display: showFull ? "block" : "-webkit-box",
-      //   WebkitLineClamp: showFull ? "unset" : 14,
-      //   WebkitBoxOrient: "vertical",
-      //   overflow: "hidden",
-      // }}
-    >
-   {displayedText1}
-          
+            <h3
+              className={`text-justify text-3xl text-slate-700 mt-4 leading-relaxed tracking-tight`}
+              // style={{
+              //   wordSpacing: "normal",
+              //   display: showFull ? "block" : "-webkit-box",
+              //   WebkitLineClamp: showFull ? "unset" : 14,
+              //   WebkitBoxOrient: "vertical",
+              //   overflow: "hidden",
+              // }}
+            >
+              {displayedText1}
+            </h3>
 
-    </h3>
-
-    <button
-      onClick={toggleText}
-      className="mt-2 text-blue-600 underline hover:text-blue-800 transition-colors duration-200"
-    >
-      <h3 className="text-2xl">{showFull ? "Read less" : "Read more..."}</h3>
-    </button>
-  </div>
-</div>
-
+            <button
+              onClick={toggleText}
+              className="mt-2 text-blue-600 underline hover:text-blue-800 transition-colors duration-200"
+            >
+              <h3 className="text-2xl">
+                {showFull ? "Read less" : "Read more..."}
+              </h3>
+            </button>
+          </div>
+        </div>
 
         <div className="flex-1 p-4">
           <div className="flex-1 ">
@@ -1020,13 +1017,13 @@ skilled and empowered Punjab.`;
 
         <div className="overflow-x-auto whitespace-nowrap flex gap-6 justify-around items-center mt-8">
           {/* <img src={navtac} className="h-28 inline-block" alt="Logo 4" /> */}
-          <img src={bureau} className="h-28 inline-block" alt="Logo 5" />
-          <img src={giz} className="h-28 inline-block" alt="Logo 6" />
-          <img src={psdalogo} className="h-28 inline-block" alt="Logo 6" />
-          <img src={psdflogo} className="h-28 inline-block" alt="Logo 6" />
-          <img src={pvtclogo} className="h-28 inline-block" alt="Logo 6" />
-          <img src={tevcalogo} className="h-28 inline-block" alt="Logo 6" />
-          <img src={pbtelogo} className="h-28 inline-block" alt="Logo 6" />
+          {/* <img src={bureau} className="h-28 inline-block" alt="Logo 5" /> */}
+          <img  onClick={() => navigateToTivetBody("Giz")} src={giz} className="h-28 inline-block cursor-pointer" alt="Logo 6" />
+          <img  onClick={() => navigateToTivetBody("PSDA")} src={psdalogo} className="h-28 inline-block cursor-pointer" alt="Logo 6" />
+          <img onClick={() => navigateToTivetBody("PSDF")} src={psdflogo} className="h-28 inline-block cursor-pointer" alt="Logo 6" />
+          <img onClick={() => navigateToTivetBody("PVTC")} src={pvtclogo} className="h-28 inline-block cursor-pointer" alt="Logo 6" />
+          <img onClick={() => navigateToTivetBody("TEVTA")} src={tevcalogo} className="h-28 inline-block cursor-pointer" alt="Logo 6" />
+          <img onClick={() => navigateToTivetBody("PBTE")} src={pbtelogo} className="h-28 inline-block cursor-pointer" alt="Logo 6" />
         </div>
       </div>
 
@@ -1059,9 +1056,14 @@ skilled and empowered Punjab.`;
           </div>
         </div>
       </Modal>
-     
 
-      <CustomModal isOpen={isModalOpen} onClose={() => setModalOpen(false)}>
+      <CustomModal
+        isOpen={isModalOpen}
+        onClose={() => {
+          setModalOpen(false);
+          gobacks();
+        }}
+      >
         <video controls autoPlay className="w-full h-auto rounded-lg">
           <source src={snaptik} type="video/mp4" />
           Your browser does not support the video tag.
