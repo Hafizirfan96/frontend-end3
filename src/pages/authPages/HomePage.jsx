@@ -46,6 +46,32 @@ const HomePage = () => {
   const [showFull, setShowFull] = useState(false);
   const [showFulls, setShowFulls] = useState(false);
   const [snapVideo, setSnapVideo] = useState(false);
+  const truncateLength = 600;
+
+  // truncate text if not expanded
+    const textContent = `The establishment of the Skills Development & Entrepreneurship
+(SD&E) Department represents a strategic advancement in Punjab’s
+human capital development agenda. This pioneering initiative
+brings a comprehensive, sector-wide focus to technical and
+vocational education and training (TVET), aimed at enhancing
+workforce readiness, promoting inclusive participation, and
+catalyzing entrepreneurial ecosystems. By integrating diverse
+programs, including international labor mobility, skills training
+for rural women and transgender individuals, and enterprise
+development, we are addressing critical skills gaps and creating
+pathways to sustainable livelihoods. Our department is committed
+to aligning skills provision with labor market demands, both
+domestically and globally, while fostering innovation and self
+employment.
+
+As we move forward, we envision a TVET landscape that is
+responsive, inclusive, and future focused. I invite all
+stakeholders industry partners, training providers, development
+agencies, and communities to collaborate with us in shaping a
+skilled and empowered Punjab.`;
+  const displayedText = showFulls
+    ? textContent
+    : textContent.slice(0, truncateLength) + "...";
 
   const slidesData = [
     {
@@ -315,6 +341,7 @@ const HomePage = () => {
     setShowFulls((prev) => !prev);
   };
   const [isModalOpen, setModalOpen] = useState(false);
+
 
   return (
     <div>
@@ -727,7 +754,33 @@ const HomePage = () => {
           </div>
         </div>
 
-        <div className="flex-1 mt-7 items-start">
+
+       <div className="p-4 max-w-4xl mx-auto">
+      <div className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed">
+        <img
+          src={sectory}
+          alt="Top Left"
+          className="tracking-tight text-justify m-0 text-2xl float-left w-[200px] min-w-[150px] h-[150px] mr-4 mb-2 rounded shadow-md"
+        />
+        <h3 className="text-4xl font-semibold hover:text-[#049b63] transition-colors duration-300 m-0">
+          Nadir Chattha, Secretary SDED
+        </h3>
+        <p className="text-3xl text-slate-700 leading-relaxed tracking-tight text-justify m-0 mt-4 ">
+          {displayedText}
+        </p>
+        <button
+          onClick={() => setShowFulls((prev) => !prev)}
+          className="mt-2 text-blue-600 underline hover:text-blue-800 transition-colors duration-200"
+        >
+          {showFulls ? (
+            <h3 className="text-2xl">Read less</h3>
+          ) : (
+            <h3 className="text-2xl">Read more...</h3>
+          )}
+        </button>
+      </div>
+    </div>
+        {/* <div className="flex-1 mt-7 items-start">
           <div className="flex">
             <img
               src={sectory}
@@ -790,7 +843,7 @@ const HomePage = () => {
               )}
             </button>
           </div>
-        </div>
+        </div> */}
       </div>
 
       <div className=" py-10 mt-16 ">
