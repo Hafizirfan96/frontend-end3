@@ -591,14 +591,14 @@ const HomePage = () => {
 </div> */}
       </div>
       <div className="flex px-20 mt-24 gap-6 bg-[#f0f0f0] py-8">
-        <div className="flex-1 text-center " >
+        <div className="flex-1  ">
           <h2 className="text-[30px] font-bold">Quick Look at SDED</h2>
- <button
-                    onClick={openModal}
-                    className="text-2xl text-blue-600 underline hover:text-blue-800 transition-colors duration-200"
-                  >
-                    Video Preview,
-                  </button>
+          <button
+            onClick={openModal}
+            className="text-2xl text-blue-600 underline hover:text-blue-800 transition-colors duration-200"
+          >
+            Video Preview,
+          </button>
           <div
             className="max-w-[200px] h-[10px] mx-auto my-2 rounded-full"
             style={{
@@ -608,11 +608,11 @@ const HomePage = () => {
           ></div>
 
           <h3
-            className={`text-2xl text-slate-700 mt-4 leading-relaxed tracking-tight text-justify m-0`}
+            className={`text-3xl text-slate-700 mt-4 leading-relaxed tracking-tight text-justify m-0`}
             style={{
               wordSpacing: "normal",
               display: showFull ? "block" : "-webkit-box",
-              WebkitLineClamp: showFull ? "unset" : 12,
+              WebkitLineClamp: showFull ? "unset" : 13,
               WebkitBoxOrient: "vertical",
               overflow: "hidden",
             }}
@@ -653,34 +653,14 @@ const HomePage = () => {
             className="mt-2 text-blue-600 underline hover:text-blue-800 transition-colors duration-200"
           >
             {showFull ? (
-              <>
-             
-               
-                <h3 className="text-2xl">Read less</h3>
-              </>
+              <h3 className="text-2xl">Read less</h3>
             ) : (
-              <>
-                <h3 className="text-2xl">Read more...</h3>
-                {/* <div className="flex justify-center mt-4 space-x-4">
-                  <button
-                    onClick={openModal}
-                    className="text-2xl text-blue-600 underline hover:text-blue-800 transition-colors duration-200"
-                  >
-                    Video Preview,
-                  </button>
-                  <button
-                    onClick={() => setModalOpen(true)}
-                    className="text-2xl text-blue-600 underline hover:text-blue-800 transition-colors duration-200"
-                  >
-                    TVET Campaign
-                  </button>
-                </div> */}
-              </>
+              <h3 className="text-2xl">Read more...</h3>
             )}
           </button>
         </div>
 
-        <div className="flex-1 mt-7 items-start ">
+        {/* <div className="flex-1 mt-7 items-start ">
           <div className="flex">
             <img
               src={zahid}
@@ -717,6 +697,34 @@ const HomePage = () => {
               leap towards a brighter, more empowered future!
             </p>
           </div>
+        </div> */}
+
+        <div className="p-4 max-w-4xl mx-auto">
+          <div className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed">
+            <img
+              src={zahid}
+              alt="Top Left"
+              className=" tracking-tight text-justify m-0 text-2xl float-left w-[200px] min-w-[150px] h-[150px]  mr-4 mb-2 rounded shadow-md"
+            />
+            <h3 className="text-4xl font-semibold hover:text-[#049b63] transition-colors duration-300 m-0">
+              Zahid Akhtar Zaman, Chief Secretary Punjab
+            </h3>
+            <p
+              style={{ wordSpacing: "normal" }}
+              className="text-3xl text-slate-700 leading-relaxed tracking-tight text-justify m-0 mt-4"
+            >
+              The launch of the Skills Development & Entrepreneurship (SD&E)
+              Department marks a historic milestone for Punjab, ushering in a
+              new era of skill enhancement and economic empowerment. For the
+              first time in the province’s history, a comprehensive initiative
+              of this scale is being introduced, encompassing international
+              labor placement, transgender training, rural women’s empowerment,
+              and numerous other programs. This groundbreaking effort aims to
+              bridge skill gaps, foster entrepreneurship, and drive inclusive
+              growth, making Punjab a model of progress and self-reliance. A
+              transformative leap towards a brighter, more empowered future!
+            </p>
+          </div>
         </div>
 
         <div className="flex-1 mt-7 items-start">
@@ -731,28 +739,29 @@ const HomePage = () => {
                 Nadir Chattha, Secretary SDED
               </h3>
               <p
-                className="text-2xl text-slate-700 mt-4 leading-relaxed tracking-tight text-justify m-0"
+                className="text-3xl text-slate-700 mt-4 leading-relaxed tracking-tight text-justify m-0"
                 style={{ wordSpacing: "normal" }}
               >
-               The establishment of the Skills Development & Entrepreneurship (SD&E) Department represents a strategic advancement in Punjab’s
+                The establishment of the Skills Development & Entrepreneurship
+                (SD&E) Department represents a strategic advancement in
               </p>
             </div>
           </div>
 
           <div className="mt-4">
             <p
-              className={`text-2xl text-slate-700 mt-4 leading-relaxed tracking-tight text-justify m-0`}
+              className={`text-3xl text-slate-700 mt-4 leading-relaxed tracking-tight text-justify m-0`}
               style={{
                 wordSpacing: "normal",
                 display: showFulls ? "block" : "-webkit-box",
-                WebkitLineClamp: showFulls ? "unset" : 8,
+                WebkitLineClamp: showFulls ? "unset" : 10,
                 WebkitBoxOrient: "vertical",
                 overflow: "hidden",
               }}
             >
-              human capital development agenda. This pioneering initiative
-              brings a comprehensive, sector-wide focus to technical and
-              vocational education and training (TVET), aimed at enhancing
+              Punjab’s human capital development agenda. This pioneering
+              initiative brings a comprehensive, sector-wide focus to technical
+              and vocational education and training (TVET), aimed at enhancing
               workforce readiness, promoting inclusive participation, and
               catalyzing entrepreneurial ecosystems. By integrating diverse
               programs, including international labor mobility, skills training
