@@ -587,7 +587,7 @@ skilled and empowered Punjab.`;
               }}
               navigation
               pagination={{ clickable: true }}
-              className="w-full relative"
+              className="w-full z-0 relative"
             >
               {slidessmall.map((item, index) => (
                 <SwiperSlide key={index} className="bg-white shadow-md ">
@@ -745,7 +745,7 @@ skilled and empowered Punjab.`;
               <img
                 src={zahid}
                 alt="Top Left"
-                className=" tracking-tight text-justify m-0 text-2xl float-left w-[200px] min-w-[150px] h-[150px]  mr-4 mb-2 rounded shadow-md"
+                className=" tracking-tight text-justify m-0 text-xl float-left w-[150px] min-w-[150px] h-[150px]  mr-4 mb-2 rounded shadow-md"
               />
               <h3 className="text-4xl font-semibold hover:text-[#049b63] transition-colors duration-300 m-0">
                 Zahid Akhtar Zaman, Chief Secretary Punjab
@@ -775,7 +775,7 @@ skilled and empowered Punjab.`;
             <img
               src={sectory}
               alt="Top Left"
-              className="tracking-tight text-justify m-0 text-2xl float-left w-[200px] min-w-[150px] h-[150px] mr-4 mb-2 rounded shadow-md"
+              className="tracking-tight text-justify m-0 text-xl float-left w-[150px] min-w-[150px] h-[150px] mr-4 mb-2 rounded shadow-md"
             />
             <h3 className="text-4xl font-semibold hover:text-[#049b63] transition-colors duration-300 m-0">
               Nadir Chattha, Secretary SDED

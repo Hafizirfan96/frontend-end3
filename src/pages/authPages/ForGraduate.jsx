@@ -56,7 +56,7 @@ const Graduates = () => {
           {/* 🔍 Search Inputs Row */}
           <div className="flex flex-wrap gap-8 mb-10">
             <div className="flex flex-col flex-1 min-w-[200px]">
-              <p className="text-xl font-semibold mb-1">Name</p>
+              <p className="text-xl font-semibold mb-1">Employer Name</p>
               <input
                 type="text"
                 placeholder="Search by Name"

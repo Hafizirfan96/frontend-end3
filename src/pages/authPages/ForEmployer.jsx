@@ -56,7 +56,7 @@ const ForEmployer = () => {
           {/* 🔍 Search Inputs Row */}
           <div className="flex flex-wrap gap-8 mb-10">
             <div className="flex flex-col flex-1 min-w-[200px]">
-              <p className="text-xl font-semibold mb-1">Name</p>
+              <p className="text-xl font-semibold mb-1">Graduate Name</p>
               <input
                 type="text"
                 placeholder="Search by Name"
@@ -99,7 +99,7 @@ const ForEmployer = () => {
   <table className="min-w-full text-sm text-left text-gray-700 bg-white divide-y divide-gray-300">
     <thead>
       <tr className="bg-gradient-to-r bg-[#f0f0f0] text-black text-2xl">
-        <th className="px-6 py-3 font-bold uppercase">Graduates Name</th>
+        <th className="px-6 py-3 font-bold uppercase">Graduate Name</th>
         <th className="px-6 py-3 font-bold uppercase">Sector</th>
         <th className="px-6 py-3 font-bold uppercase">Trade</th>
         <th className="px-6 py-3 font-bold uppercase">City</th>
