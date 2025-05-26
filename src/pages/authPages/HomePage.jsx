@@ -591,9 +591,14 @@ const HomePage = () => {
 </div> */}
       </div>
       <div className="flex px-20 mt-24 gap-6 bg-[#f0f0f0] py-8">
-        <div className="flex-1 text-center">
+        <div className="flex-1 text-center " >
           <h2 className="text-[30px] font-bold">Quick Look at SDED</h2>
-
+ <button
+                    onClick={openModal}
+                    className="text-2xl text-blue-600 underline hover:text-blue-800 transition-colors duration-200"
+                  >
+                    Video Preview,
+                  </button>
           <div
             className="max-w-[200px] h-[10px] mx-auto my-2 rounded-full"
             style={{
@@ -607,7 +612,7 @@ const HomePage = () => {
             style={{
               wordSpacing: "normal",
               display: showFull ? "block" : "-webkit-box",
-              WebkitLineClamp: showFull ? "unset" : 11,
+              WebkitLineClamp: showFull ? "unset" : 12,
               WebkitBoxOrient: "vertical",
               overflow: "hidden",
             }}
@@ -649,27 +654,14 @@ const HomePage = () => {
           >
             {showFull ? (
               <>
-                {" "}
-                <div className="flex justify-center mt-4 space-x-4">
-                  <button
-                    onClick={openModal}
-                    className="text-2xl text-blue-600 underline hover:text-blue-800 transition-colors duration-200"
-                  >
-                    Video Preview,
-                  </button>
-                  <button
-                    onClick={() => setModalOpen(true)}
-                    className="text-2xl text-blue-600 underline hover:text-blue-800 transition-colors duration-200"
-                  >
-                    TVET Campaign
-                  </button>
-                </div>
+             
+               
                 <h3 className="text-2xl">Read less</h3>
               </>
             ) : (
               <>
                 <h3 className="text-2xl">Read more...</h3>
-                <div className="flex justify-center mt-4 space-x-4">
+                {/* <div className="flex justify-center mt-4 space-x-4">
                   <button
                     onClick={openModal}
                     className="text-2xl text-blue-600 underline hover:text-blue-800 transition-colors duration-200"
@@ -682,7 +674,7 @@ const HomePage = () => {
                   >
                     TVET Campaign
                   </button>
-                </div>
+                </div> */}
               </>
             )}
           </button>

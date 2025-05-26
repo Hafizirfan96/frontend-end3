@@ -115,7 +115,6 @@ const Header = () => {
               >
                 SDED
               </NavLink>
-              
             </div>
           </div>
 
@@ -250,49 +249,63 @@ const Header = () => {
             <h3 className="text-[13px] text-[#038837]">Placements</h3>
           </NavLink> */}
 
-            <div className="relative group w-40 h-32">
-            <NavLink
-              // to="/about-us"
-              className="w-full h-full flex flex-col items-center justify-center p-3 rounded-xl cursor-pointer transition hover:bg-gray-100"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="30"
-                height="30"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#038837"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="mb-1"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                <path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
-                <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                <path d="M21 21v-2a4 4 0 0 0 -3 -3.85"></path>
-              </svg>
-              <h3 className="text-[13px] text-[#038837]">Opportunities</h3>
-            </NavLink>
+      <div className="relative group w-40 h-32">
+  <div className="w-full h-full flex flex-col items-center justify-center p-3 rounded-xl cursor-pointer transition hover:bg-gray-100">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="30"
+      height="30"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="#038837"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="mb-1"
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+      <path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
+      <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
+      <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+      <path d="M21 21v-2a4 4 0 0 0 -3 -3.85"></path>
+    </svg>
+    <h3 className="text-[13px] text-[#038837]">Opportunities</h3>
+  </div>
 
-            {/* Submenu */}
-            <div className="absolute left-0 top-full w-40 bg-white border rounded shadow-md opacity-0 invisible group-hover:visible group-hover:opacity-100 transition-all z-10">
-              <NavLink
-                to="/for-employer"
-                className="block px-4 py-2 text-xl text-gray-700 hover:bg-gray-100"
-              >
-                For Employers
-              </NavLink>
-              <NavLink
-                to="/for-graduate"
-                className="block px-4 py-2 text-xl text-gray-700 hover:bg-gray-100"
-              >
-                For Graduates
-              </NavLink>
-            </div>
-          </div>
-          
+  {/* Main Dropdown */}
+  <div className="absolute left-0 top-full w-40 bg-white border rounded shadow-md opacity-0 invisible group-hover:visible group-hover:opacity-100 transition-all z-10">
+    <NavLink
+      to="/for-employer"
+      className="block px-4 py-2 text-xl text-gray-700 hover:bg-gray-100"
+    >
+      For Employers
+    </NavLink>
+    <NavLink
+      to="/for-graduate"
+      className="block px-4 py-2 text-xl text-gray-700 hover:bg-gray-100"
+    >
+      For Graduates
+    </NavLink>
+
+    {/* For Learners with nested submenu */}
+    <div className="relative group">
+      <div className="block px-4 py-2 text-xl text-gray-700 hover:bg-gray-100 cursor-pointer">
+        For Learners
+      </div>
+
+      {/* Nested Submenu: only visible when hovering For Learners */}
+      <div className="absolute left-full top-0 w-48 bg-white border rounded shadow-md opacity-0 invisible group-hover:visible group-hover:opacity-100 transition-all z-20">
+        <NavLink
+          to="/for-learners/skill-programs"
+          className="block px-4 py-2 text-xl text-gray-700 hover:bg-gray-100"
+        >
+          See Video
+        </NavLink>
+      </div>
+    </div>
+  </div>
+</div>
+
 
           <NavLink
             to="/contact-us"
