@@ -397,7 +397,7 @@ skilled and empowered Punjab.`;
               prevEl: ".custom-prev",
             }}
             pagination={{ clickable: true }}
-            className="w-full"
+            className="w-full z-0"
           >
             {slidesData.map((item, index) => (
               <SwiperSlide
