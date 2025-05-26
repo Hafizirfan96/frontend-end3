@@ -279,13 +279,13 @@ const Header = () => {
             {/* Submenu */}
             <div className="absolute left-0 top-full w-40 bg-white border rounded shadow-md opacity-0 invisible group-hover:visible group-hover:opacity-100 transition-all z-10">
               <NavLink
-                // to="/about-us/formation"
+                to="/for-employer"
                 className="block px-4 py-2 text-xl text-gray-700 hover:bg-gray-100"
               >
                 For Employers
               </NavLink>
               <NavLink
-                // to="/about-us/psid"
+                to="/for-graduate"
                 className="block px-4 py-2 text-xl text-gray-700 hover:bg-gray-100"
               >
                 For Graduates

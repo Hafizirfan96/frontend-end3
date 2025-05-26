@@ -48,6 +48,7 @@
     "react-rating-stars-component": "^2.2.0",
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.0.2",
+    "react-select": "^5.10.1",
     "react-tabs": "^6.1.0",
     "react-toastify": "^10.0.6",
     "react-xarrows": "^2.0.2",

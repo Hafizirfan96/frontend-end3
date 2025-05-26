@@ -2,25 +2,29 @@ import React, { useLayoutEffect, useRef } from "react";
 import * as am5 from "@amcharts/amcharts5";
 import * as am5map from "@amcharts/amcharts5/map";
 import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
-import am5geodata_pakistanLow from "@amcharts/amcharts5-geodata/pakistanLow"; // Ensure this path is correct
+
+// ENSURE THIS PATH IS CORRECT AND THE FILE CONTAINS PUNJAB DISTRICTS
+import am5geodata_pakistanLow from "@amcharts/amcharts5-geodata/pakistanLow";
 
 // Assuming these paths are correct for your project structure
-import Header from "./DashboardPages/Components/Header";
-import Footer from "./DashboardPages/Components/Footer";
+import Header from "./DashboardPages/Components/Header"; // Replace with your actual path
+import Footer from "./DashboardPages/Components/Footer"; // Replace with your actual path
 
 // --- Data for Major City Districts to Highlight ---
-// Each object maps a city name to its corresponding DISTRICT ISO CODE from am5geodata_pakistanLow.js
-// CRITICAL: Ensure 'districtId' is the correct ID from your GeoJSON for the city's main administrative area.
+// CRITICAL: YOU MUST VERIFY AND CORRECT THESE districtId VALUES
+// They MUST exactly match the 'id' property of the district polygons
+// in your am5geodata_pakistanLow.js file.
 const cityDistrictMapping = [
-  { name: "Lahore", districtId: "PK-PB-133", color: am5.color(0xFF6F00) }, // Bright Orange
-  { name: "Multan", districtId: "PK-PB-138", color: am5.color(0xAD1457) }, // Deep Pink/Magenta
-  { name: "Faisalabad", districtId: "PK-PB-128", color: am5.color(0x0277BD) }, // Strong Blue
-  { name: "Rawalpindi", districtId: "PK-PB-101", color: am5.color(0x2E7D32) }, // Dark Green (Ensure PK-PB-101 is Rawalpindi Dist.)
-  { name: "Gujranwala", districtId: "PK-PB-117", color: am5.color(0x512DA8) }, // Deep Purple (Ensure PK-PB-117 is Gujranwala Dist.)
-  { name: "Sargodha", districtId: "PK-PB-126", color: am5.color(0xC62828) }, // Example ID, replace with actual. Dark Red
-  { name: "Bahawalpur", districtId: "PK-PB-141", color: am5.color(0x4527A0) }, // Example ID, replace with actual. Indigo
-  { name: "Sialkot", districtId: "PK-PB-137", color: am5.color(0x00695C) }, // Teal
-  // Add more cities here. The 'districtId' MUST exist in am5geodata_pakistanLow.
+  // Example: If Lahore District's ID in GeoJSON is "PK-PB-LHE", use that.
+  { name: "Lahore", districtId: "VERIFY_LAHORE_DISTRICT_ID_IN_GEOJSON", color: am5.color(0xFF6F00) },
+  { name: "Multan", districtId: "VERIFY_MULTAN_DISTRICT_ID_IN_GEOJSON", color: am5.color(0xAD1457) },
+  { name: "Faisalabad", districtId: "VERIFY_FAISALABAD_DISTRICT_ID_IN_GEOJSON", color: am5.color(0x0277BD) },
+  { name: "Rawalpindi", districtId: "VERIFY_RAWALPINDI_DISTRICT_ID_IN_GEOJSON", color: am5.color(0x2E7D32) },
+  { name: "Gujranwala", districtId: "VERIFY_GUJRANWALA_DISTRICT_ID_IN_GEOJSON", color: am5.color(0x512DA8) },
+  { name: "Sargodha", districtId: "VERIFY_SARGODHA_DISTRICT_ID_IN_GEOJSON", color: am5.color(0xC62828) },
+  { name: "Bahawalpur", districtId: "VERIFY_BAHAWALPUR_DISTRICT_ID_IN_GEOJSON", color: am5.color(0x4527A0) },
+  { name: "Sialkot", districtId: "VERIFY_SIALKOT_DISTRICT_ID_IN_GEOJSON", color: am5.color(0x00695C) },
+  // Add more cities as needed, ensuring each 'districtId' is correct.
 ];
 
 
@@ -28,6 +32,11 @@ const DistMap = () => {
   const rootRef = useRef(null);
 
   useLayoutEffect(() => {
+    // Dispose of previous root if it exists (e.g., on hot reload)
+    if (rootRef.current) {
+      rootRef.current.dispose();
+    }
+
     let root = am5.Root.new("punjab-city-areas-map");
     rootRef.current = root;
 
@@ -46,8 +55,8 @@ const DistMap = () => {
     // --- 1. Base Series for Punjab Province (as a background) ---
     let punjabProvinceSeries = chart.series.push(
       am5map.MapPolygonSeries.new(root, {
-        geoJSON: am5geodata_pakistanLow,
-        include: ["PK-PB"], // Only Punjab province polygon
+        geoJSON: am5geodata_pakistanLow, // Source of all polygons
+        include: ["PK-PB"], // Only include the Punjab province polygon
         name: "punjabProvince"
       })
     );
@@ -59,55 +68,37 @@ const DistMap = () => {
       strokeWidth: 0.8,
     });
 
-    // --- 2. Series for ALL Punjab Districts (dimmed background layer) ---
-    // THIS SERIES IS NOW REMOVED/COMMENTED OUT TO EMPHASIZE CITY DISTRICTS
-    /*
-    const allPunjabDistrictCodes = [ // You would need this list if you re-enable this series
-        "PK-PB-101", "PK-PB-102", ..., "PK-PB-141"
-    ];
-    if (allPunjabDistrictCodes.length > 0) {
-      let allDistrictsSeries = chart.series.push(
-        am5map.MapPolygonSeries.new(root, {
-          geoJSON: am5geodata_pakistanLow,
-          include: allPunjabDistrictCodes,
-          name: "allPunjabDistricts"
-        })
-      );
-      allDistrictsSeries.mapPolygons.template.setAll({
-        tooltipText: "{name}",
-        interactive: true,
-        fill: am5.color(0xECEFF1), // Extremely light, almost invisible
-        stroke: am5.color(0xCFD8DC), // Very light stroke
-        strokeWidth: 0.3,
-        cursorOverStyle: "pointer",
-      });
-      allDistrictsSeries.mapPolygons.template.states.create("hover", {
-        fill: am5.color(0xE0E0E0),
-      });
-      allDistrictsSeries.mapPolygons.template.events.on("click", (ev) => {
-        const districtName = ev.target.dataItem.dataContext.name;
-        alert(`District: ${districtName}`);
-      });
-    }
-    */
-
-    // --- 3. Series for Highlighting Specific City Districts ---
+    // --- 2. Series for Highlighting Specific City Districts ---
     // These will be the primary colored areas within Punjab.
     let highlightedCityDistrictsSeries = chart.series.push(
         am5map.MapPolygonSeries.new(root, {
             geoJSON: am5geodata_pakistanLow, // Source of all polygons
             name: "highlightedCityDistricts"
+            // Note: We don't use `include` here because we are pushing specific data items.
         })
     );
 
     // Populate this series with data for the city districts we want to show
+    const dataToPush = [];
     cityDistrictMapping.forEach(cityInfo => {
-        highlightedCityDistrictsSeries.data.push({
-            id: cityInfo.districtId, // This ID must match a polygon ID in am5geodata_pakistanLow
-            name: cityInfo.name,     // Tooltip name, e.g., "Lahore"
-            fill: cityInfo.color     // Specific color for this city's district area
-        });
+        // Basic check if districtId is a placeholder
+        if (cityInfo.districtId && !cityInfo.districtId.startsWith("VERIFY_")) {
+            dataToPush.push({
+                id: cityInfo.districtId, // This ID must match a polygon ID in am5geodata_pakistanLow
+                name: cityInfo.name,     // Tooltip name, e.g., "Lahore"
+                fill: cityInfo.color     // Specific color for this city's district area
+            });
+        } else {
+            console.warn(`Placeholder or missing districtId for city: ${cityInfo.name}. This city district will not be shown.`);
+        }
     });
+
+    if (dataToPush.length > 0) {
+        highlightedCityDistrictsSeries.data.setAll(dataToPush);
+    } else {
+        console.warn("No valid city district data to display in highlightedCityDistrictsSeries. Check your cityDistrictMapping and GeoJSON IDs.");
+    }
+
 
     // Template for the polygons in the highlighted series
     highlightedCityDistrictsSeries.mapPolygons.template.setAll({
@@ -117,6 +108,9 @@ const DistMap = () => {
         stroke: am5.color(0xFFFFFF), // White border for highlighted city districts
         strokeWidth: 1.5, // Thicker border to make them stand out
         cursorOverStyle: "pointer",
+        // Add a default fill in case the adapter logic fails or data is missing fill
+        // (though our data structure ensures 'fill' is present if 'id' is valid)
+        fill: am5.color(0x000000) // Default to black if no specific fill is found (should be overridden)
     });
 
     // Adapter to apply the specific 'fill' color from our data to each polygon
@@ -124,39 +118,54 @@ const DistMap = () => {
       if (target.dataItem && target.dataItem.dataContext && target.dataItem.dataContext.fill) {
         return target.dataItem.dataContext.fill; // Use color from cityDistrictMapping
       }
-      return am5.color(0xCCCCCC); // Fallback color if none specified (shouldn't happen here)
+      // If for some reason a polygon is matched by ID but has no fill in data,
+      // it will use the default fill set in template.setAll or this fallback.
+      return am5.color(0xCCCCCC); // A neutral fallback color
     });
 
     // Hover state for highlighted city districts
     highlightedCityDistrictsSeries.mapPolygons.template.states.create("hover", {
-        // Example: Slightly brighten or change stroke on hover
-        // fillOpacity: 0.8, // Or use an adapter for hover fill too
         strokeWidth: 2.5,
-        stroke: am5.color(0x333333)
+        stroke: am5.color(0x333333) // Darker stroke on hover
     });
 
     // Click event for highlighted city districts
     highlightedCityDistrictsSeries.mapPolygons.template.events.on("click", (ev) => {
-        const cityName = ev.target.dataItem.dataContext.name; // Name from our mapping
-        const districtId = ev.target.dataItem.dataContext.id;
-        alert(`${cityName} (District ID: ${districtId})`);
-        // You could zoom in further here, or show a modal with city-specific info
-        // chart.zoomToDataItem(ev.target.dataItem);
+        const dataContext = ev.target.dataItem.dataContext;
+        if (dataContext) {
+            const cityName = dataContext.name;
+            const districtId = dataContext.id;
+            alert(`${cityName} (District ID: ${districtId})`);
+        }
+    });
+
+    // Log after data is set (useful for debugging)
+    // Wait for data to be processed
+    highlightedCityDistrictsSeries.events.on("datavalidated", function() {
+      console.log("Highlighted city districts series data validated. Number of polygons drawn:", highlightedCityDistrictsSeries.mapPolygons.length);
+      if (highlightedCityDistrictsSeries.mapPolygons.length === 0 && dataToPush.length > 0) {
+        console.error("Data was pushed to highlightedCityDistrictsSeries, but no polygons were drawn. This strongly indicates that the 'districtId' values in your 'cityDistrictMapping' do NOT match any 'id' properties in the 'am5geodata_pakistanLow.js' for the features within Punjab.");
+      }
+    });
+    punjabProvinceSeries.events.on("datavalidated", function() {
+        console.log("Punjab province series data validated.");
     });
 
 
     return () => {
       if (rootRef.current) {
+        console.log("Disposing amCharts root.");
         rootRef.current.dispose();
-        rootRef.current = null;
+        rootRef.current = null; // Clear the ref
       }
     };
-  }, []);
+  }, []); // Empty dependency array means this runs once on mount and cleans up on unmount
 
   return (
     <div>
       <Header />
       <div className="Browse bg-[#478e51] mb-8 p-4">
+        {/* Make sure text doesn't imply all districts are shown if they are not */}
         <h2 className="text-white text-2xl text-center">Map of Punjab: Major Cities</h2>
         <p className="text-white text-center mt-2">Hover over or click on a city area.</p>
       </div>

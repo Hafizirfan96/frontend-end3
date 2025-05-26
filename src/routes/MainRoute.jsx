@@ -22,6 +22,8 @@ import PVTCPage from "@/pages/authPages/PVTCPage";
 import PSDAPage from "@/pages/authPages/PSDAPage";
 import PSDFPage from "@/pages/authPages/PSDFPage";
 import ProfileDetail from "@/pages/authPages/ProfileDetail";
+import ForEmployer from "@/pages/authPages/ForEmployer";
+import ForGraduate from "@/pages/authPages/ForGraduate";
 
 const MainRoute = () => {
   return (
@@ -195,6 +197,26 @@ const MainRoute = () => {
             <PageTransition>
               <Suspense fallback={<PageLoading />}>
                 <ProfileDetail  />
+              </Suspense>
+            </PageTransition>
+          }
+        />
+         <Route
+          path="/for-employer"
+          element={
+            <PageTransition>
+              <Suspense fallback={<PageLoading />}>
+                <ForEmployer  />
+              </Suspense>
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/for-graduate"
+          element={
+            <PageTransition>
+              <Suspense fallback={<PageLoading />}>
+                <ForGraduate  />
               </Suspense>
             </PageTransition>
           }

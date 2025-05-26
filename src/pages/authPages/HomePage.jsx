@@ -46,7 +46,6 @@ const HomePage = () => {
   const [showFull, setShowFull] = useState(false);
   const [showFulls, setShowFulls] = useState(false);
   const [snapVideo, setSnapVideo] = useState(false);
-  
 
   const slidesData = [
     {
@@ -271,19 +270,19 @@ const HomePage = () => {
     navigate("/profile-detail");
   };
 
-const customStyles = {
-  overlay: { backgroundColor: "rgba(0, 0, 0, 0.75)" },
-  content: {
-    inset: "10% auto auto 10%",
-    width: "80%",
-    maxWidth: "800px",
-    height: "auto",
-    padding: 0,
-    border: "none",
-    background: "transparent",
-    overflow: "visible",
-  },
-};
+  const customStyles = {
+    overlay: { backgroundColor: "rgba(0, 0, 0, 0.75)" },
+    content: {
+      inset: "10% auto auto 10%",
+      width: "80%",
+      maxWidth: "800px",
+      height: "auto",
+      padding: 0,
+      border: "none",
+      background: "transparent",
+      overflow: "visible",
+    },
+  };
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const videoRef = useRef(null);
 
@@ -312,10 +311,10 @@ const customStyles = {
   const toggleText = () => {
     setShowFull((prev) => !prev);
   };
-    const toggleText1 = () => {
+  const toggleText1 = () => {
     setShowFulls((prev) => !prev);
   };
-      const [isModalOpen, setModalOpen] = useState(false);
+  const [isModalOpen, setModalOpen] = useState(false);
 
   return (
     <div>
@@ -591,7 +590,7 @@ const customStyles = {
   <TVETBodies image={pvtclogo} title="PVTC" bgColor="bg-slate-700" />
 </div> */}
       </div>
-      <div className="flex px-20 mt-24 gap-6">
+      <div className="flex px-20 mt-24 gap-6 bg-[#f0f0f0] py-8">
         <div className="flex-1 text-center">
           <h2 className="text-[30px] font-bold">Quick Look at SDED</h2>
 
@@ -608,7 +607,7 @@ const customStyles = {
             style={{
               wordSpacing: "normal",
               display: showFull ? "block" : "-webkit-box",
-              WebkitLineClamp: showFull ? "unset" : 13,
+              WebkitLineClamp: showFull ? "unset" : 11,
               WebkitBoxOrient: "vertical",
               overflow: "hidden",
             }}
@@ -632,15 +631,14 @@ const customStyles = {
             been initiated for multi-level engagement and more impactful
             implementation of Skill Development efforts.
             <br />
-          SDED Vision Statement
-            Unlock human capital to trigger a productivity dividend and bring
-            aspirational employment and entrepreneurship pathways to all. For
-            this, an ecosystem-enabling lens to transition Punjab to a
-            high-skills equilibrium and help create positive outcomes for
-            individuals, enterprises and the economy. The three outcomes to be
-            achieved through: Enable individual economic gains and social
-            mobility; Create a skills market that is learner-centric and
-            demand-driven; and Facilitate aspirational employment and
+            SDED Vision Statement Unlock human capital to trigger a productivity
+            dividend and bring aspirational employment and entrepreneurship
+            pathways to all. For this, an ecosystem-enabling lens to transition
+            Punjab to a high-skills equilibrium and help create positive
+            outcomes for individuals, enterprises and the economy. The three
+            outcomes to be achieved through: Enable individual economic gains
+            and social mobility; Create a skills market that is learner-centric
+            and demand-driven; and Facilitate aspirational employment and
             entrepreneurship generation, improve overall productivity for
             enterprises and catalyse economic growth.
           </h3>
@@ -649,36 +647,48 @@ const customStyles = {
             onClick={toggleText}
             className="mt-2 text-blue-600 underline hover:text-blue-800 transition-colors duration-200"
           >
-            {showFull ? <> <div className="flex justify-center mt-4 space-x-4">
-              <button
-                onClick={openModal}
-                className="text-2xl text-blue-600 underline hover:text-blue-800 transition-colors duration-200"
-              >
-                Video Preview,
-              </button>
-              <button onClick={() => setModalOpen(true)} className="text-2xl text-blue-600 underline hover:text-blue-800 transition-colors duration-200">
-                TVET Campaign
-              </button>
-            </div> Read less</> : <>
-          Read more... 
-          <div className="flex justify-center mt-4 space-x-4">
-              <button
-                onClick={openModal}
-                className="text-2xl text-blue-600 underline hover:text-blue-800 transition-colors duration-200"
-              >
-                Video Preview,
-              </button>
-              <button onClick={() => setModalOpen(true)} className="text-2xl text-blue-600 underline hover:text-blue-800 transition-colors duration-200">
-                TVET Campaign
-              </button>
-            </div>
-          </>}
+            {showFull ? (
+              <>
+                {" "}
+                <div className="flex justify-center mt-4 space-x-4">
+                  <button
+                    onClick={openModal}
+                    className="text-2xl text-blue-600 underline hover:text-blue-800 transition-colors duration-200"
+                  >
+                    Video Preview,
+                  </button>
+                  <button
+                    onClick={() => setModalOpen(true)}
+                    className="text-2xl text-blue-600 underline hover:text-blue-800 transition-colors duration-200"
+                  >
+                    TVET Campaign
+                  </button>
+                </div>
+                <h3 className="text-2xl">Read less</h3>
+              </>
+            ) : (
+              <>
+                <h3 className="text-2xl">Read more...</h3>
+                <div className="flex justify-center mt-4 space-x-4">
+                  <button
+                    onClick={openModal}
+                    className="text-2xl text-blue-600 underline hover:text-blue-800 transition-colors duration-200"
+                  >
+                    Video Preview,
+                  </button>
+                  <button
+                    onClick={() => setModalOpen(true)}
+                    className="text-2xl text-blue-600 underline hover:text-blue-800 transition-colors duration-200"
+                  >
+                    TVET Campaign
+                  </button>
+                </div>
+              </>
+            )}
           </button>
-
-         
         </div>
 
-        <div className="flex-1 mt-7 items-start">
+        <div className="flex-1 mt-7 items-start ">
           <div className="flex">
             <img
               src={zahid}
@@ -695,7 +705,7 @@ const customStyles = {
               >
                 The launch of the Skills Development & Entrepreneurship (SD&E)
                 Department marks a historic milestone for Punjab, ushering in a
-                new era of skill enhancement and economic empowerment.
+                new era of skill
               </p>
             </div>
           </div>
@@ -705,14 +715,14 @@ const customStyles = {
               className="text-2xl text-slate-700 leading-relaxed tracking-tight text-justify m-0"
               style={{ wordSpacing: "normal" }}
             >
-              For the first time in the province’s history, a comprehensive
-              initiative of this scale is being introduced, encompassing
-              international labor placement, transgender training, rural women’s
-              empowerment, and numerous other programs. This groundbreaking
-              effort aims to bridge skill gaps, foster entrepreneurship, and
-              drive inclusive growth, making Punjab a model of progress and
-              self-reliance. A transformative leap towards a brighter, more
-              empowered future!
+              enhancement and economic empowerment. For the first time in the
+              province’s history, a comprehensive initiative of this scale is
+              being introduced, encompassing international labor placement,
+              transgender training, rural women’s empowerment, and numerous
+              other programs. This groundbreaking effort aims to bridge skill
+              gaps, foster entrepreneurship, and drive inclusive growth, making
+              Punjab a model of progress and self-reliance. A transformative
+              leap towards a brighter, more empowered future!
             </p>
           </div>
         </div>
@@ -732,36 +742,34 @@ const customStyles = {
                 className="text-2xl text-slate-700 mt-4 leading-relaxed tracking-tight text-justify m-0"
                 style={{ wordSpacing: "normal" }}
               >
-                The establishment of the Skills Development & Entrepreneurship
-                (SD&E) Department represents a strategic advancement in Punjab’s
-                human capital development agenda.
+               The establishment of the Skills Development & Entrepreneurship (SD&E) Department represents a strategic advancement in Punjab’s
               </p>
             </div>
           </div>
 
           <div className="mt-4">
             <p
-               className={`text-2xl text-slate-700 mt-4 leading-relaxed tracking-tight text-justify m-0`}
-            style={{
-              wordSpacing: "normal",
-              display: showFulls ? "block" : "-webkit-box",
-              WebkitLineClamp: showFulls ? "unset" : 8,
-              WebkitBoxOrient: "vertical",
-              overflow: "hidden",
-            }}
+              className={`text-2xl text-slate-700 mt-4 leading-relaxed tracking-tight text-justify m-0`}
+              style={{
+                wordSpacing: "normal",
+                display: showFulls ? "block" : "-webkit-box",
+                WebkitLineClamp: showFulls ? "unset" : 8,
+                WebkitBoxOrient: "vertical",
+                overflow: "hidden",
+              }}
             >
-              This pioneering initiative brings a comprehensive, sector-wide
-              focus to technical and vocational education and training (TVET),
-              aimed at enhancing workforce readiness, promoting inclusive
-              participation, and catalyzing entrepreneurial ecosystems. By
-              integrating diverse programs, including international labor
-              mobility, skills training for rural women and transgender
-              individuals, and enterprise development, we are addressing critical
-              skills gaps and creating pathways to sustainable livelihoods. Our
-              department is committed to aligning skills provision with labor
-              market demands, 
-              both domestically and globally, while fostering
-              innovation and self employment.
+              human capital development agenda. This pioneering initiative
+              brings a comprehensive, sector-wide focus to technical and
+              vocational education and training (TVET), aimed at enhancing
+              workforce readiness, promoting inclusive participation, and
+              catalyzing entrepreneurial ecosystems. By integrating diverse
+              programs, including international labor mobility, skills training
+              for rural women and transgender individuals, and enterprise
+              development, we are addressing critical skills gaps and creating
+              pathways to sustainable livelihoods. Our department is committed
+              to aligning skills provision with labor market demands, both
+              domestically and globally, while fostering innovation and self
+              employment.
               <br />
               <br />
               As we move forward, we envision a TVET landscape that is
@@ -769,21 +777,19 @@ const customStyles = {
               stakeholders industry partners, training providers, development
               agencies, and communities to collaborate with us in shaping a
               skilled and empowered Punjab.
-
             </p>
-             <button
-            onClick={toggleText1}
-            className="mt-2 text-blue-600 underline hover:text-blue-800 transition-colors duration-200"
-          >
-            {showFulls ? "Read less" : <>
-          Read more... 
-          
-          </>}
-          </button>
+            <button
+              onClick={toggleText1}
+              className="mt-2 text-blue-600 underline hover:text-blue-800 transition-colors duration-200"
+            >
+              {showFulls ? (
+                <h3 className="text-2xl">Read less</h3>
+              ) : (
+                <h3 className="text-2xl">Read more...</h3>
+              )}
+            </button>
           </div>
         </div>
-
-       
       </div>
 
       <div className=" py-10 mt-16 ">
@@ -1019,7 +1025,7 @@ const customStyles = {
         </div>
       </div>
 
-       <Modal
+      <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         style={customStyles}
@@ -1050,15 +1056,11 @@ const customStyles = {
       </Modal>
 
       <CustomModal isOpen={isModalOpen} onClose={() => setModalOpen(false)}>
-                <video
-                    controls
-                    autoPlay
-                    className="w-full h-auto rounded-lg"
-                >
-                    <source src={snaptik} type="video/mp4" />
-                    Your browser does not support the video tag.
-                </video>
-            </CustomModal>
+        <video controls autoPlay className="w-full h-auto rounded-lg">
+          <source src={snaptik} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </CustomModal>
     </div>
   );
 };
