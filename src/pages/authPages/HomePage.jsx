@@ -432,7 +432,7 @@ With a strong ecosystem-enabling approach, SDED seeks to unlock human capital, e
             Productive Future
           </h3>
         </div>
-        <div className="w-1/2 mr-8 py-4">
+        <div className="w-1/2 mr-8 py-10 mt-4">
           <img
             src={MaryamNawaz}
             alt="Maryam Nawaz Sharif"
