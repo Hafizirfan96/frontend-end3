@@ -14,7 +14,7 @@ import psdflogo from "@/assets/psdflogo.png";
 import pvtclogo from "@/assets/pvtcalogo.jpeg";
 import tevcalogo from "@/assets/tevcalogo.png";
 import pbtelogo from "@/assets/pbtelogo.jpeg";
-import { Link, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import NationalSkills from "@/assets/NationalSkills.png";
 import employementTrends from "@/assets/employementTrends.png";
@@ -31,7 +31,6 @@ import Xarrow from "react-xarrows";
 import { useEffect, useRef, useState } from "react";
 import Modal from "react-modal";
 import React from "react";
-import CustomModal from "@/components/templates/modals/CustomModal";
 import IndustoryInfoCard from "@/components/templates/Home/IndustoryInfoCard";
 import Modals from "@/components/templates/modals/Modal";
 
@@ -407,7 +406,7 @@ With a strong ecosystem-enabling approach, SDED seeks to unlock human capital, e
             Maryam Nawaz Sharif, Chief Minister Punjab{" "}
           </h3>
           <h3
-            className="text-3xl mt-4 font-semibold"
+            className="text-justify text-3xl text-slate-700 mt-4 leading-relaxed tracking-tight"
             style={{
               textAlign: "justify",
               textJustify: "inter-word",
@@ -727,7 +726,7 @@ With a strong ecosystem-enabling approach, SDED seeks to unlock human capital, e
             />
 
             <IndustoryInfoCard
-              onClick={() => navigateToIndustry("Graduate")}
+              // onClick={() => navigateToIndustry("Graduate")}
               title="For Institutes"
               icon={
                 <svg
