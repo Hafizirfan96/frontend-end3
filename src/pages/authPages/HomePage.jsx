@@ -44,6 +44,8 @@ const HomePage = () => {
     navigate(pages);
   };
   const [showFull, setShowFull] = useState(false);
+    const containerRef = useRef(null);
+
   const [showFulls, setShowFulls] = useState(false);
   const [snapVideo, setSnapVideo] = useState(false);
   const truncateLength = 600;
@@ -268,15 +270,7 @@ skilled and empowered Punjab.`;
       <path d="M320 32L0 160l320 128 320-128L320 32zm0 288c-35.3 0-64 28.7-64 64v96h128v-96c0-35.3-28.7-64-64-64z" />
     </svg>
   );
-  const totelAccessed = (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 640 512"
-      fill="#267d37de"
-    >
-      <path d="M256 0C114.6 0 0 114.6 0 256c0 61.9 22.1 118.6 58.7 162.4l-10.2 66.4c-2.2 14.5 13.1 25.2 25.4 17.7l56.2-35.1c38.1 19.1 81.2 29.6 125.9 29.6 141.4 0 256-114.6 256-256S397.4 0 256 0zm0 464c-39.3 0-76.3-10.3-108.6-28.4l-60.2 37.6 10.6-69.1C67 360.6 48 310.8 48 256c0-114.9 93.1-208 208-208s208 93.1 208 208-93.1 208-208 208zm96-248h-64v-64h-64v64h-64v64h64v64h64v-64h64v-64z" />
-    </svg>
-  );
+ 
 
   const totelPlacement = (
     <svg
@@ -358,7 +352,6 @@ skilled and empowered Punjab.`;
       document.body.style.overflow = "auto";
     }
 
-    // Cleanup on unmount
     return () => {
       document.body.style.overflow = "auto";
     };
@@ -370,12 +363,22 @@ skilled and empowered Punjab.`;
     }
   }, [modalIsOpen]);
 
-  const toggleText = () => {
-    setShowFull((prev) => !prev);
+  // const toggleText = () => {
+  //   setShowFull((prev) => !prev);
+  // };
+    const toggleText = () => {
+    setShowFull((prev) => {
+      const newShowFull = !prev;
+
+      // Scroll into view when collapsing
+      if (!newShowFull && containerRef.current) {
+        containerRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+
+      return newShowFull;
+    });
   };
-  const toggleText1 = () => {
-    setShowFulls((prev) => !prev);
-  };
+
   const [isModalOpen, setModalOpen] = useState(false);
 
   return (
@@ -622,79 +625,7 @@ skilled and empowered Punjab.`;
         </div>
       </div>
       <div className=" mx-auto flex px-20 mt-24 gap-6 bg-[#f0f0f0] py-8">
-        {/* <div className="flex-1  p-4">
-          <div className="flex-1 justify-center text-center">
-            <h2 className="text-[30px] font-bold">Quick Look at SDED</h2>
-            <button
-              onClick={openModal}
-              className="text-2xl justify-center text-blue-600 underline hover:text-blue-800 transition-colors duration-200"
-            >
-              Video Preview,
-            </button>
-
-            <div
-              className="max-w-[200px] h-[10px] mx-auto my-2 rounded-full"
-              style={{
-                background: "linear-gradient(90deg, #66cc66, #4caf50, #66cc66)",
-                clipPath: "ellipse(50% 25% at 50% 50%)",
-              }}
-            ></div>
-
-            <h3
-              className={`text-3xl text-slate-700 mt-4 leading-relaxed tracking-tight text-justify m-0 `}
-              style={{
-                wordSpacing: "normal",
-                display: showFull ? "block" : "-webkit-box",
-                WebkitLineClamp: showFull ? "unset" : 14,
-                WebkitBoxOrient: "vertical",
-                overflow: "hidden",
-              }}
-            >
-              The Skills Development and Entrepreneurship Department created by
-              the Punjab Government on 13.01.2025 is responsible for
-              co-ordination of all Skills development efforts across the
-              country, removal of disconnect between demand and supply of
-              skilled manpower both at local and international levels, building
-              the vocational and technical training framework, skills up
-              gradation, building of new skills and innovative thinking not only
-              for existing jobs but also jobs that are to be created. The new
-              department aims to impart skills on a large scale with speed and
-              high standards in order to achieve its vision of a 'Skilled
-              Punjab'. The CM initiatives by its functional arms i.e. Tevta,
-              PSDF and PVTC will go a long way in achieving the goals for which
-              this department was established. The Department also intends to
-              work with the existing network of Skills Development centres,
-              universities, industry and other alliances in the field. Further,
-              collaborations with relevant governmental institutions,
-              international organizations, industry and NGOs have been initiated
-              for multi-level engagement and more impactful implementation of
-              Skill Development efforts.
-              <br />
-              SDED Vision Statement Unlock human capital to trigger a
-              productivity dividend and bring aspirational employment and
-              entrepreneurship pathways to all. For this, an ecosystem-enabling
-              lens to transition Punjab to a high-skills equilibrium and help
-              create positive outcomes for individuals, enterprises and the
-              economy. The three outcomes to be achieved through: Enable
-              individual economic gains and social mobility; Create a skills
-              market that is learner-centric and demand-driven; and Facilitate
-              aspirational employment and entrepreneurship generation, improve
-              overall productivity for enterprises and catalyse economic growth.
-            </h3>
-
-            <button
-              onClick={toggleText}
-              className="mt-2 text-blue-600 underline hover:text-blue-800 transition-colors duration-200"
-            >
-              {showFull ? (
-                <h3 className="text-2xl">Read less</h3>
-              ) : (
-                <h3 className="text-2xl">Read more...</h3>
-              )}
-            </button>
-          </div>
-        </div> */}
-        <div className="flex-1 p-4">
+        <div className="flex-1 p-4" ref={containerRef}>
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="text-[30px] font-bold">Quick Look at SDED</h2>
             <button
@@ -714,13 +645,6 @@ skilled and empowered Punjab.`;
 
             <h3
               className={`text-justify text-3xl text-slate-700 mt-4 leading-relaxed tracking-tight`}
-              // style={{
-              //   wordSpacing: "normal",
-              //   display: showFull ? "block" : "-webkit-box",
-              //   WebkitLineClamp: showFull ? "unset" : 14,
-              //   WebkitBoxOrient: "vertical",
-              //   overflow: "hidden",
-              // }}
             >
               {displayedText1}
             </h3>
@@ -1018,12 +942,42 @@ skilled and empowered Punjab.`;
         <div className="overflow-x-auto whitespace-nowrap flex gap-6 justify-around items-center mt-8">
           {/* <img src={navtac} className="h-28 inline-block" alt="Logo 4" /> */}
           {/* <img src={bureau} className="h-28 inline-block" alt="Logo 5" /> */}
-          <img  onClick={() => navigateToTivetBody("Giz")} src={giz} className="h-28 inline-block cursor-pointer" alt="Logo 6" />
-          <img  onClick={() => navigateToTivetBody("PSDA")} src={psdalogo} className="h-28 inline-block cursor-pointer" alt="Logo 6" />
-          <img onClick={() => navigateToTivetBody("PSDF")} src={psdflogo} className="h-28 inline-block cursor-pointer" alt="Logo 6" />
-          <img onClick={() => navigateToTivetBody("PVTC")} src={pvtclogo} className="h-28 inline-block cursor-pointer" alt="Logo 6" />
-          <img onClick={() => navigateToTivetBody("TEVTA")} src={tevcalogo} className="h-28 inline-block cursor-pointer" alt="Logo 6" />
-          <img onClick={() => navigateToTivetBody("PBTE")} src={pbtelogo} className="h-28 inline-block cursor-pointer" alt="Logo 6" />
+          <img
+            onClick={() => navigateToTivetBody("Giz")}
+            src={giz}
+            className="h-28 inline-block cursor-pointer"
+            alt="Logo 6"
+          />
+          <img
+            onClick={() => navigateToTivetBody("PSDA")}
+            src={psdalogo}
+            className="h-28 inline-block cursor-pointer"
+            alt="Logo 6"
+          />
+          <img
+            onClick={() => navigateToTivetBody("PSDF")}
+            src={psdflogo}
+            className="h-28 inline-block cursor-pointer"
+            alt="Logo 6"
+          />
+          <img
+            onClick={() => navigateToTivetBody("PVTC")}
+            src={pvtclogo}
+            className="h-28 inline-block cursor-pointer"
+            alt="Logo 6"
+          />
+          <img
+            onClick={() => navigateToTivetBody("TEVTA")}
+            src={tevcalogo}
+            className="h-28 inline-block cursor-pointer"
+            alt="Logo 6"
+          />
+          <img
+            onClick={() => navigateToTivetBody("PBTE")}
+            src={pbtelogo}
+            className="h-28 inline-block cursor-pointer"
+            alt="Logo 6"
+          />
         </div>
       </div>
 

@@ -1,18 +1,17 @@
-import { useState } from "react";
 import Select from "react-select";
 import Header from "./DashboardPages/Components/Header";
 import Footer from "./DashboardPages/Components/Footer";
 
 const Graduates = () => {
-  const [hoveredIndex, setHoveredIndex] = useState(null);
-  const bgColors = [
-    "bg-red-100",
-    "bg-green-100",
-    "bg-blue-100",
-    "bg-yellow-100",
-    "bg-purple-100",
-    "bg-pink-100",
+
+    const sectorOptions = [
+    { value: "Technical", label: "Technical" },
+    { value: "Technical", label: "Technical" },
+    { value: "welder", label: "Welder" },
+    { value: "carpenter", label: "Carpenter" },
+    { value: "mechanic", label: "Mechanic" },
   ];
+ 
   const tradeOptions = [
     { value: "electrician", label: "Electrician" },
     { value: "plumber", label: "Plumber" },
@@ -56,7 +55,7 @@ const Graduates = () => {
           {/* 🔍 Search Inputs Row */}
           <div className="flex flex-wrap gap-8 mb-10">
             <div className="flex flex-col flex-1 min-w-[200px]">
-              <p className="text-xl font-semibold mb-1">Employer Name</p>
+              <p className="text-2xl font-semibold mb-1">Employer Name</p>
               <input
                 type="text"
                 placeholder="Search by Name"
@@ -65,7 +64,16 @@ const Graduates = () => {
             </div>
 
             <div className="flex flex-col flex-1 min-w-[200px]">
-              <p className="text-xl font-semibold mb-1">Trade</p>
+              <p className="text-2xl font-semibold mb-1">Sector</p>
+              <Select
+                options={sectorOptions}
+                placeholder="Search by Trade"
+                className="text-2xl"
+                classNamePrefix="react-select"
+              />
+            </div>
+             <div className="flex flex-col flex-1 min-w-[200px]">
+              <p className="text-2xl font-semibold mb-1">Trade</p>
               <Select
                 options={tradeOptions}
                 placeholder="Search by Trade"
@@ -75,7 +83,7 @@ const Graduates = () => {
             </div>
 
             <div className="flex flex-col flex-1 min-w-[200px]">
-              <p className="text-xl font-semibold mb-1">City</p>
+              <p className="text-2xl font-semibold mb-1">City</p>
               <Select
                 options={cityOptions}
                 placeholder="Search by City"
@@ -84,7 +92,7 @@ const Graduates = () => {
               />
             </div>
             <div className="flex flex-col flex-1 min-w-[200px]">
-              <p className="text-xl font-semibold mb-1">Search</p>
+              <p className="text-2xl font-semibold mb-1">Search</p>
               <button
                 type="submit"
                 className="text-2xl p-3 bg-[#478e51] text-white rounded-lg shadow-sm hover:bg-[#478e51] focus:outline-none focus:ring-2 focus:bg-[#478e51] transition"
