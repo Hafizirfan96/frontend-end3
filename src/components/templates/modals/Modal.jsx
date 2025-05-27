@@ -1,5 +1,5 @@
 
-const Modal = ({
+const Modals = ({
   children,
   title,
   mainClass = "",
@@ -22,4 +22,4 @@ const Modal = ({
   );
 };
 
-export default Modal;
+export default Modals;

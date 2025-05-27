@@ -4,15 +4,6 @@ import Header from "./DashboardPages/Components/Header";
 import Footer from "./DashboardPages/Components/Footer";
 
 const ForEmployer = () => {
-  const [hoveredIndex, setHoveredIndex] = useState(null);
-  const bgColors = [
-    "bg-red-100",
-    "bg-green-100",
-    "bg-blue-100",
-    "bg-yellow-100",
-    "bg-purple-100",
-    "bg-pink-100",
-  ];
   const tradeOptions = [
     { value: "electrician", label: "Electrician" },
     { value: "plumber", label: "Plumber" },
@@ -45,7 +36,7 @@ const ForEmployer = () => {
             </svg>
           </div>
           <h2 className="text-light text-[20px] text-bold ml-3 text-white ">
-            For Employer
+            For Employers
           </h2>
         </div>
         <div className="h-8" />
@@ -95,60 +86,61 @@ const ForEmployer = () => {
           </div>
 
           {/* 📊 Table */}
-       <div className="overflow-x-auto shadow-md rounded-lg">
-  <table className="min-w-full text-sm text-left text-gray-700 bg-white divide-y divide-gray-300">
-    <thead>
-      <tr className="bg-gradient-to-r bg-[#f0f0f0] text-black text-2xl">
-        <th className="px-6 py-3 font-bold uppercase">Graduate Name</th>
-        <th className="px-6 py-3 font-bold uppercase">Sector</th>
-        <th className="px-6 py-3 font-bold uppercase">Trade</th>
-        <th className="px-6 py-3 font-bold uppercase">City</th>
-        <th className="px-6 py-3 font-bold uppercase">Email</th>
-        <th className="px-6 py-3 font-bold uppercase">Contact</th>
-        <th className="px-6 py-3 font-bold uppercase">Address</th>
-      </tr>
-    </thead>
-    <tbody className="divide-y divide-gray-200 text-2xl">
-      <tr className="hover:bg-gray-50">
-        <td className="px-6 py-4">Asif</td>
-        <td className="px-6 py-4">Technical</td>
-        <td className="px-6 py-4">Electrician</td>
-        <td className="px-6 py-4">Lahore</td>
-        <td className="px-6 py-4">abc@example.com</td>
-        <td className="px-6 py-4">0300-1234567</td>
-        <td className="px-6 py-4">123 Main Street</td>
-      </tr>
-      <tr className="hover:bg-gray-50">
-        <td className="px-6 py-4">Sajjad</td>
-        <td className="px-6 py-4">Sanitary</td>
-        <td className="px-6 py-4">Plumber</td>
-        <td className="px-6 py-4">Faisalabad</td>
-        <td className="px-6 py-4">plumber@mail.com</td>
-        <td className="px-6 py-4">0301-7654321</td>
-        <td className="px-6 py-4">45 Water Lane</td>
-      </tr>
-      <tr className="hover:bg-gray-50">
-        <td className="px-6 py-4">Tariq</td>
-        <td className="px-6 py-4">Manufacturing</td>
-        <td className="px-6 py-4">Welder</td>
-        <td className="px-6 py-4">Multan</td>
-        <td className="px-6 py-4">welder@skills.pk</td>
-        <td className="px-6 py-4">0321-9988776</td>
-        <td className="px-6 py-4">Industrial Zone</td>
-      </tr>
-      <tr className="hover:bg-gray-50">
-        <td className="px-6 py-4">Numan</td>
-        <td className="px-6 py-4">Textile</td>
-        <td className="px-6 py-4">Tailor</td>
-        <td className="px-6 py-4">Rawalpindi</td>
-        <td className="px-6 py-4">tailor@mail.com</td>
-        <td className="px-6 py-4">0345-1122334</td>
-        <td className="px-6 py-4">7 Bazaar Road</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
+          <div className="overflow-x-auto shadow-md rounded-lg">
+            <table className="min-w-full text-sm text-left text-gray-700 bg-white divide-y divide-gray-300">
+              <thead>
+                <tr className="bg-gradient-to-r bg-[#f0f0f0] text-black text-2xl">
+                  <th className="px-6 py-3 font-bold uppercase">
+                    Graduate Name
+                  </th>
+                  <th className="px-6 py-3 font-bold uppercase">Sector</th>
+                  <th className="px-6 py-3 font-bold uppercase">Trade</th>
+                  <th className="px-6 py-3 font-bold uppercase">City</th>
+                  <th className="px-6 py-3 font-bold uppercase">Email</th>
+                  <th className="px-6 py-3 font-bold uppercase">Contact</th>
+                  <th className="px-6 py-3 font-bold uppercase">Address</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-200 text-2xl">
+                <tr className="hover:bg-gray-50">
+                  <td className="px-6 py-4">Asif</td>
+                  <td className="px-6 py-4">Technical</td>
+                  <td className="px-6 py-4">Electrician</td>
+                  <td className="px-6 py-4">Lahore</td>
+                  <td className="px-6 py-4">abc@example.com</td>
+                  <td className="px-6 py-4">0300-1234567</td>
+                  <td className="px-6 py-4">123 Main Street</td>
+                </tr>
+                <tr className="hover:bg-gray-50">
+                  <td className="px-6 py-4">Sajjad</td>
+                  <td className="px-6 py-4">Sanitary</td>
+                  <td className="px-6 py-4">Plumber</td>
+                  <td className="px-6 py-4">Faisalabad</td>
+                  <td className="px-6 py-4">plumber@mail.com</td>
+                  <td className="px-6 py-4">0301-7654321</td>
+                  <td className="px-6 py-4">45 Water Lane</td>
+                </tr>
+                <tr className="hover:bg-gray-50">
+                  <td className="px-6 py-4">Tariq</td>
+                  <td className="px-6 py-4">Manufacturing</td>
+                  <td className="px-6 py-4">Welder</td>
+                  <td className="px-6 py-4">Multan</td>
+                  <td className="px-6 py-4">welder@skills.pk</td>
+                  <td className="px-6 py-4">0321-9988776</td>
+                  <td className="px-6 py-4">Industrial Zone</td>
+                </tr>
+                <tr className="hover:bg-gray-50">
+                  <td className="px-6 py-4">Numan</td>
+                  <td className="px-6 py-4">Textile</td>
+                  <td className="px-6 py-4">Tailor</td>
+                  <td className="px-6 py-4">Rawalpindi</td>
+                  <td className="px-6 py-4">tailor@mail.com</td>
+                  <td className="px-6 py-4">0345-1122334</td>
+                  <td className="px-6 py-4">7 Bazaar Road</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
       <Footer />

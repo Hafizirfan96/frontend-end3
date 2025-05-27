@@ -13,11 +13,11 @@ const Header = () => {
     <>
       <div className="w-full py-2 bg-[#004614]">
         {/* Center title for all screen sizes */}
-        <div className="flex justify-center items-center mt-4 text-center px-4">
+        {/* <div className="flex justify-center items-center mt-4 text-center px-4">
           <h3 className="text-white text-xl md:text-2xl lg:text-[25px]">
             Punjab Skills Information System (PSIS)
           </h3>
-        </div>
+        </div> */}
 
         {/* Responsive layout container */}
         <div className="flex flex-col md:flex-row justify-between items-center w-full px-4 md:px-20">
@@ -29,22 +29,21 @@ const Header = () => {
             <img src={logo} className="h-32 object-contain" alt="Logo" />
 
             <div>
-              <h3 className="text-[12px] text-white ml-4">
+              <h3 className="text-[25px] text-white ml-4">
                 <h3 className="text-[30px]">Skills Punjab</h3>
-                Skill Development & Entrepreneurship Department
+                Skill Development & Entrepreneurship Department (SDED)
               </h3>
             </div>
           </div>
 
           {/* Right Side Logo */}
-          <div className="mt-4 md:mt-0">
+          {/* <div className="mt-4 md:mt-0">
             <img
               src={CmSb}
-              // className="h-16 md:h-20 object-contain"
               className="img-fluid img-logo h-[80px] object-contain"
               alt="Logo"
             />
-          </div>
+          </div> */}
         </div>
       </div>
 

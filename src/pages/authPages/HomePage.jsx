@@ -8,27 +8,23 @@ import psdf from "@/assets/psdf.jpg";
 import pbte from "@/assets/pbte.jpg";
 import slide2 from "@/assets/slide2.png";
 import tevta1 from "@/assets/tevta1.png";
-import navtac from "@/assets/navtac.png";
-import bureau from "@/assets/bureau.jpeg";
 import psdalogo from "@/assets/psdalogo.png";
 import SDED from "@/assets/logo.png";
-import shahbaz from "@/assets/shahbaz.jpeg";
 import psdflogo from "@/assets/psdflogo.png";
 import pvtclogo from "@/assets/pvtcalogo.jpeg";
 import tevcalogo from "@/assets/tevcalogo.png";
 import pbtelogo from "@/assets/pbtelogo.jpeg";
 import { Link, useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
-import TopAchievers from "@/assets/Top-Achievers.png";
 import NationalSkills from "@/assets/NationalSkills.png";
 import employementTrends from "@/assets/employementTrends.png";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import tvtproviders from "@/assets/tvtproviders.png";
-import Maryam_Nawaz_CM from "@/assets/Maryam_Nawaz.png";
+import adnan from "@/assets/adnan.jpg";
+import MaryamNawaz from "@/assets/Maryam-Nawaz.jpg";
 import videoPreview from "@/assets/videopreview.mp4";
-import snaptik from "@/assets/snaptik.mp4";
 import SummeryCard from "@/components/templates/Home/SummeryCard";
-import sectory from "@/assets/sectory.jpeg";
+import sectory from "@/assets/nadir.jpg";
 import zahid from "@/assets/zahid.jpeg";
 import TVETBodies from "@/components/templates/Home/TVETBodies";
 import Xarrow from "react-xarrows";
@@ -36,6 +32,9 @@ import { useEffect, useRef, useState } from "react";
 import Modal from "react-modal";
 import React from "react";
 import CustomModal from "@/components/templates/modals/CustomModal";
+import IndustoryInfoCard from "@/components/templates/Home/IndustoryInfoCard";
+import Modals from "@/components/templates/modals/Modal";
+
 Modal.setAppElement("#root");
 const HomePage = () => {
   const showTvetSupply = false;
@@ -44,12 +43,11 @@ const HomePage = () => {
     navigate(pages);
   };
   const [showFull, setShowFull] = useState(false);
-    const containerRef = useRef(null);
+  const containerRef = useRef(null);
 
   const [showFulls, setShowFulls] = useState(false);
-  const [snapVideo, setSnapVideo] = useState(false);
   const truncateLength = 600;
-  const truncateLength1 = 830;
+  const truncateLength1 = 630;
 
   // truncate text if not expanded
   const textContent = `The establishment of the Skills Development & Entrepreneurship
@@ -76,37 +74,40 @@ skilled and empowered Punjab.`;
   const displayedText = showFulls
     ? textContent
     : textContent.slice(0, truncateLength) + "...";
-  const textContent1 = ` The Skills Development and Entrepreneurship Department created by
-              the Punjab Government on 13.01.2025 is responsible for
-              co-ordination of all Skills development efforts across the
-              country, removal of disconnect between demand and supply of
-              skilled manpower both at local and international levels, building
-              the vocational and technical training framework, skills up
-              gradation, building of new skills and innovative thinking not only
-              for existing jobs but also jobs that are to be created. The new
-              department aims to impart skills on a large scale with speed and
-              high standards in order to achieve its vision of a 'Skilled
-              Punjab'. The CM initiatives by its functional arms i.e. Tevta,
-              PSDF and PVTC will go a long way in achieving the goals for which
-              this department was established. The Department also intends to
-              work with the existing network of Skills Development centres,
-              universities, industry and other alliances in the field. Further,
-              collaborations with relevant governmental institutions,
-              international organizations, industry and NGOs have been initiated
-              for multi-level engagement and more impactful implementation of
-              Skill Development efforts.
-              <br />
-              SDED Vision Statement Unlock human capital to trigger a
-              productivity dividend and bring aspirational employment and
-              entrepreneurship pathways to all. For this, an ecosystem-enabling
-              lens to transition Punjab to a high-skills equilibrium and help
-              create positive outcomes for individuals, enterprises and the
-              economy. The three outcomes to be achieved through: Enable
-              individual economic gains and social mobility; Create a skills
-              market that is learner-centric and demand-driven; and Facilitate
-              aspirational employment and entrepreneurship generation, improve
-              overall productivity for enterprises and catalyse economic growth.`;
+  // const textContent1 = ` The Skills Development and Entrepreneurship Department created by
+  //             the Punjab Government on 13.01.2025 is responsible for
+  //             co-ordination of all Skills development efforts across the
+  //             country, removal of disconnect between demand and supply of
+  //             skilled manpower both at local and international levels, building
+  //             the vocational and technical training framework, skills up
+  //             gradation, building of new skills and innovative thinking not only
+  //             for existing jobs but also jobs that are to be created. The new
+  //             department aims to impart skills on a large scale with speed and
+  //             high standards in order to achieve its vision of a 'Skilled
+  //             Punjab'. The CM initiatives by its functional arms i.e. Tevta,
+  //             PSDF and PVTC will go a long way in achieving the goals for which
+  //             this department was established. The Department also intends to
+  //             work with the existing network of Skills Development centres,
+  //             universities, industry and other alliances in the field. Further,
+  //             collaborations with relevant governmental institutions,
+  //             international organizations, industry and NGOs have been initiated
+  //             for multi-level engagement and more impactful implementation of
+  //             Skill Development efforts.
+  //             <br />
+  //             SDED Vision Statement Unlock human capital to trigger a
+  //             productivity dividend and bring aspirational employment and
+  //             entrepreneurship pathways to all. For this, an ecosystem-enabling
+  //             lens to transition Punjab to a high-skills equilibrium and help
+  //             create positive outcomes for individuals, enterprises and the
+  //             economy. The three outcomes to be achieved through: Enable
+  //             individual economic gains and social mobility; Create a skills
+  //             market that is learner-centric and demand-driven; and Facilitate
+  //             aspirational employment and entrepreneurship generation, improve
+  //             overall productivity for enterprises and catalyse economic growth.`;
 
+  const textContent1 =`Established by the Government of Punjab on January 13, 2025, the Skills Development and Entrepreneurship Department (SDED) is mandated to streamline and lead skill development efforts across the province. It aims to bridge the demand-supply gap in skilled manpower, both locally and internationally, by upgrading vocational training, promoting innovation, and preparing the workforce for future job markets.
+Through its key institutions, TEVTA, PSDF, and PVTC, SDED delivers high-quality, scalable training aligned with industry needs. The department works closely with skill centres, universities, industry partners, government bodies, NGOs, and international organizations to foster multi-level collaboration.
+With a strong ecosystem-enabling approach, SDED seeks to unlock human capital, empower individuals, and catalyse aspirational employment, entrepreneurship, and productivity-led economic growth, steering Punjab toward a high-skills future.`
   const displayedText1 = showFull
     ? textContent1
     : textContent1.slice(0, truncateLength1) + "...";
@@ -235,9 +236,10 @@ skilled and empowered Punjab.`;
     // },
     {
       id: "/profile-detail",
-      image: Maryam_Nawaz_CM,
-      title: "Maryam Nawaz Sharif",
-      description: "CM Punjab",
+      image: adnan,
+      title: "Mr. Adnan Afzal Chattha",
+      description:
+        "Chairperson, Chief Minister's Task Force on Skills Development",
       link: "Read More",
       tab: "opportunities",
     },
@@ -270,7 +272,6 @@ skilled and empowered Punjab.`;
       <path d="M320 32L0 160l320 128 320-128L320 32zm0 288c-35.3 0-64 28.7-64 64v96h128v-96c0-35.3-28.7-64-64-64z" />
     </svg>
   );
- 
 
   const totelPlacement = (
     <svg
@@ -363,16 +364,14 @@ skilled and empowered Punjab.`;
     }
   }, [modalIsOpen]);
 
-  // const toggleText = () => {
-  //   setShowFull((prev) => !prev);
-  // };
-    const toggleText = () => {
+  const toggleText = () => {
     setShowFull((prev) => {
       const newShowFull = !prev;
-
-      // Scroll into view when collapsing
       if (!newShowFull && containerRef.current) {
-        containerRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+        containerRef.current.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
       }
 
       return newShowFull;
@@ -381,10 +380,71 @@ skilled and empowered Punjab.`;
 
   const [isModalOpen, setModalOpen] = useState(false);
 
+  const pageNavigate = {
+    Graduate: "/for-graduate",
+    Employer: "/for-employer",
+    ForLearner: () => setModalOpen(true),
+    PVTC: "http://pvtc.gop.pk",
+    TEVTA: "https://tevta.gop.pk",
+  };
+  const navigateToIndustry = (text) => {
+    const action = pageNavigate[text];
+
+    if (!action) return;
+
+    if (typeof action === "string") {
+      navigate(action);
+    } else if (typeof action === "function") {
+      action();
+    }
+  };
+
   return (
     <div>
-      <div className="flex">
-        <div className="w-[70%] relative flex justify-evenly mt-10">
+      <div className="flex px-20 bg-[#f0f0f0]">
+        <div className="w-1/2 text-center px-8 justify-center">
+          <h3 className="text-[25px] font-bold ">
+            Maryam Nawaz Sharif, Chief Minister Punjab{" "}
+          </h3>
+          <h3
+            className="text-3xl mt-4 font-semibold"
+            style={{
+              textAlign: "justify",
+              textJustify: "inter-word",
+            }}
+          >
+            Chief Minister Punjab Maryam Nawaz Sharif envisions transforming the
+            province into a hub of skilled talent, innovation, and economic
+            prosperity. With her dynamic leadership and unwavering commitment to
+            progress, she has established the Skills Development &
+            Entrepreneurship (SD&E) Department to empower diverse communities
+            through inclusive and future-ready skill development programs. These
+            initiatives encompass international labor placement, transgender
+            skill training, rural women’s empowerment, and specialized programs
+            designed to bridge skill gaps and foster entrepreneurship. Under her
+            visionary guidance, Punjab is paving the way for a skilled,
+            self-reliant, and economically vibrant future.
+          </h3>
+          <h3 className="text-[35px] font-bold  text-[#049b63] mt-6">
+            Skilling Punjab
+          </h3>
+          <h3 className="text-[30px] font-bold ">
+            Igniting Potential In Youth, Women, and all Communities for
+            Productive Future
+          </h3>
+        </div>
+        <div className="w-1/2 mr-8 py-4">
+          <img
+            src={MaryamNawaz}
+            alt="Maryam Nawaz Sharif"
+            className="w-full h-auto"
+          />
+        </div>
+      </div>
+
+      <div className="flex flex-col lg:flex-row mt-14">
+        {/* Left (Main Swiper) */}
+        <div className="w-full lg:w-[70%] relative flex justify-center  ">
           <Swiper
             spaceBetween={20}
             slidesPerView={1}
@@ -452,24 +512,25 @@ skilled and empowered Punjab.`;
             }
           `}</style>
 
-          <div className="custom-prev absolute  left-2 top-1/2 transform -translate-y-1/2 z-10">
-            <button className="w-16 h-16 text-3xl text-yellow-500 bg-black/50 hover:bg-black/70 rounded-full transition flex items-center justify-center">
+          <div className="custom-prev absolute left-2 top-1/2 transform -translate-y-1/2 z-10">
+            <button className="w-12 h-12 md:w-16 md:h-16 text-2xl md:text-3xl text-yellow-500 bg-black/50 hover:bg-black/70 rounded-full transition flex items-center justify-center">
               &#10094;
             </button>
           </div>
           <div className="custom-next absolute right-2 top-1/2 transform -translate-y-1/2 z-10">
-            <button className="w-16 h-16 text-3xl text-yellow-500  bg-black/50 hover:bg-black/70 rounded-full transition flex items-center justify-center">
+            <button className="w-12 h-12 md:w-16 md:h-16 text-2xl md:text-3xl text-yellow-500 bg-black/50 hover:bg-black/70 rounded-full transition flex items-center justify-center">
               &#10095;
             </button>
           </div>
         </div>
 
-        <div className="w-[30%] bg-[#f0f0f0] mt-10">
-          <div className="text-[20px] text-center  text-blue-900 font-bold py-3">
-            <h3>Administrative Structure of SDED </h3>
+        {/* Right (TVET Structure + Mini Swiper) */}
+        <div className="w-full lg:w-[30%] bg-[#f0f0f0]  px-4">
+          <div className="text-xl md:text-3xl text-center text-blue-900 font-bold py-4">
+            <h3>Administrative Structure of SDED</h3>
           </div>
-          <div className="relative w-full ">
-            <div className="grid grid-cols-3 gap-y-20 ml-8">
+          <div className="relative w-full px-2">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-y-10 gap-x-4">
               <TVETBodies
                 image={tevcalogo}
                 title="TEVTA"
@@ -484,7 +545,6 @@ skilled and empowered Punjab.`;
                 id="box2"
                 onClick={() => navigateToTivetBody("SDED")}
               />
-
               <TVETBodies
                 image={psdalogo}
                 title="PSDA"
@@ -492,7 +552,6 @@ skilled and empowered Punjab.`;
                 id="box3"
                 onClick={() => navigateToTivetBody("PSDA")}
               />
-
               <TVETBodies
                 image={pbtelogo}
                 title="PBTE"
@@ -500,7 +559,6 @@ skilled and empowered Punjab.`;
                 id="box4"
                 onClick={() => navigateToTivetBody("PBTE")}
               />
-
               <TVETBodies
                 image={pvtclogo}
                 title="PVTC"
@@ -508,7 +566,6 @@ skilled and empowered Punjab.`;
                 id="box5"
                 onClick={() => navigateToTivetBody("PVTC")}
               />
-
               <TVETBodies
                 image={psdflogo}
                 title="PSDF"
@@ -518,6 +575,7 @@ skilled and empowered Punjab.`;
               />
             </div>
 
+            {/* Arrows */}
             {showArrow && (
               <>
                 <Xarrow
@@ -530,7 +588,6 @@ skilled and empowered Punjab.`;
                   color="black"
                   strokeWidth={2}
                 />
-
                 <Xarrow
                   start="box2"
                   end="box3"
@@ -541,7 +598,6 @@ skilled and empowered Punjab.`;
                   color="black"
                   strokeWidth={2}
                 />
-
                 <Xarrow
                   start="box2"
                   end="box4"
@@ -552,7 +608,6 @@ skilled and empowered Punjab.`;
                   color="black"
                   strokeWidth={2}
                 />
-
                 <Xarrow
                   start="box2"
                   end="box5"
@@ -563,7 +618,6 @@ skilled and empowered Punjab.`;
                   color="black"
                   strokeWidth={2}
                 />
-
                 <Xarrow
                   start="box2"
                   end="box6"
@@ -577,10 +631,10 @@ skilled and empowered Punjab.`;
               </>
             )}
           </div>
-          <div className="relative flex justify-evenly mt-4">
+
+          {/* Mini Swiper */}
+          <div className="relative mt-6">
             <Swiper
-              // spaceBetween={20}
-              // slidesPerView={1}
               modules={[Autoplay, Navigation]}
               autoplay={{
                 delay: 3000,
@@ -588,31 +642,27 @@ skilled and empowered Punjab.`;
               }}
               navigation
               pagination={{ clickable: true }}
-              className="w-full z-0 relative"
+              className="w-full z-0"
             >
               {slidessmall.map((item, index) => (
-                <SwiperSlide key={index} className="bg-white shadow-md ">
-                  <div className="flex ml-8 gap-4 items-start mt-4">
+                <SwiperSlide key={index} className="bg-white shadow-md">
+                  <div className="flex flex-col md:flex-row gap-4 items-center md:items-start p-4">
                     <img
                       src={item.image}
-                      className="w-36 h-44 rounded-full object-cover"
+                      className="w-28 h-28 md:w-36 md:h-44 rounded-full object-cover"
                       alt="Profile picture"
                     />
-
-                    <div className="ml-6">
-                      <h4 className="text-2xl font-semibold">
-                        {item.title}, {item.description}{" "}
+                    <div>
+                      <h4 className="text-xl md:text-2xl font-semibold">
+                        {item.title}, {item.description}
                       </h4>
-                      {/* <p className=" text-[#104591] text-xl mt-2">
-                        {item.description} 
-                      </p> */}
-                      <p className="text-xl mt-2">
+                      {/* <p className="text-base md:text-xl mt-2">
                         Chief Minister Punjab Maryam Nawaz Sharif envisions
                         transforming the province into...
-                      </p>
+                      </p> */}
                       <button
                         onClick={navigateToDetail}
-                        className="mt-10 px-4 py-1 border text-xl  rounded "
+                        className="mt-4 px-4 py-2 border text-sm md:text-base rounded"
                       >
                         {item.link}
                       </button>
@@ -624,7 +674,117 @@ skilled and empowered Punjab.`;
           </div>
         </div>
       </div>
-      <div className=" mx-auto flex px-20 mt-24 gap-6 bg-[#f0f0f0] py-8">
+
+      <div className="bg-gray-100 mt-8 py-10 px-20 sm:px-6 lg:px-24 overflow-x-auto flex">
+        <div className="flex gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 min-w-[1000px]">
+            <IndustoryInfoCard
+              onClick={() => navigateToIndustry("Graduate")}
+              title="For Graduates & Workers"
+              icon={
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 640 512"
+                  fill="#267d37de"
+                  width={50}
+                  height={50}
+                >
+                  <path d="M320 32c-79.5 0-144 64.5-144 144s64.5 144 144 144 144-64.5 144-144S399.5 32 320 32zM144 448c0-61.9 50.1-112 112-112h128c61.9 0 112 50.1 112 112 0 17.7-14.3 32-32 32H176c-17.7 0-32-14.3-32-32zM32 96h64v64H32V96zm0 96h64v64H32v-64zM32 288h64v64H32v-64zm0 96h64v64H32v-64z" />
+                </svg>
+              }
+            />
+
+            <IndustoryInfoCard
+              onClick={() => navigateToIndustry("Employer")}
+              title="For industry & Employers"
+              icon={
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 640 512"
+                  fill="#267d37de"
+                  width={50}
+                  height={50}
+                >
+                  <path d="M496 224V96h-96v48L336 96v48L240 96v384h400V224H496zM544 400h-32v-32h32v32zm0-64h-32v-32h32v32zm-64 64h-32v-32h32v32zm0-64h-32v-32h32v32zM64 160v304h128V320h64v144h32V192l-80 60v-60l-80 60v-60H64z" />
+                </svg>
+              }
+            />
+
+            <IndustoryInfoCard
+              onClick={() => navigateToIndustry("ForLearner")}
+              title="For Learners"
+              icon={
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 640 512"
+                  fill="#267d37de"
+                  width={50}
+                  height={50}
+                >
+                  <path d="M320 32L0 160l320 128 192-76.8V352c0 17.7 14.3 32 32 32h32c17.7 0 32-14.3 32-32V211.2l32-12.8V384H640V160L320 32zm0 256L64 192v32l256 102.4L576 224v-32L320 288z" />
+                </svg>
+              }
+            />
+
+            <IndustoryInfoCard
+              onClick={() => navigateToIndustry("Graduate")}
+              title="For Institutes"
+              icon={
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 576 512"
+                  fill="#267d37de"
+                  width={50}
+                  height={50}
+                >
+                  <path d="M288 0C293.5 0 299 1.7 304 5l256 160c7.1 4.4 11.3 12 11.3 20s-4.3 15.6-11.3 20L304 365c-5 3.3-10.5 5-16 5s-11-1.7-16-5L16 205C8.9 200.6 4.7 193 4.7 185S8.9 169.4 16 165L272 5c5-3.3 10.5-5 16-5zM80 240h32v176H80V240zm96 0h32v176h-32V240zm96 0h32v176h-32V240zm96 0h32v176h-32V240zm96 0h32v176h-32V240zM0 464c0-8.8 7.2-16 16-16H560c8.8 0 16 7.2 16 16v32H0v-32z" />
+                </svg>
+              }
+            />
+          </div>
+          <div className="bg-white shadow-md rounded-2xl  hover:shadow-xl transition duration-300 text-center w-[400px] sm:w-[500px]  flex-shrink-0">
+            <div className="flex flex-col items-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 640 512"
+                fill="#267d37de"
+                width={50}
+                height={50}
+              >
+                <path d="M501.6 210.4c16.1-23.5 24.4-51.5 22.5-80.6-3.9-58.9-53.3-107.3-112.2-110.3-40.3-2.1-76.3 16.5-98.2 46.5L282.4 67c-8.7-6.9-19.6-10.9-31.2-10.9h-80c-26.5 0-48 21.5-48 48v48h-48c-26.5 0-48 21.5-48 48v160c0 26.5 21.5 48 48 48h48v48c0 26.5 21.5 48 48 48h80c11.5 0 22.5-4 31.2-10.9l31.3 1c21.9 30 57.9 48.6 98.2 46.5 58.9-3 108.3-51.4 112.2-110.3 1.9-29.1-6.4-57.1-22.5-80.6 16.1-23.5 24.4-51.5 22.5-80.6zM336 416h-32v-96h32v96zm0-160h-32V160h32v96z" />
+              </svg>
+              <h3 className="text-3xl font-bold text-gray-800 mt-4">
+                For TVET Stackholders
+                <h3 className="text-3xl font-semibold text-gray-800 mt-2">
+                  Punjab Skills information system(PSIS)
+                </h3>
+                <h3 className="text-2xl font-semibold text-gray-800 mt-4">
+                  " Empowering Data-Driven TVET Sector Reforms "
+                </h3>
+              </h3>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* <div className="bg-gray-100 mt-8 py-10 px-20 sm:px-6 lg:px-24 overflow-x-auto flex">
+        <div className="flex gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 min-w-[1000px]">
+            <div className=" rounded-2xl   text-center">
+              <div className="flex flex-col items-center">
+                <h3 className="text-3xl font-bold text-gray-800">Vision</h3>
+                <h3 className="text-3xl font-bold text-gray-800">
+                  The transformational leader in the technical education and
+                  skills development of the Filipino workforce.
+                </h3>
+              </div>
+            </div>
+          </div>
+          <div className="bg-white  rounded-2xl  hover:shadow-xl transition duration-300 text-center w-[400px] sm:w-[500px]  flex-shrink-0"></div>
+        </div>
+      </div> */}
+
+      <div className=" mx-auto flex px-20 mt-10 gap-6 bg-[#f0f0f0] py-8">
         <div className="flex-1 p-4" ref={containerRef}>
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="text-[30px] font-bold">Quick Look at SDED</h2>
@@ -1011,18 +1171,20 @@ skilled and empowered Punjab.`;
         </div>
       </Modal>
 
-      <CustomModal
-        isOpen={isModalOpen}
-        onClose={() => {
-          setModalOpen(false);
-          gobacks();
-        }}
+      <Modals
+        isModalOpen={isModalOpen}
+        title="My Modal Title"
+        mainClass="w-[400px]"
+        overlayClass="bg-black bg-opacity-50 w-full h-full"
       >
-        <video controls autoPlay className="w-full h-auto rounded-lg">
-          <source src={snaptik} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </CustomModal>
+        <p>This is the modal content.</p>
+        <button
+          className="mt-4 bg-red-500 text-white px-4 py-2 rounded"
+          onClick={() => setModalOpen(false)}
+        >
+          Close Modal
+        </button>
+      </Modals>
     </div>
   );
 };

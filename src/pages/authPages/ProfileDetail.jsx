@@ -1,6 +1,6 @@
 import Footer from "./DashboardPages/Components/Footer";
 import Header from "./DashboardPages/Components/Header";
-import Maryam_Nawaz_CM from "@/assets/Maryam_Nawaz.png";
+import Maryam_Nawaz_CM from "@/assets/adnan.jpg";
 
 const ProfileDetail = () => {
   return (
@@ -20,7 +20,7 @@ const ProfileDetail = () => {
             </svg>
           </div>
           <h2 className="text-light text-[20px] text-bold ml-3 text-white BrowseTitle">
-             Maryam Nawaz Sharif, Chief Minister Punjab
+            Mr. Adnan Afzal Chattha
           </h2>
         </div>
         <div className="h-8" />
@@ -31,7 +31,7 @@ const ProfileDetail = () => {
           <img
             src={Maryam_Nawaz_CM}
             alt="Maryam Nawaz Sharif"
-            className=" object-center"
+            className="w-[400px] object-center"
           />
           <div className="px-6 md:px-20 lg:px-28 py-10">
             <p
@@ -41,18 +41,11 @@ const ProfileDetail = () => {
                 textJustify: "inter-word",
               }}
             >
-              Chief Minister Punjab Maryam Nawaz Sharif envisions transforming
-              the province into a hub of skilled talent, innovation, and
-              economic prosperity. With her dynamic leadership and unwavering
-              commitment to progress, she has established the Skills Development
-              & Entrepreneurship (SD&E) Department to empower diverse
-              communities through inclusive and future-ready skill development
-              programs. These initiatives encompass international labor
-              placement, transgender skill training, rural women’s empowerment,
-              and specialized programs designed to bridge skill gaps and foster
-              entrepreneurship. Under her visionary guidance, Punjab is paving
-              the way for a skilled, self-reliant, and economically vibrant
-              future.
+             Member of the Punjab Assembly, Adnan Afzal Chattha, has been appointed as the Chairman of the Chief Minister's Task Force for Skills Development in Punjab. This task force, established under the directive of Chief Minister Maryam Nawaz Sharif, aims to enhance the capacity of the Skills Development Authority and related institutions.
+
+The task force is expected to play a pivotal role in aligning vocational training programs with market demands, thereby contributing to economic growth and employment opportunities in the province. Under his leadership, the task force is working to reform and modernize the technical education landscape, ensuring that training institutions keep pace with evolving industry requirements.
+
+Mr. Chattha envisions a skills ecosystem where education directly translates to employment and entrepreneurship. His approach focuses on bridging theoretical knowledge with practical expertise, developing industry partnerships, and creating sustainable models for technical training that can be scaled across the province.
             </p>
           </div>
         </div>
