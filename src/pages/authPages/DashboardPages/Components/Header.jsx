@@ -11,7 +11,7 @@ const Header = () => {
 
   return (
     <>
-      <div className="w-full py-2 bg-[#004614]">
+      <div className="w-full py-6 bg-[#004614]">
         {/* Center title for all screen sizes */}
         {/* <div className="flex justify-center items-center mt-4 text-center px-4">
           <h3 className="text-white text-xl md:text-2xl lg:text-[25px]">

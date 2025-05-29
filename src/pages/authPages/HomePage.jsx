@@ -14,7 +14,7 @@ import psdflogo from "@/assets/psdflogo.png";
 import pvtclogo from "@/assets/pvtcalogo.jpeg";
 import tevcalogo from "@/assets/tevcalogo.png";
 import pbtelogo from "@/assets/pbtelogo.jpeg";
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import NationalSkills from "@/assets/NationalSkills.png";
 import employementTrends from "@/assets/employementTrends.png";
@@ -104,9 +104,9 @@ skilled and empowered Punjab.`;
   //             aspirational employment and entrepreneurship generation, improve
   //             overall productivity for enterprises and catalyse economic growth.`;
 
-  const textContent1 =`Established by the Government of Punjab on January 13, 2025, the Skills Development and Entrepreneurship Department (SDED) is mandated to streamline and lead skill development efforts across the province. It aims to bridge the demand-supply gap in skilled manpower, both locally and internationally, by upgrading vocational training, promoting innovation, and preparing the workforce for future job markets.
+  const textContent1 = `Established by the Government of Punjab on January 13, 2025, the Skills Development and Entrepreneurship Department (SDED) is mandated to streamline and lead skill development efforts across the province. It aims to bridge the demand-supply gap in skilled manpower, both locally and internationally, by upgrading vocational training, promoting innovation, and preparing the workforce for future job markets.
 Through its key institutions, TEVTA, PSDF, and PVTC, SDED delivers high-quality, scalable training aligned with industry needs. The department works closely with skill centres, universities, industry partners, government bodies, NGOs, and international organizations to foster multi-level collaboration.
-With a strong ecosystem-enabling approach, SDED seeks to unlock human capital, empower individuals, and catalyse aspirational employment, entrepreneurship, and productivity-led economic growth, steering Punjab toward a high-skills future.`
+With a strong ecosystem-enabling approach, SDED seeks to unlock human capital, empower individuals, and catalyse aspirational employment, entrepreneurship, and productivity-led economic growth, steering Punjab toward a high-skills future.`;
   const displayedText1 = showFull
     ? textContent1
     : textContent1.slice(0, truncateLength1) + "...";
@@ -378,11 +378,13 @@ With a strong ecosystem-enabling approach, SDED seeks to unlock human capital, e
   };
 
   const [isModalOpen, setModalOpen] = useState(false);
+  const [isModalOpenForInstitute, setModalOpenForInstitute] = useState(false);
 
   const pageNavigate = {
     Graduate: "/for-graduate",
     Employer: "/for-employer",
     ForLearner: () => setModalOpen(true),
+    ForInstitute: () => setModalOpenForInstitute(true),
     PVTC: "http://pvtc.gop.pk",
     TEVTA: "https://tevta.gop.pk",
   };
@@ -397,6 +399,32 @@ With a strong ecosystem-enabling approach, SDED seeks to unlock human capital, e
       action();
     }
   };
+  const linksForLearner = [
+    {
+      label: "Punjab Skills Development Authority (PSDA)",
+      url: "https://psda.punjab.gov.pk",
+    },
+    {
+      label: "Punjab Vocational Training Council (PVTC)",
+      url: "https://www.pvtc.gop.pk",
+    },
+    {
+      label: "Punjab Skills Development Fund (PSDF)",
+      url: "https://www.psdf.org.pk",
+    },
+  ];
+
+  const linksInstitute = [
+    {
+      label: "National Vocational and Technical Training Commission (NAVTTC)",
+      url: "https://navttc.gov.pk",
+    },
+    {
+      label: "Punjab Skills Development Authority (PSDA)",
+      url: "https://psda.punjab.gov.pk",
+    },
+ 
+  ];
 
   return (
     <div>
@@ -726,7 +754,7 @@ With a strong ecosystem-enabling approach, SDED seeks to unlock human capital, e
             />
 
             <IndustoryInfoCard
-              // onClick={() => navigateToIndustry("Graduate")}
+              onClick={() => navigateToIndustry("ForInstitute")}
               title="For Institutes"
               icon={
                 <svg
@@ -1169,20 +1197,96 @@ With a strong ecosystem-enabling approach, SDED seeks to unlock human capital, e
           </div>
         </div>
       </Modal>
-
       <Modals
         isModalOpen={isModalOpen}
-        title="My Modal Title"
-        mainClass="w-[400px]"
-        overlayClass="bg-black bg-opacity-50 w-full h-full"
+        mainClass="relative w-[800px] p-8 bg-white rounded shadow-lg"
+        overlayClass="bg-black bg-opacity-50 w-full h-full flex items-center justify-center"
       >
-        <p>This is the modal content.</p>
         <button
-          className="mt-4 bg-red-500 text-white px-4 py-2 rounded"
           onClick={() => setModalOpen(false)}
+          className="absolute top-2 right-8 text-[30px] text-gray-500 hover:text-red-600 transition duration-200"
+          aria-label="Close"
         >
-          Close Modal
+          &times;
         </button>
+
+        <div className="space-y-6 cursor-pointer">
+          <h2 className="text-5xl font-bold text-center text-gray-800">
+            Training Providers
+          </h2>
+
+          <ul className="space-y-4">
+            {linksForLearner.map((item, index) => (
+              <li
+                onClick={() => window.open(item.url, "_blank")}
+                key={index}
+                className="flex items-center space-x-3 text-gray-700 hover:text-[#049b63] transition-colors duration-200"
+              >
+                <span className="text-3xl font-extrabold text-[#049b63]">
+                  &gt;
+                </span>
+                <p className="text-3xl">{item.label}</p>
+              </li>
+            ))}
+          </ul>
+          <h2 className="text-5xl font-bold text-center text-gray-800">
+            campaigns
+          </h2>
+          <li
+            onClick={() => navigate("/video-player")}
+            className="flex items-center space-x-3 text-gray-700 hover:text-[#049b63] transition-colors duration-200"
+          >
+            <span className="text-3xl font-extrabold text-[#049b63]">&gt;</span>
+            <p className="text-3xl">Video Link</p>
+          </li>
+        </div>
+      </Modals>
+
+      <Modals
+        isModalOpen={isModalOpenForInstitute}
+        mainClass="relative w-[800px] p-8 bg-white rounded shadow-lg"
+        overlayClass="bg-black bg-opacity-50 w-full h-full flex items-center justify-center"
+      >
+        <button
+          onClick={() => setModalOpenForInstitute(false)}
+          className="absolute top-2 right-8 text-[30px] text-gray-500 hover:text-red-600 transition duration-200"
+          aria-label="Close"
+        >
+          &times;
+        </button>
+
+        <div className="space-y-6 cursor-pointer">
+          <h2 className="text-4xl font-bold text-center text-gray-800">
+            For Registration and Accreditation
+          </h2>
+
+          <ul className="space-y-4">
+            {linksInstitute.map((item, index) => (
+              <li
+                onClick={() => console.log(`${item} clicked`)}
+                key={index}
+                className="flex items-center space-x-3 text-gray-700 hover:text-[#049b63] transition-colors duration-200"
+              >
+                <span className="text-2xl font-extrabold text-[#049b63]">
+                  &gt;
+                </span>
+                <p className="text-2xl">{item.label}</p>
+              </li>
+            ))}
+          </ul>
+          <h2 className="text-5xl font-bold text-center text-gray-800">
+            For Affilition
+          </h2>
+          <li
+            onClick={() => window.open("https://www.pbte.edu.pk", "_blank")}
+            className="flex items-center space-x-3 text-gray-700 hover:text-[#049b63] transition-colors duration-200"
+          >
+            <span className="text-3xl font-extrabold text-[#049b63]">&gt;</span>
+            <p className="text-3xl">
+              Punjab Board of Technical Education (PBTE)
+            </p>
+          </li>
+        </div>
       </Modals>
     </div>
   );
