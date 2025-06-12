@@ -1,0 +1,760 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="593f4bd3-a602-4427-8b98-294734a8dc98" name="Default" comment="" />
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="64" lean-forward="true" selection-start-line="3" selection-start-column="64" selection-end-line="3" selection-end-column="64" />
+              <folding>
+                <marker date="1519668238145" expanded="true" signature="661:693" ph="SELECT sum(m... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="839:873" ph="SELECT sum(f... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="1023:1059" ph="SELECT sum(c... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="13063:13106" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="14213:14280" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="15690:15731" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="17238:17282" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="18708:18758" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="20170:20213" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="21621:21662" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="23071:23127" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="24537:24603" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="26378:26426" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="27796:27829" ph="SELECT sum(g... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="28153:28194" ph="SELECT sum(t... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="28520:28553" ph="SELECT sum(c... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="28863:28904" ph="SELECT sum(t... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="29220:29252" ph="SELECT sum(d... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="29883:29940" ph="SELECT sum(g... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="30256:30321" ph="SELECT sum(t... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="30647:30704" ph="SELECT sum(c... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="31014:31079" ph="SELECT sum(t... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="31395:31451" ph="SELECT sum(d... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="32053:32106" ph="SELECT sum(g... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="32422:32483" ph="SELECT sum(t... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="32809:32862" ph="SELECT sum(c... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="33172:33233" ph="SELECT sum(t... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="33549:33601" ph="SELECT sum(d... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="34206:34262" ph="SELECT sum(g... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="34578:34642" ph="SELECT sum(t... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="34968:35024" ph="SELECT sum(c... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="35334:35398" ph="SELECT sum(t... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="35714:35769" ph="SELECT sum(d... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="36380:36442" ph="SELECT sum(g... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="36758:36828" ph="SELECT sum(t... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="37154:37216" ph="SELECT sum(c... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="37526:37596" ph="SELECT sum(t... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="37912:37973" ph="SELECT sum(d... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="38577:38632" ph="SELECT sum(g... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="38948:39011" ph="SELECT sum(t... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="39337:39392" ph="SELECT sum(c... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="39702:39765" ph="SELECT sum(t... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="40081:40135" ph="SELECT sum(d... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="40737:40790" ph="SELECT sum(g... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="41106:41167" ph="SELECT sum(t... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="41493:41546" ph="SELECT sum(c... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="41856:41917" ph="SELECT sum(t... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="42233:42285" ph="SELECT sum(d... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="42888:42956" ph="SELECT sum(g... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="43272:43348" ph="SELECT sum(t... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="43674:43742" ph="SELECT sum(c... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="44052:44128" ph="SELECT sum(t... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="44444:44511" ph="SELECT sum(d... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="45114:45192" ph="SELECT sum(g... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="45508:45594" ph="SELECT sum(t... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="45920:45998" ph="SELECT sum(c... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="46308:46394" ph="SELECT sum(t... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="46710:46787" ph="SELECT sum(d... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="47408:47457" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="48817:48863" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="50222:50267" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="51627:51673" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="53037:53087" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="54446:54491" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="55851:55897" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="58355:58404" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="59771:59824" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="61184:61230" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="62589:62634" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="63993:64038" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="65399:65446" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="66786:66829" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="68187:68232" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="69573:69617" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="70976:71021" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="72380:72425" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="73788:73837" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="75200:75249" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="76609:76655" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="78014:78059" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="79420:79467" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="80828:80875" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="82237:82285" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="83645:83691" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="85049:85093" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="86453:86499" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="87862:87911" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="89269:89313" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="90671:90715" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="92074:92119" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="93478:93523" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="94884:94931" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="96290:96335" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="97677:97722" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="99080:99124" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="100486:100534" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="101894:101940" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="103288:103339" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="104706:104759" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="106117:106161" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="107520:107565" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="108923:108967" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="110328:110375" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="111735:111781" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="113126:113174" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="114533:114578" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="115940:115988" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="117347:117392" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="118749:118792" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="120152:120198" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="121559:121606" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="122971:123022" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="124383:124430" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="125789:125834" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="127194:127240" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="128605:128656" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="130016:130062" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="131424:131472" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="132829:132872" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="134230:134274" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="135634:135680" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="139187:139231" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="140591:140637" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="142004:142057" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="143415:143459" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="144827:144881" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="146240:146285" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="147652:147705" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="149065:149111" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="150470:150515" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="151874:151919" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="153280:153327" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="154686:154731" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="156088:156131" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="157496:157547" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="158907:158953" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="160310:160353" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="161717:161766" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="163130:163180" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="164546:164598" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="165957:166002" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="167367:167418" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="168777:168822" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="170193:170250" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="171616:171668" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="173025:173068" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="174426:174470" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="175830:175876" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="177235:177280" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="178641:178688" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="180048:180094" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="181455:181502" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="182867:182918" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="184280:184328" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="185694:185746" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="187108:187156" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="188513:188556" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="189922:189973" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="191320:191366" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="192725:192770" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="194130:194176" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="195536:195582" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="196941:196986" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="198348:198396" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="199757:199804" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="201167:201216" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="202574:202618" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="203988:204043" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="205403:205449" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="207895:207942" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="209305:209354" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="210717:210766" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="212124:212168" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="213534:213586" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="214946:214992" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="216362:216418" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="217779:217826" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="219186:219232" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="220594:220641" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="223076:223122" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="224481:224526" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="225886:225932" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="227292:227337" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="229779:229826" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="231188:231233" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="234756:234807" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="236152:236197" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="237558:237602" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="240046:240094" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="241469:241529" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="242892:242940" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="244307:244359" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="245734:245794" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="248146:248190" ph="select * fro... mapdata" />
+                <marker date="1519668238145" expanded="true" signature="249552:249600" ph="select * fro... mapdata" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/index.php" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER">
+    <gruntfile path="$PROJECT_DIR$/Gruntfile.js" />
+  </component>
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="10" />
+    <option name="y" value="20" />
+    <option name="width" value="1346" />
+    <option name="height" value="688" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="dmap" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dmap" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="HbShouldOpenHtmlAsHb" value="" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="593f4bd3-a602-4427-8b98-294734a8dc98" name="Default" comment="" />
+      <created>1519667831294</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1519667831294</updated>
+      <workItem from="1519667839767" duration="263000" />
+      <workItem from="1519668173935" duration="66000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="329000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="10" y="20" width="1346" height="688" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2534992" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Grunt " active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1519668238145" expanded="true" signature="661:693" ph="SELECT sum(m... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="839:873" ph="SELECT sum(f... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="1023:1059" ph="SELECT sum(c... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="13063:13106" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="14213:14280" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="15690:15731" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="17238:17282" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="18708:18758" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="20170:20213" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="21621:21662" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="23071:23127" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="24537:24603" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="26378:26426" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="27796:27829" ph="SELECT sum(g... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="28153:28194" ph="SELECT sum(t... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="28520:28553" ph="SELECT sum(c... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="28863:28904" ph="SELECT sum(t... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="29220:29252" ph="SELECT sum(d... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="29883:29940" ph="SELECT sum(g... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="30256:30321" ph="SELECT sum(t... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="30647:30704" ph="SELECT sum(c... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="31014:31079" ph="SELECT sum(t... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="31395:31451" ph="SELECT sum(d... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="32053:32106" ph="SELECT sum(g... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="32422:32483" ph="SELECT sum(t... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="32809:32862" ph="SELECT sum(c... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="33172:33233" ph="SELECT sum(t... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="33549:33601" ph="SELECT sum(d... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="34206:34262" ph="SELECT sum(g... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="34578:34642" ph="SELECT sum(t... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="34968:35024" ph="SELECT sum(c... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="35334:35398" ph="SELECT sum(t... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="35714:35769" ph="SELECT sum(d... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="36380:36442" ph="SELECT sum(g... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="36758:36828" ph="SELECT sum(t... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="37154:37216" ph="SELECT sum(c... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="37526:37596" ph="SELECT sum(t... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="37912:37973" ph="SELECT sum(d... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="38577:38632" ph="SELECT sum(g... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="38948:39011" ph="SELECT sum(t... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="39337:39392" ph="SELECT sum(c... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="39702:39765" ph="SELECT sum(t... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="40081:40135" ph="SELECT sum(d... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="40737:40790" ph="SELECT sum(g... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="41106:41167" ph="SELECT sum(t... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="41493:41546" ph="SELECT sum(c... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="41856:41917" ph="SELECT sum(t... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="42233:42285" ph="SELECT sum(d... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="42888:42956" ph="SELECT sum(g... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="43272:43348" ph="SELECT sum(t... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="43674:43742" ph="SELECT sum(c... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="44052:44128" ph="SELECT sum(t... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="44444:44511" ph="SELECT sum(d... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="45114:45192" ph="SELECT sum(g... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="45508:45594" ph="SELECT sum(t... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="45920:45998" ph="SELECT sum(c... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="46308:46394" ph="SELECT sum(t... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="46710:46787" ph="SELECT sum(d... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="47408:47457" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="48817:48863" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="50222:50267" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="51627:51673" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="53037:53087" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="54446:54491" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="55851:55897" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="58355:58404" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="59771:59824" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="61184:61230" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="62589:62634" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="63993:64038" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="65399:65446" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="66786:66829" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="68187:68232" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="69573:69617" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="70976:71021" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="72380:72425" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="73788:73837" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="75200:75249" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="76609:76655" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="78014:78059" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="79420:79467" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="80828:80875" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="82237:82285" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="83645:83691" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="85049:85093" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="86453:86499" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="87862:87911" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="89269:89313" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="90671:90715" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="92074:92119" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="93478:93523" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="94884:94931" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="96290:96335" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="97677:97722" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="99080:99124" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="100486:100534" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="101894:101940" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="103288:103339" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="104706:104759" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="106117:106161" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="107520:107565" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="108923:108967" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="110328:110375" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="111735:111781" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="113126:113174" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="114533:114578" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="115940:115988" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="117347:117392" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="118749:118792" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="120152:120198" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="121559:121606" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="122971:123022" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="124383:124430" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="125789:125834" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="127194:127240" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="128605:128656" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="130016:130062" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="131424:131472" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="132829:132872" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="134230:134274" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="135634:135680" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="139187:139231" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="140591:140637" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="142004:142057" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="143415:143459" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="144827:144881" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="146240:146285" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="147652:147705" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="149065:149111" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="150470:150515" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="151874:151919" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="153280:153327" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="154686:154731" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="156088:156131" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="157496:157547" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="158907:158953" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="160310:160353" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="161717:161766" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="163130:163180" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="164546:164598" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="165957:166002" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="167367:167418" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="168777:168822" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="170193:170250" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="171616:171668" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="173025:173068" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="174426:174470" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="175830:175876" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="177235:177280" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="178641:178688" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="180048:180094" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="181455:181502" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="182867:182918" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="184280:184328" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="185694:185746" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="187108:187156" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="188513:188556" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="189922:189973" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="191320:191366" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="192725:192770" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="194130:194176" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="195536:195582" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="196941:196986" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="198348:198396" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="199757:199804" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="201167:201216" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="202574:202618" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="203988:204043" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="205403:205449" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="207895:207942" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="209305:209354" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="210717:210766" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="212124:212168" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="213534:213586" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="214946:214992" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="216362:216418" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="217779:217826" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="219186:219232" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="220594:220641" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="223076:223122" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="224481:224526" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="225886:225932" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="227292:227337" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="229779:229826" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="231188:231233" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="234756:234807" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="236152:236197" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="237558:237602" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="240046:240094" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="241469:241529" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="242892:242940" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="244307:244359" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="245734:245794" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="248146:248190" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="249552:249600" ph="select * fro... mapdata" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="64" lean-forward="true" selection-start-line="3" selection-start-column="64" selection-end-line="3" selection-end-column="64" />
+          <folding>
+            <marker date="1519668238145" expanded="true" signature="661:693" ph="SELECT sum(m... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="839:873" ph="SELECT sum(f... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="1023:1059" ph="SELECT sum(c... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="13063:13106" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="14213:14280" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="15690:15731" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="17238:17282" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="18708:18758" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="20170:20213" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="21621:21662" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="23071:23127" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="24537:24603" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="26378:26426" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="27796:27829" ph="SELECT sum(g... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="28153:28194" ph="SELECT sum(t... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="28520:28553" ph="SELECT sum(c... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="28863:28904" ph="SELECT sum(t... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="29220:29252" ph="SELECT sum(d... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="29883:29940" ph="SELECT sum(g... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="30256:30321" ph="SELECT sum(t... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="30647:30704" ph="SELECT sum(c... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="31014:31079" ph="SELECT sum(t... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="31395:31451" ph="SELECT sum(d... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="32053:32106" ph="SELECT sum(g... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="32422:32483" ph="SELECT sum(t... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="32809:32862" ph="SELECT sum(c... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="33172:33233" ph="SELECT sum(t... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="33549:33601" ph="SELECT sum(d... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="34206:34262" ph="SELECT sum(g... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="34578:34642" ph="SELECT sum(t... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="34968:35024" ph="SELECT sum(c... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="35334:35398" ph="SELECT sum(t... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="35714:35769" ph="SELECT sum(d... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="36380:36442" ph="SELECT sum(g... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="36758:36828" ph="SELECT sum(t... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="37154:37216" ph="SELECT sum(c... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="37526:37596" ph="SELECT sum(t... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="37912:37973" ph="SELECT sum(d... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="38577:38632" ph="SELECT sum(g... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="38948:39011" ph="SELECT sum(t... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="39337:39392" ph="SELECT sum(c... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="39702:39765" ph="SELECT sum(t... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="40081:40135" ph="SELECT sum(d... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="40737:40790" ph="SELECT sum(g... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="41106:41167" ph="SELECT sum(t... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="41493:41546" ph="SELECT sum(c... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="41856:41917" ph="SELECT sum(t... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="42233:42285" ph="SELECT sum(d... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="42888:42956" ph="SELECT sum(g... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="43272:43348" ph="SELECT sum(t... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="43674:43742" ph="SELECT sum(c... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="44052:44128" ph="SELECT sum(t... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="44444:44511" ph="SELECT sum(d... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="45114:45192" ph="SELECT sum(g... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="45508:45594" ph="SELECT sum(t... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="45920:45998" ph="SELECT sum(c... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="46308:46394" ph="SELECT sum(t... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="46710:46787" ph="SELECT sum(d... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="47408:47457" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="48817:48863" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="50222:50267" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="51627:51673" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="53037:53087" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="54446:54491" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="55851:55897" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="58355:58404" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="59771:59824" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="61184:61230" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="62589:62634" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="63993:64038" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="65399:65446" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="66786:66829" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="68187:68232" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="69573:69617" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="70976:71021" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="72380:72425" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="73788:73837" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="75200:75249" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="76609:76655" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="78014:78059" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="79420:79467" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="80828:80875" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="82237:82285" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="83645:83691" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="85049:85093" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="86453:86499" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="87862:87911" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="89269:89313" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="90671:90715" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="92074:92119" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="93478:93523" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="94884:94931" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="96290:96335" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="97677:97722" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="99080:99124" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="100486:100534" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="101894:101940" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="103288:103339" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="104706:104759" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="106117:106161" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="107520:107565" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="108923:108967" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="110328:110375" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="111735:111781" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="113126:113174" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="114533:114578" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="115940:115988" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="117347:117392" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="118749:118792" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="120152:120198" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="121559:121606" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="122971:123022" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="124383:124430" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="125789:125834" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="127194:127240" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="128605:128656" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="130016:130062" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="131424:131472" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="132829:132872" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="134230:134274" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="135634:135680" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="139187:139231" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="140591:140637" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="142004:142057" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="143415:143459" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="144827:144881" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="146240:146285" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="147652:147705" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="149065:149111" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="150470:150515" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="151874:151919" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="153280:153327" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="154686:154731" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="156088:156131" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="157496:157547" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="158907:158953" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="160310:160353" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="161717:161766" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="163130:163180" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="164546:164598" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="165957:166002" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="167367:167418" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="168777:168822" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="170193:170250" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="171616:171668" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="173025:173068" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="174426:174470" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="175830:175876" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="177235:177280" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="178641:178688" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="180048:180094" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="181455:181502" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="182867:182918" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="184280:184328" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="185694:185746" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="187108:187156" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="188513:188556" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="189922:189973" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="191320:191366" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="192725:192770" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="194130:194176" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="195536:195582" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="196941:196986" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="198348:198396" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="199757:199804" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="201167:201216" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="202574:202618" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="203988:204043" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="205403:205449" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="207895:207942" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="209305:209354" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="210717:210766" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="212124:212168" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="213534:213586" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="214946:214992" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="216362:216418" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="217779:217826" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="219186:219232" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="220594:220641" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="223076:223122" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="224481:224526" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="225886:225932" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="227292:227337" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="229779:229826" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="231188:231233" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="234756:234807" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="236152:236197" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="237558:237602" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="240046:240094" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="241469:241529" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="242892:242940" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="244307:244359" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="245734:245794" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="248146:248190" ph="select * fro... mapdata" />
+            <marker date="1519668238145" expanded="true" signature="249552:249600" ph="select * fro... mapdata" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

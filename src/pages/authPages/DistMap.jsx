@@ -1,161 +1,305 @@
-import React, { useLayoutEffect, useRef } from "react";
-import * as am5 from "@amcharts/amcharts5";
-import * as am5map from "@amcharts/amcharts5/map";
-import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
+// // src/components/DistMap.js or .tsx if using TypeScript
+// import React, { useEffect, useRef } from "react";
 
+// // Props: districts and district mapping
 
-import am5geodata_pakistanLow from "@amcharts/amcharts5-geodata/pakistanLow";
+// const districts = {
+//   rajanpur: 1,
+//   deraghazikhan: 2,
+//   multan: 3,
+//   lahore: 4,
+//   faisalabad: 5,
+//   gujranwala: 6,
+//   sialkot: 7,
+//   rawalpindi: 8,
+//   islamabad: 9,
+//   sargodha: 10,
+//   chakwal: 11,
+//   jhelum: 12,
+//   bahawalpur: 13,
+//   bahawalnagar: 14,
+//   vehari: 15,
+//   khanewal: 16,
+//   muzaffargarh: 17,
+//   layyah: 18,
+//   kasur: 19,
+//   okara: 20,
+//   sheikhupura: 21,
+//   narowal: 22,
+//   hafizabad: 23,
+//   mianwali: 24,
+//   bhakkar: 25,
+//   attock: 26,
+//   gujrat: 27,
+//   toba_tek_singh: 28,
+//   jhang: 29,
+//   chiniot: 30,
+//   lodhran: 31,
+//   pakpattan: 32,
+//   khushab: 33,
+//   nawabshah: 34,
+//   hyderabad: 35,
+//   karachi: 36,
+//   sukkur: 37,
+//   larkana: 38,
+//   gilgit: 39,
+//   skardu: 40,
+//   quetta: 41,
+//   zhob: 42,
+//   peshawar: 43,
+//   mardan: 44,
+//   swat: 45,
+//   dera_ismail_khan: 46,
+//   bannu: 47
+// };
+// const districtsData = [
+//   { id: 1, name: "Rajanpur" },
+//   { id: 2, name: "Dera Ghazi Khan" },
+//   { id: 3, name: "Multan" },
+//   { id: 4, name: "Lahore" },
+//   { id: 5, name: "Faisalabad" },
+//   { id: 6, name: "Gujranwala" },
+//   { id: 7, name: "Sialkot" },
+//   { id: 8, name: "Rawalpindi" },
+//   { id: 9, name: "Islamabad" },
+//   { id: 10, name: "Sargodha" },
+//   { id: 11, name: "Chakwal" },
+//   { id: 12, name: "Jhelum" },
+//   { id: 13, name: "Bahawalpur" },
+//   { id: 14, name: "Bahawalnagar" },
+//   { id: 15, name: "Vehari" },
+//   { id: 16, name: "Khanewal" },
+//   { id: 17, name: "Muzaffargarh" },
+//   { id: 18, name: "Layyah" },
+//   { id: 19, name: "Kasur" },
+//   { id: 20, name: "Okara" },
+//   { id: 21, name: "Sheikhupura" },
+//   { id: 22, name: "Narowal" },
+//   { id: 23, name: "Hafizabad" },
+//   { id: 24, name: "Mianwali" },
+//   { id: 25, name: "Bhakkar" },
+//   { id: 26, name: "Attock" },
+//   { id: 27, name: "Gujrat" },
+//   { id: 28, name: "Toba Tek Singh" },
+//   { id: 29, name: "Jhang" },
+//   { id: 30, name: "Chiniot" },
+//   { id: 31, name: "Lodhran" },
+//   { id: 32, name: "Pakpattan" },
+//   { id: 33, name: "Khushab" }
+// ];
+// const DistMap = () => {
+//   const mapRef = useRef(null);
 
-import Header from "./DashboardPages/Components/Header"; 
-import Footer from "./DashboardPages/Components/Footer"; 
+//   useEffect(() => {
+//     if (!window.AmCharts || !window.AmCharts.makeChart) return;
 
+//     const map = new window.AmCharts.AmMap();
+//     map.path = "https://cdn.amcharts.com/lib/3/";
 
-const cityDistrictMapping = [
-  { name: "Lahore", districtId: "VERIFY_LAHORE_DISTRICT_ID_IN_GEOJSON", color: am5.color(0xFF6F00) },
-  { name: "Multan", districtId: "VERIFY_MULTAN_DISTRICT_ID_IN_GEOJSON", color: am5.color(0xAD1457) },
-  { name: "Faisalabad", districtId: "VERIFY_FAISALABAD_DISTRICT_ID_IN_GEOJSON", color: am5.color(0x0277BD) },
-  { name: "Rawalpindi", districtId: "VERIFY_RAWALPINDI_DISTRICT_ID_IN_GEOJSON", color: am5.color(0x2E7D32) },
-  { name: "Gujranwala", districtId: "VERIFY_GUJRANWALA_DISTRICT_ID_IN_GEOJSON", color: am5.color(0x512DA8) },
-  { name: "Sargodha", districtId: "VERIFY_SARGODHA_DISTRICT_ID_IN_GEOJSON", color: am5.color(0xC62828) },
-  { name: "Bahawalpur", districtId: "VERIFY_BAHAWALPUR_DISTRICT_ID_IN_GEOJSON", color: am5.color(0x4527A0) },
-  { name: "Sialkot", districtId: "VERIFY_SIALKOT_DISTRICT_ID_IN_GEOJSON", color: am5.color(0x00695C) },
+//     const dataProvider = {
+//       mapVar: window.AmCharts.maps.pakistanCustom,
+//       areas: districtsData,
+//     };
 
+//     map.dataProvider = dataProvider;
+
+//     map.areasSettings = {
+//       unlistedAreasColor: "#DDDDDD",
+//       rollOverOutlineColor: "#FFFFFF",
+//       rollOverColor: "#CC0000",
+//     };
+
+//     map.zoomControl = {
+//       buttonFillColor: "#2f4798",
+//       buttonRollOverColor: "#2f3998",
+//       buttonFillHoverColor: "#0a2910",
+//       buttonBorderColor: "#000000",
+//       gridBackgroundColor: "#e8f5e9",
+//       gridColor: "#155724",
+//       gridAlpha: 0.5,
+//     };
+
+//     map.write(mapRef.current);
+
+//     map.addListener("clickMapObject", function (event) {
+//       if (event.mapObject?.id) {
+//         const districtId = event.mapObject.id.toLowerCase();
+//         const districtValue = districts[districtId];
+
+//         if (districtValue) {
+//           const link = document.createElement("a");
+//           link.href = `/districtdetails/${districtValue}`; // Adjust route as needed
+//           link.target = "_blank";
+//           link.innerHTML = `Click for ${districtId} Details`;
+
+//           const mapLink = document.getElementById("maplink");
+//           if (mapLink) {
+//             mapLink.innerHTML = "";
+//             mapLink.appendChild(link);
+//           }
+
+//           // Your custom chart update function
+//           if (typeof window.updateChart === "function") {
+//             window.updateChart(districtValue);
+//           }
+//         }
+//       }
+//     });
+
+//     return () => {
+//       if (map && map.clear) {
+//         map.clear();
+//       }
+//     };
+//   }, [districtsData, districts]);
+
+//   return (
+//     <div>
+//       <div id="mapdiv" ref={mapRef} style={{ width: "100%", height: "600px" }}></div>
+//       <div id="maplink" style={{ marginTop: 10 }}></div>
+//     </div>
+//   );
+// };
+
+// export default DistMap;
+
+import React, { useEffect, useRef } from "react";
+
+const districtsData = [
+  { id: "pk-pb-rajanpur", title: "Rajanpur" },
+  { id: "pk-pb-deraghazikhan", title: "Dera Ghazi Khan" },
+  { id: "pk-pb-multan", title: "Multan" },
+  { id: "pk-pb-lahore", title: "Lahore" },
+  { id: "pk-pb-faisalabad", title: "Faisalabad" },
+  { id: "pk-pb-rawalpindi", title: "Rawalpindi" },
+  { id: "pk-pb-gujranwala", title: "Gujranwala" },
+  { id: "pk-pb-sialkot", title: "Sialkot" },
 ];
 
+const districts = {
+    "attock": 1,
+    "bahawalnagar": 2,
+    "bahawalpur": 3,
+    "bhakkar": 4,
+    "chakwal": 5,
+    "chiniot": 6,
+    "deraghazikhan": 71,
+    "faisalabad": 8,
+    "gujranwala": 9,
+    "gujrat": 10,
+    "hafizabad": 11,
+    "jhang": 12,
+    "jhelum": 13,
+    "kasur": 14,
+    "khanewal": 15,
+    "khushab": 16,
+    "lahore": 17,
+    "layyah": 18,
+    "lodhran": 19,
+    "mandibahauddin": 20,
+    "mianwali": 21,
+    "multan": 22,
+    "muzaffargarh": 23,
+    "nankanasahib": 24,
+    "narowal": 25,
+    "okara": 26,
+    "pakpattan": 27,
+    "rahimyarkhan": 200,
+    "rajanpur": 29,
+    "rawalpindi": 30,
+    "sahiwal": 31,
+    "sargodha": 32,
+    "sheikhupura": 33,
+    "sialkot": 34,
+    "tobateksingh": 35,
+    "vehari": 36
+}
 
-const DistMap = () => {
-  const rootRef = useRef(null);
+const DistMap = ({ onDistrictClick }) => {
+  const mapInstance = useRef(null);
 
-  useLayoutEffect(() => {
-    if (rootRef.current) {
-      rootRef.current.dispose();
+  useEffect(() => {
+    if (!window.AmCharts || !window.AmCharts.AmMap) {
+      console.error("AmCharts library not loaded");
+      return;
     }
 
-    let root = am5.Root.new("punjab-city-areas-map");
-    rootRef.current = root;
+    const AmCharts = window.AmCharts;
 
-    root.setThemes([am5themes_Animated.new(root)]);
-
-    let chart = root.container.children.push(
-      am5map.MapChart.new(root, {
-        panX: "rotateX",
-        panY: "translateY",
-        projection: am5map.geoMercator(),
-        homeGeoPoint: { longitude: 72.25, latitude: 31.17 }, // Approx. center of Punjab
-        homeZoomLevel: 2.5, // Adjust to fit Punjab well
-      })
-    );
-
-    let punjabProvinceSeries = chart.series.push(
-      am5map.MapPolygonSeries.new(root, {
-        geoJSON: am5geodata_pakistanLow, // Source of all polygons
-        include: ["PK-PB"], 
-        name: "punjabProvince"
-      })
-    );
-    punjabProvinceSeries.mapPolygons.template.setAll({
-      tooltipText: "{name}", // Shows "Punjab"
-      interactive: false,
-      fill: am5.color(0xF5F5F5), // Very light grey for province background
-      stroke: am5.color(0xBDBDBD),
-      strokeWidth: 0.8,
-    });
-
-    let highlightedCityDistrictsSeries = chart.series.push(
-        am5map.MapPolygonSeries.new(root, {
-            geoJSON: am5geodata_pakistanLow, 
-            name: "highlightedCityDistricts"
-        })
-    );
-
-    const dataToPush = [];
-    cityDistrictMapping.forEach(cityInfo => {
-        if (cityInfo.districtId && !cityInfo.districtId.startsWith("VERIFY_")) {
-            dataToPush.push({
-                id: cityInfo.districtId, // This ID must match a polygon ID in am5geodata_pakistanLow
-                name: cityInfo.name,     // Tooltip name, e.g., "Lahore"
-                fill: cityInfo.color     // Specific color for this city's district area
-            });
-        } else {
-            console.warn(`Placeholder or missing districtId for city: ${cityInfo.name}. This city district will not be shown.`);
-        }
-    });
-
-    if (dataToPush.length > 0) {
-        highlightedCityDistrictsSeries.data.setAll(dataToPush);
-    } else {
-        console.warn("No valid city district data to display in highlightedCityDistrictsSeries. Check your cityDistrictMapping and GeoJSON IDs.");
+    console.log("AmCharts.maps.pakistanCustom", AmCharts.maps.pakistanCustom);
+    if (!AmCharts.maps.pakistanCustom) {
+      console.error("pakistanCustom map is not loaded");
+      return;
     }
 
+    const map = new AmCharts.AmMap();
+    map.path = "https://cdn.amcharts.com/lib/3/";
 
-    highlightedCityDistrictsSeries.mapPolygons.template.setAll({
-        tooltipText: "{name}", 
-        interactive: true,
-        stroke: am5.color(0xFFFFFF), 
-        strokeWidth: 1.5, 
-        cursorOverStyle: "pointer",
-        fill: am5.color(0x000000)    });
+    map.dataProvider = {
+      mapVar: AmCharts.maps.pakistanCustom,
+      areas: districtsData,
+    };
 
-    highlightedCityDistrictsSeries.mapPolygons.template.adapters.add("fill", function(fill, target) {
-      if (target.dataItem && target.dataItem.dataContext && target.dataItem.dataContext.fill) {
-        return target.dataItem.dataContext.fill; // Use color from cityDistrictMapping
-      }
-    
-      return am5.color(0xCCCCCC); 
-    });
+    map.areasSettings = {
+      unlistedAreasColor: "#DDDDDD",
+      rollOverOutlineColor: "#FFFFFF",
+      rollOverColor: "#CC0000",
+      autoZoom: true,
+      balloonText: "[[title]]", // Tooltip on hover
+    };
 
-  
-    highlightedCityDistrictsSeries.mapPolygons.template.states.create("hover", {
-        strokeWidth: 2.5,
-        stroke: am5.color(0x333333) 
-    });
+    map.zoomControl = {
+      buttonFillColor: "#2f4798",
+      buttonRollOverColor: "#2f3998",
+      buttonFillHoverColor: "#0a2910",
+      buttonBorderColor: "#000000",
+      gridBackgroundColor: "#e8f5e9",
+      gridColor: "#155724",
+      gridAlpha: 0.5,
+    };
 
-    highlightedCityDistrictsSeries.mapPolygons.template.events.on("click", (ev) => {
-        const dataContext = ev.target.dataItem.dataContext;
-        if (dataContext) {
-            const cityName = dataContext.name;
-            const districtId = dataContext.id;
-            alert(`${cityName} (District ID: ${districtId})`);
+    map.write("mapdiv");
+    mapInstance.current = map;
+
+    map.addListener("clickMapObject", (event) => {
+      if (event.mapObject && event.mapObject.id) {
+       const districtKey = event.mapObject.id.toLowerCase();
+       const districtId = districts[districtKey];
+
+        if (districtId) {
+          if (onDistrictClick) onDistrictClick(districtId);
+
+          const maplink = document.getElementById("maplink");
+          if (maplink) {
+            maplink.innerHTML = "";
+            const link = document.createElement("a");
+            link.href = `/districtdetails/${districtId}`;
+            link.target = "_blank";
+            link.textContent = `Click for ${event.mapObject.title} Details`;
+            maplink.appendChild(link);
+          }
+
+          if (typeof window.updateChart === "function") {
+            window.updateChart(districtId);
+          }
         }
-    });
-
-    
-    highlightedCityDistrictsSeries.events.on("datavalidated", function() {
-      console.log("Highlighted city districts series data validated. Number of polygons drawn:", highlightedCityDistrictsSeries.mapPolygons.length);
-      if (highlightedCityDistrictsSeries.mapPolygons.length === 0 && dataToPush.length > 0) {
-        console.error("Data was pushed to highlightedCityDistrictsSeries, but no polygons were drawn. This strongly indicates that the 'districtId' values in your 'cityDistrictMapping' do NOT match any 'id' properties in the 'am5geodata_pakistanLow.js' for the features within Punjab.");
       }
     });
-    punjabProvinceSeries.events.on("datavalidated", function() {
-        console.log("Punjab province series data validated.");
-    });
-
 
     return () => {
-      if (rootRef.current) {
-        console.log("Disposing amCharts root.");
-        rootRef.current.dispose();
-        rootRef.current = null; 
+      if (mapInstance.current && typeof mapInstance.current.clear === "function") {
+        mapInstance.current.clear();
       }
     };
-  }, []); 
+  }, [onDistrictClick]);
 
   return (
-    <div>
-      <Header />
-      <div className="Browse bg-[#478e51] mb-8 p-4">
-
-        <h2 className="text-white text-2xl text-center">Map of Punjab: Major Cities</h2>
-        <p className="text-white text-center mt-2">Hover over or click on a city area.</p>
-      </div>
-
-      <div className="px-4">
-        <div id="punjab-city-areas-map" style={{ width: "100%", height: "600px", border: "1px solid #ccc" }}></div>
-      </div>
-
-      <Footer />
-    </div>
+    <>
+      <div id="mapdiv" style={{ width: "100%", height: "600px", border: "1px solid #ccc" }} />
+      <div id="maplink" style={{ marginTop: 10 }} />
+    </>
   );
 };
 
 export default DistMap;
+
