@@ -25,104 +25,86 @@ const useSideNav = () => {
     return [
       {
         id: uuid(),
-        title: "Dashboard",
-        url: "/",
+        title: "Institutes",
+        url: "/admin/institutes",
         logo: <MdDashboard />
       },
-      // {
-      //   id: uuid(),
-      //   title: "Roles",
-      //   url: "/roles",
-      //   logo: <FaUserShield />
-      // },
       {
         id: uuid(),
-        title: "Sub Roles",
-        url: "/sub-roles",
+        title: "Employees",
+        url: "/admin/employees",
         logo: <FaUserTag />
       },
       {
         id: uuid(),
         title: "Users",
-        url: "/users",
+        url: "/admin/users",
         logo: <FaUsers />
       },
-      {
-        id: uuid(),
-        title: "Print Shop",
-        url: "/print-shops",
-        logo: <FaHouseLaptop />
-      },
-      {
-        id: uuid(),
-        title: "Price Plan",
-        url: "/price-plans",
-        logo: <MdOutlinePriceChange />
-      },
-      {
-        id: uuid(),
-        title: "Jobs",
-        url: "/jobs",
-        logo: <FaRegFileAlt />
-      },
-      {
-        id: uuid(),
-        title: "Check List Item",
-        url: "/check-list-items",
-        logo: <FaListCheck />
-      }, 
-      {
-        id: uuid(),
-        title: "Payment Ledger",
-        url: "/ledger",
-        logo: <GiNotebook />
-      },
-      {
-        id: uuid(),
-        title: "Transactions",
-        url: "/transaction/list",
-        logo: <GrTransaction />
-      },
       // {
       //   id: uuid(),
-      //   title: "Tracking",
-      //   url: "/tracking",
-      //   logo: <PiPackage />
+      //   title: "Print Shop",
+      //   url: "/print-shops",
+      //   logo: <FaHouseLaptop />
       // },
       // {
       //   id: uuid(),
-      //   title: "Account Settlements",
-      //   url: "/account-settlements",
-      //   logo: <LuChartNoAxesCombined />
+      //   title: "Price Plan",
+      //   url: "/price-plans",
+      //   logo: <MdOutlinePriceChange />
       // },
+      // {
+      //   id: uuid(),
+      //   title: "Jobs",
+      //   url: "/jobs",
+      //   logo: <FaRegFileAlt />
+      // },
+      // {
+      //   id: uuid(),
+      //   title: "Check List Item",
+      //   url: "/check-list-items",
+      //   logo: <FaListCheck />
+      // }, 
+      // {
+      //   id: uuid(),
+      //   title: "Payment Ledger",
+      //   url: "/ledger",
+      //   logo: <GiNotebook />
+      // },
+      // {
+      //   id: uuid(),
+      //   title: "Transactions",
+      //   url: "/transaction/list",
+      //   logo: <GrTransaction />
+      // },
+
       
-      {
-        id: uuid(),
-        title: "Address",
-        // url: "/address/country",
-        logo: <FaAddressBook />,
-        dropdown:[
-          {
-            id: uuid(),
-            title: "Country",
-            url: "/address/country",
-            logo: <BiWorld />
-          }, 
-          {
-            id: uuid(),
-            title: "Province",
-            url: "/address/province",
-            logo: <MdRealEstateAgent />
-          }, 
-          {
-            id: uuid(),
-            title: "City",
-            url: "/address/city",
-            logo: <FaCity />
-          }
+      // {
+      //   id: uuid(),
+      //   title: "Address",
+      //   logo: <FaAddressBook />,
+      //   dropdown:[
+      //     {
+      //       id: uuid(),
+      //       title: "Country",
+      //       url: "/address/country",
+      //       logo: <BiWorld />
+      //     }, 
+      //     {
+      //       id: uuid(),
+      //       title: "Province",
+      //       url: "/address/province",
+      //       logo: <MdRealEstateAgent />
+      //     }, 
+      //     {
+      //       id: uuid(),
+      //       title: "City",
+      //       url: "/address/city",
+      //       logo: <FaCity />
+      //     }
           
-        ]
-      },
+      //   ]
+      // },
       {
         id: uuid(),
         title: "Logs",

@@ -41,25 +41,32 @@ export const MainMenu = React.lazy(() =>
 /**
  * Protected Pages
  */
-// export const DashboardPage = React.lazy(() =>
-//   import("../../pages/protectedPages/DashboardPages/DashboardPage").then(
-//     (module) => ({
-//       default: module.default,
-//     })
-//   )
+export const AdminDashboard = React.lazy(() =>
+  import("@/admin/pages/AdminDashboard").then(
+    (module) => ({
+      default: module.default,
+    })
+  )
+);
+export const AdminEmploy = React.lazy(() =>
+  import("@/admin/pages/AdminEmploy").then(
+    (module) => ({
+      default: module.default,
+    })
+  )
+);
+
+// export const Favorite = React.lazy(() =>
+//   import("@/pages/protectedPages/Favorite/Favorite").then((module) => ({
+//     default: module.default,
+//   }))
 // );
 
-export const Favorite = React.lazy(() =>
-  import("@/pages/protectedPages/Favorite/Favorite").then((module) => ({
-    default: module.default,
-  }))
-);
-
-export const Restaurants = React.lazy(() =>
-  import("@/pages/protectedPages/Restaurants/Restaurants").then((module) => ({
-    default: module.default,
-  }))
-);
+// export const Restaurants = React.lazy(() =>
+//   import("@/pages/protectedPages/Restaurants/Restaurants").then((module) => ({
+//     default: module.default,
+//   }))
+// );
 
 // export const MainMenu = React.lazy(() =>
 //   import("@/pages/protectedPages/MainMenu/MainMenu").then((module) => ({
@@ -67,18 +74,18 @@ export const Restaurants = React.lazy(() =>
 //   }))
 // );
 
-export const SingleRestaurant = React.lazy(() =>
-  import("@/pages/protectedPages/SingleRestaurant/SingleRestaurant").then((module) => ({
-    default: module.default,
-  }))
-);
-export const ProfileScreen = React.lazy(() =>
-  import("@/pages/protectedPages/ProfileScreen/ProfileScreen").then((module) => ({
-    default: module.default,
-  }))
-);
-export const CheckOut = React.lazy(() =>
-  import("@/pages/protectedPages/CheckOut/CheckOut").then((module) => ({
-    default: module.default,
-  }))
-);
+// export const SingleRestaurant = React.lazy(() =>
+//   import("@/pages/protectedPages/SingleRestaurant/SingleRestaurant").then((module) => ({
+//     default: module.default,
+//   }))
+// );
+// export const ProfileScreen = React.lazy(() =>
+//   import("@/pages/protectedPages/ProfileScreen/ProfileScreen").then((module) => ({
+//     default: module.default,
+//   }))
+// );
+// export const CheckOut = React.lazy(() =>
+//   import("@/pages/protectedPages/CheckOut/CheckOut").then((module) => ({
+//     default: module.default,
+//   }))
+// );

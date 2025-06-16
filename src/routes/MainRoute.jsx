@@ -25,6 +25,7 @@ import ProfileDetail from "@/pages/authPages/ProfileDetail";
 import ForEmployer from "@/pages/authPages/ForEmployer";
 import ForGraduate from "@/pages/authPages/ForGraduate";
 import VideoPlayer from "@/pages/authPages/VideoPlayer";
+import AdminRoutes from "@/admin/adminRoutes/AdminRoutes";
 
 const MainRoute = () => {
   return (
@@ -42,6 +43,7 @@ const MainRoute = () => {
             </PageTransition>
           }
         />
+         <Route path="/admin/*" element={<AdminRoutes />} />
          <Route
           path="/about-us"
           element={

@@ -1,21 +1,24 @@
-import { useLocation } from "react-router-dom";
-import Footer from "../templates/Footer/Footer";
+// import {useSelector} from "react-redux"
+import { useSelector } from "react-redux";
 import Header from "../templates/Header/Header";
-import MainHeader from "../templates/Header/MainHeader";
+import SideNav from "../templates/sideNav/SideNav";
 
-const ProtectedContainer = ({ className, children, firstHeader }) => {
-
-  const currentRoute = useLocation()
-
+const ProtectedContainer = ({ className, children }) => {
+  const { toggleNav } = useSelector((state) => state.templates);
   return (
-    <div>
-      {/* {currentRoute.pathname !== "/mainMenu" && currentRoute.pathname !== "/singleRestaurant" && currentRoute.pathname !== "/profileScreen" && currentRoute.pathname !== "/checkOut" ? <Header /> : <MainHeader />} */}
-
-      <main className="container max-w-container">
-        <div className=" md:min-w-[700px] mb-5 ">{children}</div>
-      </main>
-      <Footer />
-    </div>
+    <main className={`relative w-full min-h-screen  ${className}`}>
+      <SideNav />
+      <div
+        className={`${
+          !toggleNav ? "ml-28" : " ml-28 lg:ml-[27rem]"
+        }  duration-300  min-h-screen`}
+      >
+        <Header />
+        <div className="m-10 ">
+          <div className=" md:min-w-[700px] mb-10 ">{children}</div>
+        </div>
+      </div>
+    </main>
   );
 };
 
